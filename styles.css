@@ -149,9 +149,9 @@ em {
 }
 
 .nav-inner {
-    max-width: var(--container);
+    max-width: 1380px;
     margin:    0 auto;
-    padding:   0 var(--gutter);
+    padding:   0 16px;
     height:    72px;
     display:   flex;
     align-items: center;
@@ -1511,9 +1511,11 @@ body {
     background: var(--bento-bg);
 }
 
-/* ── Wrapper ── */
+/* ── Wrapper — centred, capped width so bento never bleeds full screen ── */
 .bento-page {
-    padding: calc(72px + 12px) 12px 12px;
+    max-width: 1380px;
+    margin: 0 auto;
+    padding: calc(72px + 16px) 16px 16px;
     display: flex;
     flex-direction: column;
     gap: var(--bento-gap);
@@ -2198,14 +2200,13 @@ body.hero-entered .hero-actions {
    ================================================================ */
 .bento-footer {
     padding: 0;
-    background: var(--bento-card);
-    border-top: 1px solid var(--bento-border);
+    background: var(--bento-bg);
 }
 
 .bento-footer-inner {
-    max-width: 900px;
+    max-width: 1380px;
     margin: 0 auto;
-    padding: 56px 40px 44px;
+    padding: 56px 16px 44px;
     display: flex;
     flex-direction: column;
     gap: 28px;
