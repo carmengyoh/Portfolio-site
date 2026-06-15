@@ -173,18 +173,18 @@
        Structure: plain text → <br> → plain text → <em>word</em>
     ---------------------------------------------------------------- */
     function initHeroTypewriter() {
-        var el = document.querySelector('.hero .hero-heading');
+        var el = document.querySelector('.hero-heading');
         if (!el) return;
 
         /* Define the segments in order */
         var segments = [
-            { text: 'I turn complexity',              tag: 'span' },
+            { text: 'I turn complexity',   tag: 'span' },
             { text: 'BR' },
-            { text: 'into clear, validated',          tag: 'span' },
+            { text: 'into ',               tag: 'span' },
+            { text: 'clear',               tag: 'em'   },
+            { text: ', validated',         tag: 'span' },
             { text: 'BR' },
-            { text: 'product experiences people can ', tag: 'span' },
-            { text: 'trust',                           tag: 'em'   },
-            { text: '.',                              tag: 'span' },
+            { text: 'product experiences.', tag: 'span' },
         ];
 
         /* Build DOM skeleton upfront so <em> styles apply immediately */
