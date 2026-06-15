@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- =====================================================
+         PAGE TITLE — update here
+         ===================================================== -->
+    <title>Carmen Gyoh — Product Designer</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css?v=8">
+    <!-- Apply saved theme before first paint to avoid flash -->
+    <script>
+        (function(){
+            var t = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', t);
+        })();
+    </script>
+</head>
+<body>
+
+    <!-- =====================================================
+         NAVIGATION
+         Scroll-links to section IDs below.
+         Update name, CV link, and nav labels here.
+         ===================================================== -->
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="#home" class="nav-logo">CARMEN GYOH</a>
+            <div class="nav-links">
+                <a href="#work"       class="nav-link">Work</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#about"      class="nav-link">About</a>
+                <a href="#contact"    class="nav-link">Contact</a>
+                <!-- Replace href with actual CV URL -->
+                <a href="#" class="btn-cv" target="_blank" rel="noopener">View CV ↗</a>
+
+                <!-- Sun / Moon theme toggle -->
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">
+                    <!-- Sun: visible in dark mode → click to go light -->
+                    <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                         aria-hidden="true">
+                        <circle cx="12" cy="12" r="4.5"/>
+                        <line x1="12" y1="2"    x2="12" y2="5"/>
+                        <line x1="12" y1="19"   x2="12" y2="22"/>
+                        <line x1="4.22" y1="4.22"   x2="6.34" y2="6.34"/>
+                        <line x1="17.66" y1="17.66" x2="19.78" y2="19.78"/>
+                        <line x1="2"  y1="12"   x2="5"  y2="12"/>
+                        <line x1="19" y1="12"   x2="22" y2="12"/>
+                        <line x1="4.22"  y1="19.78" x2="6.34"  y2="17.66"/>
+                        <line x1="17.66" y1="6.34"  x2="19.78" y2="4.22"/>
+                    </svg>
+                    <!-- Moon: visible in light mode → click to go dark -->
+                    <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                         aria-hidden="true">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                    </svg>
+                </button>
+            </div>
+            <!-- Mobile menu toggle -->
+            <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main>
+
+        <!-- =====================================================
+             HERO SECTION
+             Update: role label, heading, subtext, CTA text.
+             Wrap words in <em> for the pink italic style.
+             The canvas animation is handled by js/hero-animation.js
+             ===================================================== -->
+        <section class="hero" id="home">
+
+            <!-- Animated gradient clouds -->
+            <div class="hero-glow" aria-hidden="true"></div>
+            <div class="hero-glow-b" aria-hidden="true"></div>
+            <!-- Sparkle lines canvas -->
+            <canvas id="hero-bg-canvas" aria-hidden="true"></canvas>
+
+            <div class="hero-container">
+                <div class="hero-split">
+
+                    <!-- Left: large editorial heading -->
+                    <div class="hero-left">
+                        <p class="label">PRODUCT DESIGNER</p>
+                        <h1 class="hero-heading">
+                            I turn complexity<br>into clear, validated<br>product experiences people can <em>trust</em>.
+                        </h1>
+                    </div>
+
+                    <!-- Centre: animated divider line -->
+                    <div class="hero-divider" aria-hidden="true"></div>
+
+                    <!-- Right: body copy + text-link CTA + scroll cue -->
+                    <div class="hero-right">
+                        <p class="hero-subtext">
+                            I use user testing and product thinking to design clear,
+                            validated solutions for complex products.
+                        </p>
+                        <a href="#work" class="hero-cta">
+                            Explore my work <span class="hero-cta-icon">↗</span>
+                        </a>
+                        <a href="#work" class="scroll-cue" aria-label="Scroll to explore">
+                            <span class="scroll-mouse"><span class="scroll-wheel"></span></span>
+                            <span class="scroll-cue-text">SCROLL TO EXPLORE</span>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- =====================================================
+             SELECTED WORK
+             Project cards are driven by js/content.js — edit
+             the PROJECTS array there to update titles, tags,
+             descriptions, images, and links.
+             ===================================================== -->
+        <section class="work" id="work">
+            <div class="container">
+                <div class="section-head reveal">
+                    <div class="section-head-text">
+                        <span class="label">SELECTED WORK</span>
+                        <h2 class="section-title">Turning complex problems<br>into intuitive solutions.</h2>
+                    </div>
+                    <!-- Update link once you have an all-projects page -->
+                    <a href="#" class="view-all">View all work →</a>
+                </div>
+
+                <!-- Cards injected by main.js from content.js -->
+                <div class="work-grid" id="work-grid"></div>
+            </div>
+        </section>
+
+
+        <!-- =====================================================
+             HOW I WORK
+             Constellation graphic + process steps + core strengths.
+             ===================================================== -->
+        <section class="how" id="how">
+            <div class="container">
+
+                <div class="how-head reveal">
+                    <span class="label">HOW I WORK</span>
+                    <h2 class="section-title">Ambiguity to clarity.</h2>
+                    <p class="how-lead">
+                        My design philosophy is simple: understand deeply, structure
+                        intentionally, prototype fearlessly, and validate relentlessly.
+                    </p>
+                </div>
+
+                <div class="how-body">
+
+                    <!-- Constellation graphic (CSS-themed via classes) -->
+                    <div class="how-graph reveal" aria-hidden="true">
+                        <svg viewBox="0 0 360 260" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
+                            <line class="g-edge" x1="70"  y1="60"  x2="190" y2="45"/>
+                            <line class="g-edge" x1="70"  y1="60"  x2="55"  y2="150"/>
+                            <line class="g-edge" x1="190" y1="45"  x2="255" y2="150"/>
+                            <line class="g-edge" x1="55"  y1="150" x2="175" y2="215"/>
+                            <line class="g-edge" x1="190" y1="45"  x2="300" y2="115"/>
+                            <line class="g-edge" x1="175" y1="215" x2="300" y2="115"/>
+                            <line class="g-edge" x1="255" y1="150" x2="300" y2="115"/>
+                            <line class="g-edge" x1="55"  y1="150" x2="300" y2="115"/>
+
+                            <circle class="g-focal-glow" cx="300" cy="115" r="16"/>
+                            <circle class="g-focal"      cx="300" cy="115" r="6"/>
+
+                            <circle class="g-node" cx="70"  cy="60"  r="3.2"/>
+                            <circle class="g-node" cx="190" cy="45"  r="3.2"/>
+                            <circle class="g-node" cx="55"  cy="150" r="3.2"/>
+                            <circle class="g-node" cx="175" cy="215" r="3.2"/>
+                            <circle class="g-node" cx="255" cy="150" r="3.2"/>
+
+                            <text class="g-label" x="78"  y="56">Research</text>
+                            <text class="g-label" x="198" y="41">User Validation</text>
+                            <text class="g-label" x="63"  y="166">Information Architecture</text>
+                            <text class="g-label" x="183" y="227">Product Strategy</text>
+                            <text class="g-label" x="263" y="146">Prototyping</text>
+                            <text class="g-label g-focal-label" x="300" y="139" text-anchor="middle">Ambiguity → Clarity</text>
+                        </svg>
+                    </div>
+
+                    <!-- Steps -->
+                    <ol class="how-steps reveal">
+                        <li class="how-step">
+                            <span class="how-step-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="none"
+                                     stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12z"/>
+                                    <circle cx="12" cy="12" r="2.5"/>
+                                </svg>
+                            </span>
+                            <div class="how-step-text">
+                                <h3>Understand the problem</h3>
+                                <p>I uncover user needs, stakeholder goals and context through research and discovery.</p>
+                            </div>
+                        </li>
+                        <li class="how-step">
+                            <span class="how-step-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="none"
+                                     stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 3l9 5-9 5-9-5 9-5z"/>
+                                    <path d="M3 13l9 5 9-5"/>
+                                </svg>
+                            </span>
+                            <div class="how-step-text">
+                                <h3>Structure the experience</h3>
+                                <p>I bring clarity to complexity through information architecture, journey mapping and strategy.</p>
+                            </div>
+                        </li>
+                        <li class="how-step">
+                            <span class="how-step-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="none"
+                                     stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 19L16 8"/>
+                                    <path d="M14 6l4 4"/>
+                                    <path d="M19 12.5l1 2 2 1-2 1-1 2-1-2-2-1 2-1 1-2z"/>
+                                </svg>
+                            </span>
+                            <div class="how-step-text">
+                                <h3>Prototype, test, refine</h3>
+                                <p>I turn ideas into tangible solutions, validate with users and iterate towards meaningful impact.</p>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+
+                <!-- Core strengths -->
+                <div class="core-strengths reveal">
+                    <span class="label">CORE STRENGTHS</span>
+                    <ul class="strengths-list" role="list">
+                        <li>Research</li>
+                        <li>User Validation</li>
+                        <li>Information Architecture</li>
+                        <li>Product Strategy</li>
+                        <li>Prototyping</li>
+                        <li>Ambiguity → Clarity</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- =====================================================
+             EXPERIENCE SNAPSHOT
+             ===================================================== -->
+        <section class="experience" id="experience">
+            <div class="container">
+
+                <div class="exp-head reveal">
+                    <span class="label">EXPERIENCE SNAPSHOT</span>
+                    <h2 class="section-title">Where I've made an impact.</h2>
+                </div>
+
+                <div class="exp-grid">
+
+                    <article class="exp-card reveal">
+                        <span class="exp-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none"
+                                 stroke="currentColor" stroke-width="1.5" stroke-linejoin="round">
+                                <rect x="3" y="7" width="18" height="13" rx="2"/>
+                                <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                                <path d="M3 12h18"/>
+                            </svg>
+                        </span>
+                        <h3 class="exp-title">Product Designer at Liberis</h3>
+                        <p class="exp-desc">Designing fintech experiences across Partner Hub, funding journeys and complex product flows.</p>
+                        <p class="exp-tags"><span>Fintech</span><span>B2B</span><span>Scale</span></p>
+                    </article>
+
+                    <article class="exp-card reveal">
+                        <span class="exp-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none"
+                                 stroke="currentColor" stroke-width="1.5" stroke-linejoin="round">
+                                <path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/>
+                            </svg>
+                        </span>
+                        <h3 class="exp-title">Founder of HerFreedom101</h3>
+                        <p class="exp-desc">Building a feminine wellbeing platform from 0–1, spanning brand, product strategy, UX, UI and validation.</p>
+                        <p class="exp-tags"><span>Founder</span><span>0–1 Product</span><span>Wellness</span></p>
+                    </article>
+
+                    <article class="exp-card reveal">
+                        <span class="exp-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none"
+                                 stroke="currentColor" stroke-width="1.5">
+                                <circle cx="12" cy="12" r="9"/>
+                                <circle cx="12" cy="12" r="5"/>
+                                <circle cx="12" cy="12" r="1.5"/>
+                            </svg>
+                        </span>
+                        <h3 class="exp-title">Focused on</h3>
+                        <p class="exp-desc">Clear, validated experiences for complex products. I partner closely with teams to drive real outcomes.</p>
+                        <p class="exp-tags"><span>Strategic</span><span>User-centric</span><span>Impact</span></p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- =====================================================
+             ABOUT SECTION
+             Update: name, bio, photo src, "more about me" link.
+             ===================================================== -->
+        <section class="about" id="about">
+            <div class="container">
+                <div class="about-card reveal">
+                    <div class="about-text">
+                        <span class="label">HI, I'M CARMEN</span>
+                        <h2 class="about-name">Designer. Problem solver.<br>Empathetic human.</h2>
+                        <p class="about-bio">
+                            I'm a product designer with a love for clarity, thoughtful
+                            details and creating experiences that truly help people.
+                        </p>
+                        <a href="#contact" class="btn-outline">
+                            More about me <span class="btn-arrow">→</span>
+                        </a>
+                    </div>
+
+                    <!-- Profile photo — replace src with your image path -->
+                    <div class="about-photo">
+                        <img src="images/carmen.jpg"
+                             alt="Carmen Gyoh, Product Designer"
+                             onerror="this.parentElement.classList.add('no-photo')">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER / CONTACT
+         Update: headline, email, LinkedIn URL, CV link.
+         ===================================================== -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-inner">
+
+            <!-- Left: headline -->
+            <div class="footer-headline reveal">
+                <span class="label">LET'S CREATE CLARITY TOGETHER</span>
+                <p>Let's build something <em>meaningful</em>.</p>
+            </div>
+
+            <!-- Right: contact links — update href values -->
+            <ul class="footer-links reveal" role="list">
+                <li>
+                    <a href="mailto:carmen.gyoh@gmail.com" class="footer-link">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                            <rect x="1" y="3" width="14" height="10" rx="1.5" stroke="currentColor" stroke-width="1.2"/>
+                            <path d="M1 5l7 5 7-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+                        </svg>
+                        carmen.gyoh@gmail.com
+                    </a>
+                </li>
+                <li>
+                    <a href="https://linkedin.com/in/carmengyoh" class="footer-link" target="_blank" rel="noopener">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                            <rect x="1" y="1" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.2"/>
+                            <path d="M5 7v4M5 5.5v.01M8 11V8.5C8 7.7 8.7 7 9.5 7S11 7.7 11 8.5V11" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+                        </svg>
+                        linkedin.com/in/carmengyoh
+                    </a>
+                </li>
+                <li>
+                    <!-- Replace href with your CV URL -->
+                    <a href="#" class="footer-link" target="_blank" rel="noopener">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                            <rect x="2" y="1" width="10" height="13" rx="1" stroke="currentColor" stroke-width="1.2"/>
+                            <path d="M5 5h5M5 8h5M5 11h3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+                            <path d="M12 10l3-3m0 0h-2.5M15 7V9.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        View CV ↗
+                    </a>
+                </li>
+            </ul>
+            </div><!-- /.footer-inner -->
+
+            <!-- Bottom bar -->
+            <div class="footer-bottom">
+                <span>© 2026 Carmen Gyoh. All rights reserved.</span>
+                <span>Designed &amp; built with care ♡</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Load order matters: content → animation → main -->
+    <!-- ?v=N is a cache-buster: bump the number whenever JS changes -->
+    <script src="js/content.js?v=8"></script>
+    <script src="js/hero-bg.js?v=1"></script>
+    <script src="js/hero-scroll.js?v=1"></script>
+    <script src="js/main.js?v=8"></script>
+
+</body>
+</html>
