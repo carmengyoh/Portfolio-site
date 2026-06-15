@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="styles.css?v=12">
+    <link rel="stylesheet" href="styles.css?v=13">
     <!-- Apply saved theme before first paint to avoid flash -->
     <script>
         (function(){
@@ -69,15 +69,16 @@
         <!-- ── ROW 1: HERO ────────────────────────────────── -->
         <section class="bento-row hero-row" id="home">
 
-            <!-- Full-card animated gradient background with glassmorphic text panel -->
+            <!-- Single full-width white card with floating animated gradient blobs -->
             <div class="bento-card hero-main-card">
 
-                <!-- Animated blobs fill the whole card -->
-                <div class="hero-glow" aria-hidden="true"></div>
+                <!-- Blobs float over the white card background -->
+                <div class="hero-glow"   aria-hidden="true"></div>
                 <div class="hero-glow-b" aria-hidden="true"></div>
+                <div class="hero-glow-c" aria-hidden="true"></div>
                 <canvas id="hero-bg-canvas" aria-hidden="true"></canvas>
 
-                <!-- Glassmorphic text panel -->
+                <!-- Text on the left, blobs decorate the right -->
                 <div class="hero-text-card">
                     <p class="label">PRODUCT DESIGNER</p>
                     <h1 class="hero-heading">
@@ -90,21 +91,6 @@
                     </div>
                 </div>
 
-            </div>
-
-            <!-- Photo card -->
-            <div class="bento-card hero-photo-card" id="about">
-                <div class="hero-photo-wrap">
-                    <img src="images/carmen.jpg"
-                         alt="Carmen Gyoh, Product Designer"
-                         class="hero-photo-img"
-                         onerror="this.parentElement.classList.add('no-photo')">
-                </div>
-                <div class="hero-photo-bio">
-                    <span class="hero-photo-star" aria-hidden="true">✦</span>
-                    <h2 class="hero-photo-name">Hi, I'm Carmen.</h2>
-                    <p class="hero-photo-tagline">Product designer who cares deeply about the user voice.</p>
-                </div>
             </div>
 
         </section>

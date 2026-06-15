@@ -2627,3 +2627,142 @@ body.hero-breaking .hero-actions {
         border-bottom: 1px solid rgba(255,255,255,0.85);
     }
 }
+
+/* ================================================================
+   HERO — white card with floating gradient blobs (override)
+   ================================================================ */
+
+/* Single full-width card */
+.hero-row {
+    grid-template-columns: 1fr !important;
+}
+
+/* White card base — blobs float on it */
+.hero-main-card {
+    background: #ffffff !important;
+    display: flex !important;
+    align-items: stretch;
+    min-height: 420px;
+    position: relative;
+    overflow: hidden;
+}
+
+[data-theme="dark"] .hero-main-card {
+    background: #111118 !important;
+}
+
+/* Blob A — large pink, centre-right */
+.hero-main-card .hero-glow {
+    position: absolute !important;
+    border-radius: 50% !important;
+    pointer-events: none;
+    top: -40% !important;
+    right: 0% !important;
+    left: auto !important;
+    width: 60% !important;
+    height: 180% !important;
+    background: radial-gradient(ellipse at 50% 50%,
+        rgba(244,114,182,0.42) 0%,
+        rgba(196,132,252,0.22) 45%,
+        transparent 75%
+    ) !important;
+    animation: heroGlowFloat 9s ease-in-out infinite !important;
+}
+
+[data-theme="dark"] .hero-main-card .hero-glow {
+    background: radial-gradient(ellipse at 50% 50%,
+        rgba(244,114,182,0.50) 0%,
+        rgba(196,132,252,0.28) 45%,
+        transparent 75%
+    ) !important;
+}
+
+/* Blob B — purple, lower right */
+.hero-main-card .hero-glow-b {
+    position: absolute !important;
+    border-radius: 50% !important;
+    pointer-events: none;
+    bottom: -30% !important;
+    right: 15% !important;
+    top: auto !important;
+    left: auto !important;
+    width: 50% !important;
+    height: 140% !important;
+    background: radial-gradient(ellipse at 50% 50%,
+        rgba(167,139,250,0.30) 0%,
+        rgba(99,102,241,0.14) 50%,
+        transparent 80%
+    ) !important;
+    animation: heroGlowFloatB 11s ease-in-out infinite -4.5s !important;
+}
+
+[data-theme="dark"] .hero-main-card .hero-glow-b {
+    background: radial-gradient(ellipse at 50% 50%,
+        rgba(167,139,250,0.38) 0%,
+        rgba(99,102,241,0.18) 50%,
+        transparent 80%
+    ) !important;
+}
+
+/* Blob C — soft lavender, top right corner */
+.hero-glow-c {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    top: -20%;
+    right: 30%;
+    width: 38%;
+    height: 100%;
+    background: radial-gradient(ellipse at 50% 50%,
+        rgba(216,180,254,0.28) 0%,
+        rgba(196,132,252,0.10) 55%,
+        transparent 80%
+    );
+    animation: heroGlowFloat 13s ease-in-out infinite -2s;
+}
+
+[data-theme="dark"] .hero-glow-c {
+    background: radial-gradient(ellipse at 50% 50%,
+        rgba(216,180,254,0.32) 0%,
+        rgba(196,132,252,0.14) 55%,
+        transparent 80%
+    );
+}
+
+/* Text panel: transparent, normal text rendering */
+.hero-main-card .hero-text-card {
+    position: relative !important;
+    z-index: 2 !important;
+    width: 48% !important;
+    min-height: unset !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border-right: none !important;
+    box-shadow: none !important;
+    padding: 52px 52px 48px !important;
+    flex-shrink: 0;
+}
+
+/* Sparkle canvas: full card */
+.hero-main-card #hero-bg-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Dark mode text colours on dark card */
+[data-theme="dark"] .hero-main-card .label   { color: rgba(255,255,255,0.50); }
+[data-theme="dark"] .hero-main-card .hero-heading { color: #ffffff; }
+[data-theme="dark"] .hero-main-card .hero-sub { color: rgba(255,255,255,0.55); }
+
+/* Mobile */
+@media (max-width: 780px) {
+    .hero-main-card .hero-text-card {
+        width: 100% !important;
+        padding: 36px 28px !important;
+    }
+}
