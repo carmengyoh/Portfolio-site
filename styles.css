@@ -1539,11 +1539,80 @@ body {
 }
 
 /* ================================================================
-   HERO ROW  (3 columns: text | graphic | photo)
+   HERO ROW  (2 columns: combined main card | photo card)
    ================================================================ */
 .hero-row {
-    grid-template-columns: 1.35fr 1.15fr 0.85fr;
+    grid-template-columns: 1fr 0.38fr;
     min-height: 420px;
+}
+
+/* ── Combined hero card: text left + graphic right ── */
+.hero-main-card {
+    display: flex;
+    overflow: hidden;
+}
+
+/* hero-text-card is now a flex child inside hero-main-card */
+.hero-main-card .hero-text-card {
+    flex: 1 1 55%;
+    min-width: 0;
+}
+
+/* ── Graphic side (right half of the combined card) ── */
+.hero-graphic-side {
+    flex: 1 1 45%;
+    position: relative;
+    overflow: hidden;
+    min-height: 280px;
+}
+
+.hero-graphic-side .hero-glow,
+.hero-graphic-side .hero-glow-b {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.hero-graphic-side .hero-glow {
+    inset: -20%;
+    width: 140%;
+    height: 140%;
+    background: radial-gradient(ellipse at 55% 55%,
+        rgba(244,114,182,0.42) 0%,
+        rgba(196,132,252,0.22) 45%,
+        rgba(139,92,246,0.10) 70%,
+        transparent 100%
+    );
+    animation: heroGlowFloat 9s ease-in-out infinite;
+}
+
+[data-theme="light"] .hero-graphic-side .hero-glow {
+    background: radial-gradient(ellipse at 55% 55%,
+        rgba(244,114,182,0.34) 0%,
+        rgba(196,132,252,0.18) 45%,
+        rgba(139,92,246,0.08) 70%,
+        transparent 100%
+    );
+}
+
+.hero-graphic-side .hero-glow-b {
+    inset: -10%;
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(ellipse at 40% 40%,
+        rgba(167,139,250,0.28) 0%,
+        rgba(99,102,241,0.12) 50%,
+        transparent 100%
+    );
+    animation: heroGlowFloatB 11s ease-in-out infinite -4.5s;
+}
+
+[data-theme="light"] .hero-graphic-side .hero-glow-b {
+    background: radial-gradient(ellipse at 40% 40%,
+        rgba(196,132,252,0.18) 0%,
+        rgba(99,102,241,0.08) 50%,
+        transparent 100%
+    );
 }
 
 /* ── Hero text card ── */
@@ -1850,12 +1919,121 @@ body.hero-entered .hero-actions {
     gap: 14px;
 }
 
-.bento-work-grid .project-card { border-radius: 14px; border-color: var(--bento-border); }
-.bento-work-grid .card-image   { height: 140px; }
-.bento-work-grid .card-body    { padding: 16px 18px 12px; }
-.bento-work-grid .card-title   { font-size: 15px; line-height: 1.35; }
-.bento-work-grid .card-tags    { font-size: 12px; margin-bottom: 6px; }
-.bento-work-grid .card-desc    { font-size: 13px; -webkit-line-clamp: 2; display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; }
+/* Cards are pure image — body/footer hidden, overlay reveals on hover */
+.bento-work-grid .project-card {
+    border-radius: 14px;
+    border-color: var(--bento-border);
+    position: relative;
+    overflow: hidden;
+    height: 300px;
+    cursor: pointer;
+}
+
+.bento-work-grid .card-image {
+    height: 100%;
+    border-radius: 0;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.bento-work-grid .project-card:hover .card-image {
+    transform: scale(1.05);
+}
+
+/* Hide old text layout inside bento work cards */
+.bento-work-grid .card-body,
+.bento-work-grid .card-footer {
+    display: none;
+}
+
+/* Hover overlay — fades up from bottom */
+.card-hover-info {
+    position: absolute;
+    inset: 0;
+    padding: 20px 22px 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 4px;
+    background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.88) 0%,
+        rgba(0,0,0,0.50) 45%,
+        rgba(0,0,0,0.0)  80%
+    );
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.32s ease, transform 0.32s ease;
+    pointer-events: none;
+}
+
+.bento-work-grid .project-card:hover .card-hover-info {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.card-hover-info .card-client {
+    font-family: var(--font-sans);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    margin: 0;
+}
+
+.card-hover-info .card-title {
+    font-family: var(--font-serif);
+    font-size: 18px;
+    font-weight: 500;
+    color: #fff;
+    margin: 2px 0 0;
+    line-height: 1.25;
+}
+
+.card-hover-info .card-tags {
+    font-family: var(--font-sans);
+    font-size: 11.5px;
+    color: rgba(255,255,255,0.55);
+    margin: 4px 0 0;
+}
+
+.card-hover-info .card-tags .card-tag { color: inherit; }
+.card-hover-info .card-tags .tag-sep  { color: rgba(255,255,255,0.3); margin: 0 4px; }
+
+.card-hover-info .card-desc {
+    font-family: var(--font-sans);
+    font-size: 12.5px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.70);
+    margin: 5px 0 0;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.card-hover-info .card-arrow {
+    margin-top: 10px;
+    font-size: 16px;
+    color: var(--accent);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(244,114,182,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* card-num stays always visible */
+.bento-work-grid .card-num {
+    z-index: 2;
+    position: absolute;
+    top: 14px;
+    left: 14px;
+}
 
 /* ── How I Work card ── */
 .how-bento {
@@ -2283,12 +2461,17 @@ body.hero-breaking .hero-actions {
    RESPONSIVE — bento
    ================================================================ */
 @media (max-width: 1100px) {
-    .hero-row         { grid-template-columns: 1fr 1fr; min-height: auto; }
+    .hero-row         { grid-template-columns: 1fr; min-height: auto; }
+    .hero-main-card   { min-height: 380px; }
     .hero-photo-card  { display: none; }
     .work-how-row     { grid-template-columns: 1fr; }
     .how-bento        { min-height: 260px; }
     .bottom-bento-row { grid-template-columns: 1fr 1fr 1fr; }
     .exp-bento        { grid-column: span 3; }
+}
+
+@media (max-width: 860px) {
+    .hero-graphic-side { flex: 0 0 42%; }
 }
 
 @media (max-width: 780px) {

@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="styles.css?v=10">
+    <link rel="stylesheet" href="styles.css?v=11">
     <!-- Apply saved theme before first paint to avoid flash -->
     <script>
         (function(){
@@ -69,27 +69,32 @@
         <!-- ── ROW 1: HERO ────────────────────────────────── -->
         <section class="bento-row hero-row" id="home">
 
-            <!-- Left card: heading + CTAs -->
-            <div class="bento-card hero-text-card">
-                <p class="label">PRODUCT DESIGNER</p>
-                <h1 class="hero-heading">
-                    I turn complexity<br>into <em>clear</em>, validated<br>product experiences.
-                </h1>
-                <p class="hero-sub">Designing with empathy, structure, and user insight.</p>
-                <div class="hero-actions">
-                    <a href="#work" class="btn-primary">View my work <span>↗</span></a>
-                    <a href="#contact" class="btn-outline-hero">Let's connect <span class="btn-dot" aria-hidden="true">●</span></a>
+            <!-- Combined card: text left | animated graphic right -->
+            <div class="bento-card hero-main-card">
+
+                <!-- Left: heading + CTAs -->
+                <div class="hero-text-card">
+                    <p class="label">PRODUCT DESIGNER</p>
+                    <h1 class="hero-heading">
+                        I turn complexity<br>into <em>clear</em>, validated<br>product experiences.
+                    </h1>
+                    <p class="hero-sub">Designing with empathy, structure, and user insight.</p>
+                    <div class="hero-actions">
+                        <a href="#work" class="btn-primary">View my work <span>↗</span></a>
+                        <a href="#contact" class="btn-outline-hero">Let's connect <span class="btn-dot" aria-hidden="true">●</span></a>
+                    </div>
                 </div>
+
+                <!-- Right: animated gradient + sparkle canvas -->
+                <div class="hero-graphic-side" aria-hidden="true">
+                    <div class="hero-glow"></div>
+                    <div class="hero-glow-b"></div>
+                    <canvas id="hero-bg-canvas"></canvas>
+                </div>
+
             </div>
 
-            <!-- Centre card: animated graphic -->
-            <div class="bento-card hero-graphic-card" aria-hidden="true">
-                <div class="hero-glow"></div>
-                <div class="hero-glow-b"></div>
-                <canvas id="hero-bg-canvas"></canvas>
-            </div>
-
-            <!-- Right card: photo + mini bio -->
+            <!-- Photo card -->
             <div class="bento-card hero-photo-card" id="about">
                 <div class="hero-photo-wrap">
                     <img src="images/carmen.jpg"
@@ -311,8 +316,8 @@
 
     <script src="js/content.js?v=9"></script>
     <script src="js/hero-bg.js?v=2"></script>
-    <script src="js/hero-scroll.js?v=2"></script>
-    <script src="js/main.js?v=9"></script>
+    <script src="js/hero-scroll.js?v=3"></script>
+    <script src="js/main.js?v=10"></script>
 
 </body>
 </html>
