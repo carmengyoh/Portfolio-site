@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="styles.css?v=11">
+    <link rel="stylesheet" href="styles.css?v=12">
     <!-- Apply saved theme before first paint to avoid flash -->
     <script>
         (function(){
@@ -69,10 +69,15 @@
         <!-- ── ROW 1: HERO ────────────────────────────────── -->
         <section class="bento-row hero-row" id="home">
 
-            <!-- Combined card: text left | animated graphic right -->
+            <!-- Full-card animated gradient background with glassmorphic text panel -->
             <div class="bento-card hero-main-card">
 
-                <!-- Left: heading + CTAs -->
+                <!-- Animated blobs fill the whole card -->
+                <div class="hero-glow" aria-hidden="true"></div>
+                <div class="hero-glow-b" aria-hidden="true"></div>
+                <canvas id="hero-bg-canvas" aria-hidden="true"></canvas>
+
+                <!-- Glassmorphic text panel -->
                 <div class="hero-text-card">
                     <p class="label">PRODUCT DESIGNER</p>
                     <h1 class="hero-heading">
@@ -83,13 +88,6 @@
                         <a href="#work" class="btn-primary">View my work <span>↗</span></a>
                         <a href="#contact" class="btn-outline-hero">Let's connect <span class="btn-dot" aria-hidden="true">●</span></a>
                     </div>
-                </div>
-
-                <!-- Right: animated gradient + sparkle canvas -->
-                <div class="hero-graphic-side" aria-hidden="true">
-                    <div class="hero-glow"></div>
-                    <div class="hero-glow-b"></div>
-                    <canvas id="hero-bg-canvas"></canvas>
                 </div>
 
             </div>

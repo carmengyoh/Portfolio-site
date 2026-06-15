@@ -2491,3 +2491,139 @@ body.hero-breaking .hero-actions {
     .exp-bento        { grid-column: span 1; }
     .hero-text-card   { padding: 28px 22px; }
 }
+
+/* ================================================================
+   HERO GLASSMORPHIC CARD — full-card gradient background
+   ================================================================ */
+
+/* Card base: gradient fills the whole thing */
+.hero-main-card {
+    position: relative;
+    overflow: hidden;
+    display: block;     /* no flex split — text panel floats on top */
+    min-height: 420px;
+}
+
+[data-theme="dark"] .hero-main-card,
+:root .hero-main-card {
+    background: linear-gradient(145deg, #100720 0%, #1d0b32 40%, #0a0d20 100%);
+}
+
+[data-theme="light"] .hero-main-card {
+    background: linear-gradient(145deg, #fce9f5 0%, #ede8fd 50%, #e6ecff 100%);
+}
+
+/* Glow blobs now fill the entire card */
+.hero-main-card .hero-glow {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    top: -30%;
+    left: 10%;
+    width: 85%;
+    height: 140%;
+    background: radial-gradient(ellipse at 50% 48%,
+        rgba(244,114,182,0.55) 0%,
+        rgba(196,132,252,0.30) 40%,
+        rgba(139,92,246,0.12) 65%,
+        transparent 100%
+    );
+    animation: heroGlowFloat 9s ease-in-out infinite;
+}
+
+[data-theme="light"] .hero-main-card .hero-glow {
+    background: radial-gradient(ellipse at 50% 48%,
+        rgba(244,114,182,0.50) 0%,
+        rgba(196,132,252,0.28) 40%,
+        rgba(139,92,246,0.10) 65%,
+        transparent 100%
+    );
+}
+
+.hero-main-card .hero-glow-b {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    top: 10%;
+    right: -10%;
+    width: 75%;
+    height: 110%;
+    background: radial-gradient(ellipse at 45% 42%,
+        rgba(167,139,250,0.40) 0%,
+        rgba(99,102,241,0.18) 50%,
+        transparent 100%
+    );
+    animation: heroGlowFloatB 11s ease-in-out infinite -4.5s;
+}
+
+[data-theme="light"] .hero-main-card .hero-glow-b {
+    background: radial-gradient(ellipse at 45% 42%,
+        rgba(216,180,254,0.38) 0%,
+        rgba(99,102,241,0.12) 50%,
+        transparent 100%
+    );
+}
+
+/* Canvas covers full card for sparkles */
+.hero-main-card #hero-bg-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: 0;
+}
+
+/* Glassmorphic text panel — floats over the gradient */
+.hero-main-card .hero-text-card {
+    position: relative;
+    z-index: 2;
+    width: 52%;
+    min-height: 420px;
+    padding: 52px 52px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 22px;
+    /* Frosted glass */
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(28px) saturate(130%);
+    -webkit-backdrop-filter: blur(28px) saturate(130%);
+    border-right: 1px solid rgba(255, 255, 255, 0.12);
+    box-sizing: border-box;
+}
+
+[data-theme="light"] .hero-main-card .hero-text-card {
+    background: rgba(255, 255, 255, 0.68);
+    backdrop-filter: blur(28px) saturate(160%);
+    -webkit-backdrop-filter: blur(28px) saturate(160%);
+    border-right: 1px solid rgba(255, 255, 255, 0.85);
+}
+
+/* Text colour override for dark mode (on colourful bg) */
+[data-theme="dark"] .hero-main-card .hero-text-card .label {
+    color: rgba(255,255,255,0.55);
+}
+
+[data-theme="dark"] .hero-main-card .hero-heading {
+    color: #fff;
+}
+
+[data-theme="dark"] .hero-main-card .hero-sub {
+    color: rgba(255,255,255,0.60);
+}
+
+/* Responsive: full-width text panel on small screens */
+@media (max-width: 780px) {
+    .hero-main-card .hero-text-card {
+        width: 100%;
+        min-height: auto;
+        background: rgba(255,255,255,0.10);
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
+    [data-theme="light"] .hero-main-card .hero-text-card {
+        background: rgba(255,255,255,0.72);
+        border-bottom: 1px solid rgba(255,255,255,0.85);
+    }
+}
