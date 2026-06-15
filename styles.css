@@ -2766,3 +2766,8 @@ body.hero-breaking .hero-actions {
         padding: 36px 28px !important;
     }
 }
+
+/* Restore 2-column hero row (main card + photo card) */
+.hero-row {
+    grid-template-columns: 1fr 0.38fr !important;
+}
