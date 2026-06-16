@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partner Hub Redesign — Carmen Gyoh</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="case-study.css">
+
+    <script>
+        (function(){
+            var t = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', t);
+        })();
+    </script>
+</head>
+<body>
+
+<!-- =====================================================
+     NAVIGATION
+     ===================================================== -->
+<nav class="nav" id="nav">
+    <div class="nav-inner">
+        <a href="index.html" class="nav-logo">CARMEN GYOH <span class="nav-star" aria-hidden="true">✦</span></a>
+        <div class="nav-links">
+            <a href="index.html#work"       class="nav-link">Work</a>
+            <a href="index.html#how"        class="nav-link">Process</a>
+            <a href="index.html#experience" class="nav-link">Experience</a>
+            <a href="index.html#contact"    class="nav-link">Contact</a>
+            <a href="#" class="btn-cv" target="_blank" rel="noopener">View CV ↗</a>
+
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">
+                <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="4.5"/>
+                    <line x1="12" y1="2"    x2="12" y2="5"/>
+                    <line x1="12" y1="19"   x2="12" y2="22"/>
+                    <line x1="4.22" y1="4.22"   x2="6.34" y2="6.34"/>
+                    <line x1="17.66" y1="17.66" x2="19.78" y2="19.78"/>
+                    <line x1="2"  y1="12"   x2="5"  y2="12"/>
+                    <line x1="19" y1="12"   x2="22" y2="12"/>
+                    <line x1="4.22"  y1="19.78" x2="6.34"  y2="17.66"/>
+                    <line x1="17.66" y1="6.34"  x2="19.78" y2="4.22"/>
+                </svg>
+                <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+            </button>
+        </div>
+        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+            <span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- =====================================================
+     HERO
+     ===================================================== -->
+<header class="cs-hero">
+    <div class="cs-hero-glow" aria-hidden="true"></div>
+    <div class="cs-hero-glow-b" aria-hidden="true"></div>
+
+    <div class="cs-hero-inner">
+        <a href="index.html#work" class="cs-back">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                <path d="M19 12H5M12 5l-7 7 7 7"/>
+            </svg>
+            Back to work
+        </a>
+
+        <div class="cs-hero-eyebrow">
+            <span class="label">LIBERIS</span>
+            <span class="cs-chip">Fintech</span>
+            <span class="cs-chip">B2B</span>
+            <span class="cs-chip">UX Strategy</span>
+        </div>
+
+        <h1 class="cs-title">Partner Hub <em>Redesign</em></h1>
+
+        <p class="cs-hero-sub">Redesigning the core partner experience to improve clarity, reduce friction and drive measurable growth across the B2B funnel.</p>
+
+        <div class="cs-meta-row">
+            <div class="cs-meta-item">
+                <span class="cs-meta-label">Role</span>
+                <span class="cs-meta-val">Lead Product Designer</span>
+            </div>
+            <div class="cs-meta-item">
+                <span class="cs-meta-label">Duration</span>
+                <span class="cs-meta-val">3 months</span>
+            </div>
+            <div class="cs-meta-item">
+                <span class="cs-meta-label">Platform</span>
+                <span class="cs-meta-val">Web App</span>
+            </div>
+            <div class="cs-meta-item">
+                <span class="cs-meta-label">Methods</span>
+                <span class="cs-meta-val">Research · Prototyping · Testing</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="cs-cover">
+        <!-- Replace src with your actual project cover image -->
+        <div class="cs-cover-placeholder" aria-label="Project cover image">
+            <div class="cs-cover-glow" aria-hidden="true"></div>
+            <span class="cs-cover-label">Cover Image</span>
+        </div>
+    </div>
+</header>
+
+<!-- =====================================================
+     STICKY PROGRESS NAV
+     ===================================================== -->
+<aside class="cs-progress" aria-label="Page sections">
+    <nav class="cs-progress-nav">
+        <a href="#brief"       class="cs-prog-dot" data-label="Brief"></a>
+        <a href="#research"    class="cs-prog-dot" data-label="Research"></a>
+        <a href="#stories"     class="cs-prog-dot" data-label="Stories"></a>
+        <a href="#wireframes"  class="cs-prog-dot" data-label="Wireframes"></a>
+        <a href="#prototype"   class="cs-prog-dot" data-label="Prototype"></a>
+        <a href="#testing"     class="cs-prog-dot" data-label="Testing"></a>
+        <a href="#next-steps"  class="cs-prog-dot" data-label="Next Steps"></a>
+    </nav>
+</aside>
+
+<!-- =====================================================
+     MAIN CONTENT
+     ===================================================== -->
+<main class="cs-main">
+
+    <!-- ─── 01 PROJECT REQUIREMENTS ─────────────────── -->
+    <section class="cs-section" id="brief">
+        <div class="cs-section-head">
+            <span class="cs-section-num">01</span>
+            <h2 class="cs-section-title">Project <em>Requirements</em></h2>
+        </div>
+
+        <div class="cs-section-body">
+            <p class="cs-lead">Partners navigating the Liberis Hub struggled with a fragmented interface that buried key actions, surfaced irrelevant information, and offered no clear pathway through the funding journey. The goal was to untangle this complexity and create a coherent, confidence-building experience.</p>
+
+            <div class="cs-two-col">
+                <div class="cs-card cs-card--accent">
+                    <div class="cs-card-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+                    </div>
+                    <h3>User Challenges</h3>
+                    <ul class="cs-list">
+                        <li>Partners couldn't locate key documents and status updates</li>
+                        <li>Overcrowded dashboard created cognitive overload</li>
+                        <li>No clear indication of where they were in the funding journey</li>
+                        <li>High support ticket volume due to unclear UI affordances</li>
+                    </ul>
+                </div>
+
+                <div class="cs-card">
+                    <div class="cs-card-icon cs-card-icon--pink" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    </div>
+                    <h3>Design Goals</h3>
+                    <ul class="cs-list">
+                        <li>Surface the right information at the right moment</li>
+                        <li>Create a clear visual hierarchy and wayfinding system</li>
+                        <li>Reduce time-to-complete key tasks by 30%</li>
+                        <li>Increase partner confidence and reduce support load</li>
+                    </ul>
+                </div>
+            </div>
+
+            <blockquote class="cs-pullquote">
+                "Partners shouldn't need a manual to use a product built for them."
+            </blockquote>
+        </div>
+    </section>
+
+    <!-- ─── 02 RESEARCH ──────────────────────────────── -->
+    <section class="cs-section" id="research">
+        <div class="cs-section-head">
+            <span class="cs-section-num">02</span>
+            <h2 class="cs-section-title">Research: Users <em>&amp;</em> Competition</h2>
+        </div>
+
+        <div class="cs-section-body">
+            <div class="cs-method-row">
+                <div class="cs-method-pill">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
+                    User Interviews (8)
+                </div>
+                <div class="cs-method-pill">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>
+                    Survey (34 responses)
+                </div>
+                <div class="cs-method-pill">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+                    Competitive Analysis (5 products)
+                </div>
+            </div>
+
+            <h3 class="cs-sub-heading">User Personas</h3>
+            <div class="cs-two-col">
+                <div class="cs-persona">
+                    <div class="cs-persona-avatar" aria-hidden="true">SA</div>
+                    <div class="cs-persona-body">
+                        <p class="cs-persona-name">Sarah A.</p>
+                        <p class="cs-persona-role">Operations Manager, SME</p>
+                        <p class="cs-persona-bio">Sarah manages 3 business accounts and checks the Hub weekly. She's detail-oriented but frustrated by how long it takes to find what she needs.</p>
+                        <div class="cs-persona-tags">
+                            <span>Goal-driven</span>
+                            <span>Time-poor</span>
+                            <span>Moderate tech literacy</span>
+                        </div>
+                        <div class="cs-persona-need">
+                            <span class="label">KEY NEED</span>
+                            <p>"I just want to see what's happening across all my accounts without digging."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cs-persona">
+                    <div class="cs-persona-avatar cs-persona-avatar--b" aria-hidden="true">MK</div>
+                    <div class="cs-persona-body">
+                        <p class="cs-persona-name">Marcus K.</p>
+                        <p class="cs-persona-role">Finance Director, Mid-Market</p>
+                        <p class="cs-persona-bio">Marcus accesses the Hub on desktop only, primarily to review reports and approve documents. He's highly analytical and expects precision.</p>
+                        <div class="cs-persona-tags">
+                            <span>Data-focused</span>
+                            <span>Low tolerance for errors</span>
+                            <span>High tech literacy</span>
+                        </div>
+                        <div class="cs-persona-need">
+                            <span class="label">KEY NEED</span>
+                            <p>"I need clean data, fast. Not three clicks to reach a download button."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="cs-sub-heading">Competitive Analysis</h3>
+            <div class="cs-comp-table">
+                <div class="cs-comp-header">
+                    <span>Feature</span>
+                    <span>Competitor A</span>
+                    <span>Competitor B</span>
+                    <span>Current Hub</span>
+                    <span>Redesigned Hub</span>
+                </div>
+                <div class="cs-comp-row">
+                    <span>Clear progress indicator</span>
+                    <span class="cs-check">✓</span>
+                    <span class="cs-check">✓</span>
+                    <span class="cs-cross">✗</span>
+                    <span class="cs-check cs-check--accent">✓</span>
+                </div>
+                <div class="cs-comp-row">
+                    <span>Consolidated dashboard view</span>
+                    <span class="cs-cross">✗</span>
+                    <span class="cs-check">✓</span>
+                    <span class="cs-cross">✗</span>
+                    <span class="cs-check cs-check--accent">✓</span>
+                </div>
+                <div class="cs-comp-row">
+                    <span>In-line document actions</span>
+                    <span class="cs-check">✓</span>
+                    <span class="cs-cross">✗</span>
+                    <span class="cs-cross">✗</span>
+                    <span class="cs-check cs-check--accent">✓</span>
+                </div>
+                <div class="cs-comp-row">
+                    <span>Role-based views</span>
+                    <span class="cs-cross">✗</span>
+                    <span class="cs-cross">✗</span>
+                    <span class="cs-cross">✗</span>
+                    <span class="cs-check cs-check--accent">✓</span>
+                </div>
+            </div>
+
+            <div class="cs-insight-callout">
+                <span class="label">KEY INSIGHT</span>
+                <p>All major competitors offered at least one form of progress tracking. The current Hub had none — leaving partners to infer status from document states alone.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── 03 USER STORIES & SOLUTION SKETCHES ─────── -->
+    <section class="cs-section" id="stories">
+        <div class="cs-section-head">
+            <span class="cs-section-num">03</span>
+            <h2 class="cs-section-title">User Stories &amp; Solution <em>Sketches</em></h2>
+        </div>
+
+        <div class="cs-section-body">
+            <p class="cs-lead">Translating research into design direction began with defining user stories that captured real behaviour and goals — not assumed use cases.</p>
+
+            <h3 class="cs-sub-heading">Core User Stories</h3>
+            <div class="cs-stories-list">
+                <div class="cs-story">
+                    <span class="cs-story-role">As a partner</span>
+                    <span class="cs-story-text">I want to see all my accounts and their statuses in one place so I don't have to switch between screens.</span>
+                    <span class="cs-story-priority cs-story-priority--high">High</span>
+                </div>
+                <div class="cs-story">
+                    <span class="cs-story-role">As a finance director</span>
+                    <span class="cs-story-text">I want to download documents directly from the hub without navigating to a separate portal.</span>
+                    <span class="cs-story-priority cs-story-priority--high">High</span>
+                </div>
+                <div class="cs-story">
+                    <span class="cs-story-role">As a new partner</span>
+                    <span class="cs-story-text">I want to understand where I am in the process so I know what's expected of me next.</span>
+                    <span class="cs-story-priority cs-story-priority--med">Med</span>
+                </div>
+                <div class="cs-story">
+                    <span class="cs-story-role">As an operations manager</span>
+                    <span class="cs-story-text">I want to receive contextual notifications so I'm only alerted when my attention is genuinely needed.</span>
+                    <span class="cs-story-priority cs-story-priority--med">Med</span>
+                </div>
+            </div>
+
+            <h3 class="cs-sub-heading">How Might We</h3>
+            <div class="cs-hmw-grid">
+                <div class="cs-hmw">HMW surface the most relevant information without overwhelming the dashboard?</div>
+                <div class="cs-hmw">HMW make document management feel effortless for time-poor users?</div>
+                <div class="cs-hmw">HMW create a progress system that works for both new and experienced partners?</div>
+            </div>
+
+            <h3 class="cs-sub-heading">Solution Sketches</h3>
+            <div class="cs-figure-row">
+                <figure class="cs-figure">
+                    <div class="cs-figure-img">
+                        <!-- Replace with: <img src="images/sketch-dashboard.jpg" alt="Dashboard sketch"> -->
+                        <span>Dashboard Concept Sketch</span>
+                    </div>
+                    <figcaption>Fig 3.1 — Consolidated dashboard layout exploration</figcaption>
+                </figure>
+                <figure class="cs-figure">
+                    <div class="cs-figure-img">
+                        <span>Journey Progress Sketch</span>
+                    </div>
+                    <figcaption>Fig 3.2 — Funding journey progress tracker concept</figcaption>
+                </figure>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── 04 WIREFRAMES & IA ───────────────────────── -->
+    <section class="cs-section" id="wireframes">
+        <div class="cs-section-head">
+            <span class="cs-section-num">04</span>
+            <h2 class="cs-section-title">Wireframes <em>&amp;</em> Information Architecture</h2>
+        </div>
+
+        <div class="cs-section-body">
+            <p class="cs-lead">Before moving to pixels, the information architecture was mapped to surface structural issues and validate the navigation model with stakeholders.</p>
+
+            <h3 class="cs-sub-heading">Information Architecture</h3>
+            <figure class="cs-figure cs-figure--full">
+                <div class="cs-figure-img cs-figure-img--tall">
+                    <!-- Replace with: <img src="images/ia-map.jpg" alt="Information architecture map"> -->
+                    <span>Information Architecture Diagram</span>
+                </div>
+                <figcaption>Fig 4.1 — Restructured IA showing the 3-level navigation hierarchy</figcaption>
+            </figure>
+
+            <h3 class="cs-sub-heading">Early Wireframes</h3>
+            <div class="cs-three-col">
+                <figure class="cs-figure">
+                    <div class="cs-figure-img">
+                        <span>Home / Dashboard</span>
+                    </div>
+                    <figcaption>Fig 4.2 — Dashboard v1</figcaption>
+                </figure>
+                <figure class="cs-figure">
+                    <div class="cs-figure-img">
+                        <span>Account Detail</span>
+                    </div>
+                    <figcaption>Fig 4.3 — Account detail view</figcaption>
+                </figure>
+                <figure class="cs-figure">
+                    <div class="cs-figure-img">
+                        <span>Documents</span>
+                    </div>
+                    <figcaption>Fig 4.4 — Document centre</figcaption>
+                </figure>
+            </div>
+
+            <div class="cs-insight-callout">
+                <span class="label">DESIGN DECISION</span>
+                <p>After two rounds of IA review with partners and internal stakeholders, we moved from a 5-tab navigation to a 3-section model — reducing cognitive load while preserving all existing functionality.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── 05 PROTOTYPE ─────────────────────────────── -->
+    <section class="cs-section" id="prototype">
+        <div class="cs-section-head">
+            <span class="cs-section-num">05</span>
+            <h2 class="cs-section-title">Prototype of <em>Solution</em></h2>
+        </div>
+
+        <div class="cs-section-body">
+            <p class="cs-lead">The high-fidelity prototype translated the wireframe structure into a fully interactive experience, tested across desktop and tablet breakpoints.</p>
+
+            <figure class="cs-figure cs-figure--full">
+                <div class="cs-figure-img cs-figure-img--hero">
+                    <!-- Replace with: <img src="images/prototype-overview.jpg" alt="High-fidelity prototype"> -->
+                    <span>High-Fidelity Prototype</span>
+                    <a href="#" class="cs-proto-link" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                        View prototype in Figma
+                    </a>
+                </div>
+                <figcaption>Fig 5.1 — Final high-fidelity screens: dashboard, account detail, document centre</figcaption>
+            </figure>
+
+            <div class="cs-three-col">
+                <div class="cs-card cs-card--sm">
+                    <span class="cs-card-num">5.1</span>
+                    <h4>Unified Dashboard</h4>
+                    <p>All accounts surfaced with live status indicators and priority actions — no drilling required.</p>
+                </div>
+                <div class="cs-card cs-card--sm">
+                    <span class="cs-card-num">5.2</span>
+                    <h4>Journey Progress Bar</h4>
+                    <p>A persistent 5-step progress tracker gives partners clarity on where they are and what comes next.</p>
+                </div>
+                <div class="cs-card cs-card--sm">
+                    <span class="cs-card-num">5.3</span>
+                    <h4>Inline Document Actions</h4>
+                    <p>Download, sign, and share documents without leaving the current view. Reduced task steps from 5 to 2.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── 06 USABILITY TESTING ─────────────────────── -->
+    <section class="cs-section" id="testing">
+        <div class="cs-section-head">
+            <span class="cs-section-num">06</span>
+            <h2 class="cs-section-title">Usability <em>Testing</em></h2>
+        </div>
+
+        <div class="cs-section-body">
+
+            <h3 class="cs-sub-heading">Testing Plan</h3>
+            <div class="cs-three-col">
+                <div class="cs-stat-card">
+                    <span class="cs-stat-num">6</span>
+                    <span class="cs-stat-label">Participants</span>
+                    <p class="cs-stat-desc">Mix of existing partners and new users recruited via internal channels</p>
+                </div>
+                <div class="cs-stat-card">
+                    <span class="cs-stat-num">45<small>min</small></span>
+                    <span class="cs-stat-label">Per Session</span>
+                    <p class="cs-stat-desc">Moderated remote sessions via Maze + Zoom — think-aloud protocol</p>
+                </div>
+                <div class="cs-stat-card">
+                    <span class="cs-stat-num">5</span>
+                    <span class="cs-stat-label">Core Tasks</span>
+                    <p class="cs-stat-desc">Finding account status, downloading a document, locating support, reading progress, updating profile</p>
+                </div>
+            </div>
+
+            <h3 class="cs-sub-heading">Results &amp; Iterations</h3>
+            <div class="cs-results-grid">
+                <div class="cs-result cs-result--pass">
+                    <div class="cs-result-header">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span>Navigation structure was intuitive</span>
+                    </div>
+                    <p>5 of 6 users completed the account status task without guidance. Average time: 18 seconds vs. 72 seconds in the current product.</p>
+                </div>
+                <div class="cs-result cs-result--pass">
+                    <div class="cs-result-header">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span>Progress tracker reduced anxiety</span>
+                    </div>
+                    <p>All participants noted the progress bar gave them "a sense of control" — notably, 3 had previously called support to ask where they stood.</p>
+                </div>
+                <div class="cs-result cs-result--iterate">
+                    <div class="cs-result-header">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                        <span>Notification preferences needed iteration</span>
+                    </div>
+                    <p>Users wanted more granular control over alert types. We added a notification centre with category toggles in the next sprint based on this feedback.</p>
+                </div>
+                <div class="cs-result cs-result--iterate">
+                    <div class="cs-result-header">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                        <span>Mobile tab bar required rethinking</span>
+                    </div>
+                    <p>On smaller screens, the bottom nav felt crowded. Iterated to a priority-based 4-item tab bar with "More" for secondary items.</p>
+                </div>
+            </div>
+
+            <div class="cs-metrics-row">
+                <div class="cs-metric">
+                    <span class="cs-metric-num">83%</span>
+                    <span class="cs-metric-label">task success rate</span>
+                </div>
+                <div class="cs-metric-divider" aria-hidden="true"></div>
+                <div class="cs-metric">
+                    <span class="cs-metric-num">4.4<small>/5</small></span>
+                    <span class="cs-metric-label">avg. ease score</span>
+                </div>
+                <div class="cs-metric-divider" aria-hidden="true"></div>
+                <div class="cs-metric">
+                    <span class="cs-metric-num">−62%</span>
+                    <span class="cs-metric-label">time on task</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── 07 NEXT STEPS ────────────────────────────── -->
+    <section class="cs-section" id="next-steps">
+        <div class="cs-section-head">
+            <span class="cs-section-num">07</span>
+            <h2 class="cs-section-title">Next <em>Steps</em></h2>
+        </div>
+
+        <div class="cs-section-body">
+
+            <div class="cs-two-col">
+                <div>
+                    <h3 class="cs-sub-heading">Team</h3>
+                    <div class="cs-team-list">
+                        <div class="cs-team-member">
+                            <div class="cs-team-avatar" aria-hidden="true">CG</div>
+                            <div>
+                                <p class="cs-team-name">Carmen Gyoh</p>
+                                <p class="cs-team-role">Lead Product Designer</p>
+                            </div>
+                        </div>
+                        <div class="cs-team-member">
+                            <div class="cs-team-avatar cs-team-avatar--b" aria-hidden="true">PM</div>
+                            <div>
+                                <p class="cs-team-name">Product Manager</p>
+                                <p class="cs-team-role">Requirements &amp; Prioritisation</p>
+                            </div>
+                        </div>
+                        <div class="cs-team-member">
+                            <div class="cs-team-avatar cs-team-avatar--c" aria-hidden="true">FE</div>
+                            <div>
+                                <p class="cs-team-name">Frontend Engineer</p>
+                                <p class="cs-team-role">Implementation Lead</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="cs-sub-heading">Developer Collaboration</h3>
+                    <div class="cs-card">
+                        <ul class="cs-list cs-list--spaced">
+                            <li>Annotated Figma file with component specs, spacing tokens, and interaction notes shared with engineering</li>
+                            <li>Weekly design–dev sync to address implementation queries and catch edge cases early</li>
+                            <li>Figma Inspect used alongside a written spec doc for all new component definitions</li>
+                            <li>Participated in code review for UI fidelity check before release</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="cs-sub-heading">Planned Iterations</h3>
+            <div class="cs-iteration-list">
+                <div class="cs-iteration">
+                    <span class="cs-iteration-tag">Next sprint</span>
+                    <p>Granular notification preferences based on usability test feedback</p>
+                </div>
+                <div class="cs-iteration">
+                    <span class="cs-iteration-tag">Q3</span>
+                    <p>Mobile-optimised bottom navigation with priority-based 4-item tab bar</p>
+                </div>
+                <div class="cs-iteration">
+                    <span class="cs-iteration-tag">Q4</span>
+                    <p>Role-based dashboard personalisation — different views for ops managers vs. finance directors</p>
+                </div>
+                <div class="cs-iteration">
+                    <span class="cs-iteration-tag">Future</span>
+                    <p>AI-assisted document categorisation to further reduce manual admin overhead</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── CASE STUDY NAV ───────────────────────────── -->
+    <div class="cs-end-nav">
+        <a href="index.html#work" class="cs-back cs-back--end">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                <path d="M19 12H5M12 5l-7 7 7 7"/>
+            </svg>
+            All projects
+        </a>
+        <a href="#" class="cs-next-project">
+            Next project
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+        </a>
+    </div>
+
+</main>
+
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
+<footer class="footer bento-footer" id="contact">
+    <div class="bento-footer-inner">
+        <div class="footer-star-line">
+            <span class="footer-star" aria-hidden="true">✦</span>
+            <p class="footer-headline">Let's create meaningful impact together.</p>
+        </div>
+        <div class="footer-links-row">
+            <a href="mailto:carmenjgyoh@gmail.com" class="footer-link">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <rect x="1" y="3" width="14" height="10" rx="1.5" stroke="currentColor" stroke-width="1.2"/>
+                    <path d="M1 5l7 5 7-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+                </svg>
+                carmenjgyoh@gmail.com
+            </a>
+            <a href="https://linkedin.com/in/carmengyoh" class="footer-link" target="_blank" rel="noopener">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <rect x="1" y="1" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.2"/>
+                    <path d="M5 7v4M5 5.5v.01M8 11V8.5C8 7.7 8.7 7 9.5 7S11 7.7 11 8.5V11" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+                </svg>
+                linkedin.com/in/carmengyoh
+            </a>
+            <a href="#" class="btn-cv footer-cv-btn" target="_blank" rel="noopener">Let's connect ↗</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <span>© 2026 Carmen Gyoh. All rights reserved.</span>
+        <span>Designed &amp; built with care ♡</span>
+    </div>
+</footer>
+
+<script src="js/case-study.js"></script>
+
+</body>
+</html>

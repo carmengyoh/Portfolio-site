@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="styles.css?v=13">
+    <link rel="stylesheet" href="styles.css?v=15">
     <!-- Apply saved theme before first paint to avoid flash -->
     <script>
         (function(){
@@ -110,20 +110,17 @@
 
         </section>
 
-        <!-- ── ROW 2: FEATURED WORK + HOW I WORK ─────────── -->
-        <div class="bento-row work-how-row">
+        <!-- ── ROW 2: FEATURED WORK — full-width 3 large cards ── -->
+        <section class="bento-card work-bento" id="work">
+            <div class="work-bento-header">
+                <span class="label">FEATURED WORK</span>
+                <a href="#" class="view-all">View all projects ↗</a>
+            </div>
+            <div class="work-grid bento-work-grid" id="work-grid"></div>
+        </section>
 
-            <!-- Work card -->
-            <section class="bento-card work-bento" id="work">
-                <div class="work-bento-header">
-                    <span class="label">FEATURED WORK</span>
-                    <a href="#" class="view-all">View all projects ↗</a>
-                </div>
-                <div class="work-grid bento-work-grid" id="work-grid"></div>
-            </section>
-
-            <!-- How I Work card -->
-            <section class="bento-card how-bento" id="how">
+        <!-- ── ROW 3: HOW I WORK — underneath, full width ─── -->
+        <section class="bento-card how-bento how-bento--wide" id="how">
                 <span class="label">HOW I WORK</span>
                 <h2 class="how-bento-title">Ambiguity to<br><em>Clarity</em></h2>
 
@@ -187,11 +184,9 @@
                 </div>
 
                 <p class="how-bento-desc">My design philosophy: understand deeply, structure intentionally, prototype fearlessly, validate relentlessly.</p>
-            </section>
+        </section>
 
-        </div>
-
-        <!-- ── ROW 3: BOTTOM BENTO CARDS ─────────────────── -->
+        <!-- ── ROW 4: BOTTOM BENTO CARDS ─────────────────── -->
         <div class="bento-row bottom-bento-row">
 
             <!-- Experience snapshot -->
@@ -316,7 +311,7 @@
     <script src="js/content.js?v=9"></script>
     <script src="js/hero-bg.js?v=8"></script>
     <script src="js/hero-scroll.js?v=3"></script>
-    <script src="js/main.js?v=10"></script>
+    <script src="js/main.js?v=12"></script>
 
 </body>
 </html>

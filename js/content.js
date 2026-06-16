@@ -24,7 +24,7 @@ const PROJECTS = [
         tags:        ['Fintech', 'B2B', 'UX Strategy'],
         description: 'Redesigning the core partner experience to improve clarity, reduce friction and drive growth.',
         image:       null,      /* Set to: 'images/partner-hub.jpg' */
-        link:        '#',       /* Set to: case study URL */
+        link:        'case-study.html',
         placeholderBg: 'linear-gradient(140deg, #1a1430 0%, #2a1b3d 45%, #3d2342 100%)',
     },
 
