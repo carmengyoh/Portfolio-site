@@ -22,13 +22,12 @@ body { background: var(--bento-bg); }
 }
 
 /* ================================================================
-   HERO
+   HERO CARD — first bento card
    ================================================================ */
-.cs-hero {
+.cs-hero-card {
     position: relative;
     overflow: hidden;
-    padding: 140px 0 0;
-    background: var(--bento-bg);
+    padding: 0 0 0;
 }
 
 /* Pink/purple gradient blobs — same feel as main hero */
@@ -83,9 +82,9 @@ body { background: var(--bento-bg); }
 .cs-hero-inner {
     position: relative;
     z-index: 2;
-    max-width: 900px;
+    max-width: 860px;
     margin: 0 auto;
-    padding: 0 40px;
+    padding: 48px 48px 0;
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -187,13 +186,13 @@ body { background: var(--bento-bg); }
     color: var(--text);
 }
 
-/* Cover image area */
+/* Cover image area — flush to card bottom */
 .cs-cover {
     position: relative;
     z-index: 1;
-    max-width: 900px;
-    margin: 40px auto 0;
-    padding: 0 40px;
+    max-width: 860px;
+    margin: 32px auto 0;
+    padding: 0 48px;
 }
 
 .cs-cover-placeholder {
@@ -201,15 +200,18 @@ body { background: var(--bento-bg); }
     overflow: hidden;
     width: 100%;
     aspect-ratio: 16 / 8;
-    border-radius: 16px 16px 0 0;
-    background: var(--bento-card);
-    border: 1px solid var(--bento-border);
+    border-radius: 12px 12px 0 0;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
     border-bottom: none;
     display: flex;
     align-items: center;
     justify-content: center;
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+}
+
+[data-theme="light"] .cs-cover-placeholder {
+    background: rgba(255,255,255,0.45);
+    border-color: rgba(0,0,0,0.07);
 }
 
 .cs-cover-glow {
@@ -295,29 +297,50 @@ body { background: var(--bento-bg); }
 }
 
 /* ================================================================
-   MAIN CONTENT
+   BENTO PAGE WRAPPER — matches landing page system
    ================================================================ */
-.cs-main {
-    max-width: 900px;
+.cs-bento-page {
+    max-width: 1380px;
     margin: 0 auto;
-    padding: 80px 40px 120px;
+    padding: calc(72px + 16px) 16px 80px;
     display: flex;
     flex-direction: column;
-    gap: 0;
+    gap: var(--bento-gap, 10px);
 }
 
-/* ── Section ── */
-.cs-section {
-    padding: 72px 0;
-    border-bottom: 1px solid var(--border);
+/* ── Section inside bento card ── */
+.cs-bento-section {
+    padding: 40px 44px 44px;
+    border-radius: var(--bento-radius, 20px);
 }
-.cs-section:last-of-type { border-bottom: none; }
 
+/* ── Row layouts ── */
+.cs-row-stories {
+    grid-template-columns: 1.15fr 0.85fr;
+}
+
+.cs-row-stats {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.cs-row-next {
+    grid-template-columns: 1fr 1fr;
+}
+
+/* Stat bento cards have a centred number layout */
+.cs-stat-bento {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.cs-stat-bento .label { margin: 0 0 12px; }
+
+/* ── Section head ── */
 .cs-section-head {
     display: flex;
     align-items: baseline;
-    gap: 16px;
-    margin-bottom: 40px;
+    gap: 14px;
+    margin-bottom: 32px;
 }
 
 .cs-section-num {
@@ -327,12 +350,13 @@ body { background: var(--bento-bg); }
     letter-spacing: 0.18em;
     color: var(--accent);
     flex-shrink: 0;
-    padding-top: 6px;
+    padding-top: 5px;
+    min-width: 20px;
 }
 
 .cs-section-title {
     font-family: var(--font-serif);
-    font-size: clamp(26px, 3.5vw, 38px);
+    font-size: clamp(22px, 2.8vw, 32px);
     font-weight: 400;
     line-height: 1.18;
     color: var(--text);
@@ -350,7 +374,7 @@ body { background: var(--bento-bg); }
 .cs-section-body {
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 24px;
 }
 
 /* Lead paragraph */
@@ -374,25 +398,25 @@ body { background: var(--bento-bg); }
     margin: 0 0 16px;
 }
 
-/* ── Cards ── */
+/* ── Inner cards, glassmorphic to match .cs-persona / .cs-stat-card ── */
 .cs-card {
     background: rgba(17,17,26,0.55);
+    border: 1px solid var(--bento-border);
+    border-radius: 12px;
+    padding: 24px;
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255,255,255,0.09);
-    border-radius: 14px;
-    padding: 28px;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.20);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.18);
     transition: border-color 0.25s ease;
 }
 
 [data-theme="light"] .cs-card {
     background: rgba(255,255,255,0.68);
-    border: 1px solid rgba(255,255,255,0.85);
+    border-color: rgba(255,255,255,0.85);
     box-shadow: 0 2px 16px rgba(0,0,0,0.07);
 }
 
-.cs-card:hover { border-color: var(--border-hover); }
+.cs-card:hover { border-color: rgba(var(--accent-rgb),0.30); }
 
 .cs-card h3 {
     font-family: var(--font-serif);
@@ -417,8 +441,8 @@ body { background: var(--bento-bg); }
     margin: 0;
 }
 
-.cs-card--accent { border-color: rgba(244,114,182,0.20); }
-.cs-card--accent:hover { border-color: rgba(244,114,182,0.40); }
+.cs-card--accent { border-color: rgba(var(--accent-rgb),0.20); }
+.cs-card--accent:hover { border-color: rgba(var(--accent-rgb),0.40); }
 
 .cs-card--sm { padding: 22px 22px 20px; }
 
@@ -489,29 +513,54 @@ body { background: var(--bento-bg); }
 }
 
 /* ── Pullquote ── */
+/* Pullquote and insight-callout share one restrained language: a
+   neutral card (same fill as .cs-card) with just a pink left edge
+   as the "pay attention" marker. Pink is a 2px accent here, not a
+   fill colour, matching how the TL;DR cards use pink (icon + label
+   only, never a background wash). */
 .cs-pullquote {
     font-family: var(--font-serif);
-    font-size: clamp(18px, 2vw, 22px);
+    font-size: clamp(15px, 1.6vw, 18px);
     font-style: italic;
     font-weight: 400;
     color: var(--text);
-    line-height: 1.5;
+    line-height: 1.65;
     margin: 0;
-    padding: 24px 32px;
+    padding: 20px 28px;
+    border: 1px solid var(--bento-border);
     border-left: 2px solid var(--accent);
-    background: var(--accent-dim);
+    background: rgba(17,17,26,0.55);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.18);
     border-radius: 0 12px 12px 0;
+}
+[data-theme="light"] .cs-pullquote {
+    background: rgba(255,255,255,0.68);
+    border-color: rgba(255,255,255,0.85);
+    border-left-color: var(--accent);
+    box-shadow: 0 2px 16px rgba(0,0,0,0.07);
 }
 
 /* ── Insight callout ── */
 .cs-insight-callout {
     padding: 20px 24px;
-    border-radius: 12px;
-    border: 1px solid var(--border-hover);
-    background: var(--surface-hover, rgba(17,17,26,0.4));
+    border-radius: 0 12px 12px 0;
+    border: 1px solid var(--bento-border);
+    border-left: 2px solid var(--accent);
+    background: rgba(17,17,26,0.55);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.18);
     display: flex;
     flex-direction: column;
     gap: 8px;
+}
+[data-theme="light"] .cs-insight-callout {
+    background: rgba(255,255,255,0.68);
+    border-color: rgba(255,255,255,0.85);
+    border-left-color: var(--accent);
+    box-shadow: 0 2px 16px rgba(0,0,0,0.07);
 }
 .cs-insight-callout .label { margin: 0; }
 .cs-insight-callout p {
@@ -562,7 +611,7 @@ body { background: var(--bento-bg); }
     border-color: rgba(255,255,255,0.85);
     box-shadow: 0 2px 16px rgba(0,0,0,0.07);
 }
-.cs-persona:hover { border-color: rgba(244,114,182,0.25); }
+.cs-persona:hover { border-color: rgba(var(--accent-rgb),0.25); }
 
 .cs-persona-avatar {
     width: 48px;
@@ -622,7 +671,7 @@ body { background: var(--bento-bg); }
     padding: 14px;
     border-radius: 10px;
     background: var(--accent-dim);
-    border: 1px solid rgba(244,114,182,0.15);
+    border: 1px solid rgba(var(--accent-rgb),0.15);
     display: flex;
     flex-direction: column;
     gap: 6px;
@@ -732,7 +781,7 @@ body { background: var(--bento-bg); }
     text-transform: uppercase;
     white-space: nowrap;
 }
-.cs-story-priority--high { background: rgba(244,114,182,0.15); color: var(--accent); }
+.cs-story-priority--high { background: rgba(var(--accent-rgb),0.15); color: var(--accent); }
 .cs-story-priority--med  { background: rgba(167,139,250,0.15); color: #a78bfa; }
 
 /* HMW */
@@ -745,7 +794,7 @@ body { background: var(--bento-bg); }
 .cs-hmw {
     padding: 20px;
     border-radius: 12px;
-    border: 1px solid rgba(244,114,182,0.18);
+    border: 1px solid rgba(var(--accent-rgb),0.18);
     background: var(--accent-dim);
     font-family: var(--font-serif);
     font-style: italic;
@@ -813,6 +862,21 @@ body { background: var(--bento-bg); }
 
 .cs-figure-img--tall  { aspect-ratio: 16 / 7; }
 .cs-figure-img--hero  { aspect-ratio: 16 / 9; }
+.cs-figure-img--short { aspect-ratio: 4 / 2.4; }
+
+/* Stacked HMW (single column, no grid) */
+.cs-hmw-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Stacked figures in the sketches card */
+.cs-figure-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
 
 figcaption {
     font-size: 12px;
@@ -926,9 +990,9 @@ figcaption {
 .cs-result--pass .cs-result-header svg { color: #22c55e; }
 .cs-result--pass:hover { border-color: rgba(34,197,94,0.45); }
 
-.cs-result--iterate { border-color: rgba(244,114,182,0.20); }
+.cs-result--iterate { border-color: rgba(var(--accent-rgb),0.20); }
 .cs-result--iterate .cs-result-header svg { color: var(--accent); }
-.cs-result--iterate:hover { border-color: rgba(244,114,182,0.40); }
+.cs-result--iterate:hover { border-color: rgba(var(--accent-rgb),0.40); }
 
 /* Metrics row */
 .cs-metrics-row {
@@ -1050,7 +1114,7 @@ figcaption {
     text-transform: uppercase;
     color: var(--accent);
     background: var(--accent-dim);
-    border: 1px solid rgba(244,114,182,0.20);
+    border: 1px solid rgba(var(--accent-rgb),0.20);
     white-space: nowrap;
     margin-top: 1px;
 }
@@ -1069,9 +1133,9 @@ figcaption {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 40px 0 0;
+    padding: 32px 8px 0;
     border-top: 1px solid var(--border);
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .cs-back--end {
@@ -1095,50 +1159,256 @@ figcaption {
 .cs-next-project:hover svg { transform: translateX(3px); }
 
 /* ================================================================
+   TL;DR STRIP
+   Asymmetric bento grid, not four identical boxes, so the eye has
+   somewhere to land. Problem gets the most room (needs the most
+   words); What I Learned is a full-width banner since interviewers
+   consistently probe for reflection, it deserves its own weight.
+   ================================================================ */
+.cs-tldr-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 14px;
+}
+
+.cs-tldr-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 22px 22px 24px;
+    border-radius: 14px;
+    border: 1px solid var(--bento-border);
+    background: rgba(17,17,26,0.55);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+}
+[data-theme="light"] .cs-tldr-card {
+    background: rgba(255,255,255,0.68);
+    border-color: rgba(255,255,255,0.85);
+    box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+}
+
+.cs-tldr-card--problem { grid-row: 1 / 3; }
+.cs-tldr-card--learned { grid-column: 2 / 4; flex-direction: row; align-items: center; gap: 16px; }
+.cs-tldr-card--learned p { margin: 0; }
+.cs-tldr-card--learned .cs-tldr-icon { margin: 0; flex-shrink: 0; }
+
+.cs-tldr-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent-dim);
+    color: var(--accent);
+    flex-shrink: 0;
+}
+
+.cs-tldr-card .label { margin: 0; }
+
+.cs-tldr-card p {
+    font-size: 13.5px;
+    color: var(--text);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.cs-tldr-card--learned {
+    border-color: rgba(var(--accent-rgb),0.30);
+}
+
+@media (max-width: 860px) {
+    .cs-tldr-grid { grid-template-columns: 1fr 1fr; }
+    .cs-tldr-card--problem { grid-row: auto; grid-column: 1 / 3; }
+    .cs-tldr-card--learned { grid-column: 1 / 3; }
+}
+@media (max-width: 520px) {
+    .cs-tldr-grid { grid-template-columns: 1fr; }
+    .cs-tldr-card--problem, .cs-tldr-card--learned { grid-column: 1; }
+}
+
+/* ================================================================
+   PLACEHOLDER / STATUS / DECISION HELPERS
+   (added for the case-study-writing-playbook content pass)
+   ================================================================ */
+
+/* Inline highlight for facts only Carmen can confirm — mirrors the
+   playbook's [highlighted placeholder] convention so gaps are easy
+   to scan for and replace before publishing. */
+.cs-fill {
+    background: rgba(250, 204, 21, 0.22);
+    color: var(--text);
+    padding: 1px 5px;
+    border-radius: 4px;
+    font-style: normal;
+}
+[data-theme="light"] .cs-fill { background: rgba(250, 204, 21, 0.38); }
+
+/* Status callout — blue-bordered variant of the insight callout,
+   used at the top of each case study to state shipped/validated/exploratory. */
+.cs-status-callout {
+    padding: 16px 22px;
+    border-radius: 12px;
+    border: 1px solid rgba(99,102,241,0.35);
+    background: rgba(99,102,241,0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.cs-status-callout .label { margin: 0; color: #818cf8; }
+.cs-status-callout p { font-size: 13.5px; color: var(--text-muted); line-height: 1.6; margin: 0; }
+
+/* Generic 3-column info table — reused for decision-making personas,
+   ownership states, decision/response/benefit tables, etc. */
+.cs-info-table { border-radius: 12px; border: 1px solid var(--border); overflow: hidden; }
+.cs-info-table-row {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1.2fr;
+    gap: 16px;
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--border);
+}
+.cs-info-table-row:last-child { border-bottom: none; }
+.cs-info-table-row--head {
+    background: var(--accent-dim);
+    padding: 11px 20px;
+}
+.cs-info-table-row--head span {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+.cs-info-table-row span { font-size: 13px; color: var(--text-muted); line-height: 1.55; }
+.cs-info-table-row span:first-child { color: var(--text); font-weight: 500; }
+.cs-info-table-persona {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.cs-info-table-persona svg { color: var(--accent); flex-shrink: 0; }
+
+/* Numbered decision blocks (key decision 1 / 2 / 3) */
+.cs-decision {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 24px 26px;
+    border-radius: 14px;
+    border: 1px solid var(--bento-border);
+    background: rgba(17,17,26,0.55);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+}
+[data-theme="light"] .cs-decision {
+    background: rgba(255,255,255,0.68);
+    border-color: rgba(255,255,255,0.85);
+    box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+}
+.cs-decision-num {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+.cs-decision h3 {
+    font-family: var(--font-serif);
+    font-size: 19px;
+    font-weight: 400;
+    color: var(--text);
+    margin: 0;
+}
+.cs-decision p { font-size: 14px; color: var(--text-muted); line-height: 1.7; margin: 0; }
+.cs-decision .cs-card-icon { margin-bottom: 2px; }
+
+/* ================================================================
+   FIGURE SKELETON — an abstract suggestion of a UI layout behind
+   the "drop your screenshot here" label, so placeholders read as
+   intentional composition rather than dead empty space.
+   ================================================================ */
+.cs-figure-skeleton {
+    position: absolute;
+    inset: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    opacity: 0.5;
+    pointer-events: none;
+}
+.cs-figure-skeleton .sk-bar {
+    height: 10px;
+    border-radius: 5px;
+    background: linear-gradient(90deg, rgba(244,114,182,0.22), rgba(167,139,250,0.14));
+}
+.cs-figure-skeleton .sk-row { display: flex; gap: 10px; flex: 1; }
+.cs-figure-skeleton .sk-block {
+    flex: 1;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+}
+[data-theme="light"] .cs-figure-skeleton .sk-block {
+    background: rgba(0,0,0,0.03);
+    border-color: rgba(0,0,0,0.06);
+}
+.cs-figure-img .cs-figure-img-label {
+    position: relative;
+    z-index: 1;
+}
+
+@media (max-width: 700px) {
+    .cs-info-table-row,
+    .cs-info-table-row--head { grid-template-columns: 1fr; gap: 4px; }
+    .cs-info-table-row--head span:not(:first-child) { display: none; }
+}
+
+/* ================================================================
    RESPONSIVE
    ================================================================ */
 @media (max-width: 1140px) {
     .cs-progress { display: none; }
 }
 
+@media (max-width: 1000px) {
+    .cs-row-stories { grid-template-columns: 1fr; }
+    .cs-row-next    { grid-template-columns: 1fr; }
+}
+
 @media (max-width: 860px) {
     .cs-hero-inner,
-    .cs-cover,
-    .cs-main {
-        padding-left: 28px;
-        padding-right: 28px;
-    }
-    .cs-two-col   { grid-template-columns: 1fr; }
-    .cs-three-col { grid-template-columns: 1fr 1fr; }
+    .cs-cover { padding-left: 20px; padding-right: 20px; }
+    .cs-bento-page { padding: 10px 10px 60px; }
+    .cs-bento-section { padding: 28px 28px 32px; }
+    .cs-two-col    { grid-template-columns: 1fr; }
+    .cs-three-col  { grid-template-columns: 1fr 1fr; }
+    .cs-row-stats  { grid-template-columns: 1fr 1fr 1fr; }
     .cs-results-grid { grid-template-columns: 1fr; }
-    .cs-hmw-grid  { grid-template-columns: 1fr; }
+    .cs-hmw-grid   { grid-template-columns: 1fr; }
     .cs-figure-row { grid-template-columns: 1fr; }
     .cs-comp-table { overflow-x: auto; }
 }
 
 @media (max-width: 600px) {
-    .cs-hero { padding-top: 100px; }
+    .cs-bento-page { padding-top: calc(64px + 8px); }
     .cs-hero-inner,
-    .cs-cover,
-    .cs-main {
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-    .cs-main { padding-top: 52px; padding-bottom: 80px; }
-    .cs-three-col { grid-template-columns: 1fr; }
-    .cs-section { padding: 52px 0; }
-    .cs-metrics-row {
-        flex-direction: column;
-        gap: 24px;
-    }
+    .cs-cover { padding-left: 20px; padding-right: 20px; }
+    .cs-bento-page { padding: calc(64px + 8px) 8px 52px; }
+    .cs-bento-section { padding: 22px 20px 26px; }
+    .cs-three-col  { grid-template-columns: 1fr; }
+    .cs-row-stats  { grid-template-columns: 1fr; }
+    .cs-metrics-row { flex-direction: column; gap: 24px; }
     .cs-metric-divider { width: 80px; height: 1px; margin: 0; }
-    .cs-story {
-        grid-template-columns: 1fr;
-        gap: 6px;
-    }
+    .cs-story { grid-template-columns: 1fr; gap: 6px; }
     .cs-story-role { white-space: normal; }
     .cs-meta-item { padding-right: 20px; }
     .cs-end-nav { flex-direction: column; gap: 16px; align-items: flex-start; }
+    .cs-section-title { font-size: 22px; }
 }
 
 /* ================================================================

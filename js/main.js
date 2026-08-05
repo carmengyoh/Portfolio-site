@@ -35,6 +35,10 @@
                        '<span class="card-tag">' + t + '</span>';
             }).join('');
 
+            var statusHTML = p.status
+                ? '<span class="card-status">' + p.status + '</span>'
+                : '';
+
             var isLinked = p.link && p.link !== '#';
             return [
                 '<article class="project-card reveal' + (isLinked ? ' is-linked' : '') + '" role="article"',
@@ -52,6 +56,7 @@
                 '    <h3 class="card-title">' + p.title + '</h3>',
                 '    <p class="card-tags">' + tagsHTML + '</p>',
                 '    <p class="card-desc">' + p.description + '</p>',
+                '    ' + statusHTML,
                 '    <div class="card-arrow">→</div>',
                 '  </div>',
                 '</article>',

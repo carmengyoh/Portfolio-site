@@ -13,8 +13,9 @@
     --text-muted:    #888888;
     --text-subtle:   #444444;
 
-    /* Warm pink — matches the design reference */
+    /* Warm pink, matches the design reference */
     --accent:        #f472b6;
+    --accent-rgb:    244, 114, 182;
     --accent-dim:    rgba(244, 114, 182, 0.15);
     --accent-hover:  #ec4899;
 
@@ -52,6 +53,7 @@
 
     /* Deeper warm pink for contrast on white */
     --accent:        #db2777;
+    --accent-rgb:    219, 39, 119;
     --accent-dim:    rgba(219, 39, 119, 0.10);
     --accent-hover:  #be185d;
 
@@ -1989,6 +1991,21 @@ body.hero-entered .hero-actions {
     color: #fff;
     margin: 2px 0 0;
     line-height: 1.25;
+}
+
+.card-status {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 3px 10px;
+    border-radius: 100px;
+    font-family: var(--font-sans);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #f9a8d4;
+    border: 1px solid rgba(249,168,212,0.35);
+    background: rgba(244,114,182,0.12);
 }
 
 .card-hover-info .card-tags {
