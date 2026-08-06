@@ -37,7 +37,7 @@ const PROJECTS = [
         status:      'Shipped + iterating',
         description: 'Creating an end-to-end agent journey for a new funding product, then improving the assessment experience using partner feedback.',
         image:       null,      /* Set to: 'images/flex.jpg' */
-        link:        '#',       /* TODO: build case-study-flex.html */
+        link:        'case-study-flex.html',
         placeholderBg: 'linear-gradient(140deg, #15182e 0%, #1d2142 45%, #2a2350 100%)',
     },
 

@@ -69,7 +69,7 @@
         <!-- ── ROW 1: HERO ────────────────────────────────── -->
         <section class="bento-row hero-row" id="home">
 
-            <!-- Single full-width white card with floating animated gradient blobs -->
+            <!-- Main white card with floating animated gradient blobs -->
             <div class="bento-card hero-main-card">
 
                 <!-- Blobs float over the white card background -->
@@ -93,18 +93,22 @@
 
             </div>
 
-            <!-- Photo card -->
-            <div class="bento-card hero-photo-card" id="about">
-                <div class="hero-photo-wrap">
-                    <img src="images/carmen.jpg"
-                         alt="Carmen Gyoh, Product Designer"
-                         class="hero-photo-img"
-                         onerror="this.parentElement.classList.add('no-photo')">
+            <!-- Personality card: small avatar, most of the space goes to voice -->
+            <div class="bento-card hero-personality-card">
+                <div class="hero-personality-top">
+                    <img src="images/carmen.jpg" alt="Carmen Gyoh" class="hero-avatar"
+                         onerror="this.style.display='none'">
+                    <span class="hero-avatar-star" aria-hidden="true">✦</span>
                 </div>
-                <div class="hero-photo-bio">
-                    <span class="hero-photo-star" aria-hidden="true">✦</span>
-                    <h2 class="hero-photo-name">Hi, I'm Carmen.</h2>
-                    <p class="hero-photo-tagline">Product designer who leads with user research and designs out loud.</p>
+                <p class="hero-personality-statement">Hey, I'm Carmen. Product designer by day, amateur composer by night.</p>
+                <p class="hero-personality-meta">London, UK &middot; Product Designer at Liberis</p>
+                <div class="hero-personality-tags">
+                    <span>Piano</span>
+                    <span>Composing</span>
+                    <span>Tea lover</span>
+                    <span>Solo travel</span>
+                    <span>Creating</span>
+                    <span>Good design</span>
                 </div>
             </div>
 
@@ -281,6 +285,8 @@
     <footer class="footer bento-footer" id="contact">
         <div class="bento-footer-inner">
             <div class="footer-star-line">
+                <img src="images/carmen.jpg" alt="Carmen Gyoh" class="footer-photo"
+                     onerror="this.style.display='none'">
                 <span class="footer-star" aria-hidden="true">✦</span>
                 <p class="footer-headline">Let's create meaningful impact together.</p>
             </div>
