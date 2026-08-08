@@ -154,6 +154,7 @@ body { background: var(--bento-bg); }
     max-width: 600px;
     margin: 0;
 }
+.cs-hero-sub--wide { max-width: none; }
 
 .cs-meta-row {
     display: flex;
@@ -184,6 +185,89 @@ body { background: var(--bento-bg); }
     font-size: 15px;
     font-weight: 400;
     color: var(--text);
+}
+
+/* ── Meta panel — one clean glass card for Overview / Role / Team /
+   Timeline, matching the same glassmorphic language as .cs-card /
+   .cs-decision / .cs-pullquote elsewhere on this page. Width matches
+   .cs-hero-inner / .cs-cover exactly: max-width is the content box
+   .cs-hero-inner/.cs-cover are 860px *including* their own 48px
+   padding, so their visible content spans 860-96=764px. This panel
+   has a visible border, so it must match that 764px content span
+   directly, not the 860px outer figure. ── */
+.cs-meta-panel {
+    max-width: 764px;
+    margin: 32px auto 0;
+    padding: 32px 48px;
+    border-radius: var(--bento-radius, 20px);
+    border: 1px solid var(--bento-border);
+    background:
+        linear-gradient(135deg, rgba(244,114,182,0.10), rgba(167,139,250,0.08)),
+        rgba(17,17,26,0.45);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+    display: grid;
+    grid-template-columns: minmax(0,1.3fr) minmax(0,1fr) minmax(0,1.2fr) minmax(0,1fr);
+    gap: 28px;
+}
+.cs-meta-panel--3col { grid-template-columns: minmax(0,1fr) minmax(0,1.3fr) minmax(0,1fr); }
+.cs-meta-col { min-width: 0; }
+[data-theme="light"] .cs-meta-panel {
+    background:
+        linear-gradient(135deg, rgba(244,114,182,0.10), rgba(167,139,250,0.08)),
+        rgba(255,255,255,0.5);
+    border-color: rgba(255,255,255,0.85);
+    box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+}
+.cs-meta-col h3 {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 10px;
+}
+.cs-meta-col p {
+    font-size: 13.5px;
+    font-weight: 400;
+    color: var(--text);
+    opacity: 0.78;
+    line-height: 1.65;
+    margin: 0;
+}
+.cs-meta-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+.cs-meta-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 100px;
+    font-family: var(--font-sans);
+    font-size: 10.5px;
+    font-weight: 500;
+    color: var(--text);
+    opacity: 0.85;
+    border: 1px solid var(--border-hover);
+    background: transparent;
+}
+.cs-meta-chip--pending {
+    background: rgba(250, 204, 21, 0.14);
+    border-color: rgba(250, 204, 21, 0.35);
+    color: var(--text);
+}
+
+@media (max-width: 860px) {
+    .cs-meta-panel { padding-left: 28px; padding-right: 28px; }
+}
+@media (max-width: 700px) {
+    .cs-meta-panel { grid-template-columns: 1fr 1fr; row-gap: 24px; }
+}
+@media (max-width: 600px) {
+    .cs-meta-panel { grid-template-columns: 1fr; padding: 28px 22px; }
 }
 
 /* Cover image area — flush to card bottom */
@@ -540,6 +624,28 @@ body { background: var(--bento-bg); }
     border-color: rgba(255,255,255,0.85);
     border-left-color: var(--accent);
     box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+}
+
+/* Reflective case-study prompt: presented as an open question rather
+   than a card or a conventional quotation. */
+.cs-pullquote--question,
+[data-theme="light"] .cs-pullquote--question {
+    max-width: 700px;
+    margin: 12px auto;
+    padding: 24px 16px;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    color: var(--accent);
+    font-family: var(--font-sans);
+    font-size: clamp(20px, 2.7vw, 28px);
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.4;
+    text-align: center;
 }
 
 /* ── Insight callout ── */
@@ -1369,6 +1475,210 @@ figcaption {
 }
 
 /* ================================================================
+   DEVICE MOCKUPS — real screenshots framed for case studies
+   ================================================================ */
+.cs-device {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--bento-border);
+    background: rgba(17,17,26,0.55);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+}
+[data-theme="light"] .cs-device {
+    background: rgba(255,255,255,0.68);
+    border-color: rgba(255,255,255,0.85);
+    box-shadow: 0 8px 28px rgba(0,0,0,0.10);
+}
+.cs-device img,
+.cs-device video {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* Phone bezel — wraps raw, chrome-less mobile crops so they read as a
+   deliberate device mockup rather than a floating rectangle. Bezel stays
+   dark in both themes, matching how device mockups read in product marketing. */
+.cs-device--phone {
+    max-width: 280px;
+    margin: 0 auto;
+    padding: 12px 10px 14px;
+    border-radius: 34px;
+    background: linear-gradient(180deg, #1c1c22, #101013);
+    border-color: rgba(255,255,255,0.12);
+    box-shadow: 0 16px 44px rgba(0,0,0,0.35);
+}
+.cs-device--phone::before {
+    content: '';
+    display: block;
+    width: 84px;
+    height: 20px;
+    margin: 0 auto 10px;
+    border-radius: 12px;
+    background: #000;
+}
+.cs-device--phone img { border-radius: 20px; }
+
+/* Crop modifier — shows just the top of a full-page mobile capture, for
+   secondary placements (hero overlap, small supporting shots) where the
+   full scroll length isn't the point */
+.cs-device--crop img {
+    max-height: 560px;
+    object-fit: cover;
+    object-position: top;
+}
+
+/* Minimal browser-style frame for the desktop demo recording */
+.cs-device--browser { padding: 0; }
+.cs-device-bar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 13px 16px;
+    border-bottom: 1px solid var(--bento-border);
+}
+.cs-device-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--border-hover); }
+
+/* ── Hero cover — real screenshot composition ── */
+.cs-cover-shot {
+    position: relative;
+    width: 100%;
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
+    border: 1px solid var(--bento-border);
+    border-bottom: none;
+    background: rgba(17,17,26,0.55);
+}
+[data-theme="light"] .cs-cover-shot { background: rgba(255,255,255,0.45); border-color: rgba(0,0,0,0.07); }
+.cs-cover-shot > img,
+.cs-cover-shot > video { display: block; width: 100%; height: auto; }
+.cs-cover-shot .cs-device-bar { border-bottom-color: var(--bento-border); }
+
+/* Hero fallback used until a case-study demo recording is available. */
+.cs-demo-placeholder {
+    min-height: clamp(300px, 48vw, 520px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 48px 24px;
+    text-align: center;
+    color: var(--text);
+    background:
+        radial-gradient(circle at 50% 42%, rgba(241, 33, 111, 0.18), transparent 34%),
+        linear-gradient(135deg, rgba(244,114,182,0.08), rgba(167,139,250,0.08));
+}
+.cs-demo-placeholder::before {
+    content: '▶';
+    display: grid;
+    place-items: center;
+    width: 64px;
+    height: 64px;
+    margin-bottom: 8px;
+    padding-left: 4px;
+    border: 1px solid rgba(241,33,111,0.45);
+    border-radius: 50%;
+    color: var(--accent);
+    background: rgba(241,33,111,0.08);
+    font-size: 20px;
+}
+.cs-demo-placeholder strong {
+    font-family: var(--font-serif);
+    font-size: clamp(23px, 3vw, 34px);
+    font-weight: 500;
+}
+.cs-demo-placeholder > span:last-child {
+    max-width: 430px;
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.6;
+}
+.cs-demo-placeholder__eyebrow {
+    color: var(--accent);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+}
+.cs-cover-device {
+    position: absolute;
+    right: 5%;
+    bottom: 10%;
+    width: 16%;
+    min-width: 110px;
+    max-width: 165px;
+}
+.cs-cover-device .cs-device--phone {
+    padding: 8px 7px 9px;
+    border-radius: 22px;
+    box-shadow: 0 20px 44px rgba(0,0,0,0.4);
+}
+.cs-cover-device .cs-device--phone::before { width: 44px; height: 11px; margin-bottom: 6px; border-radius: 7px; }
+.cs-cover-device img { border-radius: 14px; max-height: 300px; }
+.cs-cover-status {
+    text-align: center;
+    font-size: 12.5px;
+    color: var(--text-muted);
+    max-width: 560px;
+    margin: 0 auto;
+    padding: 16px 20px 4px;
+}
+
+/* ── Real screenshot figures — contain instead of cover so nothing crops ── */
+.cs-figure-img--shot img { object-fit: contain; }
+
+/* ── Journey diagram embed ── */
+.cs-journey-embed {
+    display: flex;
+    justify-content: center;
+    padding: 8px 0 4px;
+}
+.cs-journey-embed iframe {
+    width: 100%;
+    max-width: 560px;
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.20);
+}
+
+/* ── Status pills — Outcome section shipped/pending labels ── */
+.cs-status-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 4px;
+}
+.cs-status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 100px;
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--text);
+    border: 1px solid var(--border-hover);
+    background: transparent;
+}
+.cs-status-pill::before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+.cs-status-pill--shipped::before { background: #22c55e; }
+.cs-status-pill--pending::before { background: #f59e0b; }
+
+@media (max-width: 600px) {
+    .cs-cover-device { width: 20%; min-width: 84px; right: 4%; bottom: 8%; }
+    .cs-device--phone { max-width: 220px; }
+}
+
+/* ================================================================
    RESPONSIVE
    ================================================================ */
 @media (max-width: 1140px) {
@@ -1409,6 +1719,121 @@ figcaption {
     .cs-meta-item { padding-right: 20px; }
     .cs-end-nav { flex-direction: column; gap: 16px; align-items: flex-start; }
     .cs-section-title { font-size: 22px; }
+}
+
+/* ================================================================
+   ARTICLE — one continuous flowing read, headings mark the sections,
+   no per-section card boxes, no wrapping card either. Width matches
+   .cs-hero-inner / .cs-cover / .cs-meta-panel exactly.
+   ================================================================ */
+.cs-article {
+    max-width: 860px;
+    width: 100%;
+    margin: 40px auto 0;
+    padding: 0 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+.cs-article-section {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* ================================================================
+   WIDE BLOCK — plain text-column utility, no border, matches the
+   exact width of .cs-hero-inner / .cs-cover / .cs-meta-panel's
+   content span (764px visible, 860px incl. the 48px inset each side)
+   ================================================================ */
+.cs-wide-block {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 48px;
+}
+@media (max-width: 860px) {
+    .cs-wide-block { padding-left: 20px; padding-right: 20px; }
+}
+
+/* ================================================================
+   TL;DR / DETAILED TOGGLE
+   ================================================================ */
+.cs-view-toggle {
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+    margin: 28px auto 0;
+    padding: 4px;
+    width: fit-content;
+    border-radius: 100px;
+    border: 1px solid var(--bento-border);
+    background: rgba(17,17,26,0.4);
+}
+[data-theme="light"] .cs-view-toggle { background: rgba(255,255,255,0.55); }
+
+.cs-view-btn {
+    padding: 9px 24px;
+    border-radius: 100px;
+    border: none;
+    background: transparent;
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+.cs-view-btn:hover { color: var(--text); }
+.cs-view-btn.is-active { background: var(--accent); color: #fff; }
+
+.cs-view-panel { display: none; }
+.cs-view-panel.is-active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* TL;DR view — same article rhythm as the detailed read, but shorter
+   sections and pink headings so it reads as the fast summary pass.
+   Double class needed to outrank the plain `.cs-article h2` colour
+   rule that follows this block. */
+.cs-article--tldr { gap: 40px; }
+.cs-article.cs-article--tldr h2 { color: var(--accent); }
+
+.cs-article h2 {
+    font-family: var(--font-serif);
+    font-size: clamp(21px, 2.3vw, 27px);
+    font-weight: 500;
+    color: var(--text);
+    margin: 0;
+    line-height: 1.3;
+}
+.cs-article h2 em {
+    font-style: italic;
+    color: var(--accent);
+}
+
+.cs-article p {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.85;
+    color: var(--text-muted);
+    margin: 0;
+}
+.cs-article strong { color: var(--text); font-weight: 600; }
+.cs-article em.cs-footnote {
+    display: block;
+    font-size: 12px;
+    color: var(--text-subtle);
+    margin-top: 4px;
+}
+
+.cs-article .cs-figure,
+.cs-article .cs-figure-row { margin-top: 4px; }
+
+@media (max-width: 600px) {
+    .cs-article { padding: 0 22px; gap: 36px; }
 }
 
 /* ================================================================

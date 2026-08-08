@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Launching and evolving Flex in Partner Hub, Carmen Gyoh</title>
+    <title>Launching and evolving a new funding product, Carmen Gyoh</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -64,328 +64,253 @@
      ===================================================== -->
 <div class="cs-bento-page">
 
-<header class="bento-card cs-hero-card">
-    <div class="cs-hero-glow" aria-hidden="true"></div>
-    <div class="cs-hero-glow-b" aria-hidden="true"></div>
-
+<header class="cs-hero-card">
     <div class="cs-hero-inner">
-        <a href="index.html#work" class="cs-back">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-                <path d="M19 12H5M12 5l-7 7 7 7"/>
-            </svg>
-            All projects
-        </a>
-
         <div class="cs-hero-eyebrow">
             <span class="cs-chip">Fintech</span>
             <span class="cs-chip">0 to 1 Delivery</span>
             <span class="cs-chip">Partner Hub</span>
         </div>
-
-        <h1 class="cs-title">Launching and evolving <em>Flex</em> in Partner Hub</h1>
-
-        <p class="cs-hero-sub">Designing an end-to-end agent journey for a new funding product, then improving the assessment experience using real partner feedback.</p>
-
-        <div class="cs-meta-row">
-            <div class="cs-meta-item">
-                <span class="cs-meta-label">Role</span>
-                <span class="cs-meta-val">Product Designer, designer for the Partner Hub journey</span>
-            </div>
-            <div class="cs-meta-item">
-                <span class="cs-meta-label">Team</span>
-                <span class="cs-meta-val cs-fill">[PM, engineers, risk/underwriting, operations, partner stakeholders]</span>
-            </div>
-            <div class="cs-meta-item">
-                <span class="cs-meta-label">Timeline</span>
-                <span class="cs-meta-val cs-fill">[Month YYYY to Month YYYY], iteration in [Month YYYY]</span>
-            </div>
-            <div class="cs-meta-item">
-                <span class="cs-meta-label">Methods</span>
-                <span class="cs-meta-val">Journey mapping · Interaction design · Partner feedback synthesis · Iteration</span>
-            </div>
-            <div class="cs-meta-item">
-                <span class="cs-meta-label">Status</span>
-                <span class="cs-meta-val">Core journey shipped, assessment redesign not yet live</span>
-            </div>
-        </div>
     </div>
 
     <div class="cs-cover">
-        <div class="cs-cover-placeholder" aria-label="Project cover image">
-            <div class="cs-cover-glow" aria-hidden="true"></div>
-            <span class="cs-cover-label">Strongest sequence: account creation, limit, first drawdown</span>
+        <div class="cs-cover-shot">
+            <div class="cs-device-bar" aria-hidden="true">
+                <span class="cs-device-dot"></span><span class="cs-device-dot"></span><span class="cs-device-dot"></span>
+            </div>
+            <video autoplay muted loop playsinline preload="metadata" poster="images/flex/flex-demo-poster.jpg" aria-label="Screen recording of the evolved Flex journey in Partner Hub">
+                <source src="images/flex/flex-demo.mp4" type="video/mp4">
+            </video>
         </div>
+    </div>
+
+    <div class="cs-view-toggle" role="tablist" aria-label="Case study detail level">
+        <button class="cs-view-btn is-active" type="button" data-view="cs-view-tldr" role="tab" aria-selected="true">TL;DR</button>
+        <button class="cs-view-btn" type="button" data-view="cs-view-detailed" role="tab" aria-selected="false">Detailed</button>
+    </div>
+
+    <div class="cs-wide-block" style="margin-top:28px;">
+        <h1 class="cs-title">Launching and evolving a new <em>funding product</em></h1>
     </div>
 </header>
 
-<!-- =====================================================
-     STICKY PROGRESS NAV (outside bento page)
-     ===================================================== -->
-<aside class="cs-progress" aria-label="Page sections">
-    <nav class="cs-progress-nav">
-        <a href="#tldr"       class="cs-prog-dot" data-label="TL;DR"></a>
-        <a href="#brief"      class="cs-prog-dot" data-label="Overview"></a>
-        <a href="#launch"     class="cs-prog-dot" data-label="Phase 1"></a>
-        <a href="#feedback"   class="cs-prog-dot" data-label="Phase 2"></a>
-        <a href="#outcome"    class="cs-prog-dot" data-label="Outcome"></a>
-        <a href="#reflection" class="cs-prog-dot" data-label="Reflection"></a>
-    </nav>
-</aside>
-
-    <!-- ─── TL;DR ─────────────────────────────────────── -->
-    <section class="bento-card cs-bento-section" id="tldr">
-        <div class="cs-section-head">
-            <span class="cs-section-num">TL;DR</span>
-            <h2 class="cs-section-title">The 30-second <em>version</em></h2>
-        </div>
-
-        <div class="cs-section-body">
-            <div class="cs-tldr-grid">
-                <div class="cs-tldr-card cs-tldr-card--problem">
-                    <div class="cs-tldr-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
-                    </div>
-                    <span class="label">PROBLEM</span>
-                    <p>Partner agents needed to set up a brand-new funding product, live in front of a merchant, across a long journey with no existing pattern to lean on.</p>
-                </div>
-                <div class="cs-tldr-card">
-                    <div class="cs-tldr-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                    </div>
-                    <span class="label">MY ROLE</span>
-                    <p>Designed the journey 0 to 1, then returned after launch to redesign the assessment experience using partner feedback.</p>
-                </div>
-                <div class="cs-tldr-card">
-                    <div class="cs-tldr-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                    </div>
-                    <span class="label">KEY MOVE</span>
-                    <p>Made progress and status explicit across a long dependent journey, and separated the Flex limit from the first drawdown.</p>
-                </div>
-                <div class="cs-tldr-card cs-tldr-card--learned">
-                    <div class="cs-tldr-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 2a7 7 0 00-4 12.7V17h8v-2.3A7 7 0 0012 2z"/><path d="M9 21h6M10 18h4"/></svg>
-                    </div>
-                    <div>
-                        <span class="label">WHAT I LEARNED</span>
-                        <p>Shipping isn't the finish line. The strongest decisions came from watching agents struggle with the live product, not from getting it right the first time.</p>
-                    </div>
+    <!-- ─── TL;DR VIEW ─────────────────────────────────── -->
+    <div class="cs-view-panel is-active" id="cs-view-tldr">
+        <div class="cs-meta-panel cs-meta-panel--3col">
+            <div class="cs-meta-col">
+                <h3>My role</h3>
+                <p>Product Designer &amp; Researcher. Owned the journey design and ran the partner-agent testing.</p>
+            </div>
+            <div class="cs-meta-col">
+                <h3>Team</h3>
+                <div class="cs-meta-chips">
+                    <span class="cs-meta-chip">PM</span>
+                    <span class="cs-meta-chip">Engineers</span>
+                    <span class="cs-meta-chip">Partner Managers</span>
+                    <span class="cs-meta-chip">Partner Sales Agents</span>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- ─── 01 OVERVIEW ───────────────────────────────── -->
-    <section class="bento-card cs-bento-section" id="brief">
-        <div class="cs-section-head">
-            <span class="cs-section-num">01</span>
-            <h2 class="cs-section-title">Overview</h2>
-        </div>
-
-        <div class="cs-section-body">
-            <p class="cs-lead" style="max-width:100%">Flex introduced a new way for merchants to access funding through a reusable limit. Partner agents needed to create the merchant's account, complete the funding assessment, generate the Flex limit and take the first drawdown on the merchant's behalf, all inside Partner Hub, all in one live conversation.</p>
-
-            <blockquote class="cs-pullquote">
-                How might we help partner agents set up, assess and activate a new Flex account on behalf of a merchant without losing clarity across a long, dependent journey?
-            </blockquote>
-
-            <div class="cs-two-col">
-                <div class="cs-card">
-                    <div class="cs-card-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
-                    </div>
-                    <h3>What I owned</h3>
-                    <ul class="cs-list">
-                        <li>Mapped the complete agent journey, account creation to first drawdown</li>
-                        <li>Defined the information hierarchy and status model across the flow</li>
-                        <li>Designed detailed screens and edge cases for engineering handoff</li>
-                        <li>Returned after launch to redesign based on live feedback</li>
-                    </ul>
-                </div>
-                <div class="cs-card">
-                    <div class="cs-card-icon cs-card-icon--pink" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
-                    </div>
-                    <h3>Why it was difficult</h3>
-                    <p>The journey crossed account creation, business information, funding assessment, limit generation and drawdown, with dependencies on merchant data, payment processors and eligibility rules. For agents, it had to feel efficient and explainable mid-conversation. For Liberis, it had to collect the right information and avoid accidental progression when evidence was missing.</p>
-                </div>
+            <div class="cs-meta-col">
+                <h3>Timeline</h3>
+                <p>2026 Q1–Q3</p>
             </div>
         </div>
-    </section>
 
-    <!-- ─── 02 PHASE 1: CORE JOURNEY ─────────────────── -->
-    <section class="bento-card cs-bento-section" id="launch">
-        <div class="cs-section-head">
-            <span class="cs-section-num">02</span>
-            <h2 class="cs-section-title">Phase 1: building the <em>core journey</em></h2>
-        </div>
+        <article class="cs-article cs-article--tldr">
 
-        <div class="cs-section-body">
-            <p class="cs-lead" style="max-width:100%">Because Flex was a new product, there was no established Partner Hub pattern to reuse. I began by mapping merchant, agent and system actions across the whole journey, before touching a single screen. That made the dependencies visible: where an agent could progress independently, where merchant participation was required, and where a system status needed explaining.</p>
+            <section class="cs-article-section">
+                <h2>The problem</h2>
+                <p>Flex was a new funding product with no existing Partner Hub pattern to reuse. Partner agents had to create a merchant's account, assess them, generate a reusable limit and take a first advance — live, in one conversation, with dependencies on merchant data, payment processors and eligibility rules at every step.</p>
+            </section>
 
-            <figure class="cs-figure cs-figure--full">
-                <div class="cs-figure-img cs-figure-img--tall">
-                    <div class="cs-figure-skeleton" aria-hidden="true">
-                        <div class="sk-bar" style="width:35%"></div>
-                        <div class="sk-row">
-                            <div class="sk-block"></div>
-                            <div class="sk-block"></div>
-                            <div class="sk-block"></div>
-                            <div class="sk-block"></div>
-                        </div>
+            <section class="cs-article-section">
+                <h2>The process</h2>
+                <p>I mapped merchant, agent and system actions across the whole journey before designing a single screen. That made the dependencies visible: where an agent could move independently, where the merchant had to act, and where a system status needed explaining.</p>
+                <p>After launch I ran moderated sessions with partner sales agents on a clickable prototype — recruiting, moderating and synthesising them myself — to see how the journey actually held up in a live sales conversation.</p>
+                <figure class="cs-figure cs-figure--full">
+                    <div class="cs-journey-embed">
+                        <iframe src="images/flex/journey-diagram.html" title="End-to-end Partner Hub journey: agent creates the account, merchant connects Open Banking, agent returns to configure the account and take the first advance" height="700"></iframe>
                     </div>
-                    <span class="cs-figure-img-label">End-to-end agent journey map</span>
-                </div>
-                <figcaption>Mapping the complete journey exposed dependencies before committing to detailed UI.</figcaption>
-            </figure>
-
-            <div class="cs-two-col">
-                <div class="cs-decision">
-                    <div class="cs-card-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
-                    </div>
-                    <span class="cs-decision-num">Decision 1</span>
-                    <h3>Make progress and status explicit</h3>
-                    <p>The journey contained steps that couldn't always be completed in one sitting. I designed the experience so agents could see what was done, what was blocking progress, and what to do next, so an application never felt like a pile of disconnected forms.</p>
-                </div>
-                <div class="cs-decision">
-                    <div class="cs-card-icon cs-card-icon--pink" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="7" height="18" rx="1"/><rect x="14" y="3" width="7" height="18" rx="1"/></svg>
-                    </div>
-                    <span class="cs-decision-num">Decision 2</span>
-                    <h3>Separate limit setup from first drawdown</h3>
-                    <p>A Flex limit and an advance taken from it are related, but they aren't the same commitment. I structured the journey so the agent understood the available limit, reviewed the chosen advance, and completed the first drawdown as a distinct step, a pattern that scales to future drawdowns too.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ─── 03 PHASE 2: LEARNING FROM FEEDBACK ───────── -->
-    <section class="bento-card cs-bento-section" id="feedback">
-        <div class="cs-section-head">
-            <span class="cs-section-num">03</span>
-            <h2 class="cs-section-title">Phase 2: learning from <em>partner feedback</em></h2>
-        </div>
-
-        <div class="cs-section-body">
-            <p class="cs-lead" style="max-width:100%">After the core journey shipped, partner agents reported two points of friction: Open Banking wasn't completing successfully often enough, and agents could pick the wrong payment processor. They also wanted to show merchants an indicative figure before asking them to commit to the full assessment. These weren't isolated interface issues, the assessment page was trying to support different levels of certainty without making the preferred path clear.</p>
-
-            <figure class="cs-figure-row">
-                <figure class="cs-figure">
-                    <div class="cs-figure-img">
-                        <div class="cs-figure-skeleton" aria-hidden="true">
-                            <div class="sk-bar" style="width:60%"></div>
-                            <div class="sk-row">
-                                <div class="sk-block"></div>
-                                <div class="sk-block"></div>
-                            </div>
-                        </div>
-                        <span class="cs-figure-img-label">Original assessment</span>
-                    </div>
-                    <figcaption>Every route had equal visual weight, so the preferred path wasn't clear.</figcaption>
                 </figure>
-                <figure class="cs-figure">
-                    <div class="cs-figure-img">
-                        <div class="cs-figure-skeleton" aria-hidden="true">
-                            <div class="sk-bar" style="width:40%"></div>
-                            <div class="sk-row">
-                                <div class="sk-block"></div>
-                                <div class="sk-block"></div>
-                                <div class="sk-block"></div>
-                            </div>
-                        </div>
-                        <span class="cs-figure-img-label">Redesigned assessment</span>
+            </section>
+
+            <section class="cs-article-section">
+                <h2>The key move</h2>
+                <p>I made progress and status explicit across the journey, and separated the Flex limit from the first drawdown so each read as its own commitment rather than one long form. I also designed an interactive calculator so agents could explain what an advance actually costs, mid-conversation.</p>
+                <figure class="cs-figure cs-figure--full">
+                    <div class="cs-device cs-device--phone" style="margin: 0 auto;">
+                        <img src="images/flex/flex-first-advance-calculator.png" alt="First-advance calculator showing a selected advance amount alongside its fixed fee, percentage of daily sales and total repayment">
                     </div>
-                    <figcaption>Open Banking made primary, with estimates and processor choice as distinct steps.</figcaption>
                 </figure>
-            </figure>
+            </section>
 
-            <div class="cs-info-table">
-                <div class="cs-info-table-row cs-info-table-row--head">
-                    <span>Problem</span>
-                    <span>Design response</span>
-                    <span>Expected benefit</span>
-                </div>
-                <div class="cs-info-table-row">
-                    <span>Open Banking wasn't prominent enough</span>
-                    <span>Gave it clear primary status and explained why it's preferred.</span>
-                    <span>More successful completion, better assessment data.</span>
-                </div>
-                <div class="cs-info-table-row">
-                    <span>Agents needed an early indicative figure</span>
-                    <span>Created a separate, clearly non-committal estimates calculator.</span>
-                    <span>Supports merchant conversations without confusing estimates with assessment.</span>
-                </div>
-                <div class="cs-info-table-row">
-                    <span>Processor choice caused errors</span>
-                    <span>Dedicated step showing only known, eligible processors.</span>
-                    <span>Reduces incorrect selections and decision effort.</span>
-                </div>
-                <div class="cs-info-table-row">
-                    <span>Failure could stop progress entirely</span>
-                    <span>Offered estimates as a clearly labelled fallback route.</span>
-                    <span>Conversation continues without disguising the lower-certainty route.</span>
+            <section class="cs-article-section">
+                <h2>What I learned</h2>
+                <p>Shipping wasn't the finish line. Moderated testing after launch showed the assessment step was the weak point: Open Banking needed to be the obvious route to an accurate limit, and agents needed a lighter way to talk numbers before asking a merchant to commit. The strongest decisions came from watching real use, not from getting it right first time.</p>
+                <figure class="cs-figure-row">
+                    <figure class="cs-figure">
+                        <div class="cs-figure-img cs-figure-img--shot" style="aspect-ratio:1280/1012;">
+                            <img src="images/flex/flex-funding-assessment-original.png" alt="Original funding assessment screen, with Open Banking shown as an equal-weight option alongside estimated figures">
+                        </div>
+                        <figcaption>Before — every route had equal weight.</figcaption>
+                    </figure>
+                    <figure class="cs-figure">
+                        <div class="cs-figure-img cs-figure-img--shot" style="aspect-ratio:1280/1166;">
+                            <img src="images/flex/flex-funding-assessment-updated.png" alt="Updated funding assessment screen, with Open Banking as the sole primary card and estimates demoted to a link">
+                        </div>
+                        <figcaption>After — Open Banking made the clear primary route.</figcaption>
+                    </figure>
+                </figure>
+            </section>
+
+        </article>
+    </div>
+
+    <!-- ─── DETAILED VIEW ──────────────────────────────── -->
+    <div class="cs-view-panel" id="cs-view-detailed">
+        <div class="cs-wide-block">
+            <p class="cs-hero-sub cs-hero-sub--wide">Designed the end-to-end Flex journey in Partner Hub, from account creation to first drawdown, then redesigned the funding assessment using real partner feedback.</p>
+        </div>
+
+        <div class="cs-meta-panel cs-meta-panel--3col">
+            <div class="cs-meta-col">
+                <h3>My role</h3>
+                <p>Product Designer &amp; Researcher. Owned the journey design and ran the partner-agent testing.</p>
+            </div>
+            <div class="cs-meta-col">
+                <h3>Team</h3>
+                <div class="cs-meta-chips">
+                    <span class="cs-meta-chip">PM</span>
+                    <span class="cs-meta-chip">Engineers</span>
+                    <span class="cs-meta-chip">Partner Managers</span>
+                    <span class="cs-meta-chip">Partner Sales Agents</span>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- ─── 04 OUTCOME ────────────────────────────────── -->
-    <section class="bento-card cs-bento-section" id="outcome">
-        <div class="cs-section-head">
-            <span class="cs-section-num">04</span>
-            <h2 class="cs-section-title">Outcome</h2>
+            <div class="cs-meta-col">
+                <h3>Timeline</h3>
+                <p>2026 Q1–Q3</p>
+            </div>
         </div>
 
-        <div class="cs-section-body">
-            <div class="cs-two-col">
-                <div class="cs-card">
-                    <div class="cs-card-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+    <article class="cs-article">
+
+            <section class="cs-article-section" id="brief">
+                <h2>Overview</h2>
+                <p>Flex introduced a new way for merchants to access funding through a reusable limit, rather than a single fixed advance. Partner agents needed to carry a merchant through four dependent stages inside Partner Hub, in one live conversation: create the merchant's account, complete the funding assessment, establish the reusable Flex limit, then take the first drawdown on the merchant's behalf.</p>
+
+                <blockquote class="cs-pullquote cs-pullquote--question">
+                    How might we help partner agents set up, assess and activate a new Flex account on behalf of a merchant without losing clarity across a long, dependent journey?
+                </blockquote>
+
+                <p>I owned the journey end to end — mapping the agent flow, defining the information hierarchy and status model, designing the detailed screens and edge cases, then returning after launch to redesign based on live feedback.</p>
+
+                <div class="cs-insight-callout">
+                    <span class="label">WHY IT WAS HARD</span>
+                    <p>The journey crossed account creation, funding assessment, limit generation and drawdown, each with its own dependencies on merchant data, processors and eligibility rules. It had to feel efficient for agents mid-conversation, and safe for Liberis when evidence was missing.</p>
+                </div>
+            </section>
+
+            <section class="cs-article-section" id="journey">
+                <h2>Mapping the <em>journey</em></h2>
+                <p>Because Flex was a new product, there was no established Partner Hub pattern to reuse. I began by mapping merchant, agent and system actions across the whole journey, before touching a single screen. That made the dependencies visible: where an agent could progress independently, where merchant participation was required, and where a system status needed explaining.</p>
+
+                <figure class="cs-figure cs-figure--full">
+                    <div class="cs-journey-embed">
+                        <iframe src="images/flex/journey-diagram.html" title="End-to-end Partner Hub journey: agent creates the account, merchant connects Open Banking, agent returns to configure the account and take the first advance" height="700"></iframe>
                     </div>
-                    <h3>What shipped</h3>
-                    <p>The core Flex journey shipped and enabled partner agents to <span class="cs-fill">[set up Flex accounts and complete first drawdowns within Partner Hub]</span>.</p>
-                </div>
-                <div class="cs-card cs-card--accent">
-                    <div class="cs-card-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+                    <figcaption>The agent can drop off once the Open Banking link is sent, and is notified to return once the merchant connects their bank account.</figcaption>
+                </figure>
+            </section>
+
+            <section class="cs-article-section" id="launch">
+                <h2>Helping agents explain the <em>first advance</em></h2>
+                <p>The first advance wasn't simply an amount-selection step. Agents needed to explain what taking funding would mean for the merchant, mid-conversation. I designed an interactive calculator that let agents explore an advance amount and immediately see the corresponding fixed fee, percentage of daily sales and total repayment.</p>
+
+                <figure class="cs-figure cs-figure--full">
+                    <div class="cs-device cs-device--phone" style="margin: 0 auto;">
+                        <img src="images/flex/flex-first-advance-calculator.png" alt="First-advance calculator showing a selected advance amount alongside its fixed fee, percentage of daily sales and total repayment">
                     </div>
-                    <h3>What's still pending</h3>
-                    <p>The funding assessment improvements were designed in response to partner feedback and documented for implementation. At the time of writing they were not yet live.</p>
+                    <figcaption>Moving the slider updates the fee, the daily-sales percentage and the total repayment together, so an agent can talk through a real scenario live.</figcaption>
+                </figure>
+
+                <p>Two decisions shaped how the rest of the journey worked. <strong>Making progress and status explicit:</strong> the journey contained steps that couldn't always be completed in one sitting, so I designed the experience so agents could see what was done, what was blocking progress, and what to do next — an application was never a pile of disconnected forms. <strong>Separating limit setup from first drawdown:</strong> a Flex limit and an advance taken from it are related but aren't the same commitment, so I structured the journey so the agent understood the available limit, reviewed the chosen advance, and completed the first drawdown as its own distinct step — a pattern that scales to future drawdowns too.</p>
+            </section>
+
+            <section class="cs-article-section" id="learned">
+                <h2>Testing it with <em>real agents</em></h2>
+                <p>I ran moderated sessions with partner sales agents on a clickable prototype. Each session paired a scenario-based walkthrough — "you're on a call with a merchant who wants funding now" — with think-aloud observation, then an interview about how they actually sell in the field. I recruited, moderated and synthesised these myself.</p>
+
+                <p>The most useful findings weren't about the interface at all.</p>
+
+                <p><strong>Agents were afraid to start the journey.</strong> Several avoided opening an application in front of a merchant, worried about committing someone who wasn't ready and triggering automated contact they couldn't control. One asked for a sandbox to practise in first. That reframed the problem: the barrier wasn't comprehension, it was confidence in a high-pressure moment.</p>
+
+                <p><strong>Preparation was being punished.</strong> Agents routinely pre-filled what they already knew before meeting a merchant, to save that merchant's time. But saving and closing late in the flow made the offers unretrievable for a period, forcing a restart — the single biggest blocker raised, and a direct consequence of a behaviour the design hadn't accounted for.</p>
+
+                <p><strong>The revenue question was ambiguous.</strong> Agents couldn't tell whether it meant card turnover or total revenue, gross or net, exact or estimate — and merchants switching processors rarely had the figure to hand. It needed clearer copy and an explicit tolerance so agents could reassure merchants that an approximate answer was fine.</p>
+
+                <blockquote class="cs-pullquote">
+                    "If I'm with a client and I say now it's a credit search, they will say no, I don't want to do that."
+                </blockquote>
+
+                <p>That last one mattered most. A check early in the conversation stopped the conversation dead — which is exactly why Open Banking needed to become the primary, better-explained route rather than one option among several.</p>
+
+                <em class="cs-footnote">Synthesised from moderated partner-agent sessions and post-launch feedback. Participant names, prototype access and commercially sensitive detail have been withheld.</em>
+            </section>
+
+            <section class="cs-article-section" id="feedback">
+                <h2>Evolving the <em>funding assessment</em></h2>
+                <p>The original assessment treated different funding routes with similar visual weight. Feedback showed that Open Banking needed to become the clearest route to an accurate limit, while estimates served a different purpose: helping agents begin a funding conversation when verified information wasn't yet available.</p>
+
+                <figure class="cs-figure-row">
+                    <figure class="cs-figure">
+                        <div class="cs-figure-img cs-figure-img--shot" style="aspect-ratio:1280/1012;">
+                            <img src="images/flex/flex-funding-assessment-original.png" alt="Original funding assessment screen, with a processor dropdown at the top and Open Banking shown as an equal-weight option alongside estimated figures">
+                        </div>
+                        <figcaption>Every route had equal visual weight, so the preferred path wasn't clear.</figcaption>
+                    </figure>
+                    <figure class="cs-figure">
+                        <div class="cs-figure-img cs-figure-img--shot" style="aspect-ratio:1280/1166;">
+                            <img src="images/flex/flex-funding-assessment-updated.png" alt="Updated funding assessment screen, with Open Banking as the sole primary card, estimates demoted to a link, and a separate funding-preview calculator">
+                        </div>
+                        <figcaption>Open Banking made primary, with estimates and processor choice as distinct steps.</figcaption>
+                    </figure>
+                </figure>
+
+                <p>Three specific shifts came out of that feedback. <strong>Open Banking became the primary route</strong>, positioning the evidence-based assessment more prominently. <strong>Estimates became a distinct tool</strong>, separating indicative conversations from the route used to establish an accurate Flex limit. <strong>Processor selection became intentional</strong>, moved into its own step that only surfaces processors associated with the merchant.</p>
+
+                <figure class="cs-figure" style="max-width:220px; margin:4px auto 0;">
+                    <div class="cs-device cs-device--phone cs-device--crop">
+                        <img src="images/flex/flex-mobile-choose-processor.png" alt="Dedicated processor-selection screen on mobile, showing eligible and ineligible processors for the merchant">
+                    </div>
+                    <figcaption>Processor choice moved into its own dedicated step, showing only processors associated with the merchant.</figcaption>
+                </figure>
+            </section>
+
+            <section class="cs-article-section" id="outcome">
+                <h2>Outcome</h2>
+
+                <p>The MVP established an end-to-end Flex journey in Partner Hub, allowing partner agents to move merchants from account creation through to establishing a Flex limit and taking their first advance. Following launch, I used partner feedback and testing to redesign a critical part of the journey: making Open Banking clearer, reducing processor-selection errors and giving agents a more appropriate way to explore indicative funding with merchants.</p>
+
+                <div class="cs-insight-callout">
+                    <span class="label">RESULT</span>
+                    <p>A shipped 0-to-1 journey used by partner agents in production, plus a redesign of the assessment experience grounded in real usage rather than assumptions made before launch.</p>
                 </div>
-            </div>
+            </section>
 
-            <div class="cs-insight-callout">
-                <span class="label">RESULT</span>
-                <p>A shipped 0-to-1 journey used by partner agents in production, plus a validated, ready-to-build redesign of the assessment experience grounded in real usage rather than assumptions made before launch.</p>
-            </div>
-        </div>
-    </section>
+            <section class="cs-article-section" id="reflection">
+                <h2>Reflection</h2>
+                <blockquote class="cs-pullquote">
+                    An indicative conversation, an evidence-based assessment and a committed drawdown serve different needs and shouldn't be presented as interchangeable routes. Separating levels of certainty is a design decision, not a detail.
+                </blockquote>
 
-    <!-- ─── 05 REFLECTION ─────────────────────────────── -->
-    <section class="bento-card cs-bento-section" id="reflection">
-        <div class="cs-section-head">
-            <span class="cs-section-num">05</span>
-            <h2 class="cs-section-title">Reflection</h2>
-        </div>
+                <p>The bigger lesson was about timing: the redesign was stronger because it responded to observed agent behaviour, not assumptions made before launch. The clearest example was the sandbox — agents asked for somewhere to practise the journey before running it live in front of a merchant, and that need was invisible until I watched them hesitate. With more time I'd build a lighter feedback loop into future 0-to-1 launches so that kind of insight surfaces in weeks, not after months in production.</p>
+            </section>
 
-        <div class="cs-section-body">
-            <blockquote class="cs-pullquote">
-                An indicative conversation, an evidence-based assessment and a committed drawdown serve different needs and shouldn't be presented as interchangeable routes. Separating levels of certainty is a design decision, not a detail.
-            </blockquote>
-
-            <p class="cs-lead" style="max-width:100%">The bigger lesson was about timing: the redesign was stronger because it responded to specific agent behaviour, not assumptions made before launch. With more time, I'd <span class="cs-fill">[specific next research or design step]</span>, and build a lighter feedback loop into future 0-to-1 launches so this kind of iteration happens sooner.</p>
-        </div>
-    </section>
+        </article>
+    </div>
 
     <!-- ─── END NAV ──────────────────────────────────── -->
-    <div class="cs-end-nav">
-        <a href="index.html#work" class="cs-back cs-back--end">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-                <path d="M19 12H5M12 5l-7 7 7 7"/>
-            </svg>
-            All projects
-        </a>
+    <div class="cs-end-nav" style="justify-content:flex-end;">
         <a href="case-study.html" class="cs-next-project">
             Next project
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">

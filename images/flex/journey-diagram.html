@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<title>Journey</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #f2f2ec;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+  }
+
+  .card {
+    background: white;
+    border-radius: 16px;
+    padding: 28px 28px 32px;
+    width: 500px;
+    box-shadow: 0 2px 20px rgba(0,0,0,.08);
+  }
+
+  .hdr {
+    display: flex; align-items: center; gap: 9px;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #f0f0e8;
+  }
+  .logo { width:26px;height:26px;background:#E7FF7C;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;flex-shrink:0; }
+  .hdr-text { font-size:12px;font-weight:700;color:#232c2f; }
+  .hdr-sub  { font-size:10px;color:#9ca3af;margin-top:1px; }
+
+  /* Phase label */
+  .phase-label {
+    display: flex; align-items: center; gap: 8px;
+    margin-bottom: 10px;
+  }
+  .actor-badge {
+    font-size: 9px; font-weight: 700; letter-spacing: .05em;
+    text-transform: uppercase; padding: 3px 8px;
+    border-radius: 20px; white-space: nowrap; flex-shrink: 0;
+  }
+  .agent    { background: #232c2f; color: white; }
+  .merchant { background: #E7FF7C; color: #232c2f; }
+  .phase-title { font-size: 10px; font-weight: 600; color: #9ca3af; }
+
+  /* Step row */
+  .steps {
+    display: flex; align-items: center; gap: 0;
+    padding-left: 2px;
+  }
+  .step {
+    flex-shrink: 0;
+    border: 1.5px solid #e2e2d8;
+    border-radius: 7px;
+    padding: 7px 10px;
+    background: white;
+    text-align: center;
+  }
+  .step .name { font-size: 10.5px; font-weight: 600; color: #232c2f; white-space: nowrap; }
+  .step .sub  { font-size: 8.5px; color: #9ca3af; margin-top: 1px; white-space: nowrap; }
+  .step.lime    { background: #E7FF7C; border-color: #bdd432; }
+  .step.success { background: #f0fdf4; border-color: #86efac; }
+  .step.success .name { color: #166534; }
+  .step.dash    { background: #232c2f; border-color: #232c2f; }
+  .step.dash .name { color: white; }
+  .step.dash .sub  { color: #6b7280; }
+
+  /* Arrow between steps */
+  .arr {
+    width: 20px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+  }
+  .arr::before {
+    content: ''; display: block;
+    width: 14px; height: 1.5px; background: #d4d4c3;
+  }
+  .arr::after {
+    content: ''; position: absolute; right: 2px;
+    border-top: 3.5px solid transparent;
+    border-bottom: 3.5px solid transparent;
+    border-left: 5px solid #d4d4c3;
+  }
+
+  /* Vertical connector */
+  .vconn {
+    display: flex; align-items: flex-start; gap: 10px;
+    margin: 2px 0; padding-left: 2px;
+  }
+  .vline-wrap {
+    display: flex; flex-direction: column; align-items: center;
+    width: 20px; flex-shrink: 0;
+  }
+  .vline {
+    width: 1.5px; background: #d4d4c3;
+    position: relative;
+  }
+  .vline.arrow::after {
+    content: ''; position: absolute;
+    bottom: -1px; left: 50%; transform: translateX(-50%);
+    border-left: 3.5px solid transparent;
+    border-right: 3.5px solid transparent;
+    border-top: 5px solid #d4d4c3;
+  }
+  .vline.dashed { background: none; border-left: 1.5px dashed #d4d4c3; }
+  .vconn-label {
+    font-size: 9px; color: #b0b0a0; font-style: italic;
+    padding-top: 3px; line-height: 1.4;
+  }
+
+  /* Handoff note */
+  .note {
+    margin: 0 0 2px 2px;
+    padding: 9px 12px;
+    border-radius: 8px;
+    border: 1.5px dashed #d4d4c3;
+    background: #fafaf8;
+    display: flex; align-items: flex-start; gap: 8px;
+  }
+  .note-icon { font-size: 13px; flex-shrink: 0; margin-top: 1px; }
+  .note-text { font-size: 9.5px; color: #696a6b; line-height: 1.5; }
+  .note-text strong { color: #232c2f; font-weight: 600; }
+
+  /* Optional drop-off note */
+  .optional-note {
+    margin: 0 0 0 2px;
+    padding: 8px 11px;
+    border-radius: 7px;
+    border: 1.5px dashed #d4d4c3;
+    background: #fafaf8;
+    display: flex; align-items: flex-start; gap: 8px;
+  }
+  .optional-badge {
+    font-size: 8px; font-weight: 700; letter-spacing: .04em;
+    text-transform: uppercase; color: #9ca3af;
+    background: #f0f0ea; border-radius: 4px;
+    padding: 2px 5px; white-space: nowrap; flex-shrink: 0; margin-top: 1px;
+  }
+  .optional-text {
+    font-size: 9.5px; color: #696a6b; line-height: 1.5;
+  }
+
+  /* Drop-off block — dashed timeline wrapping merchant action */
+  .dropoff {
+    margin: 0 0 2px 2px;
+    display: flex; align-items: stretch; gap: 0;
+  }
+  .dropoff-timeline {
+    display: flex; flex-direction: column; align-items: center;
+    width: 20px; flex-shrink: 0;
+  }
+  .dropoff-line {
+    width: 1.5px; flex: 1;
+    background: none;
+    border-left: 1.5px dashed #d4d4c3;
+  }
+  .dropoff-content {
+    flex: 1;
+    padding: 6px 0 8px 10px;
+    display: flex; flex-direction: column; gap: 6px;
+  }
+
+  /* Return trigger */
+  .return-trigger {
+    margin: 0 0 2px 2px;
+    padding: 7px 10px 7px 12px;
+    border-radius: 7px;
+    background: #f0fdf4; border: 1.5px solid #86efac;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .return-trigger-icon { font-size: 12px; flex-shrink: 0; }
+  .return-trigger-text { font-size: 9.5px; color: #166534; line-height: 1.4; }
+  .return-trigger-text strong { font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="card">
+
+  <div class="hdr">
+    <div class="logo">L</div>
+    <div>
+      <div class="hdr-text">Partner Hub — End-to-End Journey</div>
+      <div class="hdr-sub">Flex application &amp; first advance</div>
+    </div>
+  </div>
+
+  <!-- ── Phase 1: Agent creates account ── -->
+  <div class="phase-label">
+    <span class="actor-badge agent">Agent</span>
+    <span class="phase-title">Creates account</span>
+  </div>
+  <div class="steps" style="margin-bottom:10px;">
+    <div class="step"><div class="name">Business details</div></div>
+    <div class="arr"></div>
+    <div class="step"><div class="name">Ownership</div></div>
+    <div class="arr"></div>
+    <div class="step"><div class="name">Review</div></div>
+    <div class="arr"></div>
+    <div class="step lime"><div class="name">Send OB link</div></div>
+  </div>
+
+  <!-- Vertical line after Send OB link -->
+  <div class="vconn" style="height:14px;">
+    <div class="vline-wrap"><div class="vline" style="height:14px;"></div></div>
+  </div>
+
+  <!-- Optional drop-off note -->
+  <div class="optional-note" style="margin-bottom:10px;">
+    <span class="optional-badge">Optional</span>
+    <span class="optional-text">Agent can drop off from this screen. They will be alerted via email to return once the customer has connected Open Banking.</span>
+  </div>
+
+  <!-- Drop-off block wrapping the merchant action -->
+  <div class="dropoff">
+    <div class="dropoff-timeline">
+      <div class="dropoff-line"></div>
+    </div>
+    <div class="dropoff-content">
+      <!-- Merchant phase -->
+      <div>
+        <div class="phase-label" style="margin-bottom:6px;">
+          <span class="actor-badge merchant">Merchant</span>
+          <span class="phase-title">Connects bank account</span>
+        </div>
+        <div class="steps">
+          <div class="step"><div class="name">Opens email link</div></div>
+          <div class="arr"></div>
+          <div class="step success"><div class="name">Bank account connected ✓</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Agent is notified and returns -->
+  <div class="vconn" style="height:10px;">
+    <div class="vline-wrap"><div class="vline" style="height:10px;"></div></div>
+  </div>
+
+  <div class="return-trigger" style="margin-bottom:10px;">
+    <div class="return-trigger-icon">🔔</div>
+    <div class="return-trigger-text"><strong>Agent is notified.</strong> Dashboard row updates to "Offers available" — agent re-enters the flow.</div>
+  </div>
+
+  <div class="vconn" style="height:18px;">
+    <div class="vline-wrap"><div class="vline arrow" style="height:18px;"></div></div>
+  </div>
+
+  <!-- ── Phase 3: Agent configures account ── -->
+  <div class="phase-label">
+    <span class="actor-badge agent">Agent</span>
+    <span class="phase-title">Configures account</span>
+  </div>
+  <div class="steps" style="margin-bottom:10px;">
+    <div class="step"><div class="name">Limit available</div></div>
+    <div class="arr"></div>
+    <div class="step"><div class="name">Set account limit</div></div>
+    <div class="arr"></div>
+    <div class="step success"><div class="name">Flex account live ✓</div></div>
+  </div>
+
+  <div class="vconn" style="height:22px;">
+    <div class="vline-wrap"><div class="vline arrow" style="height:22px;"></div></div>
+  </div>
+
+  <!-- ── Phase 4: First advance ── -->
+  <div class="phase-label">
+    <span class="actor-badge agent">Agent</span>
+    <span class="phase-title">First advance</span>
+  </div>
+  <div class="steps">
+    <div class="step"><div class="name">Offers available</div><div class="sub">dashboard</div></div>
+    <div class="arr"></div>
+    <div class="step"><div class="name">Explore scenarios</div><div class="sub">slider + terms</div></div>
+    <div class="arr"></div>
+    <div class="step"><div class="name">Confirm</div></div>
+    <div class="arr"></div>
+    <div class="step success"><div class="name">Advance sent ✓</div></div>
+  </div>
+
+</div>
+</body>
+</html>
