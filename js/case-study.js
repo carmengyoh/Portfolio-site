@@ -65,4 +65,32 @@
         });
     });
 
+    /* ── TL;DR / Detailed view toggle ── */
+    const viewBtns   = document.querySelectorAll('.cs-view-btn');
+    const viewPanels = document.querySelectorAll('.cs-view-panel');
+    viewBtns.forEach(vbtn => {
+        vbtn.addEventListener('click', () => {
+            const target = vbtn.getAttribute('data-view');
+            viewBtns.forEach(b => {
+                const active = b === vbtn;
+                b.classList.toggle('is-active', active);
+                b.setAttribute('aria-selected', String(active));
+            });
+            viewPanels.forEach(p => p.classList.toggle('is-active', p.id === target));
+        });
+    });
+
+    /* ── Journey diagram iframe: size to its own content, same-origin ── */
+    document.querySelectorAll('.cs-journey-embed iframe').forEach(frame => {
+        const resize = () => {
+            try {
+                const doc = frame.contentDocument;
+                if (doc && doc.documentElement) {
+                    frame.style.height = doc.documentElement.scrollHeight + 'px';
+                }
+            } catch (e) { /* cross-origin fallback: leave default height */ }
+        };
+        frame.addEventListener('load', resize);
+    });
+
 })();

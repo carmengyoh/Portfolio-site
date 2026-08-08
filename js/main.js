@@ -15,14 +15,15 @@
 
         var items = PROJECTS.slice(0, FLAGSHIP_COUNT);
 
-        grid.innerHTML = items.map(function (p, idx) {
-            var num = ('0' + (idx + 1)).slice(-2);
-
-            var imageHTML = p.image
+        grid.innerHTML = items.map(function (p) {
+            var mediaHTML = p.video
+                ? '<video autoplay muted loop playsinline preload="metadata"' + (p.poster ? ' poster="' + p.poster + '"' : '') + ' aria-label="' + p.title + ' preview"><source src="' + p.video + '" type="video/mp4"></video>'
+                : p.image
                 ? '<img src="' + p.image + '" alt="' + p.title + '" loading="lazy">'
                 : '';
 
-            var placeholderStyle = (!p.image && p.placeholderBg)
+            var hasMedia = p.video || p.image;
+            var placeholderStyle = (!hasMedia && p.placeholderBg)
                 ? 'style="background:' + p.placeholderBg + '"'
                 : '';
 
@@ -30,14 +31,9 @@
                 ? '<p class="card-client">' + p.client + '</p>'
                 : '';
 
-            var tagsHTML = p.tags.map(function (t, i) {
-                return (i > 0 ? '<span class="tag-sep">·</span>' : '') +
-                       '<span class="card-tag">' + t + '</span>';
+            var chipsHTML = p.tags.map(function (t) {
+                return '<span class="card-chip">' + t + '</span>';
             }).join('');
-
-            var statusHTML = p.status
-                ? '<span class="card-status">' + p.status + '</span>'
-                : '';
 
             var isLinked = p.link && p.link !== '#';
             return [
@@ -47,17 +43,15 @@
                 '  tabindex="0"',
                 '  aria-label="' + p.title + ' case study"',
                 '  onkeydown="if(event.key===\'Enter\'&&this.dataset.link!==\'#\')window.location=this.dataset.link">',
-                '  <div class="card-image' + (!p.image ? ' is-placeholder' : '') + '" ' + placeholderStyle + '>',
-                '    ' + imageHTML,
+                '  <div class="card-image' + (!hasMedia ? ' is-placeholder' : '') + '" ' + placeholderStyle + '>',
+                '    ' + mediaHTML,
                 '  </div>',
-                '  <div class="card-name-tag">' + (p.client ? p.client + ' · ' : '') + p.title + '</div>',
-                '  <div class="card-hover-info">',
+                '  <div class="card-overlay">',
                 '    ' + clientHTML,
                 '    <h3 class="card-title">' + p.title + '</h3>',
-                '    <p class="card-tags">' + tagsHTML + '</p>',
+                '    <div class="card-chips">' + chipsHTML + '</div>',
                 '    <p class="card-desc">' + p.description + '</p>',
-                '    ' + statusHTML,
-                '    <div class="card-arrow">→</div>',
+                '    <span class="card-arrow">→</span>',
                 '  </div>',
                 '</article>',
             ].join('\n');

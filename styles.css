@@ -590,13 +590,16 @@ em {
     background:   var(--bg);
     flex-shrink:  0;
 }
-.card-image img {
+.card-image img,
+.card-image video {
+    display:    block;
     width:      100%;
     height:     100%;
     object-fit: cover;
     transition: transform 0.5s var(--ease);
 }
-.project-card:hover .card-image img { transform: scale(1.04); }
+.project-card:hover .card-image img,
+.project-card:hover .card-image video { transform: scale(1.04); }
 
 /* Placeholder shown while no image is set */
 .card-image.is-placeholder {
@@ -1081,10 +1084,12 @@ em {
 /* ================================================================
    CARD MOUSE-GLOW — radial highlight follows cursor in dark mode
    ================================================================ */
-[data-theme="dark"] .project-card {
+[data-theme="dark"] .project-card,
+[data-theme="dark"] .spotlight-card {
     position: relative;
 }
-[data-theme="dark"] .project-card::before {
+[data-theme="dark"] .project-card::before,
+[data-theme="dark"] .spotlight-card::before {
     content:        '';
     position:       absolute;
     inset:          0;
@@ -1099,14 +1104,21 @@ em {
     pointer-events: none;
     z-index:        0;
 }
-[data-theme="dark"] .project-card:hover::before { opacity: 1; }
+[data-theme="dark"] .project-card:hover::before,
+[data-theme="dark"] .spotlight-card:hover::before { opacity: 1; }
 
 /* Ensure card content sits above the glow layer */
 [data-theme="dark"] .project-card .card-image,
 [data-theme="dark"] .project-card .card-body,
-[data-theme="dark"] .project-card .card-footer {
+[data-theme="dark"] .project-card .card-footer,
+[data-theme="dark"] .spotlight-card .spotlight-media,
+[data-theme="dark"] .spotlight-card .spotlight-body {
     position: relative;
     z-index:  1;
+}
+/* Overlay text sits above both the glow layer and the media */
+[data-theme="dark"] .project-card .card-overlay {
+    z-index: 2;
 }
 
 
@@ -1840,9 +1852,9 @@ body.hero-entered .hero-actions {
 }
 
 .hero-avatar {
-    width: 140px;
-    height: 140px;
-    border-radius: 28px;
+    width: 190px;
+    height: 190px;
+    border-radius: 38px;
     object-fit: cover;
     object-position: center 20%;
     border: 2px solid var(--accent-dim);
@@ -1905,18 +1917,18 @@ body.hero-entered .hero-actions {
     grid-template-columns: 1fr 0.42fr;
 }
 
-/* ── Work bento card ── */
-.work-bento {
-    padding: 32px 32px 36px;
+/* ── Featured work — label sits directly on the page, cards are the only boxes ── */
+.work-row {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 18px;
 }
 
 .work-bento-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 2px 6px;
 }
 
 .work-bento-header .label { margin: 0; }
@@ -1963,8 +1975,9 @@ body.hero-entered .hero-actions {
     display: none;
 }
 
-/* Hover overlay — fades up from bottom */
-.card-hover-info {
+/* Always-visible overlay — sits permanently on top of the media, no hover
+   needed, so the info reads the same on mobile as it does on desktop. */
+.card-overlay {
     position: absolute;
     inset: 0;
     padding: 20px 22px 22px;
@@ -1975,22 +1988,14 @@ body.hero-entered .hero-actions {
     background: linear-gradient(
         to top,
         rgba(0,0,0,0.88) 0%,
-        rgba(0,0,0,0.50) 45%,
-        rgba(0,0,0,0.0)  80%
+        rgba(0,0,0,0.55) 48%,
+        rgba(0,0,0,0.05) 85%
     );
-    opacity: 0;
-    transform: translateY(8px);
-    transition: opacity 0.32s ease, transform 0.32s ease;
     pointer-events: none;
 }
+.card-overlay > * { pointer-events: auto; }
 
-.bento-work-grid .project-card:hover .card-hover-info {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-}
-
-.card-hover-info .card-client {
+.card-overlay .card-client {
     font-family: var(--font-sans);
     font-size: 10px;
     font-weight: 600;
@@ -2000,7 +2005,7 @@ body.hero-entered .hero-actions {
     margin: 0;
 }
 
-.card-hover-info .card-title {
+.card-overlay .card-title {
     font-family: var(--font-serif);
     font-size: 18px;
     font-weight: 500;
@@ -2009,37 +2014,32 @@ body.hero-entered .hero-actions {
     line-height: 1.25;
 }
 
-.card-status {
+.card-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 6px;
+}
+
+.card-chip {
     display: inline-block;
-    margin-top: 8px;
-    padding: 3px 10px;
+    padding: 3px 9px;
     border-radius: 100px;
     font-family: var(--font-sans);
     font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: #f9a8d4;
-    border: 1px solid rgba(249,168,212,0.35);
-    background: rgba(244,114,182,0.12);
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    color: rgba(255,255,255,0.85);
+    border: 1px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.10);
 }
 
-.card-hover-info .card-tags {
-    font-family: var(--font-sans);
-    font-size: 11.5px;
-    color: rgba(255,255,255,0.55);
-    margin: 4px 0 0;
-}
-
-.card-hover-info .card-tags .card-tag { color: inherit; }
-.card-hover-info .card-tags .tag-sep  { color: rgba(255,255,255,0.3); margin: 0 4px; }
-
-.card-hover-info .card-desc {
+.card-overlay .card-desc {
     font-family: var(--font-sans);
     font-size: 12.5px;
     font-weight: 300;
     color: rgba(255,255,255,0.70);
-    margin: 5px 0 0;
+    margin: 8px 26px 0 0;
     line-height: 1.5;
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -2047,17 +2047,26 @@ body.hero-entered .hero-actions {
     overflow: hidden;
 }
 
-.card-hover-info .card-arrow {
-    margin-top: 10px;
+.card-overlay .card-arrow {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
     font-size: 16px;
     color: var(--accent);
     width: 32px;
     height: 32px;
     border-radius: 50%;
     border: 1.5px solid rgba(244,114,182,0.5);
+    background: rgba(0,0,0,0.25);
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+.bento-work-grid .project-card:hover .card-overlay .card-arrow {
+    background: var(--accent);
+    color: #fff;
+    transform: translateX(2px);
 }
 
 /* card-num stays always visible */
@@ -2676,11 +2685,6 @@ body.hero-breaking .hero-actions {
    HERO — white card with floating gradient blobs (override)
    ================================================================ */
 
-/* Single full-width card */
-.hero-row {
-    grid-template-columns: 1fr !important;
-}
-
 /* White card base — blobs float on it */
 .hero-main-card {
     background: #ffffff !important;
@@ -2811,9 +2815,12 @@ body.hero-breaking .hero-actions {
     }
 }
 
-/* Restore 2-column hero row (main card + personality card) */
-.hero-row {
-    grid-template-columns: 1fr 0.38fr !important;
+/* Restore 2-column hero row (main card + personality card) — desktop only,
+   so the mobile single-column collapse above actually takes effect */
+@media (min-width: 781px) {
+    .hero-row {
+        grid-template-columns: 1fr 0.38fr !important;
+    }
 }
 
 /* ================================================================
