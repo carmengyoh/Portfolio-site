@@ -1557,52 +1557,6 @@ figcaption {
 .cs-cover-shot > video { display: block; width: 100%; height: auto; }
 .cs-cover-shot .cs-device-bar { border-bottom-color: var(--bento-border); }
 
-/* Hero fallback used until a case-study demo recording is available. */
-.cs-demo-placeholder {
-    min-height: clamp(300px, 48vw, 520px);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 48px 24px;
-    text-align: center;
-    color: var(--text);
-    background:
-        radial-gradient(circle at 50% 42%, rgba(241, 33, 111, 0.18), transparent 34%),
-        linear-gradient(135deg, rgba(244,114,182,0.08), rgba(167,139,250,0.08));
-}
-.cs-demo-placeholder::before {
-    content: '▶';
-    display: grid;
-    place-items: center;
-    width: 64px;
-    height: 64px;
-    margin-bottom: 8px;
-    padding-left: 4px;
-    border: 1px solid rgba(241,33,111,0.45);
-    border-radius: 50%;
-    color: var(--accent);
-    background: rgba(241,33,111,0.08);
-    font-size: 20px;
-}
-.cs-demo-placeholder strong {
-    font-family: var(--font-serif);
-    font-size: clamp(23px, 3vw, 34px);
-    font-weight: 500;
-}
-.cs-demo-placeholder > span:last-child {
-    max-width: 430px;
-    color: var(--text-muted);
-    font-size: 14px;
-    line-height: 1.6;
-}
-.cs-demo-placeholder__eyebrow {
-    color: var(--accent);
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.16em;
-}
 .cs-cover-device {
     position: absolute;
     right: 5%;

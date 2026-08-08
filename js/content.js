@@ -25,7 +25,9 @@ const PROJECTS = [
         role:        'Lead Designer',
         status:      'Validated concept',
         description: 'Designing and validating a multi-product journey around the different ways merchants understand, compare and choose funding.',
-        image:       null,      /* Set to: 'images/multi-product.jpg' */
+        image:       null,
+        video:       'images/multi-product/multi-product-demo.mp4',
+        poster:      'images/multi-product/multi-product-demo-poster.jpg',
         link:        'case-study.html',
         placeholderBg: 'linear-gradient(140deg, #1a1430 0%, #2a1b3d 45%, #3d2342 100%)',
     },
