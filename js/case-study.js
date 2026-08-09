@@ -77,7 +77,40 @@
                 b.setAttribute('aria-selected', String(active));
             });
             viewPanels.forEach(p => p.classList.toggle('is-active', p.id === target));
+            requestAnimationFrame(resizePrototypes);
         });
+    });
+
+    /* Scale interactive prototypes from a true desktop viewport so the
+       complete composition fits inside the responsive browser mockup. */
+    const prototypeViewports = document.querySelectorAll('.cs-prototype-viewport');
+    const resizePrototypes = () => {
+        prototypeViewports.forEach(viewport => {
+            const frame = viewport.querySelector('iframe');
+            if (!frame) return;
+            const scale = viewport.clientWidth / 1440;
+            frame.style.transform = `scale(${scale})`;
+            viewport.style.height = `${Math.round(900 * scale)}px`;
+        });
+    };
+    resizePrototypes();
+    window.addEventListener('resize', resizePrototypes);
+
+    /* Keep heavy prototype bundles off the critical path. They are loaded
+       only after someone explicitly chooses to explore a concept. */
+    prototypeViewports.forEach(viewport => {
+        const launch = viewport.querySelector('.cs-prototype-launch');
+        const frame = viewport.querySelector('iframe[data-src]');
+        if (!launch || !frame) return;
+        launch.addEventListener('click', () => {
+            launch.hidden = true;
+            viewport.classList.add('is-loading');
+            frame.addEventListener('load', () => {
+                viewport.classList.remove('is-loading');
+                viewport.classList.add('is-loaded');
+            }, { once: true });
+            frame.src = frame.dataset.src;
+        }, { once: true });
     });
 
     /* ── Journey diagram iframe: size to its own content, same-origin ── */

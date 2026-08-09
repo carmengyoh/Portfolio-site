@@ -1,0 +1,626 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Merchant Dashboard - Explore your funding options</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0&display=block">
+<style>
+  /* ===== Base tokens ===== */
+  @font-face {
+    font-family: 'Modern Gothic';
+    src: url('fonts/ModernGothic-Regular.woff2') format('woff2');
+    font-weight: 400; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: 'Modern Gothic';
+    src: url('fonts/ModernGothic-Light.woff2') format('woff2');
+    font-weight: 300; font-style: normal; font-display: swap;
+  }
+  :root {
+    --font-main: 'Modern Gothic', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --sw-orange: #f97316;
+    --eb-icon-blue: #f97316;
+    --eb-link: #ea580c;
+    --eb-ink: #16181a;
+    --eb-text: #1c1f22;
+    --eb-muted: #6a7075;
+    --eb-line: #e4e4dd;
+    --eb-line-soft: #eeeee8;
+    --eb-green: #1aa05a;
+    --eb-green-tint: #ecf8f1;
+    --eb-row: #f6f6f3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body { background: #fff; font-family: var(--font-main); color: var(--eb-text); height: 100vh; overflow-y: auto; overflow-x: hidden; }
+  .ms {
+    font-family: 'Material Symbols Rounded';
+    font-weight: normal; font-style: normal;
+    line-height: 1; letter-spacing: normal; text-transform: none;
+    display: inline-block; white-space: nowrap; direction: ltr;
+    -webkit-font-feature-settings: 'liga'; font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+    font-variation-settings: 'FILL' 1;
+  }
+
+  /* ===== Shopwell global header ===== */
+  .eb-util { border-bottom: 1px solid var(--eb-line-soft); }
+  .eb-util-in { max-width: 1300px; margin: 0 auto; display: flex; align-items: center; gap: 20px; padding: 8px 24px; font-family: var(--font-main); font-weight: 300; font-size: 12.5px; }
+  .eb-util a { color: var(--eb-text); text-decoration: none; }
+  .eb-util a:hover { color: var(--eb-link); text-decoration: underline; }
+  .eb-util .hello b { font-weight: 400; }
+  .eb-util .center { display: flex; align-items: center; gap: 18px; margin: 0 auto 0 24px; }
+  .eb-util .pill { display: inline-flex; align-items: center; gap: 8px; background: #eaf3ff; color: #11181f; border-radius: 6px; padding: 5px 10px; font-weight: 400; }
+  .eb-util .pill .ms { font-size: 15px; color: var(--eb-link); font-variation-settings:'FILL' 0; }
+  .eb-util .right { display: flex; align-items: center; gap: 18px; }
+  .eb-util .right a { display: inline-flex; align-items: center; gap: 2px; }
+  .eb-util .right .ms { font-size: 16px; font-variation-settings:'FILL' 0; }
+
+  .eb-main { max-width: 1300px; margin: 0 auto; display: flex; align-items: center; gap: 22px; padding: 14px 24px 18px; }
+  .eb-logo { height: 30px; width: auto; }
+  .eb-shopby { display: flex; align-items: center; gap: 4px; font-family: var(--font-main); font-weight: 300; font-size: 13px; color: var(--eb-text); line-height: 1.1; cursor: pointer; }
+  .eb-shopby .ms { font-size: 18px; font-variation-settings:'FILL' 0; }
+  .eb-searchwrap { flex: 1; display: flex; align-items: stretch; }
+  .eb-search { flex: 1; display: flex; align-items: center; gap: 10px; border: 2px solid var(--eb-ink); border-right: none; border-radius: 999px 0 0 999px; padding: 0 18px; height: 44px; }
+  .eb-search .ms { font-size: 18px; color: var(--eb-text); font-variation-settings:'FILL' 0; }
+  .eb-search input { border: none; outline: none; background: none; flex: 1; font-family: var(--font-main); font-weight: 300; font-size: 15px; color: var(--eb-text); }
+  .eb-cat { display: flex; align-items: center; gap: 6px; border: 2px solid var(--eb-ink); border-left: 1px solid var(--eb-line); padding: 0 14px; height: 44px; font-family: var(--font-main); font-weight: 300; font-size: 13px; color: var(--eb-text); white-space: nowrap; }
+  .eb-cat .ms { font-size: 18px; font-variation-settings:'FILL' 0; }
+  .eb-searchbtn { background: #f97316; color: #fff; border: none; border-radius: 0 999px 999px 0; padding: 0 34px; height: 44px; font-family: var(--font-main); font-weight: 400; font-size: 16px; cursor: pointer; }
+  .eb-advanced { font-family: var(--font-main); font-weight: 300; font-size: 12.5px; color: var(--eb-text); text-decoration: none; }
+  .eb-advanced:hover { color: var(--eb-link); text-decoration: underline; }
+
+  /* ===== Merchant Dashboard bar ===== */
+  .sh-bar { max-width: 1300px; margin: 0 auto; padding: 10px 24px 0; }
+  .sh-top { display: flex; align-items: baseline; gap: 14px; }
+  .sh-top h1 { font-family: var(--font-main); font-weight: 400; font-size: 26px; letter-spacing: -0.3px; margin: 0; color: var(--eb-ink); }
+  .sh-store { font-family: var(--font-main); font-weight: 300; font-size: 14px; color: var(--eb-link); text-decoration: underline; text-underline-offset: 2px; }
+  .sh-top .right { margin-left: auto; display: flex; gap: 22px; }
+  .sh-top .right a { font-family: var(--font-main); font-weight: 300; font-size: 13.5px; color: var(--eb-link); text-decoration: underline; text-underline-offset: 2px; }
+  .sh-tabs { display: flex; gap: 30px; margin-top: 16px; border-bottom: 1px solid var(--eb-line); }
+  .sh-tab { font-family: var(--font-main); font-weight: 300; font-size: 15px; color: var(--eb-text); padding: 8px 0 14px; text-decoration: none; border-bottom: 3px solid transparent; margin-bottom: -1px; }
+  .sh-tab:hover { color: var(--eb-link); }
+  .sh-tab.active { font-weight: 400; color: var(--eb-ink); border-bottom-color: var(--eb-ink); }
+
+  /* ===== Body layout ===== */
+  .sh-body { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 200px 1fr; gap: 36px; padding: 26px 24px 80px; }
+  .sh-side { font-family: var(--font-main); }
+  .sh-side a { display: flex; align-items: center; gap: 8px; font-weight: 300; font-size: 14px; color: var(--eb-text); text-decoration: none; padding: 7px 0; }
+  .sh-side a:hover { color: var(--eb-link); }
+  .sh-side a.active { font-weight: 400; color: var(--eb-ink); }
+  .sh-side .grp { padding: 6px 0; }
+  .sh-side .sep { height: 1px; background: var(--eb-line-soft); margin: 6px 0; }
+  .sh-side .new { font-family: var(--font-main); font-weight: 400; font-size: 10px; letter-spacing: 0.04em; color: var(--eb-green); border: 1px solid var(--eb-green); border-radius: 10px; padding: 1px 7px; text-transform: uppercase; }
+
+  .sh-main { min-width: 0; }
+  .crumb { font-family: var(--font-main); font-weight: 300; font-size: 13px; color: var(--eb-muted); margin-bottom: 16px; }
+  .crumb b { font-weight: 300; color: var(--eb-text); }
+  .sh-main h2 { font-family: var(--font-main); font-weight: 400; font-size: 26px; letter-spacing: -0.3px; margin: 0 0 8px; color: var(--eb-ink); }
+  .sh-main .lede { font-family: var(--font-main); font-weight: 300; font-size: 15px; color: var(--eb-muted); margin: 0 0 26px; }
+
+  /* ===== Funding option card ===== */
+  .fund-card { border: 1px solid var(--eb-line); border-radius: 14px; overflow: hidden; margin-bottom: 26px; background: #fff; }
+  .fund-head { display: flex; align-items: center; gap: 16px; padding: 22px 26px; }
+  .fund-mark { width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .fund-mark .ms { font-size: 26px; color: #fff; }
+  .fund-mark svg { width: 30px; height: 30px; display: block; }
+  .fund-mark.cash { background: #f97316; }
+  .fund-mark.flex { background: var(--eb-ink); }
+  .fund-titles { flex: 1; min-width: 0; }
+  .fund-titles h3 { font-family: var(--font-main); font-weight: 400; font-size: 18px; margin: 0 0 2px; color: var(--eb-ink); }
+  .fund-titles p { font-family: var(--font-main); font-weight: 300; font-size: 14px; color: var(--eb-muted); margin: 0; }
+  .fund-actions { display: flex; align-items: center; gap: 22px; flex-shrink: 0; }
+  .btn-offer { background: var(--eb-ink); color: #fff; border: none; border-radius: 22px; height: 42px; padding: 0 24px; font-family: var(--font-main); font-weight: 400; font-size: 14px; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; transition: background .15s; }
+  .btn-offer:hover { background: #2c2f33; }
+  .link-more { font-family: var(--font-main); font-weight: 300; font-size: 14px; color: var(--eb-text); text-decoration: underline; text-underline-offset: 2px; white-space: nowrap; }
+  .link-more:hover { color: var(--eb-link); }
+
+  .feat-strip { display: grid; grid-template-columns: repeat(5, 1fr); border-top: 1px solid var(--eb-line-soft); }
+  .feat { padding: 18px 18px 20px; border-right: 1px solid var(--eb-line-soft); display: flex; flex-direction: column; gap: 12px; }
+  .feat:last-child { border-right: none; }
+  .feat.approval { background: var(--eb-green-tint); }
+  .feat .fi { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+  .feat .fi .ms { font-size: 20px; color: #fff; }
+  .feat .fi.green { background: var(--eb-green); }
+  .feat .fi.blue { background: #f97316; }
+  .feat .fi.black { background: var(--eb-ink); }
+  .feat .fl { font-family: var(--font-main); font-weight: 300; font-size: 12px; color: var(--eb-muted); }
+  .feat .fv { font-family: var(--font-main); font-weight: 400; font-size: 13.5px; line-height: 1.3; color: var(--eb-ink); }
+  .fund-note { border-top: 1px solid var(--eb-line-soft); padding: 13px 26px; background: #fbfbf9; font-family: var(--font-main); font-weight: 300; font-size: 13px; color: var(--eb-muted); }
+
+  /* ===== Collapsible section ===== */
+  .sect { border-top: 1px solid var(--eb-line); margin-top: 26px; padding-top: 18px; }
+  .sect-head { display: flex; align-items: center; gap: 16px; width: 100%; text-align: left; background: none; border: none; padding: 12px 14px; margin: 0 -14px; border-radius: 14px; cursor: pointer; font-family: var(--font-main); transition: background .15s ease; -webkit-user-select: none; user-select: none; }
+  .sect-head:hover { background: var(--eb-row); }
+  .sect-head:focus-visible { outline: 2px solid #f97316; outline-offset: 2px; }
+  .sect-ic { width: 44px; height: 44px; border-radius: 50%; background: var(--eb-ink); color: #fff; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .sect-ic .ms { font-size: 22px; }
+  .sect-head .st { flex: 1; min-width: 0; }
+  .sect-head h3 { font-family: var(--font-main); font-weight: 400; font-size: 20px; margin: 0 0 2px; color: var(--eb-ink); }
+  .sect-head p { font-family: var(--font-main); font-weight: 300; font-size: 14px; color: var(--eb-muted); margin: 0; }
+  .sect-head .chev { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--eb-text); flex-shrink: 0; border: 1px solid var(--eb-line); background: #fff; transition: background .15s ease, border-color .15s ease; }
+  .sect-head:hover .chev { background: var(--eb-ink); border-color: var(--eb-ink); color: #fff; }
+  .sect-head .chev .ms { font-size: 24px; font-variation-settings:'FILL' 0; transition: transform .4s cubic-bezier(.4,0,.2,1); }
+  .sect.collapsed .chev .ms { transform: rotate(180deg); }
+  .sect-body { overflow: hidden; transition: max-height .42s cubic-bezier(.4,0,.2,1), opacity .3s ease; opacity: 1; }
+  .sect.collapsed .sect-body { opacity: 0; }
+
+  /* ===== Compare table ===== */
+  .cmp { margin-top: 22px; border: 1px solid var(--eb-line); border-radius: 12px; overflow: hidden; }
+  .cmp table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+  .cmp th, .cmp td { text-align: left; padding: 16px 20px; font-family: var(--font-main); vertical-align: top; word-wrap: break-word; }
+  .cmp thead th { font-weight: 400; font-size: 15px; color: var(--eb-ink); background: #faf9f6; border-bottom: 1px solid var(--eb-line); }
+  .cmp thead th:first-child { width: 32%; }
+  .cmp thead th:nth-child(2), .cmp thead th:nth-child(3) { width: 34%; }
+  .cmp .grouprow td { background: var(--eb-row); font-weight: 400; font-size: 13px; color: var(--eb-ink); padding: 9px 20px; }
+  .cmp tbody td { font-weight: 300; font-size: 14px; line-height: 1.45; color: var(--eb-text); border-bottom: 1px solid var(--eb-line-soft); }
+  .cmp tbody td.feat-name { color: var(--eb-ink); }
+  .cmp td + td, .cmp th + th { border-left: 1px solid var(--eb-line-soft); }
+  .cmp .ck { display: inline-flex; align-items: center; justify-content: center; }
+  .cmp .ck .ms { font-size: 24px; color: var(--eb-green); font-variation-settings:'FILL' 1; }
+  .cmp .actions-row td { border-bottom: none; padding: 18px 20px 22px; }
+  .cmp .actions-row .btn-offer { width: 100%; justify-content: center; }
+
+  /* ===== How payments work ===== */
+  .hpw { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px; align-items: stretch; }
+  .hpw-col { display: flex; flex-direction: column; gap: 24px; }
+  .hpw-card { border: 1px solid var(--eb-line); border-radius: 12px; padding: 26px; }
+  .ex-card { display: flex; flex-direction: column; padding-bottom: 34px; }
+  .hpw-block { display: flex; gap: 16px; }
+  .hpw-block + .hpw-block { margin-top: 26px; padding-top: 26px; border-top: 1px solid var(--eb-line-soft); }
+  .hpw-ic { width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; background: #f97316; }
+  .hpw-ic .ms { color: #fff; font-size: 22px; }
+  .hpw-block h4 { font-family: var(--font-main); font-weight: 400; font-size: 16px; margin: 0 0 6px; color: var(--eb-ink); }
+  .hpw-block p { font-family: var(--font-main); font-weight: 300; font-size: 14px; line-height: 1.5; color: var(--eb-muted); margin: 0; }
+  .ex-head h4 { font-family: var(--font-main); font-weight: 400; font-size: 17px; margin: 0 0 2px; color: var(--eb-ink); }
+  .ex-head p { font-family: var(--font-main); font-weight: 300; font-size: 13.5px; color: var(--eb-muted); margin: 0 0 18px; }
+  .ex-rows { border: 1px solid var(--eb-line); border-radius: 10px; overflow: hidden; margin-bottom: 24px; }
+  .ex-row { display: flex; justify-content: space-between; align-items: center; padding: 13px 16px; font-family: var(--font-main); font-weight: 300; font-size: 14px; color: var(--eb-text); }
+  .ex-row + .ex-row { border-top: 1px solid var(--eb-line-soft); }
+  .ex-row b { font-weight: 400; color: var(--eb-ink); }
+  .ex-chart-lbl { display: flex; align-items: center; gap: 8px; font-family: var(--font-main); font-weight: 300; font-size: 12.5px; color: var(--eb-muted); margin-bottom: 18px; }
+  .ex-chart-swatch { width: 20px; height: 20px; border-radius: 50%; flex-shrink: 0; background-image: repeating-linear-gradient(45deg, #5b6166 0 4px, #2b2f33 4px 8px); }
+  .chart { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; align-items: end; }
+  .bar-col { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; }
+  .bar-area { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; min-height: 150px; }
+  .bar-top { font-family: var(--font-main); font-weight: 400; font-size: 12.5px; color: var(--eb-ink); margin-bottom: 6px; }
+  .bar { width: 30px; background: var(--eb-ink); border-radius: 3px 3px 0 0; position: relative; overflow: hidden; }
+  .bar .cap { position: absolute; top: 0; left: 0; right: 0; background-image: repeating-linear-gradient(45deg, #5b6166 0 4px, #2b2f33 4px 8px); }
+  .bar-nosale { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; min-height: 150px; gap: 8px; }
+  .bar-nosale .pip { width: 34px; height: 34px; border-radius: 50%; background: var(--eb-ink); display: flex; align-items: center; justify-content: center; margin-bottom: 8px; }
+  .bar-nosale .pip svg { width: 19px; height: 19px; display: block; }
+  .bar-nosale .pip svg path { fill: #fff; }
+  .bar-nosale span { font-family: var(--font-main); font-weight: 300; font-size: 10px; color: var(--eb-muted); text-align: center; line-height: 1.2; }
+  .bar-foot { font-family: var(--font-main); font-weight: 300; font-size: 11px; color: var(--eb-muted); text-align: center; margin-top: 10px; line-height: 1.35; }
+  .bar-foot b { display: block; font-weight: 400; color: var(--eb-ink); font-size: 12px; }
+
+  /* Testimonial card */
+  .hpw-quote { flex: 1; background: #f97316; border-radius: 12px; padding: 26px 28px; display: flex; flex-direction: column; justify-content: center; }
+  .hpw-quote .qmark { font-family: Georgia, serif; font-size: 44px; line-height: 0.6; color: rgba(255,255,255,0.55); height: 22px; }
+  .hpw-quote .qtext { font-family: var(--font-main); font-weight: 300; font-size: 17px; line-height: 1.45; color: #fff; margin: 0 0 20px; }
+  .hpw-quote .qby { display: flex; align-items: center; gap: 12px; }
+  .hpw-quote .qav { width: 38px; height: 38px; border-radius: 50%; background: rgba(255,255,255,0.2); color: #fff; display: flex; align-items: center; justify-content: center; font-family: var(--font-main); font-weight: 400; font-size: 16px; flex-shrink: 0; }
+  .hpw-quote .qname { font-family: var(--font-main); font-weight: 400; font-size: 14px; color: #fff; }
+  .hpw-quote .qrole { font-family: var(--font-main); font-weight: 300; font-size: 12.5px; color: rgba(255,255,255,0.75); }
+
+  /* ===== More details modal ===== */
+  .md-overlay { position: fixed; inset: 0; z-index: 200; display: none; align-items: flex-start; justify-content: center; padding: 86px 20px 48px; overflow-y: auto; background: rgba(244,244,242,0.86); }
+  .md-overlay.open { display: flex; animation: md-fade .22s ease both; }
+  .md-wrap { width: 100%; max-width: 600px; }
+  .md-crumb { font-family: var(--font-main); font-weight: 300; font-size: 15px; color: #b6b6ac; margin: 0 0 16px 4px; }
+  .md-card { background: #fff; border-radius: 20px; padding: 32px 36px 32px; box-shadow: 0 18px 50px -16px rgba(0,0,0,0.22); animation: md-rise .3s cubic-bezier(.32,.72,0,1) both; }
+  .md-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-bottom: 18px; border-bottom: 1px solid var(--eb-line); margin-bottom: 22px; }
+  .md-head h3 { font-family: var(--font-main); font-weight: 400; font-size: 25px; letter-spacing: -0.3px; margin: 0; color: var(--eb-ink); }
+  .md-x { width: 34px; height: 34px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: var(--eb-ink); background: none; border: none; cursor: pointer; transition: background .15s ease; }
+  .md-x:hover { background: var(--eb-row); }
+  .md-x .ms { font-size: 24px; font-variation-settings:'FILL' 0; }
+  .md-body p { font-family: var(--font-main); font-weight: 300; font-size: 16px; line-height: 1.55; color: var(--eb-text); margin: 0 0 16px; }
+  .md-body h4 { font-family: var(--font-main); font-weight: 400; font-size: 19px; margin: 24px 0 14px; color: var(--eb-ink); }
+  .md-body ul { list-style: none; margin: 0 0 30px; padding: 0; display: flex; flex-direction: column; gap: 11px; }
+  .md-body li { position: relative; padding-left: 20px; font-family: var(--font-main); font-weight: 300; font-size: 15.5px; line-height: 1.4; color: var(--eb-text); }
+  .md-body li::before { content: '\2022'; position: absolute; left: 4px; top: -1px; color: var(--eb-ink); }
+  .md-close-btn { width: 100%; height: 52px; border-radius: 32px; background: var(--eb-ink); color: #fff; border: none; font-family: var(--font-main); font-weight: 400; font-size: 16px; cursor: pointer; transition: background .15s ease; }
+  .md-close-btn:hover { background: #2c2f33; }
+  @keyframes md-fade { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes md-rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 1000px) {
+    .sh-body { grid-template-columns: 1fr; gap: 20px; }
+    .sh-side { display: flex; flex-wrap: wrap; gap: 4px 18px; border-bottom: 1px solid var(--eb-line); padding-bottom: 12px; }
+    .sh-side .sep { display: none; } .sh-side .grp { padding: 0; }
+    .eb-util .center { display: none; }
+  }
+  @media (max-width: 760px) {
+    .feat-strip { grid-template-columns: repeat(2, 1fr); }
+    .feat { border-bottom: 1px solid var(--eb-line-soft); }
+    .fund-head { flex-wrap: wrap; }
+    .fund-actions { width: 100%; }
+    .hpw { grid-template-columns: 1fr; }
+    .cmp { overflow-x: auto; }
+    .eb-util-in .right { display: none; }
+    .eb-shopby { display: none; }
+  }
+
+  /* Shopwell header */
+  .sw-header { background: #1a1a1a; border-bottom: 1px solid #333; position: sticky; top: 0; z-index: 100; }
+  .sw-header-in { max-width: 1300px; margin: 0 auto; display: flex; align-items: center; height: 56px; padding: 0 24px; gap: 32px; }
+  .sw-logo { font-family: var(--font-main); font-weight: 800; font-size: 20px; color: #f97316; letter-spacing: -0.5px; flex-shrink: 0; }
+  .sw-nav { display: flex; gap: 4px; flex: 1; }
+  .sw-nav a { font-size: 13.5px; font-weight: 400; color: #aaa; padding: 6px 12px; border-radius: 6px; text-decoration: none; }
+  .sw-nav a:hover { color: #fff; background: rgba(255,255,255,0.08); }
+  .sw-nav a.active { font-weight: 600; color: #f97316; background: rgba(249,115,22,0.12); }
+  .sw-header-right { display: flex; align-items: center; gap: 12px; }
+  .sw-avatar { width: 32px; height: 32px; border-radius: 50%; background: #f97316; color: #fff; font-weight: 600; font-size: 13px; display: flex; align-items: center; justify-content: center; }
+  .sw-dash-bar { background: #fff; border-bottom: 1px solid var(--eb-line); }
+  .sw-dash-in { max-width: 1300px; margin: 0 auto; padding: 14px 24px; }
+  .sw-dash-top { display: flex; align-items: baseline; gap: 14px; }
+  .sw-dash-top h1 { font-family: var(--font-main); font-weight: 400; font-size: 24px; letter-spacing: -0.3px; margin: 0; color: var(--eb-ink); }
+  .sw-store { font-family: var(--font-main); font-weight: 300; font-size: 14px; color: #f97316; text-decoration: underline; text-underline-offset: 2px; }
+  .sw-dash-right { margin-left: auto; display: flex; gap: 20px; }
+  .sw-dash-right a { font-family: var(--font-main); font-weight: 300; font-size: 13px; color: var(--eb-link); text-decoration: underline; }
+
+</style>
+</head>
+<body>
+
+  <!-- Shopwell header -->
+  <div class="sw-header">
+    <div class="sw-header-in">
+      <div class="sw-logo">shopwell</div>
+      <nav class="sw-nav">
+        <a href="#">Overview</a>
+        <a href="#">Sales</a>
+        <a href="#">Customers</a>
+        <a href="#">Marketing</a>
+        <a class="active" href="#">Funding</a>
+        <a href="#">Reports</a>
+        <a href="#">Settings</a>
+      </nav>
+      <div class="sw-header-right">
+        <div class="sw-avatar">M</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dashboard bar -->
+  <div class="sw-dash-bar">
+    <div class="sw-dash-in">
+      <div class="sw-dash-top">
+        <h1>Business Dashboard</h1>
+        <a class="sw-store" href="#">Maria's Beauty Studio</a>
+        <div class="sw-dash-right">
+          <a href="#">Help</a>
+          <a href="#">Support</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Body -->
+  <div class="sh-body">
+    <!-- Sidebar -->
+    <nav class="sh-side">
+      <div class="grp"><a href="#">Overview</a></div>
+      <div class="sep"></div>
+      <div class="grp">
+        <a href="#">Transactions</a>
+        <a href="#">Payouts</a>
+        <a class="active" href="#">Business Funding <span class="new">New</span></a>
+      </div>
+      <div class="sep"></div>
+      <div class="grp">
+        <a href="#">Reports</a>
+        <a href="#">Analytics</a>
+      </div>
+      <div class="sep"></div>
+      <div class="grp"><a href="#">Account settings</a></div>
+    </nav>
+
+    <!-- Main -->
+    <div class="sh-main">
+      <div class="crumb">Funding &gt; <b>Business Funding</b></div>
+      <h2>Explore your funding options</h2>
+      <p class="lede">You'll see your available amount and costs upon application</p>
+
+      <!-- Cash Advance -->
+      <div class="fund-card">
+        <div class="fund-head">
+          <div class="fund-mark cash">
+            <svg width="37" height="38" viewBox="0 0 37 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18.3025 21.5248C19.8317 21.5248 21.0756 20.2863 21.0756 18.7517C21.0756 17.217 19.8371 15.9785 18.3025 15.9785C16.7678 15.9785 15.5293 17.2224 15.5293 18.7517C15.5293 20.281 16.7678 21.5248 18.3025 21.5248Z" fill="white"/>
+              <path d="M18.1252 0.942383L35.0657 10.7858L18.4967 21.6092L1.54004 11.2758L18.1252 0.942383Z" stroke="white" stroke-width="1.61544"/>
+              <path d="M18.1145 8.5791L35.055 18.4225L18.1145 29.2459L1.5293 18.9125L18.1145 8.5791Z" stroke="white" stroke-width="1.61544"/>
+              <path d="M18.2971 16.2158L34.8661 26.0538L17.9309 36.8826L1.71191 26.5492L18.2971 16.2158Z" stroke="white" stroke-width="1.61544"/>
+            </svg>
+          </div>
+          <div class="fund-titles">
+            <h3>Cash Advance</h3>
+            <p>Money upfront for planned purchases</p>
+          </div>
+          <div class="fund-actions">
+            <a class="btn-offer" href="Shopwell Offer.html?type=cash">Access my offer</a>
+            <a class="link-more" href="#" data-modal="cash">More details</a>
+          </div>
+        </div>
+        <div class="feat-strip">
+          <div class="feat approval">
+            <div class="fi green"><span class="ms">check</span></div>
+            <div class="fl">Approval chance</div>
+            <div class="fv">Pre-approved</div>
+          </div>
+          <div class="feat">
+            <div class="fi blue"><span class="ms">account_balance_wallet</span></div>
+            <div class="fl">Funding style</div>
+            <div class="fv">One large upfront amount</div>
+          </div>
+          <div class="feat">
+            <div class="fi blue"><span class="ms">shopping_bag</span></div>
+            <div class="fl">Best suited to</div>
+            <div class="fv">Planned purchases or known costs</div>
+          </div>
+          <div class="feat">
+            <div class="fi blue"><span class="ms">verified_user</span></div>
+            <div class="fl">Fee structure</div>
+            <div class="fv">One-time fixed fee</div>
+          </div>
+          <div class="feat">
+            <div class="fi blue"><span class="ms">percent</span></div>
+            <div class="fl">Payments</div>
+            <div class="fv">% of daily sales</div>
+          </div>
+        </div>
+        <div class="fund-note">You'll see your offer amount when you click 'Access my offer'. This won't affect your credit score.</div>
+      </div>
+
+      <!-- Flex Advance -->
+      <div class="fund-card">
+        <div class="fund-head">
+          <div class="fund-mark flex">
+            <svg width="37" height="37" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18.0832 20.7513C19.596 20.7513 20.8265 19.5261 20.8265 18.008C20.8265 16.4898 19.6013 15.2646 18.0832 15.2646C16.565 15.2646 15.3398 16.4952 15.3398 18.008C15.3398 19.5208 16.565 20.7513 18.0832 20.7513Z" fill="white"/>
+              <path d="M1.7774 34.2441C-1.38143 31.1013 3.35948 21.2838 12.3672 12.3187C21.3696 3.35359 31.2297 -1.37134 34.3885 1.77151C37.5473 4.91437 32.8064 14.7318 23.7987 23.6969C14.7909 32.662 4.93091 37.387 1.7774 34.2441Z" stroke="white" stroke-width="1.59806"/>
+              <path d="M34.3885 34.2441C37.5473 31.1013 32.8011 21.2838 23.7987 12.3187C14.7909 3.35359 4.93091 -1.37134 1.7774 1.77151C-1.38143 4.91437 3.35948 14.7318 12.3672 23.6969C21.375 32.662 31.235 37.387 34.3885 34.2441Z" stroke="white" stroke-width="1.59806"/>
+            </svg>
+          </div>
+          <div class="fund-titles">
+            <h3>Flex Advance</h3>
+            <p>Your Flex Capital is an approved limit you can use whenever your business needs a boost.</p>
+          </div>
+          <div class="fund-actions">
+            <a class="btn-offer" href="Shopwell Offer.html?type=flex">Access my offer</a>
+            <a class="link-more" href="#" data-modal="flex">More details</a>
+          </div>
+        </div>
+        <div class="feat-strip">
+          <div class="feat approval">
+            <div class="fi green"><span class="ms">check</span></div>
+            <div class="fl">Approval chance</div>
+            <div class="fv">Eligible</div>
+          </div>
+          <div class="feat">
+            <div class="fi black"><span class="ms">account_balance_wallet</span></div>
+            <div class="fl">Funding style</div>
+            <div class="fv">Access from your Flex limit</div>
+          </div>
+          <div class="feat">
+            <div class="fi black"><span class="ms">shopping_bag</span></div>
+            <div class="fl">Best suited to</div>
+            <div class="fv">Ongoing or unexpected needs</div>
+          </div>
+          <div class="feat">
+            <div class="fi black"><span class="ms">verified_user</span></div>
+            <div class="fl">Fee structure</div>
+            <div class="fv">Fee applies when funds are used</div>
+          </div>
+          <div class="feat">
+            <div class="fi black"><span class="ms">percent</span></div>
+            <div class="fl">Payments</div>
+            <div class="fv">% of daily sales</div>
+          </div>
+        </div>
+        <div class="fund-note">You'll see your offer amount when you click 'Access my offer'. This won't affect your credit score.</div>
+      </div>
+
+      <!-- How payments work -->
+      <div class="sect collapsed">
+        <button class="sect-head" type="button">
+          <div class="sect-ic"><span class="ms">savings</span></div>
+          <div class="st">
+            <h3>How payments work</h3>
+            <p>Both options use payments taken as a percentage of daily sales.</p>
+          </div>
+          <div class="chev"><span class="ms">expand_less</span></div>
+        </button>
+        <div class="sect-body">
+        <div class="hpw">
+          <div class="hpw-col">
+          <div class="hpw-card">
+            <div class="hpw-block">
+              <div class="hpw-ic"><span class="ms">pie_chart</span></div>
+              <div>
+                <h4>Payments taken as a % of daily sales</h4>
+                <p>Once approved, payments are automatically taken as a small percentage of your daily sales, adjusting with your business performance.</p>
+              </div>
+            </div>
+            <div class="hpw-block">
+              <div class="hpw-ic"><span class="ms">verified_user</span></div>
+              <div>
+                <h4>One simple and transparent fixed fee</h4>
+                <p>No interest, hidden surprises or late payment charges to worry about.</p>
+              </div>
+            </div>
+          </div>
+          <div class="hpw-quote">
+            <div class="qmark">"</div>
+            <p class="qtext">Payments just come out of my sales, so on quieter weeks I pay less. I never have to think about it.</p>
+            <div class="qby">
+              <div class="qav">D</div>
+              <div>
+                <div class="qname">Dianna</div>
+                <div class="qrole">Shopwell merchant since 2019</div>
+              </div>
+            </div>
+          </div>
+          </div>
+          <div class="hpw-card ex-card">
+            <div class="ex-head">
+              <h4>Example payments</h4>
+              <p>Based on 20% of daily sales</p>
+            </div>
+            <div class="ex-rows">
+              <div class="ex-row"><span>You earn</span><b>£1,200/day</b></div>
+              <div class="ex-row"><span>We take</span><b>£240</b></div>
+              <div class="ex-row"><span>You keep</span><b>£960</b></div>
+            </div>
+            <div class="ex-chart-lbl"><span class="ex-chart-swatch"></span>% of daily sales go towards payments*</div>
+            <div class="chart">
+              <div class="bar-col">
+                <div class="bar-area">
+                  <div class="bar-top">£240</div>
+                  <div class="bar" style="height:103px"><div class="cap" style="height:21px"></div></div>
+                </div>
+                <div class="bar-foot"><b>£1,200</b>Day 1</div>
+              </div>
+              <div class="bar-col">
+                <div class="bar-area">
+                  <div class="bar-top">£280</div>
+                  <div class="bar" style="height:120px"><div class="cap" style="height:24px"></div></div>
+                </div>
+                <div class="bar-foot"><b>£1,400</b>Day 2</div>
+              </div>
+              <div class="bar-col">
+                <div class="bar-area">
+                  <div class="bar-nosale">
+                    <div class="pip">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13 17.5L16.5 14C16.6833 13.8167 16.8292 13.6 16.9375 13.35C17.0458 13.1 17.1 12.8333 17.1 12.55C17.1 11.9833 16.9 11.5 16.5 11.1C16.1 10.7 15.6167 10.5 15.05 10.5C14.7333 10.5 14.4208 10.5917 14.1125 10.775C13.8042 10.9583 13.4333 11.2667 13 11.7C12.5 11.2333 12.1083 10.9167 11.825 10.75C11.5417 10.5833 11.25 10.5 10.95 10.5C10.3833 10.5 9.9 10.7 9.5 11.1C9.1 11.5 8.9 11.9833 8.9 12.55C8.9 12.8333 8.95417 13.1 9.0625 13.35C9.17083 13.6 9.31667 13.8167 9.5 14L13 17.5ZM12.825 22.825L2 12V2H12L22.8 12.85L12.825 22.825ZM6.5 8C6.91667 8 7.27083 7.85417 7.5625 7.5625C7.85417 7.27083 8 6.91667 8 6.5C8 6.08333 7.85417 5.72917 7.5625 5.4375C7.27083 5.14583 6.91667 5 6.5 5C6.08333 5 5.72917 5.14583 5.4375 5.4375C5.14583 5.72917 5 6.08333 5 6.5C5 6.91667 5.14583 7.27083 5.4375 7.5625C5.72917 7.85417 6.08333 8 6.5 8Z" fill="#232C2F"/>
+                      </svg>
+                    </div>
+                    <span>No sales?<br>No payment</span>
+                  </div>
+                </div>
+                <div class="bar-foot"><b>£0</b>Day 3</div>
+              </div>
+              <div class="bar-col">
+                <div class="bar-area">
+                  <div class="bar-top">£160</div>
+                  <div class="bar" style="height:69px"><div class="cap" style="height:14px"></div></div>
+                </div>
+                <div class="bar-foot"><b>£800</b>Day 4</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- More details — Cash Advance modal -->
+  <div class="md-overlay" id="modal-cash" role="dialog" aria-modal="true" aria-label="Cash Advance details">
+    <div class="md-wrap">
+      <div class="md-crumb">Cash Advance / More details</div>
+      <div class="md-card">
+        <div class="md-head">
+          <h3>Cash Advance</h3>
+          <button class="md-x" type="button" aria-label="Close"><span class="ms">close</span></button>
+        </div>
+        <div class="md-body">
+          <p>Cash Advance gives you one upfront amount to support a known business need, such as buying stock, covering equipment costs, repairs or refurbishment.</p>
+          <p>It may suit your business if you know what you need funding for and want the full amount available upfront.</p>
+          <h4>Key points</h4>
+          <ul>
+            <li>One large upfront amount</li>
+            <li>Good for planned purchases or known costs</li>
+            <li>One-time fixed fee</li>
+            <li>Payments taken as a percentage of daily sales</li>
+          </ul>
+        </div>
+        <button class="md-close-btn" type="button">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- More details — Flex Advance modal -->
+  <div class="md-overlay" id="modal-flex" role="dialog" aria-modal="true" aria-label="Flex Advance details">
+    <div class="md-wrap">
+      <div class="md-crumb">Flex Advance / More details</div>
+      <div class="md-card">
+        <div class="md-head">
+          <h3>Flex Advance</h3>
+          <button class="md-x" type="button" aria-label="Close"><span class="ms">close</span></button>
+        </div>
+        <div class="md-body">
+          <p>Flex Advance gives you access to funds over time, so you can use them when business needs or opportunities come up.</p>
+          <p>It may suit your business if your needs are less predictable, you buy stock regularly, or you want funds available for future opportunities.</p>
+          <h4>Key points</h4>
+          <ul>
+            <li>Access from your Flex limit</li>
+            <li>Available over a 12-month period</li>
+            <li>Good for ongoing or unexpected needs</li>
+            <li>Fee applies when funds are used</li>
+            <li>Payments taken as a percentage of daily sales</li>
+          </ul>
+        </div>
+        <button class="md-close-btn" type="button">Close</button>
+      </div>
+    </div>
+  </div>
+
+<script>
+  function openModal(id) {
+    const m = document.getElementById(id);
+    if (!m) return;
+    m.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModals() {
+    document.querySelectorAll('.md-overlay.open').forEach(m => m.classList.remove('open'));
+    document.body.style.overflow = '';
+  }
+  document.querySelectorAll('[data-modal]').forEach(el => {
+    el.addEventListener('click', e => { e.preventDefault(); openModal('modal-' + el.dataset.modal); });
+  });
+  document.querySelectorAll('.md-x, .md-close-btn').forEach(b => b.addEventListener('click', closeModals));
+  document.querySelectorAll('.md-overlay').forEach(o => o.addEventListener('click', e => { if (e.target === o) closeModals(); }));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModals(); });
+
+  document.querySelectorAll('.sect').forEach(sect => {
+    const head = sect.querySelector('.sect-head');
+    const body = sect.querySelector('.sect-body');
+    if (!head || !body) return;
+    if (sect.classList.contains('collapsed')) {
+      body.style.maxHeight = '0px';
+    } else {
+      body.style.maxHeight = body.scrollHeight + 'px';
+    }
+    head.addEventListener('click', () => {
+      const isCollapsed = sect.classList.contains('collapsed');
+      if (isCollapsed) {
+        sect.classList.remove('collapsed');
+        body.style.maxHeight = body.scrollHeight + 'px';
+      } else {
+        body.style.maxHeight = body.scrollHeight + 'px';
+        requestAnimationFrame(() => { body.style.maxHeight = '0px'; });
+        sect.classList.add('collapsed');
+      }
+    });
+    body.addEventListener('transitionend', e => {
+      if (e.propertyName === 'max-height' && !sect.classList.contains('collapsed')) {
+        body.style.maxHeight = 'none';
+      }
+    });
+  });
+  window.addEventListener('resize', () => {
+    document.querySelectorAll('.sect:not(.collapsed) .sect-body').forEach(b => {
+      b.style.maxHeight = 'none';
+    });
+  });
+</script>
+</body>
+</html>

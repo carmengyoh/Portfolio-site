@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="styles.css?v=15">
+    <link rel="stylesheet" href="styles.css?v=17">
     <!-- Apply saved theme before first paint to avoid flash -->
     <script>
         (function(){
@@ -100,7 +100,7 @@
                          onerror="this.style.display='none'">
                     <span class="hero-avatar-star" aria-hidden="true">✦</span>
                 </div>
-                <p class="hero-personality-statement">Hey, I'm Carmen. Product designer by day, amateur composer by night.</p>
+                <p class="hero-personality-statement">Hey, I'm Carmen! I ask questions, untangle messy problems and turn ideas into thoughtful product experiences.</p>
                 <p class="hero-personality-meta">London, UK &middot; Product Designer at Liberis</p>
                 <div class="hero-personality-tags">
                     <span>Piano</span>
@@ -118,12 +118,22 @@
         <section class="work-row" id="work">
             <div class="work-bento-header">
                 <span class="label">FEATURED WORK</span>
-                <a href="#" class="view-all">View all projects ↗</a>
+                <a href="#selected-work" class="view-all">Explore more work ↓</a>
             </div>
             <div class="work-grid bento-work-grid" id="work-grid"></div>
         </section>
 
         <!-- ── ROW 3: HOW I WORK — underneath, full width ─── -->
+        <section class="bento-card selected-work-row" id="selected-work">
+            <div class="selected-work-header">
+                <div>
+                    <span class="label">SELECTED WORK</span>
+                    <h2>More ways I&rsquo;ve shaped <em>complex products</em></h2>
+                </div>
+            </div>
+            <div class="selected-work-grid" id="selected-work-grid"></div>
+        </section>
+
         <section class="bento-card how-bento how-bento--wide" id="how">
                 <span class="label">HOW I WORK</span>
                 <h2 class="how-bento-title">Ambiguity to<br><em>Clarity</em></h2>
@@ -314,10 +324,10 @@
         </div>
     </footer>
 
-    <script src="js/content.js?v=9"></script>
+    <script src="js/content.js?v=11"></script>
     <script src="js/hero-bg.js?v=8"></script>
     <script src="js/hero-scroll.js?v=3"></script>
-    <script src="js/main.js?v=12"></script>
+    <script src="js/main.js?v=14"></script>
 
 </body>
 </html>

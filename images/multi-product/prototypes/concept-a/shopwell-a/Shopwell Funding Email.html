@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shopwell funding options - email</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20,400,0,0&display=block">
+<style>
+  /* ===== Base tokens ===== */
+  @font-face {
+    font-family: 'Modern Gothic';
+    src: url('fonts/ModernGothic-Regular.woff2') format('woff2');
+    font-weight: 400; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: 'Modern Gothic';
+    src: url('fonts/ModernGothic-Light.woff2') format('woff2');
+    font-weight: 300; font-style: normal; font-display: swap;
+  }
+  :root {
+    --color-ink:      #232c2f;
+    --color-ink-soft: #505659;
+    --color-stone:    #d4d4c3;
+    --color-canvas:   #ffffff;
+    --color-cream:    #f9f9f5;
+    --color-sand:     #f4f4ec;
+    --sw-red:    #e53238;
+    --sw-orange:   #f97316;
+    --sw-yellow: #f5af02;
+    --sw-green:  #86b817;
+    --font-main:   'Modern Gothic', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-ui:     'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    --radius-pill: 32px;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  .ms {
+    font-family: 'Material Symbols Rounded';
+    font-weight: normal; font-style: normal;
+    line-height: 1; letter-spacing: normal; text-transform: none;
+    display: inline-block; white-space: nowrap; direction: ltr;
+    -webkit-font-feature-settings: 'liga'; font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ===== Gmail shell ===== */
+  body { background: #fff; font-family: var(--font-ui); color: #202124; height: 100vh; overflow: hidden; }
+
+  .gmail {
+    display: grid;
+    grid-template-rows: 64px 1fr;
+    grid-template-columns: 68px 1fr 56px;
+    grid-template-areas: "top top top" "side main rail";
+    height: 100vh; background: #fff;
+  }
+
+  .g-top { grid-area: top; display: flex; align-items: center; gap: 16px; padding: 0 16px; }
+  .g-top .menu-btn { width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #5f6368; flex-shrink: 0; }
+  .g-top .menu-btn:hover { background: rgba(32,33,36,0.06); }
+  .g-logo { display: flex; align-items: center; gap: 6px; min-width: 130px; }
+  .g-logo .ms { font-size: 38px; color: #ea4335; }
+  .g-logo .word { font-family: var(--font-ui); font-size: 22px; color: #5f6368; font-weight: 400; letter-spacing: -0.5px; }
+  .g-search { flex: 1; max-width: 700px; display: flex; align-items: center; gap: 12px; height: 48px; padding: 0 16px; background: #eaf1fb; border-radius: 24px; color: #444746; transition: background .15s, box-shadow .15s, border-radius .15s; }
+  .g-search:focus-within { background: #fff; box-shadow: 0 1px 3px rgba(60,64,67,.3); border-radius: 24px 24px 0 0; }
+  .g-search .ms { font-size: 22px; color: #5f6368; }
+  .g-search input { flex: 1; border: none; background: none; outline: none; font-family: var(--font-ui); font-size: 16px; color: #202124; }
+  .g-top-right { display: flex; align-items: center; gap: 2px; margin-left: auto; }
+  .g-icon-btn { width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: #5f6368; }
+  .g-icon-btn:hover { background: rgba(32,33,36,0.06); }
+  .g-icon-btn .ms { font-size: 23px; }
+  .g-icon-btn .gem { font-size: 22px; background: conic-gradient(from 180deg, #4285f4, #9b72cb, #d96570, #4285f4); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .g-upgrade { display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 16px; border: 1px solid #dadce0; border-radius: 20px; font-family: var(--font-ui); font-size: 14px; font-weight: 500; color: #ea580c; margin: 0 6px; cursor: pointer; }
+  .g-upgrade:hover { background: #f6fafe; }
+  .g-upgrade .ms { font-size: 20px; }
+  .g-avatar { width: 32px; height: 32px; border-radius: 50%; margin-left: 8px; background: #d56e1f; color: #fff; font-weight: 500; font-size: 15px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+
+  .g-side { grid-area: side; padding: 8px 0; display: flex; flex-direction: column; align-items: center; gap: 2px; }
+  .compose-fab { width: 48px; height: 48px; border-radius: 16px; background: #c2e7ff; color: #001d35; display: flex; align-items: center; justify-content: center; box-shadow: 0 1px 2px rgba(0,0,0,0.1); cursor: pointer; margin-bottom: 10px; }
+  .compose-fab:hover { background: #b3dffc; box-shadow: 0 1px 3px rgba(0,0,0,0.25); }
+  .compose-fab .ms { font-size: 22px; }
+  .rail-item { position: relative; width: 48px; height: 40px; border-radius: 20px; display: flex; align-items: center; justify-content: center; color: #444746; cursor: pointer; }
+  .rail-item .ms { font-size: 22px; }
+  .rail-item:hover { background: #eaecef; }
+  .rail-item.active { background: #d3e3fd; color: #ea580c; }
+  .rail-item .dot { position: absolute; top: 6px; right: 10px; width: 6px; height: 6px; border-radius: 50%; background: #ea4335; }
+  .rail-sep { width: 28px; height: 1px; background: #e0e3e7; margin: 8px 0; }
+
+  .g-rail { grid-area: rail; border-left: 1px solid #ededed; padding: 10px 0; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .g-rail .ri { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+  .g-rail .ri:hover { background: rgba(32,33,36,0.06); }
+  .g-rail .ri .ms { font-size: 21px; color: #5f6368; }
+  .g-rail .rsep { width: 24px; height: 1px; background: #e0e3e7; margin: 4px 0; }
+
+  .g-main { grid-area: main; display: flex; flex-direction: column; overflow: hidden; min-height: 0; background: #fff; }
+  .g-toolbar { display: flex; align-items: center; gap: 2px; padding: 6px 16px; flex-shrink: 0; }
+  .g-toolbar .tb { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #444746; cursor: pointer; }
+  .g-toolbar .tb:hover { background: rgba(32,33,36,0.06); }
+  .g-toolbar .tb .ms { font-size: 20px; }
+  .g-toolbar .vline { width: 1px; height: 24px; background: #e0e3e7; margin: 0 6px; }
+  .g-toolbar .spacer { flex: 1; }
+  .g-toolbar .pager { display: flex; align-items: center; gap: 2px; color: #5f6368; font-family: var(--font-ui); font-size: 12px; }
+  .g-toolbar .pager .num { margin-right: 8px; }
+
+  .g-scroll { flex: 1; overflow-y: auto; min-height: 0; background: #fff; }
+
+  .mail-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; padding: 18px 28px 2px; }
+  .mail-head h1 { font-family: var(--font-ui); font-size: 22px; font-weight: 400; color: #202124; margin: 0; }
+  .mail-head .acts { display: flex; gap: 2px; color: #5f6368; flex-shrink: 0; }
+  .mail-head .acts .tb { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+  .mail-head .acts .tb:hover { background: rgba(32,33,36,0.06); }
+  .mail-head .acts .ms { font-size: 19px; }
+
+  .sender-row { display: flex; align-items: flex-start; gap: 14px; padding: 8px 28px 16px; }
+  .sender-av { width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0; background: #fff; border: 1px solid #e8eaed; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .sender-av img { width: 26px; height: auto; }
+  .sender-meta { flex: 1; min-width: 0; }
+  .sender-name { font-family: var(--font-ui); font-size: 14px; color: #202124; display: flex; align-items: center; flex-wrap: wrap; gap: 4px; }
+  .sender-name b { font-weight: 700; }
+  .sender-name .verified { color: #ea580c; font-size: 16px; }
+  .sender-name .addr { color: #5f6368; font-weight: 400; }
+  .sender-to { font-family: var(--font-ui); font-size: 12px; color: #5f6368; display: flex; align-items: center; gap: 3px; margin-top: 1px; }
+  .sender-right { display: flex; align-items: center; gap: 4px; color: #5f6368; flex-shrink: 0; }
+  .sender-right .time { font-family: var(--font-ui); font-size: 12px; white-space: nowrap; margin-right: 4px; }
+  .sender-right .tb { width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+  .sender-right .tb:hover { background: rgba(32,33,36,0.06); }
+  .sender-right .ms { font-size: 19px; }
+
+  /* ===== Email body ===== */
+  .email-canvas { background: #f4f4f2; padding: 40px 24px 64px; }
+  .email { max-width: 720px; margin: 0 auto; font-family: var(--font-main); color: var(--color-ink); }
+
+  .e-logo { width: 92px; height: auto; display: block; margin-bottom: 30px; }
+
+  .e-h1 { font-family: var(--font-main); font-weight: 400; font-size: 40px; line-height: 1.08; letter-spacing: -0.8px; margin: 0 0 18px; color: var(--color-ink); }
+  .e-lede { font-family: var(--font-main); font-weight: 300; font-size: 18px; line-height: 1.5; color: #3a4044; margin: 0 0 28px; max-width: 34em; }
+
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; font-family: var(--font-main); font-weight: 400; cursor: pointer; text-decoration: none; transition: opacity .15s, background .15s; border-radius: var(--radius-pill); }
+  .btn-dark { background: #16181a; color: #fff; height: 52px; padding: 0 32px; font-size: 16px; }
+  .btn-dark:hover { background: #2c2f33; }
+  .btn-block { width: 100%; }
+  .btn-outline { background: #fff; color: var(--color-ink); border: 1px solid #c9c9bd; height: 48px; font-size: 15px; }
+  .btn-outline:hover { background: #faf9f4; }
+
+  .e-microcaption { font-family: var(--font-main); font-weight: 300; font-size: 13px; color: #6c7378; margin: 14px 0 0; }
+
+  .e-hero-img { width: 100%; height: 360px; margin: 34px 0 0; display: block; object-fit: cover; border-radius: 14px; }
+
+  .e-divider { height: 1px; background: #dcdcd2; margin: 44px 0; border: 0; }
+
+  .e-h2 { font-family: var(--font-main); font-weight: 400; font-size: 30px; line-height: 1.12; letter-spacing: -0.5px; margin: 0 0 12px; color: var(--color-ink); }
+  .e-sub { font-family: var(--font-main); font-weight: 300; font-size: 16px; line-height: 1.55; color: #4a5054; margin: 0 0 28px; max-width: 40em; }
+
+  .offers { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  .offer { background: #fff; border: 1px solid #e6e6dc; border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; }
+  .offer-photo { position: relative; }
+  .offer-photo img { width: 100%; height: 200px; display: block; object-fit: cover; }
+  .offer-icon-panel { width: 100%; height: 220px; display: flex; align-items: center; justify-content: center; }
+  .offer-icon-panel svg { width: 90px; height: 90px; }
+  .offer-badge { position: absolute; top: 16px; left: 16px; z-index: 2; display: inline-flex; align-items: center; height: 30px; padding: 0 16px; border-radius: 20px; background: #f97316; color: #fff; font-family: var(--font-main); font-weight: 400; font-size: 13.5px; letter-spacing: -0.1px; }
+  .offer-body { padding: 24px 24px 26px; display: flex; flex-direction: column; flex: 1; }
+  .offer-body h3 { font-family: var(--font-main); font-weight: 400; font-size: 22px; line-height: 1.22; letter-spacing: -0.2px; margin: 0 0 10px; color: var(--color-ink); }
+  .offer-body .desc { font-family: var(--font-main); font-weight: 300; font-size: 15px; line-height: 1.5; color: #5a6064; margin: 0 0 20px; }
+  .offer-rule { height: 1px; background: #ececdf; margin: 0 0 20px; border: 0; }
+  .offer-list { list-style: none; padding: 0; margin: 0 0 26px; display: flex; flex-direction: column; gap: 16px; flex: 1; }
+  .offer-list li { display: flex; gap: 12px; align-items: flex-start; font-family: var(--font-main); font-weight: 300; font-size: 15px; line-height: 1.4; color: #2c3236; }
+  .offer-list .ms { font-size: 21px; color: #3a4044; flex-shrink: 0; margin-top: -1px; }
+  .offer-actions { display: flex; flex-direction: column; gap: 12px; }
+
+  .steps-card { background: #fff; border: 1px solid #e6e6dc; border-radius: 20px; padding: 34px 36px 38px; margin-top: 24px; }
+  .steps-card h3 { font-family: var(--font-main); font-weight: 400; font-size: 22px; letter-spacing: -0.3px; margin: 0 0 26px; color: var(--color-ink); }
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+  .step .n { width: 34px; height: 34px; border-radius: 50%; background: #16181a; color: #fff; display: flex; align-items: center; justify-content: center; font-family: var(--font-main); font-weight: 400; font-size: 15px; margin-bottom: 14px; }
+  .step h4 { font-family: var(--font-main); font-weight: 400; font-size: 16px; margin: 0 0 8px; color: var(--color-ink); }
+  .step p { font-family: var(--font-main); font-weight: 300; font-size: 14px; line-height: 1.5; color: #5a6064; margin: 0; }
+
+  .e-close { text-align: center; padding: 64px 24px 40px; }
+  .e-close h3 { font-family: var(--font-main); font-weight: 400; font-size: 28px; line-height: 1.18; letter-spacing: -0.4px; margin: 0 0 12px; color: var(--color-ink); }
+  .e-close p { font-family: var(--font-main); font-weight: 300; font-size: 16px; line-height: 1.5; color: #4a5054; margin: 0 auto 26px; max-width: 32em; }
+
+  .e-foot { max-width: 720px; margin: 0 auto; padding-top: 40px; border-top: 1px solid #dcdcd2; }
+  .e-foot .links { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-bottom: 16px; }
+  .e-foot .links a { font-family: var(--font-main); font-weight: 300; font-size: 12.5px; color: var(--color-ink); text-decoration: underline; text-underline-offset: 2px; }
+  .e-foot .legal { font-family: var(--font-main); font-weight: 300; font-size: 11.5px; line-height: 1.65; color: #767c80; margin: 0 0 14px; }
+  .e-foot .addr { font-family: var(--font-main); font-weight: 300; font-size: 11.5px; line-height: 1.6; color: #767c80; margin: 0; }
+  .e-foot .unsub a { color: #767c80; }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 1080px) { .g-rail { display: none; } .gmail { grid-template-columns: 68px 1fr; grid-template-areas: "top top" "side main"; } }
+  @media (max-width: 760px) {
+    .gmail { grid-template-columns: 0 1fr; }
+    .g-side { display: none; }
+    .g-logo .word { display: none; } .g-logo { min-width: 0; }
+    .g-upgrade span { display: none; } .g-upgrade { padding: 0 12px; }
+    .email-canvas { padding: 28px 12px 44px; }
+    .e-h1 { font-size: 30px; }
+    .e-hero-img { height: 240px; }
+    .offers { grid-template-columns: 1fr; }
+    .steps { grid-template-columns: 1fr; gap: 26px; }
+    .steps-card { padding: 26px 22px 28px; }
+    .mail-head, .sender-row { padding-left: 16px; padding-right: 16px; }
+    .e-h2 { font-size: 25px; }
+  }
+  @media (max-width: 520px) {
+    .g-search .ms.opts, .g-icon-btn.hide-sm { display: none; }
+    .sender-right .time { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="gmail">
+
+  <!-- Top bar -->
+  <header class="g-top">
+    <div class="menu-btn"><span class="ms">menu</span></div>
+    <div class="g-logo"><span class="ms">mail</span><span class="word">Gmail</span></div>
+    <div class="g-search">
+      <span class="ms">search</span>
+      <input type="text" placeholder="Search mail" aria-label="Search mail">
+      <span class="ms opts">tune</span>
+    </div>
+    <div class="g-top-right">
+      <div class="g-icon-btn hide-sm"><span class="ms">help</span></div>
+      <div class="g-icon-btn hide-sm"><span class="ms">settings</span></div>
+      <div class="g-icon-btn hide-sm"><span class="ms gem">auto_awesome</span></div>
+      <div class="g-upgrade"><span class="ms">diamond</span><span>Upgrade</span></div>
+      <div class="g-icon-btn"><span class="ms">apps</span></div>
+      <div class="g-avatar">C</div>
+    </div>
+  </header>
+
+  <!-- Left rail -->
+  <aside class="g-side">
+    <div class="compose-fab"><span class="ms">edit</span></div>
+    <div class="rail-item active"><span class="ms">inbox</span><span class="dot"></span></div>
+    <div class="rail-item"><span class="ms">star</span></div>
+    <div class="rail-item"><span class="ms">schedule</span></div>
+    <div class="rail-item"><span class="ms">send</span></div>
+    <div class="rail-item"><span class="ms">draft</span><span class="dot"></span></div>
+    <div class="rail-item"><span class="ms">expand_more</span></div>
+    <div class="rail-sep"></div>
+    <div class="rail-item"><span class="ms">add</span></div>
+    <div class="rail-item"><span class="ms">label</span></div>
+  </aside>
+
+  <!-- Reading pane -->
+  <main class="g-main">
+    <div class="g-toolbar">
+      <div class="tb"><span class="ms">arrow_back</span></div>
+      <div class="vline"></div>
+      <div class="tb"><span class="ms">archive</span></div>
+      <div class="tb"><span class="ms">report</span></div>
+      <div class="tb"><span class="ms">delete</span></div>
+      <div class="vline"></div>
+      <div class="tb"><span class="ms">mark_email_unread</span></div>
+      <div class="tb"><span class="ms">drive_file_move</span></div>
+      <div class="tb"><span class="ms">more_vert</span></div>
+      <div class="spacer"></div>
+      <div class="pager"><span class="num">37 of many</span></div>
+      <div class="tb"><span class="ms">chevron_left</span></div>
+      <div class="tb"><span class="ms">chevron_right</span></div>
+    </div>
+
+    <div class="g-scroll">
+      <div class="mail-head">
+        <h1>You have funding options available for your business</h1>
+        <div class="acts">
+          <div class="tb"><span class="ms">print</span></div>
+          <div class="tb"><span class="ms">open_in_new</span></div>
+        </div>
+      </div>
+
+      <div class="sender-row">
+        <div class="sender-av" style="background:#f97316;color:#fff;font-weight:700;font-size:15px;border:none;">S</div>
+        <div class="sender-meta">
+          <div class="sender-name"><b>Shopwell</b> <span class="ms verified">verified</span> <span class="addr">&lt;funding@shopwell.com&gt;</span></div>
+          <div class="sender-to">to me <span class="ms" style="font-size:16px">expand_more</span></div>
+        </div>
+        <div class="sender-right">
+          <span class="time">Mar 17, 2026, 12:10 AM</span>
+          <div class="tb"><span class="ms">star</span></div>
+          <div class="tb"><span class="ms">add_reaction</span></div>
+          <div class="tb"><span class="ms">reply</span></div>
+          <div class="tb"><span class="ms">more_vert</span></div>
+        </div>
+      </div>
+
+      <!-- Email body -->
+      <div class="email-canvas">
+        <article class="email">
+
+          <!-- Hero -->
+          <svg width="100" height="32" viewBox="0 0 100 32" xmlns="http://www.w3.org/2000/svg"><text x="0" y="24" font-family="Inter,-apple-system,sans-serif" font-size="20" font-weight="800" fill="#f97316" letter-spacing="-0.5">shopwell</text></svg>
+          <h2 class="e-h1">Keep your business moving</h2>
+          <p class="e-lede">Whether you're planning ahead or ready to act on opportunities, Liberis offers flexible funding options designed to help your your business grow.</p>
+          <a class="btn btn-dark" href="Shopwell Merchant Dashboard.html">View funding offers</a>
+          <p class="e-microcaption">Checking your options won't affect your credit score.</p>
+
+          <img class="e-hero-img" src="assets/hero.png" alt="Shopwell merchants at work">
+
+          <hr class="e-divider">
+
+          <!-- Your offers -->
+          <h2 class="e-h2">Your offers</h2>
+          <p class="e-sub">Compare our two funding solutions provided by our funding partner Liberis and find what works best for you.</p>
+
+          <div class="offers">
+            <!-- Cash Advance -->
+            <div class="offer">
+              <div class="offer-photo">
+                <div class="offer-icon-panel" style="background:#f97316;">
+                  <svg viewBox="0 0 37 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18.3025 21.5248C19.8317 21.5248 21.0756 20.2863 21.0756 18.7517C21.0756 17.217 19.8371 15.9785 18.3025 15.9785C16.7678 15.9785 15.5293 17.2224 15.5293 18.7517C15.5293 20.281 16.7678 21.5248 18.3025 21.5248Z" fill="white"/>
+                    <path d="M18.1252 0.942383L35.0657 10.7858L18.4967 21.6092L1.54004 11.2758L18.1252 0.942383Z" stroke="white" stroke-width="1.61544"/>
+                    <path d="M18.1145 8.5791L35.055 18.4225L18.1145 29.2459L1.5293 18.9125L18.1145 8.5791Z" stroke="white" stroke-width="1.61544"/>
+                    <path d="M18.2971 16.2158L34.8661 26.0538L17.9309 36.8826L1.71191 26.5492L18.2971 16.2158Z" stroke="white" stroke-width="1.61544"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="offer-body">
+                <h3>Cash Advance</h3>
+                <p class="desc">Get a lump sum of funding upfront, then pay from a percentage of your daily sales.</p>
+                <hr class="offer-rule">
+                <ul class="offer-list">
+                  <li><span class="ms">check_circle</span><span>Pay with a % of future daily sales</span></li>
+                  <li><span class="ms">check_circle</span><span>Get funds upfront for what you need now</span></li>
+                  <li><span class="ms">check_circle</span><span>Great for stocking up, investing in inventory, or covering planned costs</span></li>
+                </ul>
+                <div class="offer-actions">
+                  <a class="btn btn-dark btn-block" href="Shopwell Merchant Dashboard.html">Access my offer</a>
+                  <a class="btn btn-outline btn-block" href="Shopwell Merchant Dashboard.html">Learn more</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Flex Advance -->
+            <div class="offer">
+              <div class="offer-photo">
+                <div class="offer-icon-panel" style="background:#16181a;">
+                  <svg viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18.0832 20.7513C19.596 20.7513 20.8265 19.5261 20.8265 18.008C20.8265 16.4898 19.6013 15.2646 18.0832 15.2646C16.565 15.2646 15.3398 16.4952 15.3398 18.008C15.3398 19.5208 16.565 20.7513 18.0832 20.7513Z" fill="white"/>
+                    <path d="M1.7774 34.2441C-1.38143 31.1013 3.35948 21.2838 12.3672 12.3187C21.3696 3.35359 31.2297 -1.37134 34.3885 1.77151C37.5473 4.91437 32.8064 14.7318 23.7987 23.6969C14.7909 32.662 4.93091 37.387 1.7774 34.2441Z" stroke="white" stroke-width="1.59806"/>
+                    <path d="M34.3885 34.2441C37.5473 31.1013 32.8011 21.2838 23.7987 12.3187C14.7909 3.35359 4.93091 -1.37134 1.7774 1.77151C-1.38143 4.91437 3.35948 14.7318 12.3672 23.6969C21.375 32.662 31.235 37.387 34.3885 34.2441Z" stroke="white" stroke-width="1.59806"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="offer-body">
+                <h3>Flex Advance</h3>
+                <p class="desc">Access a flexible funding line and take funds out when opportunities come up.</p>
+                <hr class="offer-rule">
+                <ul class="offer-list">
+                  <li><span class="ms">check_circle</span><span>On-demand access to an approved limit</span></li>
+                  <li><span class="ms">check_circle</span><span>Only pay for what you use</span></li>
+                  <li><span class="ms">check_circle</span><span>Ideal for managing cash flow and seizing opportunities</span></li>
+                </ul>
+                <div class="offer-actions">
+                  <a class="btn btn-dark btn-block" href="Shopwell Merchant Dashboard.html">Access my offer</a>
+                  <a class="btn btn-outline btn-block" href="Shopwell Merchant Dashboard.html">Learn more</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Steps -->
+          <div class="steps-card">
+            <h3>From offer to funded in three steps</h3>
+            <div class="steps">
+              <div class="step">
+                <div class="n">1</div>
+                <h4>Pick an offer</h4>
+                <p>Choose the funding option that suits your business.</p>
+              </div>
+              <div class="step">
+                <div class="n">2</div>
+                <h4>Confirm a few details</h4>
+                <p>Verify your business and connect your bank securely. It takes about five minutes.</p>
+              </div>
+              <div class="step">
+                <div class="n">3</div>
+                <h4>Get funded</h4>
+                <p>Money lands in your account, usually within 48 hours. You pay automatically as you sell.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Closing band -->
+          <div class="e-close">
+            <h3>Grow your business with Shopwell Business Funding</h3>
+            <p>You're pre-approved for funding from our financing partner Liberis.</p>
+            <a class="btn btn-dark" href="Shopwell Merchant Dashboard.html">View funding offers</a>
+          </div>
+
+          <!-- Footer -->
+          <div class="e-foot">
+            <div class="links">
+              <a href="#">Terms &amp; Conditions</a>
+              <a href="#">Privacy policy</a>
+              <a href="#">How Shopwell shares your data</a>
+              <a href="#">Help centre</a>
+            </div>
+          </div>
+
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <!-- Right side panel -->
+  <aside class="g-rail">
+    <div class="ri"><span class="ms">calendar_today</span></div>
+    <div class="ri"><span class="ms">lightbulb</span></div>
+    <div class="ri"><span class="ms">check_circle</span></div>
+    <div class="ri"><span class="ms">person</span></div>
+    <div class="rsep"></div>
+    <div class="ri"><span class="ms">add</span></div>
+  </aside>
+</div>
+</body>
+</html>

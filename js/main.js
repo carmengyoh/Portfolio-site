@@ -59,6 +59,35 @@
     }
 
     /* ----------------------------------------------------------------
+       Selected work card rendering
+    ---------------------------------------------------------------- */
+    function renderSelectedProjects() {
+        var grid = document.getElementById('selected-work-grid');
+        if (!grid || typeof SELECTED_PROJECTS === 'undefined') return;
+
+        grid.innerHTML = SELECTED_PROJECTS.map(function (p, index) {
+            var tagsHTML = p.tags.map(function (tag) {
+                return '<span>' + tag + '</span>';
+            }).join('');
+
+            return [
+                '<article class="selected-project-card is-linked reveal" role="link" tabindex="0" data-link="' + p.link + '" onclick="window.location=this.dataset.link" onkeydown="if(event.key===\'Enter\')window.location=this.dataset.link">',
+                '  <div class="selected-project-topline">',
+                '    <span class="selected-project-number">0' + (index + 1) + '</span>',
+                '    <span class="selected-project-status">' + p.status + '</span>',
+                '  </div>',
+                '  <div class="selected-project-copy">',
+                '    <p class="selected-project-client">' + p.client + '</p>',
+                '    <h3>' + p.title + '</h3>',
+                '    <p class="selected-project-description">' + p.description + '</p>',
+                '  </div>',
+                '  <div class="selected-project-tags">' + tagsHTML + '</div>',
+                '</article>'
+            ].join('\n');
+        }).join('\n');
+    }
+
+    /* ----------------------------------------------------------------
        Navigation — scrolled state (border + backdrop blur)
     ---------------------------------------------------------------- */
     function initNavScrollState() {
@@ -77,7 +106,7 @@
     ---------------------------------------------------------------- */
     function initActiveNavLink() {
         var links    = document.querySelectorAll('.nav-link');
-        var sections = document.querySelectorAll('section[id], footer[id]');
+        var sections = document.querySelectorAll('section[id]:not(#selected-work), footer[id]');
 
         function update() {
             var scrollY  = window.scrollY + 120;
@@ -277,6 +306,7 @@
     ---------------------------------------------------------------- */
     document.addEventListener('DOMContentLoaded', function () {
         renderProjects();
+        renderSelectedProjects();
         initNavScrollState();
         initActiveNavLink();
         initMobileMenu();
