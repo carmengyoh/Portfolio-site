@@ -20,7 +20,7 @@ const PROJECTS = [
     /* ---- Project 1 — Main case study 01 ---- */
     {
         client:      'Liberis',
-        title:       'Helping merchants choose the right funding product',
+        title:       'Helping merchants choose funding',
         tags:        ['Fintech', 'Product Strategy', 'Research'],
         role:        'Lead Designer',
         status:      'Validated concept',
@@ -50,13 +50,13 @@ const PROJECTS = [
     /* ---- Project 3 ---- */
     {
         client:      'HerFreedom101',
-        title:       'HerFreedom101',
-        tags:        ['Wellness', '0–1 Product', 'UI/UX'],
+        title:       'Designing for the return',
+        tags:        ['Wellness', 'Retention', 'Service Design'],
         role:        'Founder & Designer',
         status:      'Shipped',
-        description: 'Building a feminine wellbeing platform from 0–1, from brand to product to validation.',
+        description: 'Diagnosing a day-two retention problem and redesigning the experience to give burned-out women a reason to return.',
         image:       null,
-        link:        '#',
+        link:        'case-study-herfreedom101.html',
         placeholderBg: 'linear-gradient(140deg, #2a1424 0%, #3d1d33 45%, #4a2240 100%)',
     },
 
@@ -80,7 +80,7 @@ const PROJECTS = [
         status:      'Exploratory and ongoing',
         description: 'Mapping two growing platforms to create a clearer long-term direction for navigation, application journeys and feature discoverability.',
         image:       null,
-        link:        '#',
+        link:        'selected-case-study.html?project=partner-hub-ia',
         placeholderBg: 'linear-gradient(140deg, #1b1a2e 0%, #241f3d 45%, #2d2650 100%)',
     },
 
@@ -92,7 +92,7 @@ const PROJECTS = [
         status:      'Shipped',
         description: 'Enabling agents to upload the KYC and supporting evidence merchants had already provided, reducing avoidable chasing.',
         image:       null,
-        link:        '#',
+        link:        'selected-case-study.html?project=document-upload',
         placeholderBg: 'linear-gradient(140deg, #14182b 0%, #1d2340 45%, #262c52 100%)',
     },
 
@@ -104,7 +104,7 @@ const PROJECTS = [
         status:      'Delivered to partner',
         description: 'Creating a new merchant-facing purchase and financing journey that allowed businesses to buy from a partner and repay through a percentage of daily sales.',
         image:       null,
-        link:        '#',
+        link:        'selected-case-study.html?project=pay-with-liberis',
         placeholderBg: 'linear-gradient(140deg, #241419 0%, #351d2b 45%, #402236 100%)',
     },
 
@@ -120,4 +120,11 @@ const PROJECTS = [
     },
     */
 
+];
+
+/* Homepage projects that add breadth beyond the featured case studies. */
+const SELECTED_PROJECTS = [
+    PROJECTS[4], /* Partner Hub information architecture */
+    PROJECTS[5], /* Document upload */
+    PROJECTS[6], /* Pay with Liberis */
 ];

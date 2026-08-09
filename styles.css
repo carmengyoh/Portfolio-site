@@ -2077,6 +2077,157 @@ body.hero-entered .hero-actions {
     left: 14px;
 }
 
+/* ── Selected work — focused projects with equal visual weight ── */
+.selected-work-row {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 32px 28px 28px;
+    scroll-margin-top: 88px;
+}
+
+.selected-work-header {
+    display: block;
+}
+
+.selected-work-header > div {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.selected-work-header .label { margin: 0; }
+
+.selected-work-header h2 {
+    max-width: none;
+    margin: 0;
+    color: var(--text);
+    font-family: var(--font-serif);
+    font-size: clamp(27px, 2.8vw, 40px);
+    font-weight: 500;
+    line-height: 1.08;
+    white-space: nowrap;
+}
+
+.selected-work-header h2 em {
+    color: var(--accent);
+    font-weight: inherit;
+}
+
+.selected-work-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+    border-top: 1px solid var(--bento-border);
+}
+
+.selected-project-card {
+    position: relative;
+    min-height: 275px;
+    padding: 24px 24px 4px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid var(--bento-border);
+    background: transparent;
+    transition: background 0.25s ease;
+}
+
+.selected-project-card.is-linked { cursor: pointer; }
+.selected-project-card.is-linked:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
+.selected-project-card:first-child { padding-left: 0; }
+.selected-project-card:last-child {
+    padding-right: 0;
+    border-right: 0;
+}
+
+.selected-project-card:hover {
+    background: linear-gradient(180deg, rgba(244, 114, 182, 0.035), transparent 72%);
+}
+
+.selected-project-topline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+}
+
+.selected-project-number {
+    color: var(--accent);
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+}
+
+.selected-project-status {
+    color: var(--text-muted);
+    font-family: var(--font-sans);
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    opacity: 0.72;
+}
+
+.selected-project-copy { margin-top: 34px; }
+
+.selected-project-client {
+    margin: 0 0 8px;
+    color: var(--accent);
+    font-family: var(--font-sans);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.selected-project-card h3 {
+    margin: 0;
+    color: var(--text);
+    font-family: var(--font-serif);
+    font-size: clamp(21px, 2vw, 27px);
+    font-weight: 500;
+    line-height: 1.18;
+}
+
+.selected-project-description {
+    margin: 14px 0 0;
+    color: var(--text-muted);
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.62;
+}
+
+.selected-project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: auto;
+    padding-top: 24px;
+}
+
+.selected-project-tags span {
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+    color: var(--text-muted);
+    font-family: var(--font-sans);
+    font-size: 10px;
+    font-weight: 500;
+}
+
+.selected-project-tags span + span::before {
+    content: '·';
+    margin-right: 7px;
+    color: var(--accent);
+}
+
 /* ── How I Work card ── */
 .how-bento {
     padding: 32px 28px 32px;
@@ -2521,6 +2672,16 @@ body.hero-breaking .hero-actions {
     .how-bento        { min-height: 260px; }
     .bottom-bento-row { grid-template-columns: 1fr 1fr 1fr; }
     .exp-bento        { grid-column: span 3; }
+    .selected-work-grid { grid-template-columns: 1fr; }
+    .selected-project-card,
+    .selected-project-card:first-child,
+    .selected-project-card:last-child {
+        min-height: 0;
+        padding: 24px 0;
+        border-right: 0;
+        border-bottom: 1px solid var(--bento-border);
+    }
+    .selected-project-card:last-child { border-bottom: 0; padding-bottom: 0; }
 }
 
 @media (max-width: 860px) {
@@ -2537,6 +2698,8 @@ body.hero-breaking .hero-actions {
     .exp-bento        { grid-column: span 2; }
     .bento-footer-inner { padding: 40px 24px 36px; }
     .footer-links-row { gap: 18px; }
+    .selected-work-row { padding: 26px 22px; }
+    .selected-work-header h2 { white-space: normal; }
 }
 
 @media (max-width: 520px) {

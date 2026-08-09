@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selected work — Carmen Gyoh</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=17">
+    <link rel="stylesheet" href="case-study.css?v=17">
+    <script>
+        (function(){
+            var t = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', t);
+        })();
+    </script>
+</head>
+<body>
+<nav class="nav" id="nav">
+    <div class="nav-inner">
+        <a href="index.html" class="nav-logo">CARMEN GYOH <span class="nav-star" aria-hidden="true">✦</span></a>
+        <div class="nav-links">
+            <a href="index.html#work" class="nav-link">Work</a>
+            <a href="index.html#how" class="nav-link">Process</a>
+            <a href="index.html#experience" class="nav-link">Experience</a>
+            <a href="index.html#contact" class="nav-link">Contact</a>
+            <a href="#" class="btn-cv" target="_blank" rel="noopener">View CV ↗</a>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">
+                <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v3m0 14v3M2 12h3m14 0h3M4.2 4.2l2.1 2.1m11.4 11.4l2.1 2.1M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>
+                <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </button>
+        </div>
+        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span></button>
+    </div>
+</nav>
+
+<div class="cs-bento-page" id="selected-case-study">
+    <header class="cs-hero-card">
+        <div class="cs-hero-inner"><div class="cs-hero-eyebrow" id="selected-tags"></div></div>
+        <div class="cs-cover selected-cs-cover" id="selected-cover" aria-hidden="true"></div>
+        <div class="cs-view-toggle" role="tablist" aria-label="Case study detail level">
+            <button class="cs-view-btn is-active" type="button" data-view="cs-view-tldr" role="tab" aria-selected="true">TL;DR</button>
+            <button class="cs-view-btn" type="button" data-view="cs-view-detailed" role="tab" aria-selected="false">Detailed</button>
+        </div>
+        <div class="cs-wide-block" style="margin-top:28px;"><h1 class="cs-title" id="selected-title"></h1></div>
+    </header>
+
+    <div class="cs-view-panel is-active" id="cs-view-tldr">
+        <div class="cs-meta-panel cs-meta-panel--3col" id="selected-meta-tldr"></div>
+        <article class="cs-article cs-article--tldr" id="selected-tldr"></article>
+    </div>
+
+    <div class="cs-view-panel" id="cs-view-detailed">
+        <div class="cs-wide-block"><p class="cs-hero-sub cs-hero-sub--wide" id="selected-subtitle"></p></div>
+        <div class="cs-meta-panel cs-meta-panel--3col" id="selected-meta-detailed"></div>
+        <article class="cs-article" id="selected-detailed"></article>
+    </div>
+
+    <div class="cs-end-nav">
+        <a href="index.html#selected-work" class="cs-back-project"><span>←</span><span><small>Back to</small>Selected work</span></a>
+        <a href="#" class="cs-next-project" id="selected-next"><span><small>Next project</small><span id="selected-next-title"></span></span><span>→</span></a>
+    </div>
+</div>
+
+<footer class="footer bento-footer" id="contact">
+    <div class="bento-footer-inner">
+        <div class="footer-star-line"><img src="images/carmen.jpg" alt="Carmen Gyoh" class="footer-photo"><span class="footer-star" aria-hidden="true">✦</span><p class="footer-headline">Let's create meaningful impact together.</p></div>
+        <div class="footer-links-row"><a href="mailto:carmenjgyoh@gmail.com" class="footer-link">carmenjgyoh@gmail.com</a><a href="https://linkedin.com/in/carmengyoh" class="footer-link" target="_blank" rel="noopener">LinkedIn ↗</a></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Carmen Gyoh. All rights reserved.</span><span>Designed &amp; built with care ♡</span></div>
+</footer>
+
+<script src="js/selected-case-study.js?v=1"></script>
+<script src="js/case-study.js?v=13"></script>
+</body>
+</html>
