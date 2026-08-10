@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Help me choose - Shopwell Business Funding</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0&display=block">
+<style>
+  :root {
+    --sw-red: #f97316; --sw-red-dk: #ea580c; --sw-red-tint: #fff7ed;
+    --sw-dark: #333; --sw-text: #1a1a1a; --sw-muted: #6b7280;
+    --sw-line: #e5e7eb; --sw-bg: #f9fafb; --sw-green: #16a34a;
+    --font: 'Inter', -apple-system, sans-serif;
+    --vag-text: var(--sw-text); --vag-dark: var(--sw-dark); --vag-muted: var(--sw-muted);
+    --vag-line: var(--sw-line); --vag-bg: var(--sw-bg); --vag-green: var(--sw-green);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; font-family: var(--font); color: var(--vag-text); background: var(--vag-bg); }
+  .ms { font-family: 'Material Symbols Rounded'; font-weight: normal; font-style: normal; line-height: 1; display: inline-block; white-space: nowrap; -webkit-font-smoothing: antialiased; font-variation-settings: 'FILL' 1; }
+
+  .vag-header { background: #1a1a1a; border-bottom: 3px solid #f97316; }
+  .vag-header-in { max-width: 900px; margin: 0 auto; display: flex; align-items: center; height: 56px; padding: 0 24px; gap: 16px; }
+  .vag-logo { font-weight: 800; font-size: 22px; color: #f97316; letter-spacing: -0.5px; }
+  .vag-header-in .back { display: flex; align-items: center; gap: 6px; font-size: 14px; color: #999; text-decoration: none; margin-left: auto; }
+  .vag-header-in .back:hover { color: #fff; }
+  .vag-header-in .back .ms { font-size: 18px; }
+
+  .quiz-wrap { max-width: 680px; margin: 0 auto; padding: 48px 24px 80px; }
+  .quiz-crumb { font-size: 13px; color: var(--vag-muted); margin-bottom: 24px; }
+  .quiz-crumb a { color: #f97316; text-decoration: none; }
+  .quiz-crumb a:hover { text-decoration: underline; }
+  .quiz-crumb .ms { font-size: 16px; vertical-align: -3px; }
+
+  /* Progress */
+  .progress-bar { display: flex; gap: 6px; margin-bottom: 32px; }
+  .progress-dot { flex: 1; height: 4px; border-radius: 2px; background: var(--vag-line); transition: background .3s; }
+  .progress-dot.done { background: #f97316; }
+  .progress-dot.active { background: #f97316; opacity: 0.5; }
+
+  /* Question card */
+  .q-card { background: #fff; border-radius: 16px; border: 1px solid var(--vag-line); padding: 32px; margin-bottom: 20px; }
+  .q-step { font-size: 12px; font-weight: 600; color: #f97316; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 10px; }
+  .q-text { font-size: 21px; font-weight: 700; color: var(--vag-dark); margin: 0 0 6px; line-height: 1.3; }
+  .q-hint { font-size: 14px; color: var(--vag-muted); margin: 0 0 24px; }
+  .q-options { display: flex; flex-direction: column; gap: 10px; }
+  .q-opt { display: flex; align-items: center; gap: 14px; padding: 14px 18px; border-radius: 12px; border: 1.5px solid var(--vag-line); background: #fff; cursor: pointer; font-size: 15px; color: var(--vag-text); transition: all .15s; text-align: left; font-family: var(--font); width: 100%; }
+  .q-opt:hover { border-color: #f97316; background: #fff7ed; }
+  .q-opt.selected { border-color: #f97316; background: #fff7ed; font-weight: 500; }
+  .q-opt.selected .q-opt-check { background: #f97316; border-color: #f97316; }
+  .q-opt.selected .q-opt-check .ms { opacity: 1; }
+  .q-opt-check { width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--vag-line); flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: all .15s; }
+  .q-opt-check .ms { font-size: 14px; color: #fff; opacity: 0; }
+
+  .q-multi-hint { font-size: 12.5px; color: var(--vag-muted); margin-bottom: 16px; font-style: italic; }
+
+  /* Navigation */
+  .q-nav { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .btn-back { display: flex; align-items: center; gap: 6px; height: 44px; padding: 0 18px; border-radius: 22px; border: 1.5px solid var(--vag-line); background: #fff; font-size: 14px; font-weight: 500; color: var(--vag-dark); cursor: pointer; font-family: var(--font); transition: all .15s; }
+  .btn-back:hover { border-color: var(--vag-dark); }
+  .btn-back .ms { font-size: 18px; }
+  .btn-next { display: flex; align-items: center; gap: 8px; height: 44px; padding: 0 24px; border-radius: 22px; background: #f97316; color: #fff; font-size: 15px; font-weight: 600; cursor: pointer; border: none; font-family: var(--font); transition: background .15s; }
+  .btn-next:hover { background: #ea580c; }
+  .btn-next:disabled { opacity: 0.45; cursor: not-allowed; }
+  .btn-next .ms { font-size: 18px; }
+
+  /* Result */
+  .result-card { background: #fff; border-radius: 16px; border: 1px solid var(--vag-line); padding: 36px; text-align: center; margin-bottom: 20px; }
+  .result-icon { width: 64px; height: 64px; border-radius: 14px; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; }
+  .result-icon.cash { background: #f97316; }
+  .result-icon.flex { background: var(--vag-dark); }
+  .result-icon svg { width: 36px; height: 36px; }
+  .result-tag { font-size: 12px; font-weight: 600; color: var(--vag-muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px; }
+  .result-title { font-size: 26px; font-weight: 700; color: var(--vag-dark); margin: 0 0 10px; }
+  .result-reason { font-size: 15px; color: var(--vag-muted); line-height: 1.6; margin: 0 0 28px; max-width: 36em; margin-left: auto; margin-right: auto; }
+  .result-actions { display: flex; flex-direction: column; gap: 12px; max-width: 320px; margin: 0 auto; }
+  .btn-result-primary { display: flex; align-items: center; justify-content: center; height: 50px; border-radius: 25px; background: #f97316; color: #fff; font-size: 15px; font-weight: 600; text-decoration: none; transition: background .15s; }
+  .btn-result-primary:hover { background: #ea580c; }
+  .btn-result-secondary { display: flex; align-items: center; justify-content: center; height: 46px; border-radius: 23px; border: 1.5px solid var(--vag-line); background: #fff; color: var(--vag-dark); font-size: 14px; font-weight: 500; text-decoration: none; transition: all .15s; }
+  .btn-result-secondary:hover { border-color: var(--vag-dark); }
+  .soft-result-note { font-size: 13px; color: var(--vag-muted); margin: 16px 0 0; }
+
+  @media (max-width: 520px) {
+    .vag-header-in { padding: 0 16px; }
+    .vag-header-in .back { font-size: 12px; }
+    .quiz-wrap { padding: 28px 16px 56px; }
+    .q-card { padding: 22px 18px; }
+    .q-text { font-size: 20px; }
+    .q-opt { padding: 13px 14px; font-size: 14px; }
+    .q-opt-check { border-color: #b9bcb6; background: #fff; }
+  }
+</style>
+</head>
+<body>
+
+<header class="vag-header">
+  <div class="vag-header-in">
+    <div class="vag-logo">shopwell</div>
+    <a class="back" href="hub.html"><span class="ms">arrow_back</span>Back to funding options</a>
+  </div>
+</header>
+
+<div class="quiz-wrap">
+  <div class="quiz-crumb">
+    <a href="hub.html">Shopwell Capital</a>
+    <span class="ms">chevron_right</span>
+    <b>Help me choose</b>
+  </div>
+
+  <div class="progress-bar" id="progress-bar"></div>
+  <div id="stage"></div>
+</div>
+
+<script>
+var QUESTIONS = [
+  {
+    id: 'purpose',
+    text: 'What are you hoping funding could help with?',
+    hint: 'Select all that apply.',
+    multi: true,
+    opts: [
+      { label: 'Equipment or supplies', score: 'cash' },
+      { label: 'Refurbishing your space', score: 'cash' },
+      { label: 'A marketing campaign', score: 'cash' },
+      { label: 'Hiring or supporting staff', score: 'cash' },
+      { label: 'Managing quieter periods', score: 'flex' },
+      { label: 'Seasonal needs or opportunities', score: 'flex' },
+      { label: 'Not sure yet', score: 'flex' }
+    ]
+  },
+  {
+    id: 'timing',
+    text: 'When do you expect to use the funds?',
+    hint: '',
+    multi: false,
+    opts: [
+      { label: 'Within the next week', score: 'cash' },
+      { label: 'Within the next month', score: 'cash' },
+      { label: 'Within the next 3 months', score: 'cash' },
+      { label: 'Only if an opportunity comes up', score: 'flex' },
+      { label: 'Just exploring for now', score: 'flex' }
+    ]
+  },
+  {
+    id: 'amount',
+    text: 'Do you know how much you need?',
+    hint: '',
+    multi: false,
+    opts: [
+      { label: 'Yes, a clear amount in mind', score: 'cash' },
+      { label: 'A rough idea', score: 'cash' },
+      { label: 'It depends on what comes up', score: 'flex' },
+      { label: 'Not today, but want to stay ready', score: 'flex' }
+    ]
+  },
+  {
+    id: 'need_type',
+    text: 'Is this a planned need or something that may change?',
+    hint: '',
+    multi: false,
+    opts: [
+      { label: 'One planned purchase or cost', score: 'cash' },
+      { label: 'A few planned costs', score: 'cash' },
+      { label: 'Regular or ongoing needs', score: 'flex' },
+      { label: 'Unexpected opportunities', score: 'flex' },
+      { label: 'Not sure', score: 'flex' }
+    ]
+  },
+  {
+    id: 'priority',
+    text: 'What matters most to you?',
+    hint: 'Select up to 2.',
+    multi: true,
+    maxSelect: 2,
+    opts: [
+      { label: 'Understanding the total cost upfront', score: 'cash' },
+      { label: 'Knowing the full amount upfront', score: 'cash' },
+      { label: 'Getting funds quickly', score: 'cash' },
+      { label: 'Flexibility to use funds when needed', score: 'flex' },
+      { label: 'Only paying for what I use', score: 'flex' },
+      { label: 'Keeping daily cashflow manageable', score: 'flex' }
+    ]
+  }
+];
+
+var answers = {};
+var current = 0;
+
+function renderProgress() {
+  var bar = document.getElementById('progress-bar');
+  bar.innerHTML = '';
+  QUESTIONS.forEach(function(q, i) {
+    var dot = document.createElement('div');
+    dot.className = 'progress-dot' + (i < current ? ' done' : i === current ? ' active' : '');
+    bar.appendChild(dot);
+  });
+}
+
+function renderQuestion(idx) {
+  var q = QUESTIONS[idx];
+  var sel = answers[q.id] || [];
+  var stage = document.getElementById('stage');
+  stage.innerHTML = '';
+
+  var card = document.createElement('div');
+  card.className = 'q-card';
+  var html = '<div class="q-step">Question ' + (idx+1) + ' of ' + QUESTIONS.length + '</div>';
+  html += '<h2 class="q-text">' + q.text + '</h2>';
+  if (q.hint) html += '<p class="q-hint">' + q.hint + '</p>';
+  if (q.multi) html += '<p class="q-multi-hint">Select all that apply' + (q.maxSelect ? ' (up to ' + q.maxSelect + ')' : '') + '.</p>';
+  html += '<div class="q-options">';
+  q.opts.forEach(function(opt, oi) {
+    var isSel = sel.indexOf(oi) > -1;
+    html += '<button class="q-opt' + (isSel ? ' selected' : '') + '" data-idx="' + oi + '">'
+      + '<span class="q-opt-check"><span class="ms">check</span></span>'
+      + opt.label + '</button>';
+  });
+  html += '</div>';
+  card.innerHTML = html;
+
+  card.querySelectorAll('.q-opt').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var oi = parseInt(btn.getAttribute('data-idx'));
+      var cur = answers[q.id] || [];
+      if (q.multi) {
+        var idx2 = cur.indexOf(oi);
+        if (idx2 > -1) {
+          cur.splice(idx2, 1);
+        } else {
+          if (q.maxSelect && cur.length >= q.maxSelect) return;
+          cur.push(oi);
+        }
+        answers[q.id] = cur;
+      } else {
+        answers[q.id] = [oi];
+      }
+      renderQuestion(idx);
+    });
+  });
+
+  stage.appendChild(card);
+
+  var nav = document.createElement('div');
+  nav.className = 'q-nav';
+  var backBtn = idx > 0
+    ? '<button class="btn-back" onclick="goBack()"><span class="ms">arrow_back</span> Back</button>'
+    : '<span></span>';
+  var hasSel = (answers[q.id] || []).length > 0;
+  var isLast = idx === QUESTIONS.length - 1;
+  var nextLabel = isLast ? 'See my result <span class="ms">arrow_forward</span>' : 'Next <span class="ms">arrow_forward</span>';
+  nav.innerHTML = backBtn + '<button class="btn-next" onclick="goNext()" ' + (hasSel ? '' : 'disabled') + '>' + nextLabel + '</button>';
+  stage.appendChild(nav);
+}
+
+function goNext() {
+  var q = QUESTIONS[current];
+  if (!(answers[q.id] || []).length) return;
+  if (current < QUESTIONS.length - 1) {
+    current++;
+    renderProgress();
+    renderQuestion(current);
+  } else {
+    showResult();
+  }
+}
+
+function goBack() {
+  if (current > 0) {
+    current--;
+    renderProgress();
+    renderQuestion(current);
+  }
+}
+
+function showResult() {
+  var cashScore = 0, flexScore = 0;
+  QUESTIONS.forEach(function(q) {
+    var sel = answers[q.id] || [];
+    sel.forEach(function(oi) {
+      if (q.opts[oi].score === 'cash') cashScore++;
+      else flexScore++;
+    });
+  });
+  var isCash = cashScore >= flexScore;
+
+  var stage = document.getElementById('stage');
+  var bar = document.getElementById('progress-bar');
+  bar.querySelectorAll('.progress-dot').forEach(function(d){ d.className = 'progress-dot done'; });
+
+  var cashSVG = '<svg viewBox="0 0 37 38" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18.3025 21.5248C19.8317 21.5248 21.0756 20.2863 21.0756 18.7517C21.0756 17.217 19.8371 15.9785 18.3025 15.9785C16.7678 15.9785 15.5293 17.2224 15.5293 18.7517C15.5293 20.281 16.7678 21.5248 18.3025 21.5248Z" fill="white"/><path d="M18.1252 0.942383L35.0657 10.7858L18.4967 21.6092L1.54004 11.2758L18.1252 0.942383Z" stroke="white" stroke-width="1.61544"/><path d="M18.1145 8.5791L35.055 18.4225L18.1145 29.2459L1.5293 18.9125L18.1145 8.5791Z" stroke="white" stroke-width="1.61544"/><path d="M18.2971 16.2158L34.8661 26.0538L17.9309 36.8826L1.71191 26.5492L18.2971 16.2158Z" stroke="white" stroke-width="1.61544"/></svg>';
+  var flexSVG = '<svg viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18.0832 20.7513C19.596 20.7513 20.8265 19.5261 20.8265 18.008C20.8265 16.4898 19.6013 15.2646 18.0832 15.2646C16.565 15.2646 15.3398 16.4952 15.3398 18.008C15.3398 19.5208 16.565 20.7513 18.0832 20.7513Z" fill="white"/><path d="M1.7774 34.2441C-1.38143 31.1013 3.35948 21.2838 12.3672 12.3187C21.3696 3.35359 31.2297 -1.37134 34.3885 1.77151C37.5473 4.91437 32.8064 14.7318 23.7987 23.6969C14.7909 32.662 4.93091 37.387 1.7774 34.2441Z" stroke="white" stroke-width="1.59806"/><path d="M34.3885 34.2441C37.5473 31.1013 32.8011 21.2838 23.7987 12.3187C14.7909 3.35359 4.93091 -1.37134 1.7774 1.77151C-1.38143 4.91437 3.35948 14.7318 12.3672 23.6969C21.375 32.662 31.235 37.387 34.3885 34.2441Z" stroke="white" stroke-width="1.59806"/></svg>';
+
+  var name = isCash ? 'Cash Advance' : 'Flex Advance';
+  var icon = isCash ? cashSVG : flexSVG;
+  var cls = isCash ? 'cash' : 'flex';
+  var reason = isCash
+    ? 'Based on your answers, Cash Advance could be a good fit. You have a specific need in mind and want the full amount available upfront with a clear, one-time cost.'
+    : 'Based on your answers, Flex Advance could be a good fit. Your needs are more flexible, and Flex lets you access funds over time — only paying for what you use.';
+
+  stage.innerHTML = '<div class="result-card">'
+    + '<div class="result-icon ' + cls + '">' + icon + '</div>'
+    + '<div class="result-tag">Based on your answers</div>'
+    + '<h2 class="result-title">' + name + ' could be a good fit</h2>'
+    + '<p class="result-reason">' + reason + '</p>'
+    + '<div class="result-actions">'
+    + '<a class="btn-result-primary" href="hub.html">Access my offer</a>'
+    + '<a class="btn-result-secondary" href="hub.html#compare">Want to compare both options?</a>'
+    + '</div>'
+    + '<p class="soft-result-note">This is a suggestion, not a recommendation. You can explore both options on the funding page.</p>'
+    + '</div>';
+}
+
+renderProgress();
+renderQuestion(0);
+</script>
+</body>
+</html>

@@ -648,6 +648,17 @@ body { background: var(--bento-bg); }
     text-align: center;
 }
 
+.cs-pullquote--reflection,
+[data-theme="light"] .cs-pullquote--reflection {
+    color: var(--accent);
+    font-family: var(--font-sans);
+    font-size: clamp(20px, 2.7vw, 28px);
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.4;
+    text-align: center;
+}
+
 /* ── Insight callout ── */
 .cs-insight-callout {
     padding: 20px 24px;
@@ -1562,6 +1573,71 @@ figcaption {
     box-shadow: 0 12px 40px rgba(0,0,0,0.16);
 }
 
+.cs-mobile-showcase {
+    margin-top: 30px !important;
+    padding: clamp(24px, 4vw, 44px);
+    border: 1px solid var(--bento-border);
+    border-radius: 18px;
+    background: var(--bento-bg);
+}
+.cs-mobile-screen-row {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(16px, 3vw, 34px);
+    align-items: end;
+}
+.cs-mobile-screen { min-width: 0; }
+.cs-mobile-screen-frame {
+    aspect-ratio: 390 / 844;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 18px;
+    background: #fff;
+    box-shadow: 0 18px 38px rgba(0,0,0,.2);
+}
+[data-theme="light"] .cs-mobile-screen-frame {
+    border-color: rgba(0,0,0,.09);
+    box-shadow: 0 14px 32px rgba(31,35,40,.13);
+}
+.cs-mobile-screen-frame img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+.cs-mobile-screen > p {
+    margin: 14px 0 0 !important;
+    color: var(--text-muted) !important;
+    font-size: 13px !important;
+    line-height: 1.4 !important;
+    text-align: center;
+}
+.cs-mobile-showcase > figcaption { margin-top: 24px; }
+
+@media (max-width: 600px) {
+    .cs-mobile-showcase {
+        width: calc(100% + 44px);
+        margin-left: -22px;
+        padding: 22px 0 20px;
+        overflow: hidden;
+        border-right: 0;
+        border-left: 0;
+        border-radius: 0;
+    }
+    .cs-mobile-screen-row {
+        grid-template-columns: repeat(3, 68vw);
+        gap: 16px;
+        padding: 0 22px 8px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+    }
+    .cs-mobile-screen-row::-webkit-scrollbar { display: none; }
+    .cs-mobile-screen { scroll-snap-align: start; }
+    .cs-mobile-showcase > figcaption { padding: 0 22px; }
+}
+
 /* Interactive desktop frames used for embedded case-study prototypes. */
 .cs-prototype-browser {
     overflow: hidden;
@@ -1782,11 +1858,12 @@ figcaption {
     display: flex;
     align-items: center;
     border-radius: 12px;
-    font-family: var(--font-serif);
+    font-family: var(--font-sans);
     font-size: 17px;
-    font-style: italic;
+    font-style: normal;
+    font-weight: 600;
     line-height: 1.5;
-    color: #202326;
+    color: var(--accent);
 }
 .cs-persona-details {
     flex: 1;
@@ -2023,6 +2100,161 @@ figcaption {
 .cs-article h2 em {
     font-style: italic;
     color: var(--accent);
+}
+
+.cs-article .cs-step-title {
+    font-family: var(--font-sans);
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--text);
+    margin: 0;
+    line-height: 1.45;
+}
+
+.cs-article .cs-step-subtitle {
+    font-family: var(--font-sans);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin: 10px 0 0;
+    line-height: 1.45;
+}
+
+/* Multi-product evidence and iteration visuals. These reuse the existing
+   glass-card language without changing the wider portfolio system. */
+.cs-section-kicker {
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--accent) !important;
+}
+.cs-feedback-visual {
+    overflow: hidden;
+    border: 1px solid var(--bento-border);
+    border-radius: 16px;
+    background: rgba(17,17,26,0.34);
+    box-shadow: 0 12px 36px rgba(0,0,0,0.12);
+}
+[data-theme="light"] .cs-feedback-visual { background: rgba(255,255,255,0.56); }
+.cs-feedback-title {
+    padding: 20px 22px 4px;
+    font-family: var(--font-serif);
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--text);
+}
+.cs-feedback-heading {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 15px 22px;
+    border-bottom: 1px solid var(--bento-border);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+.cs-feedback-heading span:last-child { padding-left: 34px; }
+.cs-feedback-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin: 0;
+    padding: 10px;
+    list-style: none;
+}
+.cs-feedback-list li {
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    gap: 4px 12px;
+    padding: 16px 14px;
+    border-bottom: 1px solid var(--bento-border);
+}
+.cs-feedback-list li:nth-child(odd) { border-right: 1px solid var(--bento-border); }
+.cs-feedback-list li:nth-last-child(-n+2) { border-bottom: 0; }
+.cs-feedback-number {
+    grid-row: 1 / span 2;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--accent);
+}
+.cs-article .cs-feedback-list p {
+    font-size: 12px;
+    line-height: 1.45;
+    color: var(--text-muted);
+}
+.cs-feedback-list strong {
+    font-size: 13px;
+    line-height: 1.45;
+    color: var(--text);
+}
+.cs-article .cs-figure-caption {
+    margin-top: -8px;
+    font-size: 12px;
+    font-style: italic;
+    line-height: 1.55;
+    text-align: center;
+    color: var(--text-subtle);
+}
+.cs-principle-grid,
+.cs-refinement-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+}
+.cs-principle-grid article,
+.cs-refinement-grid article {
+    padding: 18px;
+    border: 1px solid var(--bento-border);
+    border-radius: 14px;
+    background: rgba(17,17,26,0.28);
+}
+[data-theme="light"] .cs-principle-grid article,
+[data-theme="light"] .cs-refinement-grid article { background: rgba(255,255,255,0.52); }
+.cs-principle-grid h3 {
+    margin: 0 0 8px;
+    font-size: 13px;
+    line-height: 1.35;
+    color: var(--accent);
+}
+.cs-article .cs-principle-grid p,
+.cs-article .cs-refinement-grid p {
+    font-size: 15px;
+    line-height: 1.65;
+}
+.cs-refinement-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.cs-refinement-grid span {
+    display: block;
+    margin-bottom: 7px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+.cs-figure--hero-prototype {
+    width: calc(100% + 96px);
+    margin-left: -48px;
+}
+.cs-figure--user-stories {
+    width: calc(100% + 96px);
+    margin-left: -48px;
+}
+.cs-figure-img--user-stories { aspect-ratio: 16 / 9; }
+
+@media (max-width: 700px) {
+    .cs-feedback-list { grid-template-columns: 1fr; }
+    .cs-feedback-list li:nth-child(odd) { border-right: 0; }
+    .cs-feedback-list li:nth-last-child(2) { border-bottom: 1px solid var(--bento-border); }
+    .cs-feedback-heading { display: none; }
+    .cs-principle-grid,
+    .cs-refinement-grid { grid-template-columns: 1fr; }
+    .cs-figure--hero-prototype,
+    .cs-figure--user-stories {
+        width: 100%;
+        margin-left: 0;
+    }
 }
 
 .cs-article p {
