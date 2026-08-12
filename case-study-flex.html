@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="case-study.css">
+    <link rel="stylesheet" href="case-study.css?v=31">
 
     <script>
         (function(){
@@ -78,7 +78,7 @@
             <div class="cs-device-bar" aria-hidden="true">
                 <span class="cs-device-dot"></span><span class="cs-device-dot"></span><span class="cs-device-dot"></span>
             </div>
-            <video autoplay muted loop playsinline preload="metadata" poster="images/flex/flex-demo-poster.jpg" aria-label="Screen recording of the evolved Flex journey in Partner Hub">
+            <video autoplay muted loop playsinline preload="metadata" poster="images/flex/flex-demo-poster.jpg" aria-label="Screen recording of the evolved Flex Advance funding journey in Partner Hub">
                 <source src="images/flex/flex-demo.mp4" type="video/mp4">
             </video>
         </div>
@@ -120,13 +120,13 @@
 
             <section class="cs-article-section">
                 <h2>The problem</h2>
-                <p>Flex was a new funding product with no existing Partner Hub pattern to reuse. Partner agents had to create a merchant's account, assess them, generate a reusable limit and take a first advance — live, in one conversation, with dependencies on merchant data, payment processors and eligibility rules at every step.</p>
+                <p>Flex Advance was a new funding product with no existing Partner Hub journey to reuse. Partner agents needed to create a merchant's account, complete a funding assessment, establish a reusable limit and take a first advance. The journey could happen with the merchant present or across multiple sessions when the merchant needed to complete a step independently.</p>
             </section>
 
             <section class="cs-article-section">
                 <h2>The process</h2>
-                <p>I mapped merchant, agent and system actions across the whole journey before designing a single screen. That made the dependencies visible: where an agent could move independently, where the merchant had to act, and where a system status needed explaining.</p>
-                <p>After launch I ran moderated sessions with partner sales agents on a clickable prototype — recruiting, moderating and synthesising them myself — to see how the journey actually held up in a live sales conversation.</p>
+                <p>I mapped merchant, agent and system actions across the whole Flex Advance funding journey before moving into detailed screen design. This clarified which steps an agent could complete, where the merchant needed to participate and what Partner Hub should show when the journey paused.</p>
+                <p>Before launch, I planned and moderated testing sessions with partner sales agents using a clickable prototype. I wrote the questions and scenarios, facilitated the sessions and synthesised the findings.</p>
                 <figure class="cs-figure cs-figure--full">
                     <div class="cs-journey-embed">
                         <iframe src="images/flex/journey-diagram.html" title="End-to-end Partner Hub journey: agent creates the account, merchant connects Open Banking, agent returns to configure the account and take the first advance" height="700"></iframe>
@@ -136,7 +136,7 @@
 
             <section class="cs-article-section">
                 <h2>The solution</h2>
-                <p>I made progress and status explicit across the journey, and separated the Flex limit from the first drawdown so each read as its own commitment rather than one long form. I also designed an interactive calculator so agents could explain what an advance actually costs, mid-conversation.</p>
+                <p>I made progress and status explicit across the journey, and separated the Flex Advance limit from the first advance so each felt like a distinct decision rather than one long form. I also designed an interactive calculator so agents could explain the cost of an advance clearly when speaking with a merchant.</p>
                 <figure class="cs-figure cs-figure--full">
                     <div class="cs-cover-shot cs-cover-shot--inline">
                         <div class="cs-device-bar" aria-hidden="true">
@@ -157,19 +157,19 @@
 
             <section class="cs-article-section">
                 <h2>What I learned</h2>
-                <p>Shipping wasn't the finish line. Moderated testing after launch showed the assessment step was the weak point: Open Banking needed to be the obvious route to an accurate limit, and agents needed a lighter way to talk numbers before asking a merchant to commit. The strongest decisions came from watching real use, not from getting it right first time.</p>
+                <p>Pre-launch testing showed that the funding assessment screen needed further refinement. Open Banking needed to be the clearest route to an accurate limit, while agents also needed a lighter way to discuss indicative figures before asking a merchant to continue. Watching agents use the prototype exposed needs that were not visible from the journey map alone.</p>
                 <figure class="cs-figure-row">
                     <figure class="cs-figure">
                         <div class="cs-figure-img cs-figure-img--shot" style="aspect-ratio:1280/1012;">
                             <img src="images/flex/flex-funding-assessment-original.png" alt="Original funding assessment screen, with Open Banking shown as an equal-weight option alongside estimated figures">
                         </div>
-                        <figcaption>Before — every route had equal weight.</figcaption>
+                        <figcaption>Before - every route had equal weight.</figcaption>
                     </figure>
                     <figure class="cs-figure">
                         <div class="cs-figure-img cs-figure-img--shot" style="aspect-ratio:1280/1166;">
                             <img src="images/flex/flex-funding-assessment-updated.png" alt="Updated funding assessment screen, with Open Banking as the sole primary card and estimates demoted to a link">
                         </div>
-                        <figcaption>After — Open Banking made the clear primary route.</figcaption>
+                        <figcaption>After - Open Banking made the clear primary route.</figcaption>
                     </figure>
                 </figure>
             </section>
@@ -180,7 +180,7 @@
     <!-- ─── DETAILED VIEW ──────────────────────────────── -->
     <div class="cs-view-panel" id="cs-view-detailed">
         <div class="cs-wide-block">
-            <p class="cs-hero-sub cs-hero-sub--wide">Designed the end-to-end Flex journey in Partner Hub, from account creation to first drawdown, then redesigned the funding assessment using real partner feedback.</p>
+            <p class="cs-hero-sub cs-hero-sub--wide">Designed the end-to-end Flex Advance funding journey in Partner Hub, from account creation to first advance, then refined the funding assessment screen using partner-agent feedback.</p>
         </div>
 
         <div class="cs-meta-panel cs-meta-panel--3col">
@@ -207,70 +207,67 @@
 
             <section class="cs-article-section" id="brief">
                 <h2>Overview</h2>
-                <p>Flex introduced a new way for merchants to access funding through a reusable limit, rather than a single fixed advance. Partner agents needed to carry a merchant through four dependent stages inside Partner Hub, in one live conversation: create the merchant's account, complete the funding assessment, establish the reusable Flex limit, then take the first drawdown on the merchant's behalf.</p>
+                <p>Flex Advance introduced a new way for merchants to access funding through a reusable limit rather than one fixed advance. In Partner Hub, agents needed to create the merchant's account, complete the funding assessment, establish the reusable Flex Advance limit and take the first advance on the merchant's behalf. These stages did not always happen in one sitting. An agent could pause the journey while the merchant completed an external step, then return later and continue.</p>
 
                 <blockquote class="cs-pullquote cs-pullquote--question">
-                    How might we help partner agents set up, assess and activate a new Flex account on behalf of a merchant without losing clarity across a long, dependent journey?
+                    How might we help partner agents set up, assess and activate a new Flex Advance account on behalf of a merchant while keeping progress and next steps clear when the journey pauses?
                 </blockquote>
 
-                <p>I owned the journey end to end — mapping the agent flow, defining the information hierarchy and status model, designing the detailed screens and edge cases, then returning after launch to redesign based on live feedback.</p>
+                <p>I owned the journey end to end: mapping the agent flow, defining the information hierarchy and status model, designing the detailed screens and edge cases, then refining the funding assessment screen using findings from pre-launch prototype testing.</p>
 
                 <div class="cs-insight-callout">
                     <span class="label">WHY IT WAS HARD</span>
-                    <p>The journey crossed account creation, funding assessment, limit generation and drawdown, each with its own dependencies on merchant data, processors and eligibility rules. It had to feel efficient for agents mid-conversation, and safe for Liberis when evidence was missing.</p>
+                    <p>Agents could complete some steps themselves, but other steps depended on the merchant providing information or connecting Open Banking. Partner Hub therefore needed to show what had already been completed, who needed to act next and whether the agent could continue immediately or needed to return later.</p>
                 </div>
             </section>
 
             <section class="cs-article-section" id="journey">
-                <h2>Mapping the <em>journey</em></h2>
-                <p>Because Flex was a new product, there was no established Partner Hub pattern to reuse. I began by mapping merchant, agent and system actions across the whole journey, before touching a single screen. That made the dependencies visible: where an agent could progress independently, where merchant participation was required, and where a system status needed explaining.</p>
+                <h2>The process</h2>
+                <h3 class="cs-step-title">Step #1: Mapping the Flex Advance funding journey</h3>
+                <p>Because Flex Advance was a new product, there was no established Partner Hub journey to reuse. I mapped merchant, agent and system actions before moving into detailed screen design. This showed where agents could progress independently, where merchant participation was required and what status Partner Hub needed to communicate when the journey paused.</p>
 
                 <figure class="cs-figure cs-figure--full">
                     <div class="cs-journey-embed">
                         <iframe src="images/flex/journey-diagram.html" title="End-to-end Partner Hub journey: agent creates the account, merchant connects Open Banking, agent returns to configure the account and take the first advance" height="700"></iframe>
                     </div>
-                    <figcaption>The agent can drop off once the Open Banking link is sent, and is notified to return once the merchant connects their bank account.</figcaption>
                 </figure>
             </section>
 
             <section class="cs-article-section" id="launch">
-                <h2>Helping agents explain the <em>first advance</em></h2>
-                <p>The first advance wasn't simply an amount-selection step. Agents needed to explain what taking funding would mean for the merchant, mid-conversation. I designed an interactive calculator that let agents explore an advance amount and immediately see the corresponding fixed fee, percentage of daily sales and total repayment.</p>
+                <h3 class="cs-step-title">Step #2: Designing for progress, pauses and the first advance</h3>
+                <p>The Flex Advance journey could pause while a merchant completed Open Banking or while an agent gathered missing information. I designed the status and progress model so an agent returning to the account could understand what had already happened, why the journey had stopped and what needed to happen next.</p>
+                <figure class="cs-figure cs-figure--full"><div class="cs-asset-placeholder" role="img" aria-label="Placeholder for Flex Advance journey progress and status screens"><span>IMAGE TO ADD</span><strong>Journey progress and return states</strong><p>Add screens showing completed steps, the current status and the next action after an agent returns to an incomplete journey.</p></div><figcaption>This progress model is explored further in the <a href="case-study-partner-hub-progress.html">Partner Hub application-progress case study</a>.</figcaption></figure>
+                <h4 class="cs-step-subtitle">Explaining the first advance</h4>
+                <p>The first advance wasn't simply an amount-selection step. Agents needed a clear way to explain what taking funding would mean for the merchant, whether they were together or discussing it remotely. I designed an interactive calculator that let agents explore an advance amount and immediately see the corresponding fixed fee, percentage of daily sales and total repayment.</p>
 
                 <figure class="cs-figure cs-figure--full">
                     <div class="cs-device cs-device--phone" style="margin: 0 auto;">
                         <img src="images/flex/flex-first-advance-calculator.png" alt="First-advance calculator showing a selected advance amount alongside its fixed fee, percentage of daily sales and total repayment">
                     </div>
-                    <figcaption>Moving the slider updates the fee, the daily-sales percentage and the total repayment together, so an agent can talk through a real scenario live.</figcaption>
+                    <figcaption>Moving the slider updates the fee, daily-sales percentage and total repayment together, so an agent can talk through a realistic scenario with the merchant.</figcaption>
                 </figure>
 
-                <p>Two decisions shaped how the rest of the journey worked. <strong>Making progress and status explicit:</strong> the journey contained steps that couldn't always be completed in one sitting, so I designed the experience so agents could see what was done, what was blocking progress, and what to do next — an application was never a pile of disconnected forms. <strong>Separating limit setup from first drawdown:</strong> a Flex limit and an advance taken from it are related but aren't the same commitment, so I structured the journey so the agent understood the available limit, reviewed the chosen advance, and completed the first drawdown as its own distinct step — a pattern that scales to future drawdowns too.</p>
+                <p>Establishing the reusable limit and taking the first advance were treated as separate decisions. Agents could first review the available limit, then choose an amount and explain its cost before confirming the first advance.</p>
             </section>
 
             <section class="cs-article-section" id="learned">
-                <h2>Testing it with <em>real agents</em></h2>
-                <p>I ran moderated sessions with partner sales agents on a clickable prototype. Each session paired a scenario-based walkthrough — "you're on a call with a merchant who wants funding now" — with think-aloud observation, then an interview about how they actually sell in the field. I recruited, moderated and synthesised these myself.</p>
+                <h3 class="cs-step-title">Step #3: Testing the prototype with partner agents</h3>
+                <p>Before launch, I ran moderated sessions with partner sales agents using a clickable prototype. I created the discussion guide and scenarios, facilitated each session and synthesised the findings. The sessions combined scenario-based walkthroughs, think-aloud observation and questions about how agents prepared for and supported merchant conversations.</p>
 
-                <p>The most useful findings weren't about the interface at all.</p>
+                <figure class="cs-figure cs-figure--full"><div class="cs-figure-img cs-figure-img--shot" style="aspect-ratio:1280/1012;"><img src="images/flex/flex-funding-assessment-original.png" alt="Original Flex Advance funding assessment screen tested with partner agents"></div><figcaption>The original funding assessment screen presented Open Banking and estimated figures with similar weight.</figcaption></figure>
 
-                <p><strong>Agents were afraid to start the journey.</strong> Several avoided opening an application in front of a merchant, worried about committing someone who wasn't ready and triggering automated contact they couldn't control. One asked for a sandbox to practise in first. That reframed the problem: the barrier wasn't comprehension, it was confidence in a high-pressure moment.</p>
+                <p><strong>Agents needed to pause and resume without losing work.</strong> Some journeys could not be completed in one sitting, particularly when a merchant needed to complete Open Banking. Agents needed confidence that they could leave the application, return later and understand exactly where to continue.</p>
 
-                <p><strong>Preparation was being punished.</strong> Agents routinely pre-filled what they already knew before meeting a merchant, to save that merchant's time. But saving and closing late in the flow made the offers unretrievable for a period, forcing a restart — the single biggest blocker raised, and a direct consequence of a behaviour the design hadn't accounted for.</p>
+                <p><strong>Revenue needed to match how agents spoke with merchants.</strong> The original journey asked for annual revenue only, but agents often discussed revenue in monthly terms. The revised input allowed them to switch between monthly and annual figures while keeping the assessment consistent.</p>
 
-                <p><strong>The revenue question was ambiguous.</strong> Agents couldn't tell whether it meant card turnover or total revenue, gross or net, exact or estimate — and merchants switching processors rarely had the figure to hand. It needed clearer copy and an explicit tolerance so agents could reassure merchants that an approximate answer was fine.</p>
+                <p><strong>Indicative conversations and application data served different purposes.</strong> Agents wanted to discuss a possible funding amount without committing the merchant to an application. They also needed a route for merchants who could not complete Open Banking but still wanted to proceed using self-declared figures.</p>
 
-                <blockquote class="cs-pullquote">
-                    "If I'm with a client and I say now it's a credit search, they will say no, I don't want to do that."
-                </blockquote>
-
-                <p>That last one mattered most. A check early in the conversation stopped the conversation dead — which is exactly why Open Banking needed to become the primary, better-explained route rather than one option among several.</p>
-
-                <em class="cs-footnote">Synthesised from moderated partner-agent sessions and post-launch feedback. Participant names, prototype access and commercially sensitive detail have been withheld.</em>
+                <em class="cs-footnote">Synthesised from moderated pre-launch partner-agent sessions. Participant names, prototype access and commercially sensitive detail have been withheld.</em>
             </section>
 
             <section class="cs-article-section" id="feedback">
-                <h2>Evolving the <em>funding assessment</em></h2>
-                <p>The original assessment treated different funding routes with similar visual weight. Feedback showed that Open Banking needed to become the clearest route to an accurate limit, while estimates served a different purpose: helping agents begin a funding conversation when verified information wasn't yet available.</p>
+                <h3 class="cs-step-title">Step #4: Refining the funding assessment screen</h3>
+                <p>The original funding assessment screen gave Open Banking and estimated figures similar visual weight, even though they served different purposes. The revised screen separated a non-committal funding preview from the routes that created or updated an application.</p>
 
                 <figure class="cs-figure-row">
                     <figure class="cs-figure">
@@ -287,12 +284,15 @@
                     </figure>
                 </figure>
 
-                <p>Three specific shifts came out of that feedback. <strong>Open Banking became the primary route</strong>, positioning the evidence-based assessment more prominently. <strong>Estimates became a distinct tool</strong>, separating indicative conversations from the route used to establish an accurate Flex limit. <strong>Processor selection became intentional</strong>, moved into its own step that only surfaces processors associated with the merchant.</p>
+                <p>Three routes became clearer. <strong>Open Banking became the primary application route</strong> because it used verified revenue data to establish an accurate Flex Advance limit. <strong>Funding preview became a separate, non-committal tool</strong> so agents could enter estimated figures and discuss a possible amount without saving it to the merchant's account or starting an application. <strong>Can't do Open Banking remained an application route</strong>, taking the agent to a dedicated estimated-figures screen where self-declared monthly or annual revenue could be used to create a quote linked to the application.</p>
 
-                <figure class="cs-figure" style="max-width:220px; margin:4px auto 0;">
-                    <div class="cs-device cs-device--phone cs-device--crop">
+                <p>Processor selection also moved into its own step, showing only processors associated with the merchant rather than asking agents to search through irrelevant options.</p>
+
+                <figure class="cs-figure" style="max-width:290px; margin:4px auto 0;">
+                    <div class="cs-device cs-device--phone cs-device--scroll"><div class="cs-device-scroll-screen" tabindex="0" aria-label="Scrollable processor-selection screen">
                         <img src="images/flex/flex-mobile-choose-processor.png" alt="Dedicated processor-selection screen on mobile, showing eligible and ineligible processors for the merchant">
-                    </div>
+                    </div></div>
+                    <span class="selected-scroll-hint">Scroll inside the phone to explore</span>
                     <figcaption>Processor choice moved into its own dedicated step, showing only processors associated with the merchant.</figcaption>
                 </figure>
             </section>
@@ -300,21 +300,22 @@
             <section class="cs-article-section" id="outcome">
                 <h2>Outcome</h2>
 
-                <p>The MVP established an end-to-end Flex journey in Partner Hub, allowing partner agents to move merchants from account creation through to establishing a Flex limit and taking their first advance. Following launch, I used partner feedback and testing to redesign a critical part of the journey: making Open Banking clearer, reducing processor-selection errors and giving agents a more appropriate way to explore indicative funding with merchants.</p>
+                <p>The MVP established an end-to-end Flex Advance funding journey in Partner Hub, allowing partner agents to move merchants from account creation through to establishing a reusable limit and taking the first advance. Pre-launch testing helped refine a critical part of that journey by making Open Banking clearer, reducing processor-selection errors and giving agents a more appropriate way to explore indicative funding with merchants.</p>
 
                 <div class="cs-insight-callout">
                     <span class="label">RESULT</span>
-                    <p>A shipped 0-to-1 journey used by partner agents in production, plus a redesign of the assessment experience grounded in real usage rather than assumptions made before launch.</p>
+                    <p>A shipped 0-to-1 Flex Advance journey used by partner agents in production, with the funding assessment screen refined through direct observation and feedback before launch.</p>
                 </div>
+                <figure class="cs-figure cs-figure--full"><div class="cs-cover-shot cs-cover-shot--inline"><div class="cs-device-bar" aria-hidden="true"><span class="cs-device-dot"></span><span class="cs-device-dot"></span><span class="cs-device-dot"></span></div><video autoplay muted loop playsinline preload="metadata" poster="images/flex/flex-demo-poster.jpg" aria-label="Demonstration of the shipped Flex Advance journey in Partner Hub"><source src="images/flex/flex-demo.mp4" type="video/mp4"></video></div><figcaption>The shipped Partner Hub journey from account creation through to the first advance.</figcaption></figure>
             </section>
 
             <section class="cs-article-section" id="reflection">
                 <h2>Reflection</h2>
                 <blockquote class="cs-pullquote">
-                    An indicative conversation, an evidence-based assessment and a committed drawdown serve different needs and shouldn't be presented as interchangeable routes. Separating levels of certainty is a design decision, not a detail.
+                    An indicative conversation, an evidence-based assessment and a confirmed first advance serve different needs and shouldn't be presented as interchangeable routes. Separating levels of certainty is a design decision, not a detail.
                 </blockquote>
 
-                <p>The bigger lesson was about timing: the redesign was stronger because it responded to observed agent behaviour, not assumptions made before launch. The clearest example was the sandbox — agents asked for somewhere to practise the journey before running it live in front of a merchant, and that need was invisible until I watched them hesitate. With more time I'd build a lighter feedback loop into future 0-to-1 launches so that kind of insight surfaces in weeks, not after months in production.</p>
+                <p>The redesign was stronger because testing showed that agents were trying to do two different jobs: discuss a possible funding amount without starting an application, and progress a merchant through an assessment when they were ready. Separating Funding Preview from the Open Banking and self-declared application routes made those intentions clearer. It also reinforced that Partner Hub needed to support journeys that pause and resume, not assume every application would be completed in one sitting. With more time, I would continue testing these return states to make sure agents can always understand what has happened and what needs to happen next.</p>
             </section>
 
         </article>

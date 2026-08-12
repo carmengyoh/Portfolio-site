@@ -1,8 +1,43 @@
 /* ================================================================
-   CASE STUDY — nav scroll, theme toggle, progress dots
+   CASE STUDY - nav scroll, theme toggle, progress dots
    ================================================================ */
 
 (function () {
+
+    /* HerFreedom101 follows the same process-step hierarchy as the
+       multi-product case study: overview, one process sequence, then
+       standalone outcome and reflection sections. */
+    const hfDetailed = document.querySelector('.hf-case-study #cs-view-detailed .cs-article');
+    if (hfDetailed) {
+        const hfSections = Array.from(hfDetailed.querySelectorAll(':scope > .cs-article-section'));
+        const stepTitles = [
+            'Diagnosing the real reason for non-return',
+            'Listening where people were already honest',
+            'Auditing the returning-user experience',
+            'Turning the check-in into an adaptive day',
+            'Designing a day that changes with her',
+            'Creating progress without punishment',
+            'Designing a product that remembers',
+            'Giving daily participation a longer story'
+        ];
+
+        hfSections.slice(1, 9).forEach((section, index) => {
+            const heading = section.querySelector(':scope > h2');
+            if (!heading) return;
+            if (index === 0) {
+                heading.textContent = 'The process';
+                const stepHeading = document.createElement('h3');
+                stepHeading.className = 'cs-step-title';
+                stepHeading.textContent = 'Step #1: ' + stepTitles[index];
+                heading.insertAdjacentElement('afterend', stepHeading);
+            } else {
+                const stepHeading = document.createElement('h3');
+                stepHeading.className = 'cs-step-title';
+                stepHeading.textContent = 'Step #' + (index + 1) + ': ' + stepTitles[index];
+                heading.replaceWith(stepHeading);
+            }
+        });
+    }
 
     /* ── Nav scroll state ── */
     const nav = document.getElementById('nav');
@@ -102,6 +137,24 @@
         const launch = viewport.querySelector('.cs-prototype-launch');
         const frame = viewport.querySelector('iframe[data-src]');
         if (!launch || !frame) return;
+        const toolbar = viewport.closest('.cs-prototype-browser')?.querySelector('.cs-prototype-toolbar');
+        if (toolbar) {
+            const restart = document.createElement('button');
+            restart.className = 'cs-prototype-restart';
+            restart.type = 'button';
+            restart.textContent = 'Restart prototype ↻';
+            restart.hidden = true;
+            toolbar.appendChild(restart);
+            restart.addEventListener('click', () => {
+                const originalSrc = frame.dataset.src;
+                frame.src = 'about:blank';
+                viewport.classList.add('is-loading');
+                requestAnimationFrame(() => { frame.src = originalSrc; });
+            });
+            frame.addEventListener('load', () => {
+                if (frame.src !== 'about:blank') restart.hidden = false;
+            });
+        }
         launch.addEventListener('click', () => {
             launch.hidden = true;
             viewport.classList.add('is-loading');

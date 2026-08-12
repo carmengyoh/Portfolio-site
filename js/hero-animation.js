@@ -1,5 +1,5 @@
 /* ================================================================
-   HERO ANIMATION — silky particle flow
+   HERO ANIMATION - silky particle flow
 
    ONE clean curved stream per skill (not a web of crossing lines):
    - Each skill has a single bezier "spine" running from the bright
@@ -19,7 +19,7 @@
        CONFIG
     ---------------------------------------------------------------- */
     var CONFIG = {
-        /* Bright convergence point — sits just right of the heading */
+        /* Bright convergence point - sits just right of the heading */
         hub: { x: 0.46, y: 0.52 },
 
         /* Skills fan up-and-out to the right (top → bottom order) */
@@ -34,7 +34,7 @@
 
         hubColor:         [255, 95, 195],  /* soft pink near the convergence */
         particlesPerNode: 150,             /* dense stream = silky look */
-        flowSpeed:        0.0006,          /* base travel speed — slow, calm drift */
+        flowSpeed:        0.0006,          /* base travel speed - slow, calm drift */
 
         starCount:    110,
         starMaxAlpha: 0.38,
@@ -131,7 +131,7 @@
     }
 
     /* ----------------------------------------------------------------
-       Spines — ONE bezier per node, from hub → node.
+       Spines - ONE bezier per node, from hub → node.
        Control points give each stream its own graceful sweep and make
        them separate cleanly right out of the convergence (so the
        streams never tangle into a web).
@@ -167,7 +167,7 @@
     }
 
     /* ----------------------------------------------------------------
-       Particles — the flowing streams
+       Particles - the flowing streams
     ---------------------------------------------------------------- */
     function buildParticles() {
         particles = [];
@@ -264,7 +264,7 @@
     function drawNodes() {
         var labelColor = getTheme() === 'dark' ? 'rgba(255,255,255,0.6)' : 'rgba(10,10,10,0.62)';
 
-        /* No bright dot at the convergence — the streams fade to nothing
+        /* No bright dot at the convergence - the streams fade to nothing
            there, so the start stays semi-transparent. Just a faint whisper
            of warmth so it doesn't read as a hard cut-off. */
         var hx = px(CONFIG.hub.x), hy = py(CONFIG.hub.y);

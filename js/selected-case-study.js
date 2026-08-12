@@ -29,6 +29,8 @@
             status: 'Shipped',
             scope: 'Workflow design, content design, upload states, requirements and handoff',
             visual: 'upload',
+            video: 'images/document-upload/document-upload-prototype.mp4',
+            poster: 'images/document-upload/document-upload-prototype-poster.jpg',
             problem: 'Partner agents often already had the documents needed to support a merchant’s finance application. Without a clear upload route in Partner Hub, operations could still need to contact the merchant directly, slowing progress and duplicating effort.',
             process: 'I designed the workflow around the operational details that determined whether evidence would actually be useful: what was required, why it was needed, which files were acceptable and how agents would understand progress, failure and completion.',
             solution: 'The experience gives agents a direct route to provide evidence on a merchant’s behalf. Requirements appear before file selection, upload states remain visible, and every document stays connected to the application task it supports.',
@@ -39,29 +41,10 @@
                 ['Keep the task in context', 'The agent can see why the evidence is required and what happens after submission.']
             ],
             reflection: 'Although focused in scope, the quality of this workflow depended on operational detail. Requirements, feedback and error prevention were not secondary content tasks; they determined whether the uploaded evidence was usable.'
-        },
-        'pay-with-liberis': {
-            title: 'Designing <em>Pay with Liberis</em> from the ground up',
-            plainTitle: 'Pay with Liberis',
-            subtitle: 'Creating a new merchant-facing purchase and financing journey that let businesses buy from a partner and repay through a percentage of daily sales.',
-            tags: ['Fintech', '0 to 1 Product', 'Merchant-facing'],
-            status: 'Delivered to launch partner',
-            scope: '0-to-1 merchant journey, proposition communication, interaction design and partner handoff',
-            visual: 'payment',
-            problem: 'Pay with Liberis combined a purchase decision with a new type of financing experience. Merchants needed to understand what they were buying, what Liberis was providing and how repayment through daily sales would work as they moved between partner and Liberis contexts.',
-            process: 'With no existing end-to-end journey or established pattern for the proposition, I worked from the ground up: making the offer tangible, shaping its place in the purchase journey and working through how responsibility and handoffs should be communicated.',
-            solution: 'The resulting journey connected the partner purchase to a clear Liberis funding proposition. It introduced the offer at the right moment, explained percentage-of-daily-sales repayment in plain language and established a reusable foundation for different partner contexts.',
-            outcome: 'The journey was completed and handed over to the launch partner. It became a merchant-facing foundation for later partner implementations rather than requiring each new experience to begin from a blank page.',
-            decisions: [
-                ['Connect purchase and funding', 'The experience needed to feel coherent even as the merchant moved between partner and Liberis contexts.'],
-                ['Explain repayment plainly', 'A new financing proposition only works when merchants can understand the commitment.'],
-                ['Design for reuse', 'The core journey stays consistent while products, branding and purchase contexts can adapt.']
-            ],
-            reflection: 'This work shows my ability to shape a new proposition as well as its interface: turning an unfamiliar financing model into a journey a merchant could understand and a partner could implement.'
         }
     };
 
-    var order = ['partner-hub-ia', 'document-upload', 'pay-with-liberis'];
+    var order = ['partner-hub-ia', 'document-upload'];
     var key = new URLSearchParams(window.location.search).get('project') || order[0];
     var project = projects[key] || projects[order[0]];
     var currentIndex = order.indexOf(key);
@@ -84,16 +67,32 @@
         }).join('') + '</div></section>';
     }
 
-    document.title = project.plainTitle + ' — Carmen Gyoh';
+    function visualsHTML() {
+        if (project.visual !== 'upload') return '';
+        return '<section class="cs-article-section selected-upload-visuals">' +
+            '<h2>Designing the <em>end-to-end workflow</em></h2>' +
+            '<p>The document manager gives agents one view of every outstanding requirement and every file already supplied. Each upload route then explains what a usable document must contain before the agent selects a file.</p>' +
+            '<figure class="cs-figure cs-figure--full"><div class="cs-figure-img cs-figure-img--shot selected-upload-desktop"><img src="images/document-upload/document-manager-desktop.png" alt="Desktop Document Manager listing required evidence and uploaded documents"></div><figcaption>The desktop workspace keeps required documents and completed uploads visible together.</figcaption></figure>' +
+            '<div class="selected-upload-mobile-grid">' +
+              '<figure class="cs-figure"><div class="selected-upload-phone"><div class="selected-upload-phone-screen" tabindex="0" aria-label="Scrollable VAT document upload screen"><img src="images/document-upload/vat-document-upload.png" alt="Mobile VAT document upload screen with document requirements and an uploaded file ready to submit"></div></div><span class="selected-scroll-hint">Scroll inside the phone to explore</span><figcaption>Requirements appear before submission so agents can check that evidence is usable.</figcaption></figure>' +
+              '<figure class="cs-figure"><div class="selected-upload-phone"><div class="selected-upload-phone-screen" tabindex="0" aria-label="Scrollable completed document manager screen"><img src="images/document-upload/mobile-upload-complete.png" alt="Mobile Document Manager showing a successful upload notification and completed files"></div></div><span class="selected-scroll-hint">Scroll inside the phone to explore</span><figcaption>Clear completion feedback confirms success and updates the remaining-document list.</figcaption></figure>' +
+            '</div></section>';
+    }
+
+    document.title = project.plainTitle + ' - Carmen Gyoh';
     document.getElementById('selected-title').innerHTML = project.title;
     document.getElementById('selected-subtitle').textContent = project.subtitle;
     document.getElementById('selected-tags').innerHTML = project.tags.map(function (tag) { return '<span class="cs-chip">' + tag + '</span>'; }).join('');
     document.getElementById('selected-cover').classList.add('selected-cs-cover--' + project.visual);
-    document.getElementById('selected-cover').innerHTML = '<div class="selected-cover-art"><span></span><span></span><span></span><span></span></div>';
+    var cover = document.getElementById('selected-cover');
+    var fallbackArt = '<div class="selected-cover-art"><span></span><span></span><span></span><span></span></div>';
+    cover.innerHTML = project.video
+        ? '<div class="selected-cover-video"><div class="selected-phone-speaker" aria-hidden="true"></div><video autoplay muted loop playsinline preload="metadata" poster="' + project.poster + '" aria-label="Document upload prototype walkthrough"><source src="' + project.video + '" type="video/mp4"></video></div>'
+        : fallbackArt;
     document.getElementById('selected-meta-tldr').innerHTML = metaHTML();
     document.getElementById('selected-meta-detailed').innerHTML = metaHTML();
     document.getElementById('selected-tldr').innerHTML = section('The problem', project.problem) + section('The approach', project.process) + section('The solution', project.solution) + section('The outcome', project.outcome);
-    document.getElementById('selected-detailed').innerHTML = section('Overview', project.subtitle) + section('Understanding the <em>problem</em>', project.problem) + section('How I approached it', project.process) + decisionsHTML() + section('The solution', project.solution) + section('Outcome', project.outcome) + '<section class="cs-article-section"><h2>Reflection</h2><blockquote class="cs-pullquote">' + project.reflection + '</blockquote></section>';
+    document.getElementById('selected-detailed').innerHTML = section('Overview', project.subtitle) + section('Understanding the <em>problem</em>', project.problem) + section('How I approached it', project.process) + visualsHTML() + decisionsHTML() + section('The solution', project.solution) + section('Outcome', project.outcome) + '<section class="cs-article-section"><h2>Reflection</h2><blockquote class="cs-pullquote">' + project.reflection + '</blockquote></section>';
     document.getElementById('selected-next').href = 'selected-case-study.html?project=' + nextKey;
     document.getElementById('selected-next-title').textContent = projects[nextKey].plainTitle;
 })();
