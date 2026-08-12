@@ -1,5 +1,5 @@
 /* ================================================================
-   MAIN.JS — Navigation, smooth scroll, and project card rendering
+   MAIN.JS - Navigation, smooth scroll, and project card rendering
    ================================================================ */
 
 (function () {
@@ -36,13 +36,11 @@
             }).join('');
 
             var isLinked = p.link && p.link !== '#';
+            var cardTag = isLinked ? 'a' : 'article';
+            var cardHref = isLinked ? ' href="' + p.link + '"' : '';
             return [
-                '<article class="project-card reveal' + (isLinked ? ' is-linked' : '') + '" role="article"',
-                '  onclick="if(this.dataset.link!==\'#\')window.location=this.dataset.link"',
-                '  data-link="' + p.link + '"',
-                '  tabindex="0"',
-                '  aria-label="' + p.title + ' case study"',
-                '  onkeydown="if(event.key===\'Enter\'&&this.dataset.link!==\'#\')window.location=this.dataset.link">',
+                '<' + cardTag + ' class="project-card reveal' + (isLinked ? ' is-linked' : '') + '"' + cardHref,
+                '  aria-label="' + p.title + ' case study">',
                 '  <div class="card-image' + (!hasMedia ? ' is-placeholder' : '') + '" ' + placeholderStyle + '>',
                 '    ' + mediaHTML,
                 '  </div>',
@@ -53,7 +51,7 @@
                 '    <p class="card-desc">' + p.description + '</p>',
                 '    <span class="card-arrow">→</span>',
                 '  </div>',
-                '</article>',
+                '</' + cardTag + '>',
             ].join('\n');
         }).join('\n');
     }
@@ -71,7 +69,7 @@
             }).join('');
 
             return [
-                '<article class="selected-project-card is-linked reveal" role="link" tabindex="0" data-link="' + p.link + '" onclick="window.location=this.dataset.link" onkeydown="if(event.key===\'Enter\')window.location=this.dataset.link">',
+                '<a class="selected-project-card is-linked reveal" href="' + p.link + '">',
                 '  <div class="selected-project-topline">',
                 '    <span class="selected-project-number">0' + (index + 1) + '</span>',
                 '    <span class="selected-project-status">' + p.status + '</span>',
@@ -82,13 +80,13 @@
                 '    <p class="selected-project-description">' + p.description + '</p>',
                 '  </div>',
                 '  <div class="selected-project-tags">' + tagsHTML + '</div>',
-                '</article>'
+                '</a>'
             ].join('\n');
         }).join('\n');
     }
 
     /* ----------------------------------------------------------------
-       Navigation — scrolled state (border + backdrop blur)
+       Navigation - scrolled state (border + backdrop blur)
     ---------------------------------------------------------------- */
     function initNavScrollState() {
         var nav = document.getElementById('nav');
@@ -102,7 +100,7 @@
     }
 
     /* ----------------------------------------------------------------
-       Navigation — active link highlight based on scroll position
+       Navigation - active link highlight based on scroll position
     ---------------------------------------------------------------- */
     function initActiveNavLink() {
         var links    = document.querySelectorAll('.nav-link');
@@ -123,7 +121,7 @@
     }
 
     /* ----------------------------------------------------------------
-       Navigation — mobile menu toggle
+       Navigation - mobile menu toggle
     ---------------------------------------------------------------- */
     function initMobileMenu() {
         var toggle = document.querySelector('.nav-toggle');
@@ -165,7 +163,7 @@
     }
 
     /* ----------------------------------------------------------------
-       Theme toggle — sun / moon button
+       Theme toggle - sun / moon button
     ---------------------------------------------------------------- */
     function initThemeToggle() {
         var btn  = document.getElementById('theme-toggle');
@@ -183,7 +181,7 @@
     }
 
     /* ----------------------------------------------------------------
-       Hero entrance — adds .hero-entered to body after first paint
+       Hero entrance - adds .hero-entered to body after first paint
        so CSS transitions play from the hidden state
     ---------------------------------------------------------------- */
     function initHeroEntrance() {
@@ -195,7 +193,7 @@
     }
 
     /* ----------------------------------------------------------------
-       Typewriter — types the hero heading character by character.
+       Typewriter - types the hero heading character by character.
        Structure: plain text → <br> → plain text → <em>word</em>
     ---------------------------------------------------------------- */
     function initHeroTypewriter() {
@@ -245,7 +243,7 @@
 
         function tick() {
             if (i >= queue.length) {
-                /* Finished — blink for a moment then remove cursor */
+                /* Finished - blink for a moment then remove cursor */
                 setTimeout(function () {
                     if (cursor.parentNode) cursor.parentNode.removeChild(cursor);
                 }, 1100);
@@ -263,7 +261,7 @@
     }
 
     /* ----------------------------------------------------------------
-       Scroll reveal — IntersectionObserver fires .is-visible on .reveal
+       Scroll reveal - IntersectionObserver fires .is-visible on .reveal
     ---------------------------------------------------------------- */
     function initScrollReveal() {
         document.body.classList.add('js-reveal');
@@ -289,7 +287,7 @@
     }
 
     /* ----------------------------------------------------------------
-       Card mouse-glow — tracks cursor position via CSS custom props
+       Card mouse-glow - tracks cursor position via CSS custom props
     ---------------------------------------------------------------- */
     function initCardMouseGlow() {
         document.addEventListener('mousemove', function (e) {

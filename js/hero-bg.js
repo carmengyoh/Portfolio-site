@@ -1,5 +1,5 @@
 /* ================================================================
-   HERO BACKGROUND — soft white cloud wisps drifting over the
+   HERO BACKGROUND - soft white cloud wisps drifting over the
    CSS gradient blobs, plus subtle glitter sparkles.
    No lines, no threads, no beads.
    ================================================================ */
@@ -17,7 +17,7 @@
     function getTheme() { return document.documentElement.getAttribute('data-theme') || 'dark'; }
 
     /* ----------------------------------------------------------------
-       Clouds — soft radial white blobs that drift slowly
+       Clouds - soft radial white blobs that drift slowly
     ---------------------------------------------------------------- */
     function buildClouds() {
         clouds = [];
@@ -70,7 +70,7 @@
     }
 
     /* ----------------------------------------------------------------
-       Glitter ✦ sparkles — subtle, on top of the clouds
+       Glitter ✦ sparkles - subtle, on top of the clouds
     ---------------------------------------------------------------- */
     function buildSparkles() {
         sparkles = [];

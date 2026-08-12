@@ -43,7 +43,7 @@
     }
 
     /* ----------------------------------------------------------------
-       Staggered ease — each element has its own start offset so they
+       Staggered ease - each element has its own start offset so they
        cascade apart instead of all moving at once
     ---------------------------------------------------------------- */
     function seg(t, start, end) {
@@ -55,14 +55,14 @@
     }
 
     /* ----------------------------------------------------------------
-       Breakup — large, varied, staggered
+       Breakup - large, varied, staggered
     ---------------------------------------------------------------- */
     function breakup(t) {
 
         var eLabel = seg(t, 0.00, 0.55);   /* label goes first */
         var eS0    = seg(t, 0.04, 0.62);   /* "I turn complexity" */
         var eS1    = seg(t, 0.08, 0.68);   /* "into " */
-        var eEm    = seg(t, 0.14, 0.80);   /* "clear" — holds on longest */
+        var eEm    = seg(t, 0.14, 0.80);   /* "clear" - holds on longest */
         var eS2    = seg(t, 0.06, 0.65);   /* ", validated" */
         var eS3    = seg(t, 0.05, 0.64);   /* "product experiences." */
         var eSub   = seg(t, 0.06, 0.60);
@@ -77,7 +77,7 @@
              eS1 * 50,  -eS1 * 110,
              1 - eS1 * 1.5,  eS1 * 5, 1, eS1 * 2);
 
-        /* "clear" — spins away last */
+        /* "clear" - spins away last */
         move(emEl,
              eEm * 100, -eEm * 200,
              1 - eEm * 0.75,  eEm * 22,

@@ -1,10 +1,10 @@
 /* ================================================================
-   CONTENT.JS — All project data lives here.
+   CONTENT.JS - All project data lives here.
 
    HOW TO UPDATE:
    - Edit the PROJECTS array below to change titles, tags, descriptions, etc.
    - Set `image` to a path like 'images/herfreedom101.jpg' once you have images.
-     Until then, leave it as null — a gradient placeholder will show.
+     Until then, leave it as null - a gradient placeholder will show.
    - Set `link` to the case study page URL once it exists.
 
    ADDING MORE PROJECTS:
@@ -17,7 +17,7 @@ const FLAGSHIP_COUNT = 3;
 
 const PROJECTS = [
 
-    /* ---- Project 1 — Main case study 01 ---- */
+    /* ---- Project 1 - Main case study 01 ---- */
     {
         client:      'Liberis',
         title:       'Helping merchants choose funding',
@@ -32,7 +32,7 @@ const PROJECTS = [
         placeholderBg: 'linear-gradient(140deg, #1a1430 0%, #2a1b3d 45%, #3d2342 100%)',
     },
 
-    /* ---- Project 2 — Main case study 02 ---- */
+    /* ---- Project 2 - Main case study 02 ---- */
     {
         client:      'Liberis',
         title:       'Launching and evolving Flex in Partner Hub',
@@ -96,16 +96,16 @@ const PROJECTS = [
         placeholderBg: 'linear-gradient(140deg, #14182b 0%, #1d2340 45%, #262c52 100%)',
     },
 
-    /* ---- Supporting project 03 (not yet built) ---- */
+    /* ---- Supporting project 03 ---- */
     {
         client:      'Liberis',
-        title:       'Designing Pay with Liberis from the ground up',
-        tags:        ['Fintech', '0–1 Product', 'Merchant-facing'],
-        status:      'Delivered to partner',
-        description: 'Creating a new merchant-facing purchase and financing journey that allowed businesses to buy from a partner and repay through a percentage of daily sales.',
+        title:       'Designing the system behind application progress',
+        tags:        ['B2B Platform', 'Workflow Design', 'Systems Thinking'],
+        status:      'Shipped across multiple releases',
+        description: 'Evolving Partner Hub so agents could understand merchant status, identify blockers and take the right next action across application drop-off, evidence collection and recovery.',
         image:       null,
-        link:        'selected-case-study.html?project=pay-with-liberis',
-        placeholderBg: 'linear-gradient(140deg, #241419 0%, #351d2b 45%, #402236 100%)',
+        link:        'case-study-partner-hub-progress.html',
+        placeholderBg: 'linear-gradient(140deg, #17201f 0%, #203932 48%, #315b4d 100%)',
     },
 
     /* ---- Add future projects here ---- */
@@ -126,5 +126,5 @@ const PROJECTS = [
 const SELECTED_PROJECTS = [
     PROJECTS[4], /* Partner Hub information architecture */
     PROJECTS[5], /* Document upload */
-    PROJECTS[6], /* Pay with Liberis */
+    PROJECTS[6], /* Partner Hub application progress */
 ];

@@ -1,5 +1,5 @@
 /* ================================================================
-   SCROLL FX — starburst light-beam explosion on hero scroll-out.
+   SCROLL FX - starburst light-beam explosion on hero scroll-out.
    A canvas overlay (fixed, pointer-events: none) that activates
    as the user scrolls away from the hero section.
    ================================================================ */
@@ -45,7 +45,7 @@
     }
 
     /* ----------------------------------------------------------------
-       Particles — speed-streak sparks that shoot outward
+       Particles - speed-streak sparks that shoot outward
     ---------------------------------------------------------------- */
     function resetParticles() {
         particles = [];
@@ -66,7 +66,7 @@
     }
 
     /* ----------------------------------------------------------------
-       Scroll listener — maps scrollY to 0–1 progress
+       Scroll listener - maps scrollY to 0–1 progress
     ---------------------------------------------------------------- */
     function onScroll() {
         var hero = document.getElementById('home');
@@ -98,7 +98,7 @@
     }
 
     /* ----------------------------------------------------------------
-       Draw — beams + particles + central glow
+       Draw - beams + particles + central glow
     ---------------------------------------------------------------- */
     function draw() {
         var t  = scrollP;
