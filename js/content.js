@@ -50,11 +50,11 @@ const PROJECTS = [
     /* ---- Project 3 ---- */
     {
         client:      'HerFreedom101',
-        title:       'Designing for the return',
-        tags:        ['Wellness', 'Retention', 'Service Design'],
+        title:       'Designing wellness that adapts to you',
+        tags:        ['Wellness', 'Product Strategy', 'Systems Thinking'],
         role:        'Founder & Designer',
         status:      'Shipped',
-        description: 'Diagnosing a day-two retention problem and redesigning the experience to give burned-out women a reason to return.',
+        description: 'Evolving an adaptive wellness product so progress responds to changing capacity without relying on pressure or punishment.',
         image:       null,
         link:        'case-study-herfreedom101.html',
         placeholderBg: 'linear-gradient(140deg, #2a1424 0%, #3d1d33 45%, #4a2240 100%)',

@@ -2321,7 +2321,7 @@ body.hero-entered .hero-actions {
    BOTTOM BENTO ROW
    ================================================================ */
 .bottom-bento-row {
-    grid-template-columns: 1.15fr 0.65fr 0.65fr 0.8fr 0.8fr;
+    grid-template-columns: 1.4fr 0.8fr 1fr;
 }
 
 .exp-bento, .duo-bento, .spotify-bento, .facts-bento, .into-bento {
