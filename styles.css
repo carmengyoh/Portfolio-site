@@ -3213,7 +3213,7 @@ body {
 }
 
 .bento-work-grid .project-card:nth-child(3) .card-overlay {
-    background: linear-gradient(to top, rgba(67,19,54,0.97) 0%, rgba(151,48,105,0.64) 49%, rgba(151,48,105,0.04) 88%);
+    background: linear-gradient(to top, rgba(39,24,52,0.97) 0%, rgba(91,55,102,0.62) 49%, rgba(91,55,102,0.04) 88%);
 }
 
 .project-card.is-additional .card-overlay {
