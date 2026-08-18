@@ -3162,16 +3162,6 @@ body {
     border: 0;
 }
 
-.hero-mobile-intro { display: none; }
-
-@media (max-width: 780px) {
-    .hero-text-card > .label:not(.hero-mobile-intro) { display: none; }
-    .hero-text-card > .hero-mobile-intro {
-        display: block;
-        letter-spacing: 0.13em;
-    }
-}
-
 .bento-work-grid {
     grid-template-columns: repeat(12, minmax(0, 1fr));
     grid-auto-flow: dense;
