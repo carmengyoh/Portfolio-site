@@ -2605,6 +2605,11 @@ figcaption {
   .ph-evolution,.ph-priority-grid,.ph-model { grid-template-columns:1fr; }
   .ph-case-study .ph-figure-pair { grid-template-columns:1fr; }
   .ph-case-study .cs-article--tldr .ph-figure-pair { grid-template-columns:1fr; }
+  .ph-case-study img[src$="final-account-sidepanel-desktop.png"] {
+    width:180%;
+    max-width:none;
+    margin-left:-80%;
+  }
   .ph-meta-panel--4col { grid-template-columns:1fr; }
   .ph-outcome-placeholders { grid-template-columns:1fr; }
   .ph-evolution div { min-height:auto; }
