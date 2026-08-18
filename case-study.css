@@ -2605,10 +2605,9 @@ figcaption {
   .ph-evolution,.ph-priority-grid,.ph-model { grid-template-columns:1fr; }
   .ph-case-study .ph-figure-pair { grid-template-columns:1fr; }
   .ph-case-study .cs-article--tldr .ph-figure-pair { grid-template-columns:1fr; }
-  .ph-case-study img[src$="final-account-sidepanel-desktop.png"] {
-    width:180%;
-    max-width:none;
-    margin-left:-80%;
+  .ph-case-study .cs-figure:has(img[src$="final-account-sidepanel-desktop.png"]) {
+    width:calc(100vw - 40px);
+    justify-self:center;
   }
   .ph-meta-panel--4col { grid-template-columns:1fr; }
   .ph-outcome-placeholders { grid-template-columns:1fr; }
