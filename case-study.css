@@ -2604,6 +2604,7 @@ figcaption {
   .ph-lane > * { border-right:0; border-bottom:1px solid var(--border); min-height:54px; }
   .ph-evolution,.ph-priority-grid,.ph-model { grid-template-columns:1fr; }
   .ph-case-study .ph-figure-pair { grid-template-columns:1fr; }
+  .ph-case-study .cs-article--tldr .ph-figure-pair { grid-template-columns:1fr; }
   .ph-meta-panel--4col { grid-template-columns:1fr; }
   .ph-outcome-placeholders { grid-template-columns:1fr; }
   .ph-evolution div { min-height:auto; }
