@@ -13,9 +13,9 @@
         var grid = document.getElementById('work-grid');
         if (!grid) return;
 
-        var items = PROJECTS.slice(0, FLAGSHIP_COUNT);
+        var items = PROJECTS.slice(0, FLAGSHIP_COUNT).concat(SELECTED_PROJECTS);
 
-        grid.innerHTML = items.map(function (p) {
+        grid.innerHTML = items.map(function (p, index) {
             var mediaHTML = p.video
                 ? '<video autoplay muted loop playsinline preload="metadata"' + (p.poster ? ' poster="' + p.poster + '"' : '') + ' aria-label="' + p.title + ' preview"><source src="' + p.video + '" type="video/mp4"></video>'
                 : p.image
@@ -36,14 +36,16 @@
             }).join('');
 
             var isLinked = p.link && p.link !== '#';
+            var isFeatured = index < FLAGSHIP_COUNT;
             var cardTag = isLinked ? 'a' : 'article';
             var cardHref = isLinked ? ' href="' + p.link + '"' : '';
             return [
-                '<' + cardTag + ' class="project-card reveal' + (isLinked ? ' is-linked' : '') + '"' + cardHref,
+                '<' + cardTag + ' class="project-card reveal ' + (isFeatured ? 'is-featured' : 'is-additional') + (isLinked ? ' is-linked' : '') + '"' + cardHref,
                 '  aria-label="' + p.title + ' case study">',
                 '  <div class="card-image' + (!hasMedia ? ' is-placeholder' : '') + '" ' + placeholderStyle + '>',
                 '    ' + mediaHTML,
                 '  </div>',
+                isFeatured ? '  <span class="card-hierarchy-tag">Featured work</span>' : '',
                 '  <div class="card-overlay">',
                 '    ' + clientHTML,
                 '    <h3 class="card-title">' + p.title + '</h3>',
