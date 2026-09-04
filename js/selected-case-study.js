@@ -12,6 +12,8 @@
             team: ['PM', 'Engineers', 'Partner Managers'],
             scope: 'Product audit, site mapping, information architecture and future-state principles',
             visual: 'ia',
+            setup: 'Partner Hub had grown feature by feature across two related platforms. Both supported similar partner tasks, but years of local decisions had left navigation, terminology and application journeys organised differently.',
+            challenge: 'This was not a navigation tidy-up. Platform history, duplicated routes and unresolved product strategy were tangled together, and a polished future-state sitemap would have implied decisions the organisation had not actually made.',
             problem: 'Partner Hub had grown through a series of valuable individual features, but its navigation and application structure had not evolved at the same pace. Two related partner platforms also organised similar tasks differently, making features harder to find and creating uncertainty about where future products should live.',
             process: 'I audited both platforms and mapped their current information architecture, then compared equivalent account, application, merchant and funding tasks. This separated local usability issues from structural problems caused by duplicated routes, inconsistent terminology and platform history. I also distinguished improvements that could be made incrementally from decisions that depended on a longer-term platform direction.',
             solution: 'Rather than treating a new navigation as the starting point, I organised the opportunity around four connected areas: navigation, terminology, application sequence and cross-platform consistency. This created principles teams could use for near-term feature decisions while the broader future-state architecture continued to develop.',
@@ -21,7 +23,8 @@
                 ['Compare equivalent tasks', 'Looking across account, application, merchant and funding contexts exposed inconsistent structures and language.'],
                 ['Separate near and long term', 'Not every structural issue needs a platform-wide redesign before improvements can begin.']
             ],
-            reflection: 'I learned that information architecture work is as much about sequencing organisational decisions as arranging navigation. A useful direction had to acknowledge platform history, improve what teams could change now and avoid presenting unresolved product strategy as a finished structure.'
+            reflection: 'I learned that information architecture work is as much about sequencing organisational decisions as arranging navigation. A useful direction had to acknowledge platform history, improve what teams could change now and avoid presenting unresolved product strategy as a finished structure.',
+            neverAgain: 'I will never start an IA project by drawing the ideal navigation. Without mapping the current platforms and naming the unresolved product decisions first, I would only turn organisational ambiguity into a deceptively tidy diagram.'
         },
         'document-upload': {
             title: 'Helping agents progress applications with <em>document upload</em>',
@@ -35,6 +38,8 @@
             visual: 'upload',
             video: 'images/document-upload/document-upload-prototype.mp4',
             poster: 'images/document-upload/document-upload-prototype-poster.jpg',
+            setup: 'Partner agents often already had the KYC and supporting evidence needed for a merchant’s finance application, but Partner Hub gave them no way to submit it. Operations then had to chase the merchant for documents that already existed.',
+            challenge: 'The apparent “add an uploader” request hid the real risk: a file could upload successfully and still be useless to Operations because it was stale, incomplete or detached from the requirement it was meant to satisfy.',
             problem: 'Partner agents often already held the KYC and supporting evidence needed for a merchant’s finance application. Without an upload route in Partner Hub, operations could still need to contact the merchant again, duplicating effort and slowing the application. The challenge was not simply adding a file picker. The evidence also needed to be valid, understandable and connected to the requirement it was meant to resolve.',
             process: 'I worked backwards from what Operations needed to review each document. I clarified why the evidence was required, what a usable file needed to contain and which states the agent needed to understand before mapping the document manager and individual upload flow. I then designed default, uploading, error and completed states so the handoff remained clear when an upload did not go perfectly.',
             solution: 'The document manager brings outstanding requirements and previously supplied files into one view. Each upload route explains the requirement before file selection, keeps the document connected to its application task and gives explicit feedback during upload, failure and completion. These decisions helped agents prevent unusable submissions rather than discovering problems after the handoff.',
@@ -45,7 +50,8 @@
                 ['Make every state visible', 'Default, uploading, error and complete states do not rely on browser behaviour alone.'],
                 ['Keep the task in context', 'The agent can see why the evidence is required and what happens after submission.']
             ],
-            reflection: 'I learned that a small workflow can still carry significant operational risk. Requirements, validation, feedback and error recovery were not secondary details around the uploader. They determined whether the evidence was usable and whether the application could genuinely progress.'
+            reflection: 'I learned that a small workflow can still carry significant operational risk. Requirements, validation, feedback and error recovery were not secondary details around the uploader. They determined whether the evidence was usable and whether the application could genuinely progress.',
+            neverAgain: 'I will never treat file upload as a component-level task again. Designing the happy-path picker before agreeing what makes evidence usable would have shipped a technically complete feature that simply moved failure downstream to Operations.'
         }
     };
 
@@ -80,11 +86,19 @@
 
     function tldrVisualHTML() {
         if (project.visual !== 'upload') return '';
-        return '<figure class="cs-figure cs-figure--full"><div class="cs-figure-img cs-figure-img--shot selected-upload-desktop"><img src="images/document-upload/document-manager-desktop.png" alt="Desktop Document Manager listing outstanding evidence requirements and uploaded documents"></div><figcaption>The document manager keeps outstanding requirements and completed uploads visible in one place.</figcaption></figure>';
+        return '<figure class="cs-figure cs-figure--full cs-tldr-final"><div class="cs-figure-img cs-figure-img--shot selected-upload-desktop"><img src="images/document-upload/document-manager-desktop.png" alt="Desktop Document Manager listing outstanding evidence requirements and uploaded documents"></div><figcaption>The document manager keeps outstanding requirements and completed uploads visible in one place.</figcaption></figure>';
     }
 
     function tldrSolutionHTML() {
         return '<section class="cs-article-section"><h2>The solution</h2><p>' + project.solution + '</p>' + tldrVisualHTML() + '</section>';
+    }
+
+    function tldrHTML() {
+        return section('Overview', project.setup) +
+            section('What made this hard', project.challenge) +
+            tldrSolutionHTML() +
+            section('The outcome', project.outcome) +
+            section('What I learned', project.neverAgain);
     }
 
     function visualsHTML() {
@@ -159,7 +173,7 @@
         : fallbackArt;
     document.getElementById('selected-meta-tldr').innerHTML = metaHTML();
     document.getElementById('selected-meta-detailed').innerHTML = metaHTML();
-    document.getElementById('selected-tldr').innerHTML = section('The problem', project.problem) + section('The process', project.process) + tldrSolutionHTML() + section('The outcome', project.outcome) + section('What I learned', project.reflection);
+    document.getElementById('selected-tldr').innerHTML = tldrHTML();
     document.getElementById('selected-detailed').innerHTML = detailedHTML();
     document.getElementById('selected-next').href = 'selected-case-study.html?project=' + nextKey;
     document.getElementById('selected-next-title').textContent = projects[nextKey].plainTitle;

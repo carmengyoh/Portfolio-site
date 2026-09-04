@@ -2093,18 +2093,16 @@ figcaption {
     align-items: center;
 }
 
-/* TL;DR view - same article rhythm as the detailed read, but shorter
-   sections and pink headings so it reads as the fast summary pass.
-   Double class needed to outrank the plain `.cs-article h2` colour
-   rule that follows this block. */
+/* TL;DR view - a shorter text pass with only the final product visual. */
 .cs-article--tldr { gap: 40px; }
-.cs-article.cs-article--tldr h2 { color: var(--accent); }
+.cs-article--tldr figure { display: none; }
+.cs-article--tldr figure.cs-tldr-final { display: flex; }
 
 .cs-article h2 {
     font-family: var(--font-serif);
     font-size: clamp(21px, 2.3vw, 27px);
     font-weight: 500;
-    color: var(--text);
+    color: var(--accent);
     margin: 0;
     line-height: 1.3;
 }

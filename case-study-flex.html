@@ -123,12 +123,12 @@
         <article class="cs-article cs-article--tldr">
 
             <section class="cs-article-section">
-                <h2>The problem</h2>
+                <h2>Overview</h2>
                 <p>Flex Advance was a new funding product, and Partner Hub, the platform partner sales agents used to manage merchant funding applications, had no journey to support it. Agents needed to guide merchants from account creation through funding assessment, limit setup and the first advance. The experience also had to make a complex product relationship understandable: the percentage of daily sales selected for payments determined the reusable limit available to the merchant.</p>
             </section>
 
             <section class="cs-article-section">
-                <h2>The process</h2>
+                <h2>What made this hard</h2>
                 <p>I mapped merchant, agent and system actions across the end-to-end journey to establish the order and dependencies between each stage before moving into detailed screen design.</p>
                 <figure class="cs-figure cs-figure--full">
                     <div class="cs-journey-embed">
@@ -141,11 +141,11 @@
             </section>
 
             <section class="cs-article-section">
-                <h2>The solution</h2>
+                <h2>What changed</h2>
                 <p>For launch, I visually prioritised Open Banking within the funding assessment as it used verified revenue to produce the most accurate limit. It was pre-selected, highlighted with colour and labelled “Fastest route,” with a checklist explaining its benefits. Estimated Figures remained available when Open Banking was not possible. Testing also showed that agents discussed revenue in both monthly and annual terms, so I designed the input to support either format.</p>
                 <p>Agents also needed a clearer way to explain how Flex Advance worked. On the limit setup screen, changing the percentage of daily sales immediately updated the merchant's reusable limit. I separated establishing that limit from taking the first advance so agents could explain and confirm each decision independently.</p>
                 <p>Agents told me that live funding conversations could feel pressurised, making product details easy to forget. I added contextual FAQs as prompts for common questions about payments, fees and the reusable limit. One included an interactive example calculator so agents could show the indicative fee, daily-sales percentage and total payback of a possible first advance without starting one.</p>
-                <figure class="cs-figure cs-figure--full">
+                <figure class="cs-figure cs-figure--full cs-tldr-final">
                     <div class="cs-cover-shot cs-cover-shot--inline">
                         <div class="cs-device-bar" aria-hidden="true">
                             <span class="cs-device-dot"></span><span class="cs-device-dot"></span><span class="cs-device-dot"></span>
@@ -166,7 +166,7 @@
 
             <section class="cs-article-section">
                 <h2>What I learned</h2>
-                <p>Post-launch behaviour challenged an assumption in the launch design. Although Open Banking was pre-selected, highlighted and labelled “Fastest route,” 80% of agents still chose Estimated Figures. Technical problems with Open Banking may have contributed, but the interface taught me that visual styling cannot establish a clear hierarchy when the underlying layout still presents two routes as equivalent.</p><p>I also learned that an indicative conversation, an evidence-based assessment and a confirmed first advance are different tasks, with different levels of certainty and commitment. Organising the experience around what the agent was trying to achieve, rather than only the type of data being entered, gave each one a clearer and more honest role. Separating these levels of certainty is a core design decision, not a detail.</p>
+                <p>I’ll never use styling to pretend two routes have a hierarchy the structure does not support. I pre-selected Open Banking, coloured it and called it the “Fastest route”; after launch, 80% of agents still chose Estimated Figures. Technical issues played a part, but the design also put both choices on equal footing. Next time I’ll separate an indicative conversation from an evidence-based assessment before trying to nudge behaviour inside one screen.</p>
                 <figure class="cs-figure-row">
                     <figure class="cs-figure">
                         <div class="cs-figure-img cs-figure-img--shot" style="aspect-ratio:1280/1012;">
