@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="styles.css?v=17">
+    <link rel="stylesheet" href="styles.css?v=18">
     <!-- Apply saved theme before first paint to avoid flash -->
     <script>
         (function(){
@@ -86,7 +86,7 @@
                     </h1>
                     <p class="hero-sub">User research, journey mapping and prototyping, turning ambiguous problems into validated, shippable products.</p>
                     <div class="hero-actions">
-                        <a href="#work" class="btn-primary">View my work <span>↗</span></a>
+                        <a href="#work" class="btn-primary">View my work <span>↓</span></a>
                         <a href="#contact" class="btn-outline-hero">Let's connect <span class="btn-dot" aria-hidden="true">●</span></a>
                     </div>
                 </div>
@@ -100,8 +100,8 @@
                          onerror="this.style.display='none'">
                     <span class="hero-avatar-star" aria-hidden="true">✦</span>
                 </div>
-                <p class="hero-personality-statement">Hey, I'm Carmen! I ask questions, untangle messy problems and turn ideas into thoughtful product experiences.</p>
-                <p class="hero-personality-meta">London, UK &middot; Product Designer at Liberis</p>
+                <p class="hero-personality-statement">Hey, I'm Carmen! I'm a product designer who loves untangling messy problems and turning them into thoughtful experiences.</p>
+                <p class="hero-personality-meta">Product Designer at Liberis</p>
                 <div class="hero-personality-tags">
                     <span>Piano</span>
                     <span>Composing</span>
@@ -116,24 +116,11 @@
 
         <!-- ── ROW 2: FEATURED WORK - label sits above the cards, not inside a card ── -->
         <section class="work-row" id="work">
-            <div class="work-bento-header">
-                <span class="label">FEATURED WORK</span>
-                <a href="#selected-work" class="view-all">Explore more work ↓</a>
-            </div>
+            <h2 class="sr-only">Product design case studies</h2>
             <div class="work-grid bento-work-grid" id="work-grid"></div>
         </section>
 
         <!-- ── ROW 3: HOW I WORK - underneath, full width ─── -->
-        <section class="bento-card selected-work-row" id="selected-work">
-            <div class="selected-work-header">
-                <div>
-                    <span class="label">SELECTED WORK</span>
-                    <h2>More ways I&rsquo;ve shaped <em>complex products</em></h2>
-                </div>
-            </div>
-            <div class="selected-work-grid" id="selected-work-grid"></div>
-        </section>
-
         <section class="bento-card how-bento how-bento--wide" id="how">
                 <span class="label">HOW I WORK</span>
                 <h2 class="how-bento-title">Ambiguity to<br><em>Clarity</em></h2>
@@ -243,36 +230,6 @@
                 <p class="duo-caption">Learning a little every day.</p>
             </div>
 
-            <!-- Spotify pick -->
-            <div class="bento-card spotify-bento">
-                <span class="label">SPOTIFY PICK</span>
-                <div class="spotify-content">
-                    <div class="spotify-art" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
-                            <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
-                        </svg>
-                    </div>
-                    <div class="spotify-info">
-                        <p class="spotify-song">Sunset Drive</p>
-                        <p class="spotify-artist">Novo Amor</p>
-                    </div>
-                </div>
-                <div class="spotify-wave" aria-hidden="true">
-                    <span></span><span></span><span></span><span></span><span></span>
-                    <span></span><span></span><span></span><span></span><span></span>
-                </div>
-            </div>
-
-            <!-- Quick facts -->
-            <div class="bento-card facts-bento">
-                <span class="label">QUICK FACTS</span>
-                <ul class="facts-list" role="list">
-                    <li><span class="facts-icon" aria-hidden="true">📍</span> London, UK</li>
-                    <li><span class="facts-icon" aria-hidden="true">🎓</span> LSE Alumni</li>
-                    <li><span class="facts-icon" aria-hidden="true">🍵</span> Matcha over coffee</li>
-                </ul>
-            </div>
-
             <!-- Currently into -->
             <div class="bento-card into-bento">
                 <span class="label">CURRENTLY INTO</span>
@@ -324,7 +281,7 @@
         </div>
     </footer>
 
-    <script src="js/content.js?v=11"></script>
+    <script src="js/content.js?v=12"></script>
     <script src="js/hero-bg.js?v=8"></script>
     <script src="js/hero-scroll.js?v=3"></script>
     <script src="js/main.js?v=15"></script>

@@ -26,7 +26,7 @@ const PROJECTS = [
         status:      'Validated concept',
         description: 'Designing and validating a multi-product journey around the different ways merchants understand, compare and choose funding.',
         image:       null,
-        video:       'images/multi-product/multi-product-demo.mp4',
+        video:       'images/multi-product/multi-product-preview.mp4',
         poster:      'images/multi-product/multi-product-demo-poster.jpg',
         link:        'case-study.html',
         placeholderBg: 'linear-gradient(140deg, #1a1430 0%, #2a1b3d 45%, #3d2342 100%)',
@@ -41,23 +41,24 @@ const PROJECTS = [
         status:      'Shipped + iterating',
         description: 'Creating an end-to-end agent journey for a new funding product, then improving the assessment experience using partner feedback.',
         image:       null,
-        video:       'images/flex/flex-demo.mp4',
+        video:       'images/flex/flex-preview.mp4',
         poster:      'images/flex/flex-demo-poster.jpg',
         link:        'case-study-flex.html',
         placeholderBg: 'linear-gradient(140deg, #15182e 0%, #1d2142 45%, #2a2350 100%)',
     },
 
-    /* ---- Project 3 ---- */
+    /* ---- Project 3 - Featured case study 03 ---- */
     {
-        client:      'HerFreedom101',
-        title:       'Designing for the return',
-        tags:        ['Wellness', 'Retention', 'Service Design'],
-        role:        'Founder & Designer',
-        status:      'Shipped',
-        description: 'Diagnosing a day-two retention problem and redesigning the experience to give burned-out women a reason to return.',
-        image:       null,
-        link:        'case-study-herfreedom101.html',
-        placeholderBg: 'linear-gradient(140deg, #2a1424 0%, #3d1d33 45%, #4a2240 100%)',
+        client:      'Liberis',
+        title:       'Making application drop-offs visible and recoverable',
+        tags:        ['B2B Platform', 'Workflow Design', 'Systems Thinking'],
+        status:      'Shipped across multiple releases',
+        description: 'Evolving Partner Hub so agents could understand merchant status, identify blockers and take the right next action across application drop-off, evidence collection and recovery.',
+        image:       'images/partner-hub-progress/hero-sidepanel-composite-transparent.png',
+        video:       'images/partner-hub-progress/dropoffs-demo.mp4',
+        poster:      'images/partner-hub-progress/dropoffs-demo-poster.jpg',
+        link:        'case-study-partner-hub-progress.html',
+        placeholderBg: 'linear-gradient(140deg, #17201f 0%, #203932 48%, #315b4d 100%)',
     },
 
     /* ---- Main case study 03 (not yet built) ---- */
@@ -91,21 +92,22 @@ const PROJECTS = [
         tags:        ['Fintech', 'Shipped Feature'],
         status:      'Shipped',
         description: 'Enabling agents to upload the KYC and supporting evidence merchants had already provided, reducing avoidable chasing.',
-        image:       null,
+        image:       'images/document-upload/doc-upload-desktop.png',
         link:        'selected-case-study.html?project=document-upload',
         placeholderBg: 'linear-gradient(140deg, #14182b 0%, #1d2340 45%, #262c52 100%)',
     },
 
     /* ---- Supporting project 03 ---- */
     {
-        client:      'Liberis',
-        title:       'Designing the system behind application progress',
-        tags:        ['B2B Platform', 'Workflow Design', 'Systems Thinking'],
-        status:      'Shipped across multiple releases',
-        description: 'Evolving Partner Hub so agents could understand merchant status, identify blockers and take the right next action across application drop-off, evidence collection and recovery.',
-        image:       null,
-        link:        'case-study-partner-hub-progress.html',
-        placeholderBg: 'linear-gradient(140deg, #17201f 0%, #203932 48%, #315b4d 100%)',
+        client:      'HerFreedom101',
+        title:       'Designing wellness that adapts to you',
+        tags:        ['Wellness', 'Product Strategy', 'Systems Thinking'],
+        role:        'Founder & Designer',
+        status:      'Shipped',
+        description: 'Evolving an adaptive wellness product so progress responds to changing capacity without relying on pressure or punishment.',
+        image:       'images/herfreedom101/06-earned-flower-and-progress.jpeg',
+        link:        'case-study-herfreedom101.html',
+        placeholderBg: 'linear-gradient(140deg, #2a1424 0%, #3d1d33 45%, #4a2240 100%)',
     },
 
     /* ---- Add future projects here ---- */
@@ -124,7 +126,6 @@ const PROJECTS = [
 
 /* Homepage projects that add breadth beyond the featured case studies. */
 const SELECTED_PROJECTS = [
-    PROJECTS[4], /* Partner Hub information architecture */
+    PROJECTS[6], /* HerFreedom101 */
     PROJECTS[5], /* Document upload */
-    PROJECTS[6], /* Partner Hub application progress */
 ];

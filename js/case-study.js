@@ -4,39 +4,10 @@
 
 (function () {
 
-    /* HerFreedom101 follows the same process-step hierarchy as the
-       multi-product case study: overview, one process sequence, then
-       standalone outcome and reflection sections. */
-    const hfDetailed = document.querySelector('.hf-case-study #cs-view-detailed .cs-article');
-    if (hfDetailed) {
-        const hfSections = Array.from(hfDetailed.querySelectorAll(':scope > .cs-article-section'));
-        const stepTitles = [
-            'Diagnosing the real reason for non-return',
-            'Listening where people were already honest',
-            'Auditing the returning-user experience',
-            'Turning the check-in into an adaptive day',
-            'Designing a day that changes with her',
-            'Creating progress without punishment',
-            'Designing a product that remembers',
-            'Giving daily participation a longer story'
-        ];
-
-        hfSections.slice(1, 9).forEach((section, index) => {
-            const heading = section.querySelector(':scope > h2');
-            if (!heading) return;
-            if (index === 0) {
-                heading.textContent = 'The process';
-                const stepHeading = document.createElement('h3');
-                stepHeading.className = 'cs-step-title';
-                stepHeading.textContent = 'Step #1: ' + stepTitles[index];
-                heading.insertAdjacentElement('afterend', stepHeading);
-            } else {
-                const stepHeading = document.createElement('h3');
-                stepHeading.className = 'cs-step-title';
-                stepHeading.textContent = 'Step #' + (index + 1) + ': ' + stepTitles[index];
-                heading.replaceWith(stepHeading);
-            }
-        });
+    /* Keep the summary vocabulary consistent across standalone case studies. */
+    const tldrHeadings = document.querySelectorAll('#cs-view-tldr .cs-article-section > h2');
+    if (tldrHeadings.length) {
+        tldrHeadings[0].textContent = 'Overview';
     }
 
     /* ── Nav scroll state ── */

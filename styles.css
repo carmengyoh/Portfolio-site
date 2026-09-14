@@ -1945,7 +1945,7 @@ body.hero-entered .hero-actions {
 
 .bento-work-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 14px;
 }
 
@@ -1957,6 +1957,7 @@ body.hero-entered .hero-actions {
     overflow: hidden;
     height: 300px;
     cursor: pointer;
+    min-width: 0;
 }
 
 .bento-work-grid .card-image {
@@ -2321,7 +2322,7 @@ body.hero-entered .hero-actions {
    BOTTOM BENTO ROW
    ================================================================ */
 .bottom-bento-row {
-    grid-template-columns: 1.15fr 0.65fr 0.65fr 0.8fr 0.8fr;
+    grid-template-columns: 1.4fr 0.8fr 1fr;
 }
 
 .exp-bento, .duo-bento, .spotify-bento, .facts-bento, .into-bento {
@@ -2693,7 +2694,8 @@ body.hero-breaking .hero-actions {
     .hero-row         { grid-template-columns: 1fr; }
     .hero-graphic-card { min-height: 220px; }
     .hero-text-card   { padding: 36px 28px; }
-    .bento-work-grid  { grid-template-columns: 1fr; }
+    .bento-work-grid  { grid-template-columns: minmax(0, 1fr); }
+    .work-bento-header .view-all { display: none; }
     .bottom-bento-row { grid-template-columns: 1fr 1fr; }
     .exp-bento        { grid-column: span 2; }
     .bento-footer-inner { padding: 40px 24px 36px; }
@@ -3144,3 +3146,303 @@ body {
 }
 
 .selected-project-card { color: inherit; text-decoration: none; }
+
+/* ================================================================
+   PROJECT BENTO - featured case studies + additional work
+   ================================================================ */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.bento-work-grid {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-auto-flow: dense;
+}
+
+.bento-work-grid .project-card:nth-child(1),
+.bento-work-grid .project-card:nth-child(2),
+.bento-work-grid .project-card:nth-child(3) { grid-column: span 4; }
+.bento-work-grid .project-card:nth-child(4),
+.bento-work-grid .project-card:nth-child(5) {
+    grid-column: span 6;
+    height: 360px !important;
+}
+
+.card-hierarchy-tag {
+    position: absolute;
+    z-index: 4;
+    top: 18px;
+    left: 18px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: rgba(12, 10, 18, 0.66);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: rgba(255,255,255,0.8);
+    font-family: var(--font-sans);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.09em;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.project-card.is-featured .card-hierarchy-tag {
+    border-color: rgba(244,114,182,0.5);
+    background: var(--accent);
+    color: #fff;
+}
+
+/* Each featured story gets its own brand-colour atmosphere while
+   retaining the same dark contrast and card hierarchy. */
+.bento-work-grid .project-card:nth-child(1) .card-overlay {
+    background: linear-gradient(to top, rgba(42,18,58,0.97) 0%, rgba(69,35,92,0.69) 49%, rgba(69,35,92,0.04) 88%);
+}
+
+.bento-work-grid .project-card:nth-child(2) .card-overlay {
+    background: linear-gradient(to top, rgba(28,25,72,0.97) 0%, rgba(75,55,132,0.66) 49%, rgba(75,55,132,0.04) 88%);
+}
+
+.bento-work-grid .project-card:nth-child(3) .card-overlay {
+    background: linear-gradient(to top, rgba(39,24,52,0.97) 0%, rgba(91,55,102,0.62) 49%, rgba(91,55,102,0.04) 88%);
+}
+
+.project-card.is-additional .card-overlay {
+    background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.42) 65%, rgba(0,0,0,0.04));
+}
+
+@media (max-width: 980px) {
+    .bento-work-grid .project-card:nth-child(1),
+    .bento-work-grid .project-card:nth-child(2),
+    .bento-work-grid .project-card:nth-child(3) { grid-column: span 12; }
+    .bento-work-grid .project-card:nth-child(4),
+    .bento-work-grid .project-card:nth-child(5) { grid-column: span 6; }
+}
+
+@media (max-width: 780px) {
+    .bento-work-grid { grid-template-columns: minmax(0, 1fr); }
+    .bento-work-grid .project-card:nth-child(n) {
+        grid-column: 1;
+        height: 340px !important;
+    }
+    .bento-work-grid .project-card.is-additional { height: 320px !important; }
+}
+
+/* ================================================================
+   HOW I WORK - dimensional glass workflow
+   ================================================================ */
+.how-bento--wide {
+    position: relative;
+    isolation: isolate;
+    min-height: 360px;
+    padding: 44px 46px !important;
+    display: grid;
+    grid-template-columns: minmax(210px, 0.7fr) minmax(0, 2fr);
+    grid-template-rows: auto 1fr auto;
+    column-gap: 44px;
+    row-gap: 18px;
+    overflow: hidden;
+    background:
+        linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.015) 48%, rgba(244,114,182,0.05)) !important;
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.12),
+        inset 0 -1px 0 rgba(244,114,182,0.06),
+        0 18px 55px rgba(0,0,0,0.28) !important;
+}
+
+.how-bento--wide::before,
+.how-bento--wide::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    border-radius: 50%;
+    filter: blur(12px);
+    pointer-events: none;
+}
+
+.how-bento--wide::before {
+    width: 360px;
+    height: 360px;
+    top: -210px;
+    left: 9%;
+    background: radial-gradient(circle, rgba(168,85,247,0.24), transparent 68%);
+}
+
+.how-bento--wide::after {
+    width: 420px;
+    height: 420px;
+    right: -160px;
+    bottom: -280px;
+    background: radial-gradient(circle, rgba(244,114,182,0.22), transparent 68%);
+}
+
+.how-bento--wide > .label {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.how-bento--wide .how-bento-title {
+    grid-column: 1;
+    grid-row: 2;
+    align-self: center;
+    font-size: clamp(34px, 3.8vw, 54px);
+    line-height: 0.98;
+    letter-spacing: -0.035em;
+}
+
+.how-bento--wide .how-bento-desc {
+    grid-column: 1;
+    grid-row: 3;
+    max-width: 270px;
+    margin: 0;
+    font-size: 13px;
+}
+
+.how-bento--wide .process-flow {
+    grid-column: 2;
+    grid-row: 1 / 4;
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    counter-reset: process-step;
+}
+
+.how-bento--wide .process-node {
+    position: relative;
+    min-width: 0;
+    min-height: 178px;
+    padding: 20px 12px 18px;
+    display: flex;
+    flex: 1 1 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 18px;
+    background: linear-gradient(145deg, rgba(255,255,255,0.085), rgba(255,255,255,0.025));
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 12px 28px rgba(0,0,0,0.16);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    text-align: center;
+    counter-increment: process-step;
+    transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+}
+
+.how-bento--wide .process-node::before {
+    content: '0' counter(process-step);
+    position: absolute;
+    top: 12px;
+    left: 13px;
+    color: rgba(255,255,255,0.34);
+    font-family: var(--font-sans);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+}
+
+.how-bento--wide .process-node:hover {
+    transform: translateY(-7px);
+    border-color: rgba(244,114,182,0.42);
+    background: linear-gradient(145deg, rgba(244,114,182,0.12), rgba(255,255,255,0.035));
+}
+
+.how-bento--wide .process-icon-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 15px;
+    border-color: rgba(244,114,182,0.28);
+    color: #f9a8d4;
+    background: linear-gradient(145deg, rgba(244,114,182,0.16), rgba(168,85,247,0.08));
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 8px 22px rgba(0,0,0,0.16);
+}
+
+.how-bento--wide .process-icon-circle--accent {
+    border-color: rgba(244,114,182,0.72);
+    color: #fff;
+    background: linear-gradient(135deg, #f472b6, #c084fc);
+    box-shadow: 0 10px 28px rgba(244,114,182,0.24);
+}
+
+.how-bento--wide .process-node span {
+    color: rgba(255,255,255,0.72);
+    font-size: 10px;
+    line-height: 1.35;
+}
+
+.how-bento--wide .process-connector {
+    width: 16px;
+    height: 1px;
+    flex: 0 0 16px;
+    margin: 0;
+    border: 0;
+    background: linear-gradient(90deg, rgba(244,114,182,0.18), rgba(244,114,182,0.7));
+    box-shadow: 0 0 10px rgba(244,114,182,0.2);
+}
+
+[data-theme="light"] .how-bento--wide .process-node {
+    border-color: rgba(255,255,255,0.82);
+    background: linear-gradient(145deg, rgba(255,255,255,0.72), rgba(255,255,255,0.3));
+    box-shadow: inset 0 1px 0 #fff, 0 12px 28px rgba(76,29,149,0.08);
+}
+
+[data-theme="light"] .how-bento--wide .process-node::before,
+[data-theme="light"] .how-bento--wide .process-node span { color: rgba(31,24,48,0.62); }
+
+@media (max-width: 1050px) {
+    .how-bento--wide {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto;
+    }
+    .how-bento--wide > .label,
+    .how-bento--wide .how-bento-title,
+    .how-bento--wide .how-bento-desc,
+    .how-bento--wide .process-flow {
+        grid-column: 1;
+        grid-row: auto;
+    }
+    .how-bento--wide .how-bento-title br { display: none; }
+    .how-bento--wide .how-bento-desc { max-width: 560px; }
+    .how-bento--wide .process-flow { margin-top: 10px; }
+}
+
+@media (max-width: 780px) {
+    .how-bento--wide { padding: 30px 22px !important; }
+    .how-bento--wide .how-bento-title { font-size: 38px; }
+    .how-bento--wide .process-flow {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+    }
+    .how-bento--wide .process-node {
+        min-height: 92px;
+        padding: 16px 18px;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 14px;
+        text-align: left;
+    }
+    .how-bento--wide .process-node::before {
+        top: 10px;
+        right: 12px;
+        left: auto;
+    }
+    .how-bento--wide .process-connector {
+        width: 1px;
+        height: 10px;
+        flex-basis: 10px;
+        margin-left: 43px;
+        background: linear-gradient(rgba(244,114,182,0.18), rgba(244,114,182,0.7));
+    }
+}
