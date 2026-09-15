@@ -4,12 +4,6 @@
 
 (function () {
 
-    /* Keep the summary vocabulary consistent across standalone case studies. */
-    const tldrHeadings = document.querySelectorAll('#cs-view-tldr .cs-article-section > h2');
-    if (tldrHeadings.length) {
-        tldrHeadings[0].textContent = 'Overview';
-    }
-
     /* ── Nav scroll state ── */
     const nav = document.getElementById('nav');
     if (nav) {

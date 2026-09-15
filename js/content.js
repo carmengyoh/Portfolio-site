@@ -7,13 +7,11 @@
      Until then, leave it as null - a gradient placeholder will show.
    - Set `link` to the case study page URL once it exists.
 
-   ADDING MORE PROJECTS:
-   - Just add another object to the array. Any projects beyond FLAGSHIP_COUNT
-     will be hidden on the homepage but will show on an all-projects page (TBD).
+   CURATING THE HOMEPAGE:
+   - FEATURED_PROJECTS sets the three lead stories in reading order.
+   - SELECTED_PROJECTS adds supporting work below them.
    ================================================================ */
 
-/* How many projects to show on the homepage */
-const FLAGSHIP_COUNT = 3;
 
 const PROJECTS = [
 
@@ -21,8 +19,10 @@ const PROJECTS = [
     {
         client:      'Liberis',
         title:       'Helping merchants choose funding',
+        cardImage:   'images/multi-product/cost-calculator.png',
         tags:        ['Fintech', 'Product Strategy', 'Research'],
-        role:        'Lead Designer',
+        role:        'Product Designer · End-to-end design',
+        cardScope:   'Research & strategy',
         status:      'Validated concept',
         description: 'Designing and validating a multi-product journey around the different ways merchants understand, compare and choose funding.',
         image:       null,
@@ -35,11 +35,13 @@ const PROJECTS = [
     /* ---- Project 2 - Main case study 02 ---- */
     {
         client:      'Liberis',
-        title:       'Launching and evolving Flex in Partner Hub',
+        title:       'Launching a new funding experience',
+        cardImage:   'images/flex/flex-set-account-limit.png',
         tags:        ['Fintech', '0–1 Delivery', 'Partner Hub'],
-        role:        'Product Designer, 0→1',
-        status:      'Shipped + iterating',
-        description: 'Creating an end-to-end agent journey for a new funding product, then improving the assessment experience using partner feedback.',
+        role:        'Product Designer · Research to delivery',
+        cardScope:   'Research to delivery',
+        status:      'Shipped',
+        description: 'Designed the journey from account creation to first advance. Post-launch feedback informed a separate assessment redesign.',
         image:       null,
         video:       'images/flex/flex-preview.mp4',
         poster:      'images/flex/flex-demo-poster.jpg',
@@ -52,8 +54,10 @@ const PROJECTS = [
         client:      'Liberis',
         title:       'Making application drop-offs visible and recoverable',
         tags:        ['B2B Platform', 'Workflow Design', 'Systems Thinking'],
-        status:      'Shipped across multiple releases',
-        description: 'Evolving Partner Hub so agents could understand merchant status, identify blockers and take the right next action across application drop-off, evidence collection and recovery.',
+        role:        'Product Designer · Service mapping & delivery',
+        cardScope:   'Service mapping & delivery',
+        status:      'Shipped',
+        description: 'Connected status, ownership and recovery actions across a dashboard and account panel so agents could understand what needed to happen next.',
         image:       'images/partner-hub-progress/hero-sidepanel-composite-transparent.png',
         video:       'images/partner-hub-progress/dropoffs-demo.mp4',
         poster:      'images/partner-hub-progress/dropoffs-demo-poster.jpg',
@@ -91,7 +95,9 @@ const PROJECTS = [
         title:       'Helping partner agents progress applications with document upload',
         tags:        ['Fintech', 'Shipped Feature'],
         status:      'Shipped',
-        description: 'Enabling agents to upload the KYC and supporting evidence merchants had already provided, reducing avoidable chasing.',
+        role:        'Product Designer · Workflow & interaction design',
+        cardScope:   'Workflow & interaction design',
+        description: 'Shipped a document workflow that connects requirements, upload states and evidence to the application task.',
         image:       'images/document-upload/doc-upload-desktop.png',
         link:        'selected-case-study.html?project=document-upload',
         placeholderBg: 'linear-gradient(140deg, #14182b 0%, #1d2340 45%, #262c52 100%)',
@@ -102,10 +108,12 @@ const PROJECTS = [
         client:      'HerFreedom101',
         title:       'Designing wellness that adapts to you',
         tags:        ['Wellness', 'Product Strategy', 'Systems Thinking'],
-        role:        'Founder & Designer',
+        role:        'Founder & Designer · Strategy, build & launch',
+        cardScope:   'Founder · Build & launch',
         status:      'Shipped',
-        description: 'Evolving an adaptive wellness product so progress responds to changing capacity without relying on pressure or punishment.',
-        image:       'images/herfreedom101/06-earned-flower-and-progress.jpeg',
+        description: 'Built and launched a wellness app, then used early behaviour to replace a feature dashboard with one adaptive daily journey.',
+        cardImages:  ['images/herfreedom101/02-adaptive-day-handover-clean.png', 'images/herfreedom101/03-daily-journey-morning-clean.png'],
+        image:       'images/herfreedom101/03-daily-journey-morning-clean.png',
         link:        'case-study-herfreedom101.html',
         placeholderBg: 'linear-gradient(140deg, #2a1424 0%, #3d1d33 45%, #4a2240 100%)',
     },
@@ -124,8 +132,6 @@ const PROJECTS = [
 
 ];
 
-/* Homepage projects that add breadth beyond the featured case studies. */
-const SELECTED_PROJECTS = [
-    PROJECTS[6], /* HerFreedom101 */
-    PROJECTS[5], /* Document upload */
-];
+/* Curated order: delivery, systems thinking, independent product ownership. */
+const FEATURED_PROJECTS = [PROJECTS[1], PROJECTS[2], PROJECTS[6]];
+const SELECTED_PROJECTS = [PROJECTS[0], PROJECTS[5]];

@@ -125,6 +125,14 @@ body { background: var(--bento-bg); }
     background: transparent;
 }
 
+.cs-chip--status {
+    color: var(--text);
+    border-color: transparent;
+    border-radius: 6px;
+    background: var(--accent-dim);
+    letter-spacing: 0;
+}
+
 .cs-title {
     font-family: var(--font-serif);
     font-size: clamp(34px, 5vw, 64px);
@@ -2612,4 +2620,44 @@ figcaption {
   .ph-meta-panel--4col { grid-template-columns:1fr; }
   .ph-outcome-placeholders { grid-template-columns:1fr; }
   .ph-evolution div { min-height:auto; }
+}
+
+/* Bring the project, ownership and delivery status before the hero media. */
+.cs-hero-card--context .cs-hero-inner { max-width:980px; padding:30px 0 20px; }
+.cs-hero-card--context .cs-title { font-size:clamp(34px,4.5vw,58px); }
+.cs-project-context { padding-top:20px; }
+.cs-project-status { color:var(--accent); font-size:12px; font-weight:500; line-height:1.7; }
+.cs-project-summary { color:var(--text); font-size:16px; font-weight:400; line-height:1.7; margin:12px 0 0; max-width:860px; text-wrap:pretty; }
+.cs-hero-card--context .cs-meta-panel { margin-top:24px; padding:22px 26px; }
+.cs-hero-card--context .cs-cover { margin-top:28px; }
+.cs-hero-card--context .ph-hero-visual { margin-top:28px; }
+.cs-hero-card--context .cs-view-toggle { margin:28px auto; }
+.cs-article.cs-article--tldr { padding-top:8px; }
+.cs-article.cs-article--tldr .cs-article-section { margin-bottom:32px; }
+.cs-article.cs-article--tldr p { font-size:16px; line-height:1.8; }
+.cs-article.cs-article--tldr .cs-figure { display:block; margin:24px 0 0; }
+.cs-influence { border-left:2px solid var(--accent); padding:4px 0 4px 22px; margin:24px 0; }
+.cs-influence .label { display:block; margin-bottom:10px; }
+.cs-influence p { margin-bottom:0; }
+@media (max-width:1020px) {
+    .cs-hero-card--context .cs-hero-inner { padding:24px 20px 18px; }
+}
+@media (max-width:600px) {
+    .cs-hero-card--context .cs-meta-panel { grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; padding:20px; }
+    .cs-hero-card--context .cs-cover.hf-cover { height:380px; min-height:0; }
+    .cs-project-summary, .cs-article.cs-article--tldr p { font-size:15px; }
+    .cs-hero-card--context .cs-title { font-size:36px; }
+}
+.cs-hero-card--context .cs-title em { background:none; color:var(--accent); -webkit-text-fill-color:currentColor; animation:none; }
+.cs-article.cs-article--tldr .cs-figure-img--shot { aspect-ratio:auto; }
+.cs-article.cs-article--tldr .cs-figure-img--shot img { position:static; display:block; width:100%; height:auto; }
+
+/* Keep the evidence boundary readable, after the demonstrated contribution. */
+.cs-article .cs-article-section p.cs-evidence-note {
+    padding-top:14px;
+    margin-top:20px;
+    border-top:1px solid var(--bento-border);
+    color:var(--text-muted);
+    font-size:14px;
+    line-height:1.7;
 }

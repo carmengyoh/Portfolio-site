@@ -7,84 +7,24 @@
 
     /* ----------------------------------------------------------------
        Project card rendering
-       Reads from PROJECTS / FLAGSHIP_COUNT in content.js
+       Reads the curated FEATURED_PROJECTS / SELECTED_PROJECTS in content.js
     ---------------------------------------------------------------- */
     function renderProjects() {
         var grid = document.getElementById('work-grid');
         if (!grid) return;
-
-        var items = PROJECTS.slice(0, FLAGSHIP_COUNT).concat(SELECTED_PROJECTS);
-
-        grid.innerHTML = items.map(function (p, index) {
-            var mediaHTML = p.video
-                ? '<video autoplay muted loop playsinline preload="metadata"' + (p.poster ? ' poster="' + p.poster + '"' : '') + ' aria-label="' + p.title + ' preview"><source src="' + p.video + '" type="video/mp4"></video>'
-                : p.image
-                ? '<img src="' + p.image + '" alt="' + p.title + '" loading="lazy">'
-                : '';
-
-            var hasMedia = p.video || p.image;
-            var placeholderStyle = (!hasMedia && p.placeholderBg)
-                ? 'style="background:' + p.placeholderBg + '"'
-                : '';
-
-            var clientHTML = p.client
-                ? '<p class="card-client">' + p.client + '</p>'
-                : '';
-
-            var chipsHTML = p.tags.map(function (t) {
-                return '<span class="card-chip">' + t + '</span>';
-            }).join('');
-
-            var isLinked = p.link && p.link !== '#';
-            var isFeatured = index < FLAGSHIP_COUNT;
-            var cardTag = isLinked ? 'a' : 'article';
-            var cardHref = isLinked ? ' href="' + p.link + '"' : '';
-            return [
-                '<' + cardTag + ' class="project-card reveal ' + (isFeatured ? 'is-featured' : 'is-additional') + (isLinked ? ' is-linked' : '') + '"' + cardHref,
-                '  aria-label="' + p.title + ' case study">',
-                '  <div class="card-image' + (!hasMedia ? ' is-placeholder' : '') + '" ' + placeholderStyle + '>',
-                '    ' + mediaHTML,
-                '  </div>',
-                isFeatured ? '  <span class="card-hierarchy-tag">Featured work</span>' : '',
-                '  <div class="card-overlay">',
-                '    ' + clientHTML,
-                '    <h3 class="card-title">' + p.title + '</h3>',
-                '    <div class="card-chips">' + chipsHTML + '</div>',
-                '    <p class="card-desc">' + p.description + '</p>',
-                '    <span class="card-arrow">→</span>',
-                '  </div>',
-                '</' + cardTag + '>',
-            ].join('\n');
-        }).join('\n');
-    }
-
-    /* ----------------------------------------------------------------
-       Selected work card rendering
-    ---------------------------------------------------------------- */
-    function renderSelectedProjects() {
-        var grid = document.getElementById('selected-work-grid');
-        if (!grid || typeof SELECTED_PROJECTS === 'undefined') return;
-
-        grid.innerHTML = SELECTED_PROJECTS.map(function (p, index) {
-            var tagsHTML = p.tags.map(function (tag) {
-                return '<span>' + tag + '</span>';
-            }).join('');
-
-            return [
-                '<a class="selected-project-card is-linked reveal" href="' + p.link + '">',
-                '  <div class="selected-project-topline">',
-                '    <span class="selected-project-number">0' + (index + 1) + '</span>',
-                '    <span class="selected-project-status">' + p.status + '</span>',
-                '  </div>',
-                '  <div class="selected-project-copy">',
-                '    <p class="selected-project-client">' + p.client + '</p>',
-                '    <h3>' + p.title + '</h3>',
-                '    <p class="selected-project-description">' + p.description + '</p>',
-                '  </div>',
-                '  <div class="selected-project-tags">' + tagsHTML + '</div>',
-                '</a>'
-            ].join('\n');
-        }).join('\n');
+        grid.innerHTML = FEATURED_PROJECTS.concat(SELECTED_PROJECTS).map(function (project, index) {
+            var media = project.video
+                ? '<video autoplay muted loop playsinline preload="metadata" poster="' + (project.poster || project.cardImage || project.image) + '" aria-label="' + project.title + ' demo"><source src="' + project.video + '" type="video/mp4"></video>'
+                : project.cardImages
+                ? '<div class="work-card-phones">' + project.cardImages.map(function (src) { return '<img src="' + src + '" alt="HerFreedom101 adaptive daily journey" loading="lazy">'; }).join('') + '</div>'
+                : '<img src="' + (project.cardImage || project.poster || project.image) + '" alt="' + project.title + ' interface" loading="lazy">';
+            return '<a class="work-card' + (index < FEATURED_PROJECTS.length ? ' work-card--featured' : '') + '" href="' + project.link + '">' +
+                '<div class="work-card-media">' + media + (index < FEATURED_PROJECTS.length ? '<span class="work-card-featured-tag">Featured work</span>' : '') + '</div>' +
+                '<div class="work-card-copy"><p class="work-card-client">' + project.client + '</p><div class="work-card-topline"><span class="work-card-status">' + project.status + '</span>' + (project.cardScope ? '<span class="work-card-scope">' + project.cardScope + '</span>' : '') + '</div>' +
+                '<h3>' + project.title + '</h3>' +
+                '<p class="work-card-description">' + project.description + '</p>' +
+                '<div class="work-card-bottom"><span>' + project.tags.join(' · ') + '</span><span aria-hidden="true">↗</span></div></div></a>';
+        }).join('');
     }
 
     /* ----------------------------------------------------------------
@@ -198,70 +138,6 @@
        Typewriter - types the hero heading character by character.
        Structure: plain text → <br> → plain text → <em>word</em>
     ---------------------------------------------------------------- */
-    function initHeroTypewriter() {
-        var el = document.querySelector('.hero-heading');
-        if (!el) return;
-
-        /* Define the segments in order */
-        var segments = [
-            { text: 'I turn complexity',   tag: 'span' },
-            { text: 'BR' },
-            { text: 'into ',               tag: 'span' },
-            { text: 'clear',               tag: 'em'   },
-            { text: ', validated',         tag: 'span' },
-            { text: 'BR' },
-            { text: 'product experiences.', tag: 'span' },
-        ];
-
-        /* Build DOM skeleton upfront so <em> styles apply immediately */
-        el.innerHTML = '';
-        var nodes = [];
-        segments.forEach(function (seg) {
-            if (seg.text === 'BR') {
-                el.appendChild(document.createElement('br'));
-                return;
-            }
-            var node = document.createElement(seg.tag);
-            el.appendChild(node);
-            nodes.push({ node: node, text: seg.text });
-        });
-
-        /* Blinking cursor */
-        var cursor = document.createElement('span');
-        cursor.className = 'tw-cursor';
-        cursor.setAttribute('aria-hidden', 'true');
-        el.appendChild(cursor);
-
-        /* Flatten to character queue */
-        var queue = [];
-        nodes.forEach(function (item) {
-            item.text.split('').forEach(function (c) {
-                queue.push({ node: item.node, char: c });
-            });
-        });
-
-        var i = 0;
-        var BASE_DELAY = 38; /* ms per character */
-
-        function tick() {
-            if (i >= queue.length) {
-                /* Finished - blink for a moment then remove cursor */
-                setTimeout(function () {
-                    if (cursor.parentNode) cursor.parentNode.removeChild(cursor);
-                }, 1100);
-                return;
-            }
-            var item = queue[i];
-            item.node.textContent += item.char;
-            i++;
-            /* Slight random jitter makes it feel natural */
-            setTimeout(tick, BASE_DELAY + (Math.random() * 22 - 11));
-        }
-
-        /* Start after label fades in (matches 0.20s entrance + duration) */
-        setTimeout(tick, 480);
-    }
-
     /* ----------------------------------------------------------------
        Scroll reveal - IntersectionObserver fires .is-visible on .reveal
     ---------------------------------------------------------------- */
@@ -306,14 +182,12 @@
     ---------------------------------------------------------------- */
     document.addEventListener('DOMContentLoaded', function () {
         renderProjects();
-        renderSelectedProjects();
         initNavScrollState();
         initActiveNavLink();
         initMobileMenu();
         initSmoothScroll();
         initThemeToggle();
         initHeroEntrance();
-        initHeroTypewriter();
         initScrollReveal();
         initCardMouseGlow();
     });
