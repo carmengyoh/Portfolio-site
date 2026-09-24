@@ -4,7 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carmen Gyoh, Product Designer</title>
-    <meta name="description" content="Carmen Gyoh is a product designer connecting research, strategy and hands-on delivery. Explore work across fintech, B2B platforms and wellness.">
+    <meta name="description" content="Carmen Gyoh is a product designer working on high-stakes decisions: tools expert users work in daily, and journeys that make complex products clear. Fintech, platform and consumer work.">
+    <link rel="canonical" href="https://carmengyoh.com/">
+
+    <!-- Social share cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Carmen Gyoh">
+    <meta property="og:url" content="https://carmengyoh.com/">
+    <meta property="og:title" content="Carmen Gyoh, Product Designer">
+    <meta property="og:description" content="Carmen Gyoh is a product designer working on high-stakes decisions: tools expert users work in daily, and journeys that make complex products clear. Fintech, platform and consumer work.">
+    <meta property="og:image" content="https://carmengyoh.com/images/og/home.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Carmen Gyoh, Product Designer">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Carmen Gyoh, Product Designer">
+    <meta name="twitter:description" content="Carmen Gyoh is a product designer working on high-stakes decisions: tools expert users work in daily, and journeys that make complex products clear. Fintech, platform and consumer work.">
+    <meta name="twitter:image" content="https://carmengyoh.com/images/og/home.png">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
     <!-- Fonts -->
@@ -12,7 +28,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="styles.css?v=28">
+    <link rel="stylesheet" href="styles.css?v=20260923">
     <!-- Apply saved theme before first paint to avoid flash -->
     <script>
         (function(){
@@ -33,7 +49,7 @@
                 <a href="#work"       class="nav-link">Work</a>
                 <a href="#how"        class="nav-link">Approach</a>
                 <a href="#experience" class="nav-link">Experience</a>
-                <a href="#contact"    class="nav-link">Contact</a><a href="mailto:carmenjgyoh@gmail.com?subject=CV%20request" class="btn-cv" aria-label="Request a CV by email">CV ↗</a>
+                <a href="#contact"    class="nav-link">Contact</a><a href="documents/Carmen-Gyoh-CV.pdf" class="btn-cv" download aria-label="Download Carmen Gyoh's CV (PDF)">CV ↗</a>
 
 
                 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">
@@ -78,13 +94,13 @@
                 <div class="hero-glow"   aria-hidden="true"></div>
                 <div class="hero-glow-b" aria-hidden="true"></div>
                 <div class="hero-glow-c" aria-hidden="true"></div>
-                <canvas id="hero-bg-canvas" aria-hidden="true"></canvas>
+
 
                 <!-- Text on the left, blobs decorate the right -->
                 <div class="hero-text-card">
-                    <p class="label">PRODUCT DESIGNER</p>
-                    <h1 class="hero-heading">From complex problems<br>to <em>thoughtful products.</em></h1>
-                    <p class="hero-sub">I bring research, strategy and design together to turn complex ideas into useful products.</p>
+                    <p class="label">PRODUCT DESIGNER · FINTECH, PLATFORMS &amp; CONSUMER</p>
+                    <h1 class="hero-heading">Complex products,<br><em>confidently explained.</em></h1>
+                    <p class="hero-sub">I design for high-stakes decisions: tools expert users work in daily, and journeys that make unfamiliar and complex concepts clear to the customers they serve.</p>
                     <div class="hero-actions">
                         <a href="#work" class="btn-primary">View my work <span>↓</span></a>
                         <a href="#contact" class="btn-outline-hero">Let's connect <span class="btn-dot" aria-hidden="true">●</span></a>
@@ -94,13 +110,16 @@
             </div>
 
             <!-- Personality card: small avatar, most of the space goes to voice -->
-            <div class="bento-card hero-personality-card">
-                <div class="hero-personality-top">
-                    <img src="images/carmen.jpg" alt="Carmen Gyoh" class="hero-avatar"
-                         onerror="this.style.display='none'">
-                    <span class="hero-avatar-star" aria-hidden="true">✦</span>
+            <details class="bento-card hero-personality-card" open>
+                <summary><span class="availability-dot" aria-hidden="true"></span> Available for work <span class="personality-disclosure">About me</span></summary>
+                <div class="hero-personality-intro">
+                    <div class="hero-personality-top">
+                        <img src="images/carmen.jpg" alt="Carmen Gyoh" class="hero-avatar"
+                             onerror="this.style.display='none'">
+                        <span class="hero-avatar-star" aria-hidden="true">✦</span>
+                    </div>
+                    <p class="hero-personality-statement">Hey, I’m Carmen! I came to design from a science background, which mostly means I like testing things and being honest about what the results show.</p>
                 </div>
-                <p class="hero-personality-statement">Hey, I’m Carmen! I love creating, solving problems and bringing ambitious ideas to life.</p>
                 <p class="hero-personality-meta">Product Designer at Liberis<br>Founder &amp; Designer, HerFreedom101</p>
                 <div class="hero-personality-tags">
                     <span>Piano</span>
@@ -109,7 +128,7 @@
                     <span>Solo travel</span>
                     <span>Design</span>
                 </div>
-            </div>
+            </details>
 
         </section>
 
@@ -124,15 +143,15 @@
             <div class="approach-examples">
                 <article>
                     <h3>Start with people and their needs</h3>
-                    <p>I use research and team conversations to understand people’s needs, product goals and the constraints we’re working with.</p>
+                    <p>I use research, data and team conversations to understand people’s needs, product goals and the constraints we’re working with.</p>
                 </article>
                 <article>
                     <h3>Make ideas tangible</h3>
-                    <p>I map journeys and prototype ideas, test them with users, and work with engineers to refine the experience before it enters the product.</p>
+                    <p>I map journeys and prototype ideas, using AI to help assemble flowcharts and build interactive prototypes with working logic so I can test how the experience responds to different choices and inputs.</p>
                 </article>
                 <article>
                     <h3>Let evidence change the plan</h3>
-                    <p>I keep learning after launch. Early use of my wellness app led me to simplify the daily journey and pause plans for community features.</p>
+                    <p>I use research, feedback and real usage data to challenge assumptions and refine the direction, including simplifying the experience or changing priorities as I learn.</p>
                 </article>
             </div>
         </section>
@@ -143,13 +162,18 @@
             <div class="experience-roles">
                 <article>
                     <h2>Product Designer <span>at Liberis</span></h2>
-                    <p class="experience-dates"><time datetime="2022-03">March 2022</time> – Present</p>
-                    <p>Research, journey design and responsive interfaces for merchant and partner experiences. Working with Product, Engineering and commercial teams from discovery through delivery.</p>
+                    <p class="experience-dates"><time datetime="2024-01">January 2024</time> – Present<br>Junior Product Designer, <time datetime="2022-03">March 2022</time> – <time datetime="2023-12">December 2023</time></p>
+                    <p>Led end-to-end design for a 0-to-1 funding product from account creation through launch, and shipped a progress and recovery model now reused across Partner Hub workflows. I also work across merchant-facing journeys, the internal portal used by operations and underwriting, and proof of concepts and product demos that support new partner opportunities. I plan and moderate my own research, interview for the design team, and work with engineers through delivery.</p>
                 </article>
                 <article>
                     <h2>Founder &amp; Designer <span>at HerFreedom101</span></h2>
                     <p class="experience-dates"><time datetime="2025-10">October 2025</time> – Present</p>
-                    <p>Product strategy, discovery, UX/UI, implementation and Android launch. Learning from early users and using those findings to decide what to simplify, connect and build next.</p>
+                    <p>Designed, built and shipped a wellness product to Google Play and the App Store using AI-assisted development, then used early behaviour to replace a feature dashboard with one adaptive daily journey.</p>
+                </article>
+                <article>
+                    <h2>Clinical <span>&amp; freelance</span></h2>
+                    <p class="experience-dates"><time datetime="2021-08">2021</time> – <time datetime="2022-03">2022</time></p>
+                    <p>Pharmaceutical clinic work after graduating in medical physiology and therapeutics, alongside freelance design.</p>
                 </article>
             </div>
         </section>
@@ -163,7 +187,7 @@
     <footer class="footer bento-footer" id="contact">
         <div class="bento-footer-inner">
             <div class="footer-star-line">
-                <img src="images/carmen.jpg" alt="Carmen Gyoh" class="footer-photo"
+                <img loading="lazy" decoding="async" src="images/carmen.jpg" alt="Carmen Gyoh" class="footer-photo"
                      onerror="this.style.display='none'">
                 <span class="footer-star" aria-hidden="true">✦</span>
                 <p class="footer-headline">Let's create meaningful impact together.</p>
@@ -183,6 +207,12 @@
                     </svg>
                     linkedin.com/in/carmengyoh
                 </a>
+                <a href="documents/Carmen-Gyoh-CV.pdf" class="footer-link" download aria-label="Download Carmen Gyoh's CV (PDF)">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                        <path d="M8 2v8M4.5 7L8 10.5 11.5 7M2.5 13.5h11" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Download CV (PDF)
+                </a>
                 <a href="mailto:carmenjgyoh@gmail.com" class="btn-cv footer-cv-btn">Let's connect ↗</a>
             </div>
         </div>
@@ -192,10 +222,10 @@
         </div>
     </footer>
 
-    <script src="js/content.js?v=15"></script>
+    <script src="js/content.js?v=20260923"></script>
     <script src="js/hero-bg.js?v=8"></script>
     <script src="js/hero-scroll.js?v=4"></script>
-    <script src="js/main.js?v=19"></script>
+    <script src="js/main.js?v=20260923"></script>
 
 </body>
 </html>

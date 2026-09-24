@@ -36,35 +36,6 @@
         });
     }
 
-    /* ── Sticky progress dots ── */
-    const dots     = document.querySelectorAll('.cs-prog-dot');
-    const sections = Array.from(dots).map(d => document.querySelector(d.getAttribute('href')));
-
-    const setActive = () => {
-        const mid = window.innerHeight / 2;
-        let active = 0;
-        sections.forEach((sec, i) => {
-            if (!sec) return;
-            const { top } = sec.getBoundingClientRect();
-            if (top <= mid) active = i;
-        });
-        dots.forEach((d, i) => d.classList.toggle('is-active', i === active));
-    };
-
-    if (dots.length) {
-        window.addEventListener('scroll', setActive, { passive: true });
-        setActive();
-    }
-
-    /* ── Smooth scroll for progress dot links ── */
-    dots.forEach(dot => {
-        dot.addEventListener('click', e => {
-            e.preventDefault();
-            const target = document.querySelector(dot.getAttribute('href'));
-            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        });
-    });
-
     /* ── TL;DR / Detailed view toggle ── */
     const viewBtns   = document.querySelectorAll('.cs-view-btn');
     const viewPanels = document.querySelectorAll('.cs-view-panel');
@@ -129,6 +100,15 @@
             }, { once: true });
             frame.src = frame.dataset.src;
         }, { once: true });
+    });
+
+    /* ── Demo videos: play at the speed set in data-speed ── */
+    document.querySelectorAll('video[data-speed]').forEach(video => {
+        const speed = parseFloat(video.dataset.speed) || 1;
+        const apply = () => { video.playbackRate = speed; };
+        apply();
+        video.addEventListener('loadedmetadata', apply);
+        video.addEventListener('play', apply);
     });
 
     /* ── Journey diagram iframe: size to its own content, same-origin ── */

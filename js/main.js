@@ -9,22 +9,54 @@
        Project card rendering
        Reads the curated FEATURED_PROJECTS / SELECTED_PROJECTS in content.js
     ---------------------------------------------------------------- */
+    const personality = document.querySelector('.hero-personality-card');
+    const compactPersonality = window.matchMedia('(max-width: 1100px)');
+    if (personality) {
+        const syncPersonality = () => { personality.open = !compactPersonality.matches; };
+        syncPersonality();
+        compactPersonality.addEventListener('change', syncPersonality);
+    }
+
     function renderProjects() {
         var grid = document.getElementById('work-grid');
         if (!grid) return;
+        var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
         grid.innerHTML = FEATURED_PROJECTS.concat(SELECTED_PROJECTS).map(function (project, index) {
             var media = project.video
-                ? '<video autoplay muted loop playsinline preload="metadata" poster="' + (project.poster || project.cardImage || project.image) + '" aria-label="' + project.title + ' demo"><source src="' + project.video + '" type="video/mp4"></video>'
+                ? '<video id="work-preview-' + index + '" ' + (reducedMotion.matches ? '' : 'autoplay ') + 'muted loop playsinline preload="metadata" poster="' + (project.poster || project.cardImage || project.image) + '" aria-label="' + project.title + ' demo"><source src="' + project.video + '" type="video/mp4"></video>'
                 : project.cardImages
                 ? '<div class="work-card-phones">' + project.cardImages.map(function (src) { return '<img src="' + src + '" alt="HerFreedom101 adaptive daily journey" loading="lazy">'; }).join('') + '</div>'
                 : '<img src="' + (project.cardImage || project.poster || project.image) + '" alt="' + project.title + ' interface" loading="lazy">';
-            return '<a class="work-card' + (index < FEATURED_PROJECTS.length ? ' work-card--featured' : '') + '" href="' + project.link + '">' +
+            var featured = index < FEATURED_PROJECTS.length;
+            var cardClass = 'work-card' + (featured ? ' work-card--featured' : '');
+            return '<div class="work-card-shell"><a class="' + cardClass + '" href="' + project.link + '">' +
                 '<div class="work-card-media">' + media + (index < FEATURED_PROJECTS.length ? '<span class="work-card-featured-tag">Featured work</span>' : '') + '</div>' +
                 '<div class="work-card-copy"><p class="work-card-client">' + project.client + '</p><div class="work-card-topline"><span class="work-card-status">' + project.status + '</span>' + (project.cardScope ? '<span class="work-card-scope">' + project.cardScope + '</span>' : '') + '</div>' +
                 '<h3>' + project.title + '</h3>' +
                 '<p class="work-card-description">' + project.description + '</p>' +
-                '<div class="work-card-bottom"><span>' + project.tags.join(' · ') + '</span><span aria-hidden="true">↗</span></div></div></a>';
+                '<div class="work-card-bottom"><span>' + project.tags.join(' · ') + '</span><span aria-hidden="true">↗</span></div></div></a>' +
+                (project.video ? '<button class="work-preview-toggle" type="button" aria-controls="work-preview-' + index + '">Play preview</button>' : '') + '</div>';
         }).join('');
+        grid.querySelectorAll('.work-preview-toggle').forEach(function (button) {
+            var video = document.getElementById(button.getAttribute('aria-controls'));
+            function sync() {
+                var label = video.paused ? 'Play preview' : 'Pause preview';
+                button.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">' +
+                    (video.paused ? '<path d="M8 5v14l11-7z"/>' : '<path d="M6 5h4v14H6zm8 0h4v14h-4z"/>') + '</svg>';
+                button.setAttribute('aria-label', label + ': ' + video.getAttribute('aria-label'));
+                button.title = label;
+            }
+            video.addEventListener('play', sync);
+            video.addEventListener('pause', sync);
+            button.addEventListener('click', function () {
+                if (video.paused) video.play().catch(sync);
+                else video.pause();
+            });
+            reducedMotion.addEventListener('change', function (event) {
+                if (event.matches) video.pause();
+            });
+            sync();
+        });
     }
 
     /* ----------------------------------------------------------------

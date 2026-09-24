@@ -270,6 +270,10 @@ em {
     border:     none;
     cursor:     pointer;
     padding:    4px;
+    min-height: 44px;
+    min-width:  44px;
+    align-items: center;
+    justify-content: center;
 }
 .nav-toggle span {
     display:    block;
@@ -1556,7 +1560,11 @@ body {
    HERO ROW  (2 columns: combined main card | photo card)
    ================================================================ */
 .hero-row {
-    grid-template-columns: 1fr 0.38fr;
+    /* A pure 0.38fr let the personality card shrink to ~250px content width
+       around 1150-1300px viewports (a common laptop range) — a fixed 190px
+       avatar barely fit and the quote wrapped to 5-6 lines, reading as
+       cramped. The floor guarantees enough room regardless of the ratio. */
+    grid-template-columns: 1fr minmax(380px, 0.38fr);
     min-height: 420px;
 }
 
@@ -1841,8 +1849,21 @@ body.hero-entered .hero-actions {
 .hero-personality-card {
     display: flex;
     flex-direction: column;
+    gap: 24px;
+    padding: 30px 28px 30px;
+}
+
+/* Wraps the photo and the quote. Same column stack as the card itself at
+   desktop (so nesting them changes nothing visually there); switched to a
+   row at mobile widths below, where the card is narrow enough that stacking
+   the photo above the quote left very little width for the text. */
+.hero-personality-intro {
+    display: flex;
+    flex-direction: column;
     gap: 16px;
-    padding: 26px 24px 24px;
+    /* <details> wraps its content, so the card's own flex gap doesn't reach
+       these children; spacing is explicit. */
+    margin-bottom: 22px;
 }
 
 .hero-personality-top {
@@ -1852,9 +1873,9 @@ body.hero-entered .hero-actions {
 }
 
 .hero-avatar {
-    width: 190px;
-    height: 190px;
-    border-radius: 38px;
+    width: 160px;
+    height: 160px;
+    border-radius: 32px;
     object-fit: cover;
     object-position: center 20%;
     border: 2px solid var(--accent-dim);
@@ -1870,9 +1891,10 @@ body.hero-entered .hero-actions {
     font-family: var(--font-serif);
     font-style: italic;
     font-size: clamp(16px, 1.6vw, 18px);
-    font-weight: 500;
+    font-weight: 400;
     color: var(--text);
-    line-height: 1.45;
+    line-height: 1.6;
+    letter-spacing: 0.005em;
     margin: 0;
     flex: 1;
 }
@@ -1882,24 +1904,25 @@ body.hero-entered .hero-actions {
     font-size: 12px;
     font-weight: 400;
     color: var(--text-muted);
-    margin: 0;
+    line-height: 1.7;
+    margin: 0 0 22px;
 }
 
 .hero-personality-tags {
     display: grid;
     grid-template-columns: repeat(6, minmax(0, 1fr));
-    gap: 7px 6px;
+    gap: 10px 8px;
 }
 
 .hero-personality-tags span {
     grid-column: span 2;
     font-family: var(--font-sans);
-    font-size: 10px;
+    font-size: 11px;
     font-weight: 500;
     color: var(--text-muted);
     border: 1px solid var(--border-hover);
     border-radius: 100px;
-    padding: 3px 9px;
+    padding: 6px 10px;
     text-align: center;
     white-space: nowrap;
 }
@@ -2673,7 +2696,7 @@ body.hero-breaking .hero-actions {
 @media (max-width: 1100px) {
     .hero-row         { grid-template-columns: 1fr; min-height: auto; }
     .hero-main-card   { min-height: 380px; }
-    .hero-personality-card { display: none; }
+    .hero-personality-card { display: block; }
     .work-how-row     { grid-template-columns: 1fr; }
     .how-bento        { min-height: 260px; }
     .bottom-bento-row { grid-template-columns: 1fr 1fr 1fr; }
@@ -2985,11 +3008,10 @@ body.hero-breaking .hero-actions {
     }
 }
 
-/* Restore 2-column hero row (main card + personality card) - desktop only,
-   so the mobile single-column collapse above actually takes effect */
-@media (min-width: 781px) {
+/* Use two hero columns only while the personality card is visible. */
+@media (min-width: 1101px) {
     .hero-row {
-        grid-template-columns: 1fr 0.38fr !important;
+        grid-template-columns: 1fr minmax(380px, 0.38fr) !important;
     }
 }
 
@@ -3471,6 +3493,20 @@ body {
     .work-card:hover .work-card-bottom > span:last-child { transform:translate(3px,-3px); }
 }
 .work-card-media { position:relative; aspect-ratio:16/10; overflow:hidden; background:var(--accent-dim); border-bottom:1px solid var(--bento-border); }
+/* Hierarchy: the three featured cards share one row (3-up); supporting work
+   sits below at two-up. Supporting is individually wider by the column math,
+   so it reads as secondary through the "Featured work" badge, autoplaying
+   video, and the shorter media / smaller heading set below, not through size. */
+.work-card-shell { position:relative; min-width:0; grid-column:span 3; }
+.work-card-shell:has(.work-card--featured) { grid-column:span 2; }
+.work-card-shell > .work-card { height:100%; }
+
+/* Supporting cards read as secondary: shorter media, smaller heading. */
+.work-card:not(.work-card--featured) .work-card-media { aspect-ratio:2/1; }
+.work-card:not(.work-card--featured) h3 { font-size:21px; }
+.work-preview-toggle { position:absolute; top:12px; right:12px; z-index:2; width:32px; height:32px; padding:0; display:grid; place-items:center; border:1px solid rgba(255,255,255,.4); border-radius:50%; background:#17151f; color:#fff; cursor:pointer; }
+.work-preview-toggle:hover { background:#36303f; }
+.work-preview-toggle:focus-visible { outline:3px solid var(--accent); outline-offset:3px; }
 .work-card-featured-tag { position:absolute; top:16px; left:16px; padding:6px 12px; border-radius:999px; background:var(--accent); color:var(--bg); font-size:10px; font-weight:600; line-height:1.4; letter-spacing:.06em; text-transform:uppercase; }
 .work-card-media > img,
 .work-card-media > video { display:block; width:100%; height:100%; object-fit:cover; object-position:top; }
@@ -3495,7 +3531,7 @@ body {
 .approach-examples > article { color:var(--text); padding-top:22px; border-top:1px solid var(--bento-border); }
 .approach-examples h3 { font-size:18px; font-weight:500; margin:0 0 10px; text-wrap:balance; }
 .approach-examples p { color:var(--text-muted); font-size:14px; line-height:1.7; text-wrap:pretty; }
-.experience-roles { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:40px; margin-top:22px; }
+.experience-roles { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:40px; margin-top:22px; }
 .experience-roles h2 { font-size:20px; font-weight:500; }
 .experience-roles h2 span { display:block; font-family:var(--font-serif); font-size:28px; margin:4px 0 12px; }
 .experience-roles p { font-size:14px; color:var(--text-muted); line-height:1.7; }
@@ -3503,11 +3539,13 @@ body {
 .hero-sub { max-width:54ch; }
 a:focus-visible, button:focus-visible, [tabindex="0"]:focus-visible { outline:2px solid var(--accent); outline-offset:5px; }
 @media (max-width:1050px) { .work-card--featured { grid-column:span 3; } }
+@media (max-width:1050px) { .work-card-shell:has(.work-card--featured) { grid-column:span 3; } }
 @media (max-width:780px) {
     .work-intro { display:block; margin-top:24px; }
     .work-intro > p { margin-top:16px; }
     .portfolio-work-grid { grid-template-columns:minmax(0,1fr); }
     .work-card, .work-card--featured { grid-column:1; }
+    .work-card-shell, .work-card-shell:has(.work-card--featured) { grid-column:1; }
     .work-card-copy { padding:22px; }
     .approach-section, .experience-section { padding:28px 22px !important; }
     .approach-examples, .experience-roles { grid-template-columns:minmax(0,1fr); gap:28px; }
@@ -3516,4 +3554,40 @@ a:focus-visible, button:focus-visible, [tabindex="0"]:focus-visible { outline:2p
     html { scroll-behavior:auto; }
     *, *::before, *::after { animation:none !important; transition:none !important; }
     #hero-bg-canvas { display:none; }
+}
+
+/* Shared interaction sizes and responsive personality disclosure.
+   .nav-toggle is excluded: it needs display:none on desktop (set above),
+   so it can't share an unscoped display:inline-flex rule without always
+   showing the hamburger. Its own 44px target is set on its base rule. */
+.nav-link, .btn-cv, .theme-toggle, .btn-primary, .btn-outline-hero, .footer-link {
+    min-height: 44px; min-width: 44px; display: inline-flex; align-items: center; justify-content: center;
+}
+.work-preview-toggle { width: 44px; height: 44px; }
+.hero-heading, .work-card h3 { text-wrap: balance; }
+.hero-personality-card > summary { min-height: 44px; cursor: pointer; font-size: 13px; list-style: none; }
+.hero-personality-card > summary::-webkit-details-marker { display: none; }
+.availability-dot { display: inline-block; width: 9px; height: 9px; margin-right: 7px; border-radius: 50%; background: #48b88a; }
+.personality-disclosure { float: right; color: var(--text-muted); }
+.hero-personality-card > summary .personality-disclosure::after { content: ' +'; }
+.hero-personality-card[open] > summary .personality-disclosure::after { content: ' -'; }
+/* The availability strip is a mobile space-saver only. At desktop width the
+   card keeps its original always-open look: photo, quote, meta and tags,
+   no visible toggle bar. */
+@media (min-width: 1101px) {
+    .hero-personality-card > summary { display: none; }
+}
+@media (max-width: 1100px) {
+    .hero-personality-card { padding: 16px 22px; }
+    .hero-personality-card[open] { padding-bottom: 26px; }
+    .hero-personality-card > summary { display: flex; align-items: center; gap: 7px; }
+    .personality-disclosure { margin-left: auto; }
+    .hero-personality-card[open] .hero-personality-intro { margin-top: 20px; }
+
+    /* Photo beside the quote instead of above it - stacking left very
+       little width for the text once the card itself is this narrow. */
+    .hero-personality-intro { flex-direction: row; align-items: flex-start; gap: 14px; }
+    .hero-personality-top { flex: 0 0 auto; }
+    .hero-avatar { width: 72px; height: 72px; border-radius: 16px; }
+    .hero-avatar-star { display: none; }
 }

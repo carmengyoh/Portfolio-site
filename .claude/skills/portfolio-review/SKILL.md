@@ -147,7 +147,7 @@ Check: **dark theme, light theme, ~500px width**. To test light theme or a toggl
 ## Hard rules
 
 - **Never invent** metrics, percentages, participant counts, timelines, team composition, or outcomes. If a fact isn't in the source material or from Carmen, mark it `<span class="cs-fill">[like this]</span>` and tell her it needs filling; don't quietly guess.
-- **Never describe unshipped work as live.** The Flex funding-assessment redesign is designed, not yet shipped; it must always read that way.
+- **Never describe unshipped work as live.** The Flex funding-assessment redesign was tested with three partner agents and is now in implementation, not yet live; it must always read that way. The original Flex Advance journey (account creation to first advance) *is* shipped and in active use.
 - **Never leak** prototype links, passwords, participant names, or internal URLs from research source files.
 - Reuse existing `.cs-*` components before inventing new ones.
 - When giving a recommendation, give **one** with reasoning, not a menu, unless the choice is genuinely hers (naming, personal voice, factual detail only she knows).

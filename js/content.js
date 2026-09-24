@@ -18,8 +18,8 @@ const PROJECTS = [
     /* ---- Project 1 - Main case study 01 ---- */
     {
         client:      'Liberis',
-        title:       'Helping merchants choose funding',
-        cardImage:   'images/multi-product/cost-calculator.png',
+        title:       'Helping merchants choose the right funding product',
+        cardImage:   'images/multi-product/cost-calculator.webp',
         tags:        ['Fintech', 'Product Strategy', 'Research'],
         role:        'Product Designer · End-to-end design',
         cardScope:   'Research & strategy',
@@ -27,7 +27,7 @@ const PROJECTS = [
         description: 'Designing and validating a multi-product journey around the different ways merchants understand, compare and choose funding.',
         image:       null,
         video:       'images/multi-product/multi-product-preview.mp4',
-        poster:      'images/multi-product/multi-product-demo-poster.jpg',
+        poster:      'images/multi-product/multi-product-preview-poster.jpg',
         link:        'case-study.html',
         placeholderBg: 'linear-gradient(140deg, #1a1430 0%, #2a1b3d 45%, #3d2342 100%)',
     },
@@ -35,16 +35,16 @@ const PROJECTS = [
     /* ---- Project 2 - Main case study 02 ---- */
     {
         client:      'Liberis',
-        title:       'Launching a new funding experience',
+        title:       'Launching and evolving a new funding product',
         cardImage:   'images/flex/flex-set-account-limit.png',
         tags:        ['Fintech', '0–1 Delivery', 'Partner Hub'],
         role:        'Product Designer · Research to delivery',
         cardScope:   'Research to delivery',
         status:      'Shipped',
-        description: 'Designed the journey from account creation to first advance. Post-launch feedback informed a separate assessment redesign.',
+        description: 'Designed and launched a new funding journey for partner agents. An updated journey, informed by agent feedback and usage after launch, is now being built.',
         image:       null,
         video:       'images/flex/flex-preview.mp4',
-        poster:      'images/flex/flex-demo-poster.jpg',
+        poster:      'images/flex/flex-preview-poster.jpg',
         link:        'case-study-flex.html',
         placeholderBg: 'linear-gradient(140deg, #15182e 0%, #1d2142 45%, #2a2350 100%)',
     },
@@ -52,7 +52,7 @@ const PROJECTS = [
     /* ---- Project 3 - Featured case study 03 ---- */
     {
         client:      'Liberis',
-        title:       'Making application drop-offs visible and recoverable',
+        title:       'Designing the system behind application progress',
         tags:        ['B2B Platform', 'Workflow Design', 'Systems Thinking'],
         role:        'Product Designer · Service mapping & delivery',
         cardScope:   'Service mapping & delivery',
@@ -65,34 +65,10 @@ const PROJECTS = [
         placeholderBg: 'linear-gradient(140deg, #17201f 0%, #203932 48%, #315b4d 100%)',
     },
 
-    /* ---- Main case study 03 (not yet built) ---- */
+    /* ---- Supporting project 02 ---- */
     {
         client:      'Liberis',
-        title:       'Creating clear ownership in a shared application workflow',
-        tags:        ['Fintech', 'Systems Thinking', 'Partner Hub'],
-        status:      'Exploratory',
-        description: 'Exploring a scalable model for claiming, assigning and managing applications across agents and administrators.',
-        image:       null,
-        link:        '#',       /* TODO: build case-study-universal-application.html */
-        placeholderBg: 'linear-gradient(140deg, #0f2027 0%, #1a3a3f 45%, #234548 100%)',
-    },
-
-    /* ---- Supporting project 01 (not yet built) ---- */
-    {
-        client:      'Liberis',
-        title:       'Rethinking how Partner Hub fits together',
-        tags:        ['Information Architecture', 'Platform Strategy'],
-        status:      'Exploratory and ongoing',
-        description: 'Mapping two growing platforms to create a clearer long-term direction for navigation, application journeys and feature discoverability.',
-        image:       null,
-        link:        'selected-case-study.html?project=partner-hub-ia',
-        placeholderBg: 'linear-gradient(140deg, #1b1a2e 0%, #241f3d 45%, #2d2650 100%)',
-    },
-
-    /* ---- Supporting project 02 (not yet built) ---- */
-    {
-        client:      'Liberis',
-        title:       'Helping partner agents progress applications with document upload',
+        title:       'Helping agents progress applications with document upload',
         tags:        ['Fintech', 'Shipped Feature'],
         status:      'Shipped',
         role:        'Product Designer · Workflow & interaction design',
@@ -112,26 +88,15 @@ const PROJECTS = [
         cardScope:   'Founder · Build & launch',
         status:      'Shipped',
         description: 'Built and launched a wellness app, then used early behaviour to replace a feature dashboard with one adaptive daily journey.',
-        cardImages:  ['images/herfreedom101/02-adaptive-day-handover-clean.png', 'images/herfreedom101/03-daily-journey-morning-clean.png'],
-        image:       'images/herfreedom101/03-daily-journey-morning-clean.png',
+        cardImages:  ['images/herfreedom101/daily-plan-handover.jpg', 'images/herfreedom101/daily-journey-start.jpg'],
+        image:       'images/herfreedom101/daily-journey-start.jpg',
         link:        'case-study-herfreedom101.html',
         placeholderBg: 'linear-gradient(140deg, #2a1424 0%, #3d1d33 45%, #4a2240 100%)',
     },
 
-    /* ---- Add future projects here ---- */
-    /*
-    {
-        title:       'New Project Title',
-        tags:        ['Tag 1', 'Tag 2', 'Tag 3'],
-        description: 'Short description of the project.',
-        image:       null,
-        link:        '#',
-        placeholderBg: 'linear-gradient(140deg, #e0f2f1 0%, #b2dfdb 100%)',
-    },
-    */
-
 ];
 
 /* Curated order: delivery, systems thinking, independent product ownership. */
-const FEATURED_PROJECTS = [PROJECTS[1], PROJECTS[2], PROJECTS[6]];
-const SELECTED_PROJECTS = [PROJECTS[0], PROJECTS[5]];
+const projectAt = link => PROJECTS.find(project => project.link === link);
+const FEATURED_PROJECTS = [projectAt("case-study-flex.html"), projectAt("case-study-partner-hub-progress.html"), projectAt("case-study-herfreedom101.html")];
+const SELECTED_PROJECTS = [projectAt("case-study.html"), projectAt("selected-case-study.html?project=document-upload")];

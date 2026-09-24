@@ -3,15 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Launching and evolving a new funding product, Carmen Gyoh</title>
+    <title>Launching and evolving a new funding product | Carmen Gyoh</title>
+    <meta name="description" content="How Carmen Gyoh designed and shipped a 0-to-1 funding journey in Liberis Partner Hub, then used post-launch behaviour to restructure the funding assessment.">
+    <link rel="canonical" href="https://carmengyoh.com/case-study-flex.html">
+
+    <!-- Social share cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Carmen Gyoh">
+    <meta property="og:url" content="https://carmengyoh.com/case-study-flex.html">
+    <meta property="og:title" content="Launching and evolving a new funding product | Carmen Gyoh">
+    <meta property="og:description" content="How Carmen Gyoh designed and shipped a 0-to-1 funding journey in Liberis Partner Hub, then used post-launch behaviour to restructure the funding assessment.">
+    <meta property="og:image" content="https://carmengyoh.com/images/og/flex.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Launching and evolving a new funding product | Carmen Gyoh">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Launching and evolving a new funding product | Carmen Gyoh">
+    <meta name="twitter:description" content="How Carmen Gyoh designed and shipped a 0-to-1 funding journey in Liberis Partner Hub, then used post-launch behaviour to restructure the funding assessment.">
+    <meta name="twitter:image" content="https://carmengyoh.com/images/og/flex.png">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="styles.css?v=19">
-  <link rel="stylesheet" href="case-study.css?v=55">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="case-study.css?v=20260923">
 
     <script>
         (function(){
@@ -32,8 +49,8 @@
             <a href="index.html#work"       class="nav-link">Work</a>
             <a href="index.html#how"        class="nav-link">Approach</a>
             <a href="index.html#experience" class="nav-link">Experience</a>
-            <a href="index.html#contact"    class="nav-link">Contact</a><a href="mailto:carmenjgyoh@gmail.com?subject=CV%20request" class="btn-cv" aria-label="Request a CV by email">CV ↗</a>
-
+            <a href="index.html#contact"    class="nav-link">Contact</a>
+            <a href="documents/Carmen-Gyoh-CV.pdf" class="btn-cv" download aria-label="Download Carmen Gyoh's CV (PDF)">CV ↗</a>
 
             <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">
                 <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none"
@@ -65,19 +82,39 @@
      ===================================================== -->
 <div class="cs-bento-page">
 
-<header class="cs-hero-card cs-hero-card--context"><div class="cs-hero-inner">
+<header class="cs-hero-card">
+    <div class="cs-hero-inner">
         <div class="cs-hero-eyebrow">
-            <span class="cs-chip cs-chip--status">Shipped</span>
             <span class="cs-chip">Fintech</span>
             <span class="cs-chip">0 to 1 Delivery</span>
             <span class="cs-chip">Partner Hub</span>
         </div>
     </div>
-<div class="cs-wide-block">
+
+    <div class="cs-cover">
+        <div class="cs-cover-shot">
+            <div class="cs-device-bar" aria-hidden="true">
+                <span class="cs-device-dot"></span><span class="cs-device-dot"></span><span class="cs-device-dot"></span>
+            </div>
+            <video autoplay muted loop playsinline preload="metadata" poster="images/flex/flex-demo-poster.jpg" aria-label="Screen recording of the evolved Flex Advance funding journey in Partner Hub">
+                <source src="images/flex/flex-demo.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+
+    <div class="cs-view-toggle" role="tablist" aria-label="Case study detail level">
+        <button class="cs-view-btn is-active" type="button" data-view="cs-view-tldr" role="tab" aria-selected="true">TL;DR</button>
+        <button class="cs-view-btn" type="button" data-view="cs-view-detailed" role="tab" aria-selected="false">Detailed</button>
+    </div>
+
+    <div class="cs-wide-block" style="margin-top:28px;">
         <h1 class="cs-title">Launching and evolving a new <em>funding product</em></h1>
     </div>
-<div class="cs-wide-block cs-project-context"><p class="cs-project-summary">Flex Advance was a new reusable funding product with no Partner Hub journey. I led it from account creation to first advance through agent research, responsive design and engineering delivery. The journey launched for partner agents, then post-launch behaviour shaped a clearer funding-assessment direction and a separate preview for early cost conversations.</p></div>
-<div class="cs-meta-panel">
+</header>
+
+    <!-- ─── TL;DR VIEW ─────────────────────────────────── -->
+    <div class="cs-view-panel is-active" id="cs-view-tldr">
+        <div class="cs-meta-panel">
             <div class="cs-meta-col">
                 <h3>Role</h3>
                 <p>Product Designer: Design Strategy, User Research, UX/UI Design</p>
@@ -100,28 +137,48 @@
                 <p>Q1–Q3 2026</p>
             </div>
         </div>
-<div class="cs-cover">
-        <div class="cs-cover-shot">
-            <div class="cs-device-bar" aria-hidden="true">
-                <span class="cs-device-dot"></span><span class="cs-device-dot"></span><span class="cs-device-dot"></span>
-            </div>
-            <video autoplay muted loop playsinline preload="metadata" poster="images/flex/flex-demo-poster.jpg" aria-label="Screen recording of the evolved Flex Advance funding journey in Partner Hub">
-                <source src="images/flex/flex-demo.mp4" type="video/mp4">
-            </video>
-        </div>
-    </div>
-<div class="cs-view-toggle" role="tablist" aria-label="Case study detail level">
-        <button class="cs-view-btn is-active" type="button" data-view="cs-view-tldr" role="tab" aria-selected="true">TL;DR</button>
-        <button class="cs-view-btn" type="button" data-view="cs-view-detailed" role="tab" aria-selected="false">Detailed</button>
-    </div></header>
 
-    <!-- ─── TL;DR VIEW ─────────────────────────────────── -->
-    <div class="cs-view-panel is-active" id="cs-view-tldr">
+        <article class="cs-article cs-article--tldr">
 
+            <section class="cs-article-section">
+                <h2>The problem</h2>
+                <p>Flex Advance was a new line-of-credit-style funding product, but Liberis’s partner sales agents had no way to offer it through Partner Hub. I led the end-to-end design from account creation to first advance, including planning and moderating user testing, designing the responsive journey and working with engineers through launch.</p>
+            </section>
 
-        <article class="cs-article cs-article--tldr"><section class="cs-article-section"><h2>The problem</h2><p>Partner sales agents needed to explain and set up a new funding product during live merchant conversations. Revenue verification, a reusable limit and the first advance were connected decisions, each with a different level of certainty and commitment.</p></section><section class="cs-article-section"><h2>The decisions I made</h2><p>I separated setting a reusable limit from taking the first advance, and made the relationship between daily-sales percentage and limit visible in one interaction. Agent research informed monthly and annual revenue inputs, contextual FAQs and an indicative calculator.</p><figure class="cs-figure cs-figure--full"><div class="cs-figure-img cs-figure-img--shot"><img src="images/flex/flex-set-account-limit.png" alt="Daily-sales percentage and resulting reusable account limit shown together" loading="lazy"></div><figcaption>The limit updates with the selected daily-sales percentage, making the trade-off visible before confirmation.</figcaption></figure></section>
-<section class="cs-article-section cs-influence"><span class="label">A DECISION I INFLUENCED</span><h2>Making room for a cost conversation</h2><p>The Product Manager initially did not see a need for a first-advance calculator. I advocated for it because merchants needed to anticipate what they would pay back, and partner agents needed a way to explain that cost before a merchant committed. The resulting contextual calculator lets agents explore an indicative first advance without starting one.</p></section><section class="cs-article-section"><h2>From a new product to a working journey</h2><p><strong>Enabled launch.</strong> Partner agents can now create a merchant account, establish a reusable funding limit and take the first advance in one shipped journey.</p><p><strong>Shaped the experience.</strong> My advocacy brought an indicative first-advance calculator into scope, giving agents a way to explain costs before a merchant commits.</p><p><strong>Informed the next iteration.</strong> When the PM reported that 80% of agents chose Estimated Figures, I designed a clearer assessment hierarchy and a separate Funding Preview.</p><p class="cs-evidence-note">The assessment redesign is not yet shipped. The PM-reported figure describes behaviour after the original launch, not an improvement caused by the redesign.</p></section><section class="cs-article-section"><h2>What changed my thinking</h2><p>Pre-selection, colour and a “Fastest route” label did not establish the hierarchy I intended. I now treat an indicative conversation and an evidence-based application as distinct tasks. The revised structure is a hypothesis to test, rather than proof that visual hierarchy caused the original behaviour.</p></section>
-</article>
+            <section class="cs-article-section">
+                <h2>What made this hard</h2>
+                <p>The hardest part was separating three similar-looking tasks: using Open Banking to verify revenue and calculate an accurate quote; using Estimated Figures as an application route when verification was not possible; and giving agents a non-committal preview they could discuss before a merchant was ready to apply. The experience also had to show how the selected percentage of daily sales determined the reusable limit, then help agents explain what a first advance from that limit would cost.</p>
+            </section>
+
+            <section class="cs-article-section">
+                <h2>The solution and impact</h2>
+                <p>I connected account creation, funding assessment, limit setup and first advance in one responsive journey. I kept limit setup separate because knowing what a merchant could access did not mean they were ready to borrow.</p>
+                <p>Testing showed that agents discussed revenue monthly and annually, so I supported both formats. I also advocated for an indicative cost calculator because cost was central to the merchant’s decision, helping agents explain fees and total payback without starting an advance.</p>
+                <p>The launch funding-assessment screen placed Open Banking and Estimated Figures side by side because the initial goal was to give agents flexibility in how they provided revenue information to generate a quote. After launch, we decided to encourage greater use of Open Banking because verified revenue produced a validated, more accurate quote. When the Product Manager reported that 80% of agents were choosing Estimated Figures, I interviewed agents to understand why and learned that they saw it as faster than sending an Open Banking link. I then revisited the structure: in the revised design, Open Banking became the primary assessment route, Estimated Figures remained an alternative application route, and Funding Preview became a separate tool for non-committal conversations.</p>
+                <p>The journey enabled Liberis to launch Flex Advance with a new partner through Partner Hub, opening access to merchants who relied on their agent to manage the funding process and creating a new route to revenue.</p>
+                <p>The launch evidence created a clearer model for verified assessment and early cost conversations, which then informed the equivalent merchant journey. I tested the revised assessment with three partner agents. All three found value in the separate Funding Preview and the clearer Open Banking route, and the revision is now in implementation.</p>
+                <figure class="cs-figure-row cs-tldr-final">
+                    <figure class="cs-figure cs-tldr-final">
+                        <div class="cs-figure-img cs-figure-img--shot" style="aspect-ratio:1280/1012;">
+                            <img loading="lazy" decoding="async" src="images/flex/flex-funding-assessment-original.png" alt="Launch funding assessment showing Open Banking and Estimated Figures side by side">
+                        </div>
+                        <figcaption>Launch: both routes were presented side by side to support flexible revenue entry.</figcaption>
+                    </figure>
+                    <figure class="cs-figure cs-tldr-final">
+                        <div class="cs-figure-img cs-figure-img--shot cs-figure-img--assessment-fill" style="aspect-ratio:1280/1012;">
+                            <img loading="lazy" decoding="async" src="images/flex/flex-funding-assessment-updated.png" alt="Proposed funding assessment with Open Banking primary and separate Estimated Figures and Funding Preview routes">
+                        </div>
+                        <figcaption>Revised iteration, now in implementation: application routes and non-committal cost exploration are separated by purpose.</figcaption>
+                    </figure>
+                </figure>
+            </section>
+
+            <section class="cs-article-section">
+                <h2>What I learned</h2>
+                <p>Launch exposed a structural hierarchy problem: visual emphasis could not make Open Banking feel primary while both routes retained equal weight. I responded by separating indicative cost conversations from evidence-based applications. I tested that revised direction with three partner agents and it is now in implementation.</p>
+            </section>
+
+        </article>
     </div>
 
     <!-- ─── DETAILED VIEW ──────────────────────────────── -->
@@ -130,106 +187,132 @@
             <p class="cs-hero-sub cs-hero-sub--wide">Designed the end-to-end Flex Advance funding journey in Partner Hub, from account creation to first advance, then refined the funding assessment screen using partner-agent feedback.</p>
         </div>
 
-
+        <div class="cs-meta-panel">
+            <div class="cs-meta-col">
+                <h3>Role</h3>
+                <p>Product Designer: Design Strategy, User Research, UX/UI Design</p>
+            </div>
+            <div class="cs-meta-col">
+                <h3>Team</h3>
+                <div class="cs-meta-chips">
+                    <span class="cs-meta-chip">PM</span>
+                    <span class="cs-meta-chip">Engineers</span>
+                    <span class="cs-meta-chip">Partner Managers</span>
+                    <span class="cs-meta-chip">Partner Sales Agents</span>
+                </div>
+            </div>
+            <div class="cs-meta-col">
+                <h3>Scope</h3>
+                <p>End-to-end journey design, user research, prototyping, responsive UX/UI and delivery</p>
+            </div>
+            <div class="cs-meta-col">
+                <h3>Timeline</h3>
+                <p>Q1–Q3 2026</p>
+            </div>
+        </div>
 
     <article class="cs-article">
 
             <section class="cs-article-section" id="brief">
                 <h2>Overview</h2>
-                <p>Flex Advance introduced a new way for merchants to access funding through a reusable limit rather than one fixed advance. Partner Hub was the platform partner sales agents used to manage merchant funding applications. Working on the merchant's behalf, agents needed to create their account, complete the funding assessment, establish the reusable Flex Advance limit and take the first advance. The experience needed to help agents understand the new product themselves while explaining its choices and costs clearly to merchants.</p>
+                <p>Flex Advance introduced a reusable funding limit rather than one fixed advance. Partner sales agents needed to assess merchants and set up the product on their behalf through Partner Hub, while explaining unfamiliar choices and costs clearly.</p>
 
                 <blockquote class="cs-pullquote cs-pullquote--question">
-                    How might we help partner agents assess a merchant, explain how the merchant's choices affect the reusable limit and confidently set up Flex Advance on their behalf?
+                    How might we help partner agents assess a merchant and confidently set up Flex Advance on their behalf?
                 </blockquote>
 
-                <p>I owned the journey end to end: mapping the product and user dependencies, defining the information hierarchy, designing the funding assessment, limit setup and first-advance flows, then refining the experience through pre-launch testing and post-launch feedback.</p>
+                <p>I led the design end to end: mapping the multi-actor journey, defining the information hierarchy, planning and moderating research, designing the responsive experience and working with engineers through launch. After release, I used behavioural data and follow-up interviews to refine the funding assessment screen.</p>
 
                 <div class="cs-insight-callout">
                     <span class="label">WHY IT WAS HARD</span>
-                    <p>The funding assessment, reusable limit and first advance were connected, but they were not the same decision. Verified revenue affected the accuracy of the available limit, while the percentage of daily sales selected for payments changed how much the merchant could access. Agents needed to understand these relationships well enough to explain them accurately during a live funding conversation.</p>
+                    <p>The funding assessment used either verified Open Banking data or Estimated Figures to calculate the merchant’s limit. The percentage of daily sales then affected how much funding was available, while taking the first advance remained a separate commitment. Agents needed to understand these relationships well enough to explain them during a live merchant conversation.</p>
                 </div>
             </section>
 
             <section class="cs-article-section" id="journey">
                 <h2>The process</h2>
-                <h3 class="cs-step-title">Mapping the Flex Advance funding journey</h3>
-                <p>Flex Advance was a new product, so there was no established Partner Hub journey to reuse. I mapped merchant, agent and system actions before moving into detailed screen design. This clarified the order and dependencies between account creation, revenue verification, funding assessment, limit setup and the first advance, including which decisions belonged to the agent and which needed the merchant's agreement.</p>
+                <h3 class="cs-step-title">Step #1: Mapping the Flex Advance funding journey</h3>
+                <p>With no existing workflow to reuse, I mapped the actions and handoffs between the agent, merchant and Partner Hub. This clarified where agents could act independently, where merchant input or agreement was needed, and how system responses, such as displaying a Flex limit after Open Banking, shaped the next step.</p>
 
                 <figure class="cs-figure cs-figure--full">
                     <div class="cs-journey-embed">
-                        <img src="images/flex/flex-journey-map.png" alt="End-to-end Partner Hub journey showing account creation, Open Banking, limit setup and the first advance">
+                        <img loading="lazy" decoding="async" src="images/flex/flex-journey-map.png" alt="End-to-end Partner Hub journey showing account creation, Open Banking, limit setup and the first advance">
                     </div>
-                    <figcaption>The journey map established the sequence and dependencies between account creation, revenue verification, funding assessment, limit setup and the first advance before I designed the individual screens.</figcaption>
+                    <figcaption>The map established responsibilities, dependencies and handoffs before I designed the individual screens.</figcaption>
                 </figure>
-
-                <p>The map gave me the structure of the journey, but it also exposed the point that needed the most explanation. The funding assessment did not simply return an amount for the merchant to take. It established what they could access, while the percentage of daily sales selected for payments determined the reusable limit. Making that relationship understandable became the focus of the detailed design.</p>
             </section>
 
             <section class="cs-article-section" id="launch">
-                <h3 class="cs-step-title">Making the product mechanics understandable</h3>
+                <h3 class="cs-step-title">Step #2: Making the product mechanics understandable</h3>
                 <p>With the overall journey defined, the main screen-level challenge was showing the relationship between two values: the percentage of daily sales used for payments and the reusable account limit. A higher percentage made a larger limit available, but it also meant a greater share of the merchant's daily sales would go towards payments. The interface needed to make that trade-off clear rather than presenting the percentage and limit as unrelated figures.</p>
+                <p>An early concept combined account-limit setup and the first-advance decision in one step, with preset limit options linked to percentages of daily sales. Partner agents wanted more flexibility to adjust that percentage, so I moved to a slider, allowing them to explore a wider range of payment and limit combinations.</p>
+                <figure class="cs-figure cs-figure--full">
+                    <div class="cs-figure-img cs-figure-img--shot" style="aspect-ratio:739/573; width:100%; max-width:540px; margin-inline:auto;">
+                        <img loading="lazy" decoding="async" src="images/flex/flex-early-quote-concept.png" alt="Early quote concept combining access to funding and account-limit setup, with three preset limit options">
+                    </div>
+                    <figcaption>Early concept exploring account-limit setup and the first-advance decision in one step, with preset limit options.</figcaption>
+                </figure>
                 <p>I placed the percentage control and resulting account limit in the same card so the cause and effect could be seen together. The slider labels explained the range from lower payments to the highest available limit. As the agent moved the slider, the highlighted limit updated directly beneath it and repeated the selected percentage, making it easier to explain how one value affected the other before the merchant agreed to it.</p>
-                <figure class="cs-figure cs-figure--full"><div class="cs-figure-img cs-figure-img--shot" style="aspect-ratio:1280/658;"><img src="images/flex/flex-set-account-limit.png" alt="Set account limit screen showing a 20% daily-sales percentage producing a £40,000 reusable account limit"></div><figcaption>Changing the percentage of daily sales updates the reusable account limit, making the relationship visible before the agent confirms it with the merchant.</figcaption></figure>
+                <figure class="cs-figure cs-figure--full"><div class="cs-figure-img cs-figure-img--shot" style="aspect-ratio:1280/658;"><img loading="lazy" decoding="async" src="images/flex/flex-set-account-limit.png" alt="Set account limit screen showing a 20% daily-sales percentage producing a £40,000 reusable account limit"></div><figcaption>Changing the percentage of daily sales updates the reusable account limit, making the relationship visible before the agent confirms it with the merchant.</figcaption></figure>
                 <p>Establishing the limit did not automatically mean taking funding. I kept the first advance as a separate step so agents could establish the reusable limit first, then help the merchant choose an advance amount and understand its cost before confirming it.</p>
             </section>
 
             <section class="cs-article-section" id="funding-assessment">
-                <h3 class="cs-step-title">Designing the funding assessment and wider journey</h3>
+                <h3 class="cs-step-title">Step #3: Designing the funding assessment and wider journey</h3>
                 <p>Once the key product mechanics were clear, I designed the remaining screens needed to turn the map into a complete journey. Stages such as business details, ownership details and review could build on established Partner Hub patterns. Reusing familiar structures kept those interactions consistent and allowed me to focus more design effort on the parts that were specific to Flex Advance.</p>
-                <p>The funding assessment was the main branching point. Open Banking used verified revenue and produced the most accurate limit, while Estimated Figures provided an alternative when Open Banking was not possible. I designed the screen so agents could understand the purpose of each route, choose the appropriate one and continue into the relevant data-collection flow.</p>
+                <p>The funding assessment was the main branching point. Open Banking used verified revenue and produced the most accurate limit, while Estimated Figures let agents proceed with an indicative limit when Open Banking was not possible at that stage. Open Banking was still required later to verify revenue and provide a verified Flex limit. I designed the screen so agents could understand the purpose of each route, choose the appropriate one and continue into the relevant data-collection flow.</p>
 
-                <figure class="cs-figure cs-figure--full"><div class="cs-figure-img cs-figure-img--shot" style="aspect-ratio:1280/1012;"><img src="images/flex/flex-funding-assessment-original.png" alt="Initial Flex Advance funding assessment showing Open Banking and Estimated Figures routes"></div><figcaption>The funding assessment brought the verified Open Banking route and the Estimated Figures alternative together at a clear decision point.</figcaption></figure>
+                <figure class="cs-figure cs-figure--full"><div class="cs-figure-img cs-figure-img--shot" style="aspect-ratio:1280/1012;"><img loading="lazy" decoding="async" src="images/flex/flex-funding-assessment-original.png" alt="Initial Flex Advance funding assessment showing Open Banking and Estimated Figures routes"></div><figcaption>The funding assessment brought the verified Open Banking route and the Estimated Figures alternative together at a clear decision point.</figcaption></figure>
 
-                <p>I connected the account-creation, assessment, limit-setup and first-advance screens in one clickable prototype. This allowed agents to experience the sequence as a complete workflow rather than reviewing individual screens in isolation.</p>
+                <p>I connected the screens in one clickable prototype so agents could experience the workflow as a whole rather than review isolated interactions.</p>
             </section>
 
             <section class="cs-article-section" id="testing">
-                <h3 class="cs-step-title">Testing the prototype with partner agents</h3>
+                <h3 class="cs-step-title">Step #4: Testing the prototype with partner agents</h3>
                 <p>Before launch, I ran moderated sessions with partner sales agents using a clickable prototype. I created the discussion guide and scenarios, facilitated each session and synthesised the findings. The sessions combined scenario-based walkthroughs, think-aloud observation and questions about how agents prepared for and supported merchant conversations.</p>
 
+                <div class="cs-findings-card">
                 <p><strong>Live conversations placed agents under pressure.</strong> Agents told me it was easy to forget product details while speaking with a merchant, particularly when explaining payments, fees and how the reusable limit worked.</p>
                 <p><strong>Revenue inputs needed to match real conversations.</strong> The original journey asked for annual revenue only, but agents often discussed revenue in monthly terms.</p>
                 <p><strong>The assessment routes served different levels of certainty.</strong> Open Banking used verified revenue to produce the most accurate limit. Agents still needed an alternative when it was not possible, as well as a non-committal way to discuss indicative funding before a merchant was ready to apply.</p>
 
                 <em class="cs-footnote">Synthesised from moderated pre-launch partner-agent sessions. Participant names, prototype access and commercially sensitive detail have been withheld.</em>
+                </div>
             </section>
 
             <section class="cs-article-section" id="launch-response">
-                <h3 class="cs-step-title">Translating the findings into the launch design</h3>
+                <h3 class="cs-step-title">Step #5: Translating the findings into the launch design</h3>
                 <p>For launch, I visually prioritised Open Banking within the funding assessment as it used verified revenue to produce the most accurate limit. It was pre-selected, highlighted with colour and labelled “Fastest route,” with a checklist explaining its benefits. Estimated Figures remained available when Open Banking was not possible.</p>
                 <p>I also allowed agents to enter revenue monthly or annually, matching the language they used with merchants while keeping the assessment consistent.</p>
 
-
-
                 <h4 class="cs-step-subtitle">Supporting live merchant conversations</h4>
                 <p>To reduce the pressure on agents to remember every product detail, I added contextual FAQs covering common questions about payments, fees and the reusable limit. These acted as prompts for the agent and supported clearer, more consistent explanations to merchants.</p>
-                <p>One FAQ on the limit setup screen included an interactive example calculator. Agents could adjust a hypothetical first-advance amount and show its indicative fixed fee, percentage of daily sales and total payback. It supported the conversation without starting or confirming an advance.</p>
+                <p>The Product Manager initially did not see a need for a first-advance calculator. I advocated for it because merchants needed to understand indicative costs before committing and agents needed a clear way to explain them. The resulting FAQ calculator let agents adjust a hypothetical amount and show its fixed fee, percentage of daily sales and total payback without starting or confirming an advance.</p>
 
                 <figure class="cs-figure cs-figure--full">
                     <div class="cs-device cs-device--phone" style="margin: 0 auto;">
-                        <img src="images/flex/flex-first-advance-calculator.png" alt="FAQ example calculator showing what a hypothetical first advance could cost">
+                        <img loading="lazy" decoding="async" src="images/flex/flex-first-advance-calculator.png" alt="FAQ example calculator showing what a hypothetical first advance could cost">
                     </div>
-                    <figcaption>Moving the FAQ slider updates the indicative fee, daily-sales percentage and total payback so the agent can explain what a first advance could look like.</figcaption>
+                    <figcaption>Moving the FAQ slider updates the indicative fee amount and total payback so the agent can explain what a first advance could look like.</figcaption>
                 </figure>
             </section>
-<section class="cs-article-section cs-influence"><span class="label">A DECISION I INFLUENCED</span><h2>Making room for a cost conversation</h2><p>The Product Manager initially did not see a need for a first-advance calculator. I advocated for it because merchants needed to anticipate what they would pay back, and partner agents needed a way to explain that cost before a merchant committed. The resulting contextual calculator lets agents explore an indicative first advance without starting one.</p></section>
 
             <section class="cs-article-section" id="feedback">
-                <h3 class="cs-step-title">Separating indicative conversations from applications</h3><p class="cs-project-status">Design iteration · Not yet shipped</p>
-                <p>The Product Manager reported back from the data she could see that 80% of agents were selecting Estimated Figures rather than Open Banking. This was a PM-reported post-launch finding; it did not establish why agents chose that route. Technical issues with Open Banking may have contributed, but the launch design also kept both options in adjacent cards of the same size. Despite the pre-selection, colour treatment and “Fastest route” label, the two routes still had similar structural weight.</p><p>I revised the hierarchy so Open Banking became the sole primary card. Estimated Figures moved into a secondary application route, and the non-committal Funding Preview became a separate tool for discussing indicative amounts without creating or updating an application.</p>
+                <h3 class="cs-step-title">Step #6: Refining the funding assessment after launch</h3>
+                <p>The Product Manager reported from the available post-launch data that 80% of agents were selecting Estimated Figures instead of Open Banking. This showed what agents chose, but not why. Technical issues with Open Banking may have contributed, while the launch design also kept both options in adjacent cards of the same size. Despite the pre-selection, colour treatment and “Fastest route” label, the two routes still had similar structural weight.</p><p>I revised the hierarchy so Open Banking became the sole primary card. Estimated Figures moved into a secondary application route, and the non-committal Funding Preview became a separate tool for discussing indicative amounts without creating or updating an application.</p>
 
                 <figure class="cs-figure-row">
                     <figure class="cs-figure">
                         <div class="cs-figure-img cs-figure-img--shot" style="aspect-ratio:1280/1012;">
-                            <img src="images/flex/flex-funding-assessment-original.png" alt="Launch funding assessment screen with Open Banking pre-selected, highlighted and labelled Fastest route beside Estimated Figures">
+                            <img loading="lazy" decoding="async" src="images/flex/flex-funding-assessment-original.png" alt="Launch funding assessment screen with Open Banking pre-selected, highlighted and labelled Fastest route beside Estimated Figures">
                         </div>
                         <figcaption>Open Banking was visually highlighted, but both routes still used the same card structure.</figcaption>
                     </figure>
                     <figure class="cs-figure">
                         <div class="cs-figure-img cs-figure-img--shot" style="aspect-ratio:1280/1166;">
-                            <img src="images/flex/flex-funding-assessment-updated.png" alt="Updated funding assessment screen, with Open Banking as the sole primary card, estimates demoted to a link, and a separate funding-preview calculator">
+                            <img loading="lazy" decoding="async" src="images/flex/flex-funding-assessment-updated.png" alt="Updated funding assessment screen, with Open Banking as the sole primary card, estimates demoted to a link, and a separate funding-preview calculator">
                         </div>
-                        <figcaption>Proposed iteration, not yet shipped: Open Banking is the primary card, with Estimated Figures and Funding Preview separated by purpose.</figcaption>
+                        <figcaption>Revised iteration, now in implementation: Open Banking becomes the sole primary card, with Estimated Figures and Funding Preview separated by purpose.</figcaption>
                     </figure>
                 </figure>
 
@@ -239,35 +322,56 @@
 
                 <figure class="cs-figure" style="max-width:290px; margin:4px auto 0;">
                     <div class="cs-device cs-device--phone cs-device--scroll"><div class="cs-device-scroll-screen" tabindex="0" aria-label="Scrollable processor-selection screen">
-                        <img src="images/flex/flex-mobile-choose-processor.png" alt="Dedicated processor-selection screen on mobile, showing eligible and ineligible processors for the merchant">
+                        <img loading="lazy" decoding="async" src="images/flex/flex-mobile-choose-processor.png" alt="Dedicated processor-selection screen on mobile, showing eligible and ineligible processors for the merchant">
                     </div></div>
                     <span class="selected-scroll-hint">Scroll inside the phone to explore</span>
                     <figcaption>Processor choice moved into its own dedicated step, showing only processors associated with the merchant.</figcaption>
                 </figure>
             </section>
 
-            <section class="cs-article-section" id="outcome"><h2>From a new product to a working journey</h2><p>The work took Flex Advance from a new funding product with no Partner Hub journey to a live experience actively used by partner agents. They can create an account, establish a reusable limit and take a first advance on the merchant’s behalf.</p><p>I also influenced what the launch experience supported. Advocating for the first-advance calculator brought cost exploration into scope, so agents could discuss an indicative amount and its payback before committing to an advance.</p><p>Delivery created a basis for further product decisions. The Product Manager reported from the data available to her that 80% of agents selected Estimated Figures. I used that finding to revisit the assessment structure and distinguish a non-committal funding conversation from an application.</p><p class="cs-evidence-note">The subsequent assessment redesign and separate Funding Preview are designed, not yet shipped; their effect on behaviour remains to be tested.</p><figure class="cs-figure cs-figure--full"><div class="cs-cover-shot cs-cover-shot--inline"><div class="cs-device-bar" aria-hidden="true"><span class="cs-device-dot"></span><span class="cs-device-dot"></span><span class="cs-device-dot"></span></div><video autoplay muted loop playsinline preload="metadata" poster="images/flex/flex-demo-poster.jpg" aria-label="Demonstration of the shipped Flex Advance journey in Partner Hub"><source src="images/flex/flex-demo.mp4" type="video/mp4"></video></div><figcaption>The shipped Partner Hub journey from account creation through to the first advance.</figcaption></figure></section>
+            <section class="cs-article-section" id="validation">
+                <h3 class="cs-step-title">Step #7: Validating the revised assessment</h3>
+
+                <p>I built the revised assessment as a prototype using Figma Make so agents could move through the three routes rather than review static screens.</p>
+
+                <p>Recruitment was the real constraint. Partner agents are mostly freelance and work for our partners rather than for Liberis, so I had no direct route to their time and could not treat them as an internal research panel. Rather than wait for a larger sample, I worked out a process for reaching them through partner managers and fitting sessions around their own selling commitments. That got me three agents, which I treated as a check on the direction rather than a representative study.</p>
+
+                <p>All three found value in the separate Funding Preview and responded positively to Open Banking as the clearer primary route. The revised assessment is now in implementation.</p>
+            </section>
+
+            <section class="cs-article-section" id="outcome">
+                <h2>Outcome</h2>
+
+                <p>The work took Flex Advance from a new product with no operational journey to a live end-to-end experience actively used by partner agents. Agents can now set up Flex Advance on a merchant's behalf, establish a reusable funding limit and take the first advance through Partner Hub.</p>
+                <p>Launching the journey also gave the team real behavioural evidence about how agents assessed merchants in practice. That evidence informed further improvements to the funding assessment, including a clearer primary route to an accurate limit and a separate Funding Preview for non-committal conversations.</p>
+
+                <div class="cs-insight-callout">
+                    <span class="label">RESULT</span>
+                    <p>A shipped 0-to-1 Flex Advance journey actively used by partner agents to establish reusable merchant limits and take first advances, with the funding assessment refined through testing and post-launch behaviour.</p>
+                </div>
+                <figure class="cs-figure cs-figure--full"><div class="cs-cover-shot cs-cover-shot--inline"><div class="cs-device-bar" aria-hidden="true"><span class="cs-device-dot"></span><span class="cs-device-dot"></span><span class="cs-device-dot"></span></div><video autoplay muted loop playsinline preload="metadata" poster="images/flex/flex-demo-poster.jpg" aria-label="Demonstration of the shipped Flex Advance journey in Partner Hub"><source src="images/flex/flex-demo.mp4" type="video/mp4"></video></div><figcaption>The shipped Partner Hub journey from account creation through to the first advance.</figcaption></figure>
+            </section>
 
             <section class="cs-article-section">
                 <h2>From design to <em>shipped product</em></h2>
                 <div class="cs-insight-callout">
                     <span class="label">DELIVERY</span>
                     <p>I worked closely with engineers to turn the Flex Advance journey into production behaviour, accounting for Open Banking states, processor data, funding rules and the relationship between daily-sales percentage and reusable limit. I stayed involved during implementation to resolve edge cases and ensure the calculations, choices and explanations remained accurate in the shipped experience.</p>
+                    <p>Our engineers implement designs using Claude Code, so I used Figma's AI agent to rename the frames that mattered most to implementation in bulk, giving the handoff a consistent structure to read from.</p>
                 </div>
             </section>
 
             <section class="cs-article-section" id="reflection">
                 <h2>What I learned</h2>
-                <p>Post-launch behaviour challenged an assumption in the launch design. Although Open Banking was pre-selected, highlighted and labelled “Fastest route,” the Product Manager reported from the data available to her that 80% of agents were choosing Estimated Figures. Technical problems with Open Banking may have contributed, but the behaviour prompted me to question whether visual styling was enough to establish a hierarchy when the layout presented two routes as equivalent. The revised design still needs testing to distinguish the effect of hierarchy from technical reliability and agent preferences.</p>
+                <p>Post-launch behaviour challenged an assumption in the launch design. Although Open Banking was pre-selected, highlighted and labelled “Fastest route,” 80% of agents still chose Estimated Figures. Technical problems with Open Banking may have contributed, but the interface taught me that visual styling cannot establish a clear hierarchy when the underlying layout still presents two routes as equivalent.</p>
                 <p>I also learned that an indicative conversation, an evidence-based assessment and a confirmed first advance are different tasks, with different levels of certainty and commitment. Organising the experience around what the agent was trying to achieve, rather than only the type of data being entered, gave each one a clearer and more honest role. Separating these levels of certainty is a core design decision, not a detail.</p>
             </section>
 
-
-</article>
+        </article>
     </div>
 
     <!-- ─── END NAV ──────────────────────────────────── -->
-    <div class="cs-end-nav"><a href="index.html#work" class="cs-back-project">← All work</a><a href="case-study-partner-hub-progress.html" class="cs-next-project">Next: Application progress →</a></div>
+    <div class="cs-end-nav"><a href="index.html#work" class="cs-back-project"><span aria-hidden="true">?</span><span><small>Back to</small>Selected work</span></a><a href="case-study-partner-hub-progress.html" class="cs-next-project"><span><small>Next project</small>Application progress</span><span aria-hidden="true">?</span></a></div>
 
 </div>
 
@@ -277,7 +381,7 @@
 <footer class="footer bento-footer" id="contact">
     <div class="bento-footer-inner">
         <div class="footer-star-line">
-            <img src="images/carmen.jpg" alt="Carmen Gyoh" class="footer-photo"
+            <img loading="lazy" decoding="async" src="images/carmen.jpg" alt="Carmen Gyoh" class="footer-photo"
                  onerror="this.style.display='none'">
             <span class="footer-star" aria-hidden="true">✦</span>
             <p class="footer-headline">Let's create meaningful impact together.</p>
@@ -306,7 +410,7 @@
     </div>
 </footer>
 
-<script src="js/case-study.js?v=17"></script>
+<script src="js/case-study.js"></script>
 
 </body>
 </html>
