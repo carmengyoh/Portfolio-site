@@ -858,7 +858,8 @@ em {
     /* Mobile nav mirrors desktop: one compact floating pill, no hamburger. */
     .nav-toggle { display: none; }
     .nav-logo   { display: none; }
-    .btn-cv     { display: none; }
+    /* Keep the shared interaction rule from restoring the mobile CV button. */
+    .nav .btn-cv { display: none; }
 
     .nav-inner {
         padding: 5px;
@@ -904,6 +905,7 @@ em {
 }
 
 @media (max-width: 480px) {
+    .nav-link { padding-inline: 6px; }
     .hero-heading { font-size: 38px; }
     .hero-split { padding: 110px 0 70px; gap: 28px 0; }
     .about-card   { padding: 32px 24px; }
@@ -3527,7 +3529,23 @@ body {
 .approach-section, .experience-section, .tools-section { padding:36px !important; margin-top:28px; }
 .tools-section h2 { font-family:var(--font-serif); font-weight:400; font-size:clamp(24px,2.6vw,32px); line-height:1.2; margin:12px 0 22px; }
 .tools-tags { display:flex; flex-wrap:wrap; gap:10px; }
-.tools-tags span { font-family:var(--font-sans); font-size:13px; font-weight:500; color:var(--text-muted); border:1px solid var(--border-hover); border-radius:100px; padding:8px 16px; }
+.tool-chip {
+    display:flex; align-items:center; gap:10px;
+    font-family:var(--font-sans); font-size:14px; font-weight:500; color:var(--text);
+    background:var(--surface); border:1px solid var(--border); border-radius:14px;
+    padding:6px 16px 6px 6px;
+}
+.tool-icon {
+    width:28px; height:28px; flex-shrink:0;
+    display:flex; align-items:center; justify-content:center;
+    object-fit:contain;
+}
+img.tool-icon { padding:4px; }
+.tool-icon--badge {
+    border-radius:8px;
+    font-family:var(--font-sans); font-size:11px; font-weight:700; color:#fff;
+}
+.tool-icon--badge img { width:16px; height:16px; }
 .approach-intro { max-width:680px; margin:18px 0 28px; color:var(--text-muted); text-wrap:pretty; }
 .approach-examples { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:26px; }
 .approach-examples > article { color:var(--text); padding-top:22px; border-top:1px solid var(--bento-border); }
