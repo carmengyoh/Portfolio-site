@@ -26,7 +26,9 @@
                 ? '<video id="work-preview-' + index + '" ' + (reducedMotion.matches ? '' : 'autoplay ') + 'muted loop playsinline preload="metadata" poster="' + (project.poster || project.cardImage || project.image) + '" aria-label="' + project.title + ' demo"><source src="' + project.video + '" type="video/mp4"></video>'
                 : project.cardImages
                 ? '<div class="work-card-phones">' + project.cardImages.map(function (src) { return '<img src="' + src + '" alt="HerFreedom101 adaptive daily journey" loading="lazy">'; }).join('') + '</div>'
-                : '<img src="' + (project.cardImage || project.poster || project.image) + '" alt="' + project.title + ' interface" loading="lazy">';
+                : (project.cardImage || project.poster || project.image)
+                ? '<img src="' + (project.cardImage || project.poster || project.image) + '" alt="' + project.title + ' interface" loading="lazy">'
+                : '<div class="work-card-media-placeholder" style="background:' + (project.placeholderBg || 'var(--accent-dim)') + '"><span>' + (project.status || 'In development') + '</span></div>';
             var featured = index < FEATURED_PROJECTS.length;
             var cardClass = 'work-card' + (featured ? ' work-card--featured' : '');
             return '<div class="work-card-shell"><a class="' + cardClass + '" href="' + project.link + '">' +

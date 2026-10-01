@@ -49,7 +49,7 @@ const PROJECTS = [
         placeholderBg: 'linear-gradient(140deg, #15182e 0%, #1d2142 45%, #2a2350 100%)',
     },
 
-    /* ---- Project 3 - Featured case study 03 ---- */
+    /* ---- Supporting case study - application progress ---- */
     {
         client:      'Liberis',
         title:       'Designing the system behind application progress',
@@ -63,6 +63,23 @@ const PROJECTS = [
         poster:      'images/partner-hub-progress/dropoffs-demo-poster.jpg',
         link:        'case-study-partner-hub-progress.html',
         placeholderBg: 'linear-gradient(140deg, #17201f 0%, #203932 48%, #315b4d 100%)',
+    },
+
+    /* ---- Main case study 04 - validated direction, moving into build ---- */
+    {
+        client:      'Liberis',
+        title:       'Making application progress understandable in Partner Hub',
+        tags:        ['B2B Platform', 'Partner Hub', 'AI Feature'],
+        role:        'Product Designer · Discovery to concept',
+        cardScope:   'Discovery to validated design',
+        status:      'Validated direction',
+        description: 'Led discovery with partner managers to diagnose why agents found application progress confusing, then designed clearer statuses, an AI application summary and a timeline now heading into engineering build.',
+        cardImage:   'images/application-summary/application-summary-poster-trimmed.jpg',
+        video:       'images/application-summary/application-summary-demo-trimmed.mp4',
+        poster:      'images/application-summary/application-summary-poster-trimmed.jpg',
+        image:       null,
+        link:        'case-study-application-summary.html',
+        placeholderBg: 'linear-gradient(140deg, #1b1f2e 0%, #232a45 45%, #2f2d55 100%)',
     },
 
     /* ---- Supporting project 02 ---- */
@@ -96,7 +113,7 @@ const PROJECTS = [
 
 ];
 
-/* Curated order: delivery, systems thinking, independent product ownership. */
+/* Featured order: product delivery, AI feature design, independent product ownership. */
 const projectAt = link => PROJECTS.find(project => project.link === link);
-const FEATURED_PROJECTS = [projectAt("case-study-flex.html"), projectAt("case-study-partner-hub-progress.html"), projectAt("case-study-herfreedom101.html")];
-const SELECTED_PROJECTS = [projectAt("case-study.html"), projectAt("selected-case-study.html?project=document-upload")];
+const FEATURED_PROJECTS = [projectAt("case-study-flex.html"), projectAt("case-study-application-summary.html"), projectAt("case-study-herfreedom101.html")];
+const SELECTED_PROJECTS = [projectAt("case-study-partner-hub-progress.html"), projectAt("case-study.html"), projectAt("selected-case-study.html?project=document-upload")];

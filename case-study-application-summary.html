@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Making application progress understandable in Partner Hub | Carmen Gyoh</title>
+    <meta name="description" content="How Carmen Gyoh led discovery and designed clearer statuses, an AI application summary and an activity timeline for partner agents in Liberis Partner Hub.">
+    <link rel="canonical" href="https://carmengyoh.com/case-study-application-summary.html">
+
+    <!-- Social share cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Carmen Gyoh">
+    <meta property="og:url" content="https://carmengyoh.com/case-study-application-summary.html">
+    <meta property="og:title" content="Making application progress understandable in Partner Hub | Carmen Gyoh">
+    <meta property="og:description" content="How Carmen Gyoh led discovery and designed clearer statuses, an AI application summary and an activity timeline for partner agents in Liberis Partner Hub.">
+    <meta property="og:image" content="https://carmengyoh.com/images/application-summary/ai-summary-final.png">
+    <meta property="og:image:width" content="1434">
+    <meta property="og:image:height" content="853">
+    <meta property="og:image:alt" content="Making application progress understandable in Partner Hub | Carmen Gyoh">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Making application progress understandable in Partner Hub | Carmen Gyoh">
+    <meta name="twitter:description" content="How Carmen Gyoh led discovery and designed clearer statuses, an AI application summary and an activity timeline for partner agents in Liberis Partner Hub.">
+    <meta name="twitter:image" content="https://carmengyoh.com/images/application-summary/ai-summary-final.png">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css?v=20260929">
+    <link rel="stylesheet" href="case-study.css?v=20260923">
+
+    <script>
+        (function(){
+            var t = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', t);
+        })();
+    </script>
+</head>
+<body>
+
+<!-- =====================================================
+     NAVIGATION
+     ===================================================== -->
+<nav class="nav" id="nav">
+    <div class="nav-inner">
+        <a href="index.html" class="nav-logo">CARMEN GYOH <span class="nav-star" aria-hidden="true">✦</span></a>
+        <div class="nav-links">
+            <a href="index.html#work"       class="nav-link">Work</a>
+            <a href="index.html#how"        class="nav-link">Approach</a>
+            <a href="index.html#experience" class="nav-link">Experience</a>
+            <a href="index.html#contact"    class="nav-link">Contact</a>
+            <a href="documents/Carmen-Gyoh-CV.pdf?v=20260924" class="btn-cv" download="Carmen-Gyoh-CV.pdf" aria-label="Download Carmen Gyoh's CV (PDF)">CV ↗</a>
+
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">
+                <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="4.5"/>
+                    <line x1="12" y1="2"    x2="12" y2="5"/>
+                    <line x1="12" y1="19"   x2="12" y2="22"/>
+                    <line x1="4.22" y1="4.22"   x2="6.34" y2="6.34"/>
+                    <line x1="17.66" y1="17.66" x2="19.78" y2="19.78"/>
+                    <line x1="2"  y1="12"   x2="5"  y2="12"/>
+                    <line x1="19" y1="12"   x2="22" y2="12"/>
+                    <line x1="4.22"  y1="19.78" x2="6.34"  y2="17.66"/>
+                    <line x1="17.66" y1="6.34"  x2="19.78" y2="4.22"/>
+                </svg>
+                <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+            </button>
+        </div>
+        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+            <span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- =====================================================
+     BENTO PAGE (hero is the first card)
+     ===================================================== -->
+<div class="cs-bento-page">
+
+<header class="cs-hero-card">
+    <div class="cs-hero-inner">
+        <div class="cs-hero-eyebrow">
+            <span class="cs-chip">B2B Platform</span>
+            <span class="cs-chip">Partner Hub</span>
+            <span class="cs-chip">AI Feature</span>
+        </div>
+    </div>
+
+    <div class="cs-cover">
+        <div class="cs-cover-shot">
+            <div class="cs-device-bar" aria-hidden="true">
+                <span class="cs-device-dot"></span><span class="cs-device-dot"></span><span class="cs-device-dot"></span>
+            </div>
+            <video autoplay muted loop playsinline preload="metadata" poster="images/application-summary/application-summary-poster-trimmed.jpg" aria-label="Screen recording of the AI application summary and timeline in Partner Hub">
+                <source src="images/application-summary/application-summary-demo-trimmed.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+
+    <div class="cs-view-toggle" role="tablist" aria-label="Case study detail level">
+        <button class="cs-view-btn is-active" type="button" data-view="cs-view-tldr" role="tab" aria-selected="true">TL;DR</button>
+        <button class="cs-view-btn" type="button" data-view="cs-view-detailed" role="tab" aria-selected="false">Detailed</button>
+    </div>
+
+    <div class="cs-wide-block" style="margin-top:28px;">
+        <h1 class="cs-title">Making application progress understandable in <em>Partner Hub</em></h1>
+    </div>
+</header>
+
+    <!-- ─── TL;DR VIEW ─────────────────────────────────── -->
+    <div class="cs-view-panel is-active" id="cs-view-tldr">
+
+        <div class="cs-meta-panel">
+            <div class="cs-meta-col">
+                <h3>Role</h3>
+                <p>Product Designer: Discovery, Workshop Facilitation, Concept Design</p>
+            </div>
+            <div class="cs-meta-col">
+                <h3>Team</h3>
+                <div class="cs-meta-chips">
+                    <span class="cs-meta-chip">PM</span>
+                    <span class="cs-meta-chip">Engineers</span>
+                    <span class="cs-meta-chip">Partner Managers</span>
+                    <span class="cs-meta-chip">Operations</span>
+                </div>
+            </div>
+            <div class="cs-meta-col">
+                <h3>Scope</h3>
+                <p>Discovery to validated design and engineering handoff</p>
+            </div>
+            <div class="cs-meta-col">
+                <h3>Timeline</h3>
+                <p>September–October 2026</p>
+            </div>
+        </div>
+
+        <article class="cs-article cs-article--tldr">
+
+            <section class="cs-article-section">
+                <h2>The problem</h2>
+                <p>Partner agents struggled to understand what was happening inside a funding application. Existing statuses such as "Quoted" and "Submitted" were confusing or misleading because the sales-stage statuses only covered the sales stage itself and gave no information about what happened once the application was submitted. The context that would fill that gap, evidence, operational progress, merchant contact history, was spread across different systems, teams and individual updates. Agents couldn't reliably answer what had already happened, what was happening now, why an application had stopped progressing, who needed to act next, or what to tell the merchant.</p>
+            </section>
+
+            <section class="cs-article-section">
+                <h2>What made this hard</h2>
+                <p>The work arrived as a request to build an activity timeline. I reframed it as a research question instead: where does application transparency actually break down, why does it matter, and how are people already working around it? That meant running my own discovery from a relatively surface-level brief, with no existing research to build on, before I could trust that a timeline was even the right answer.</p>
+            </section>
+
+            <section class="cs-article-section">
+                <h2>The solution and impact</h2>
+                <p>I designed and facilitated a remote Miro workshop with the Partner Managers who work closest to partner agents, mapping problems against the real application journey rather than collecting a wishlist of features. Synthesis turned the raw stickies into eight evidence-backed problem themes, which I prioritised with the product manager into three connected solutions.</p>
+                <div class="cs-info-table">
+                    <div class="cs-info-table-row cs-info-table-row--head" style="grid-template-columns:1fr 1.4fr;">
+                        <span>Solution</span><span>Question it answers</span>
+                    </div>
+                    <div class="cs-info-table-row" style="grid-template-columns:1fr 1.4fr;">
+                        <span>Updated statuses</span><span>Where is the application now?</span>
+                    </div>
+                    <div class="cs-info-table-row" style="grid-template-columns:1fr 1.4fr;">
+                        <span>AI application summary</span><span>What do I need to know or do?</span>
+                    </div>
+                    <div class="cs-info-table-row" style="grid-template-columns:1fr 1.4fr;">
+                        <span>Application timeline</span><span>What has happened so far?</span>
+                    </div>
+                </div>
+                <p>Engineering had already been briefed on the idea, so I developed the initial concept myself, then used Figma's AI agent to explore further directions. I tried to work out feasibility myself initially before taking it to engineering: mapping each component to data that already existed and checking whether it would hold up across different application statuses, reusing existing components wherever I could. Checking that with engineering afterwards caught a real structural problem with the timeline, which sent me back to rework it before validating the down-selected direction with the same Partner Managers group and a separate round with Operations stakeholders. That direction is now signed off and moving into engineering build.</p>
+            </section>
+
+            <section class="cs-article-section">
+                <h2>What I learned</h2>
+                <p>How important it is to really understand the problem space and involve people as early as possible. This started as a request to build a timeline. Digging into why that was being asked for, instead of accepting it at face value, is how I found out the real problem was a lot deeper than the solution in front of me.</p>
+                <p>An AI-powered summary gave me more flexibility in how application information could be brought together, but it still needed a clear structure and hierarchy. I had to design how status, activity and next actions were presented and check what was feasible with engineering.</p>
+            </section>
+
+        </article>
+    </div>
+
+    <!-- ─── DETAILED VIEW ──────────────────────────────── -->
+    <div class="cs-view-panel" id="cs-view-detailed">
+        <div class="cs-wide-block">
+            <p class="cs-hero-sub cs-hero-sub--wide">Led discovery and designed clearer statuses, an AI application summary and an activity timeline for partner agents in Liberis Partner Hub. The direction is now validated and moving into engineering build.</p>
+        </div>
+
+        <div class="cs-meta-panel">
+            <div class="cs-meta-col">
+                <h3>Role</h3>
+                <p>Product Designer: Discovery, Workshop Facilitation, Concept Design</p>
+            </div>
+            <div class="cs-meta-col">
+                <h3>Team</h3>
+                <div class="cs-meta-chips">
+                    <span class="cs-meta-chip">PM</span>
+                    <span class="cs-meta-chip">Engineers</span>
+                    <span class="cs-meta-chip">Partner Managers</span>
+                    <span class="cs-meta-chip">Operations</span>
+                </div>
+            </div>
+            <div class="cs-meta-col">
+                <h3>Scope</h3>
+                <p>Discovery to validated design and engineering handoff</p>
+            </div>
+            <div class="cs-meta-col">
+                <h3>Timeline</h3>
+                <p>September–October 2026</p>
+            </div>
+        </div>
+
+    <article class="cs-article">
+
+            <section class="cs-article-section" id="brief">
+                <h2>Overview</h2>
+                <p>Partner Hub is the platform Liberis partner agents use to manage merchant funding applications. Partner agents struggled to understand what was happening inside a funding application: existing statuses like "Quoted" and "Submitted" were confusing or misleading, because the sales-stage statuses only covered the sales stage itself and gave no information about what happened once the application was submitted. The context that would explain a stalled application was scattered across systems, teams and individual updates.</p>
+                <div class="cs-figure-row cs-figure-row--previous">
+                    <figure class="cs-figure">
+                        <div class="cs-figure-img cs-figure-img--shot" style="aspect-ratio:989/659;">
+                            <img loading="lazy" decoding="async" src="images/application-summary/old-dashboard.png" alt="Previous Partner Hub dashboard showing Lead status, Sales stage and Action required columns, including Quoted and Submitted statuses" width="989" height="659">
+                        </div>
+                        <figcaption>The previous dashboard showed lead status and sales stage, but left the sales stage blank for submitted applications.</figcaption>
+                    </figure>
+                    <figure class="cs-figure">
+                        <div class="cs-figure-img cs-figure-img--shot" style="aspect-ratio:628/694;">
+                            <img loading="lazy" decoding="async" src="images/application-summary/old-side-panel.png" alt="Previous application side panel showing Required and Optional actions, basic information and sales stage" width="628" height="694">
+                        </div>
+                        <figcaption>The previous side panel showed actions and application details, without a summary or timeline to explain the wider context.</figcaption>
+                    </figure>
+                </div>
+                <p>The work arrived as a request to build an activity timeline. I wanted to take the time first to understand the underlying need, so I could be confident a timeline would help. This moved fast: discovery and validation both happened in September 2026, with engineering build starting the following month.</p>
+                <blockquote class="cs-pullquote cs-pullquote--question">
+                    Where does application transparency break down, why does it matter, and how do people currently work around it?
+                </blockquote>
+                <p>I owned this end to end: designing and facilitating discovery, synthesising the findings, designing and validating the three-part solution, checking feasibility with engineering, and preparing the direction for build.</p>
+                <div class="cs-insight-callout">
+                    <span class="label">WHY IT WAS HARD</span>
+                    <p>Agents couldn't reliably answer basic questions about an application: what has already happened, what is happening now, why it has stopped progressing, who needs to act next, and what to tell the merchant. Any fix had to help agents answer all five clearly.</p>
+                </div>
+            </section>
+
+            <section class="cs-article-section" id="workshop">
+                <h3 class="cs-step-title">Step #1: Designing and facilitating the workshop</h3>
+                <p>Partner agents themselves are mostly freelance and hard to convene as a group, so I went to the Partner Managers who work with them daily. I designed a remote-friendly, one-hour Miro workshop rather than collecting written feedback, adapting the structure from similar workshops I'd run on another project, so people could contribute and build on each other's input in real time.</p>
+                <aside class="cs-workshop-card" aria-labelledby="workshop-card-title">
+                    <div class="cs-workshop-card__header">
+                        <span class="cs-workshop-card__logo"><img src="images/tools/miro.svg" alt="Miro" width="24" height="24"></span>
+                        <div>
+                            <h4 id="workshop-card-title">Inside the workshop</h4>
+                            <span class="cs-workshop-card__meta">Miro &middot; Remote &middot; 1 hour</span>
+                        </div>
+                    </div>
+                    <dl class="cs-workshop-card__steps">
+                        <div><dt>Map the journey</dt><dd>Prepare application and referral stages so feedback connects to specific moments.</dd></div>
+                        <div><dt>Guide the discussion</dt><dd>Ask what happened, where things stand and what needs to happen next.</dd></div>
+                        <div><dt>Focus on problems</dt><dd>Explore the need before jumping to proposed features.</dd></div>
+                        <div><dt>Dig into the why</dt><dd>Uncover the reasons and impact behind each request.</dd></div>
+                        <div><dt>Prioritise together</dt><dd>Use dot voting to identify the problems that matter most to the group.</dd></div>
+                    </dl>
+                </aside>
+                <figure class="cs-figure cs-figure--full">
+                    <div class="cs-figure-img cs-figure-img--shot" style="aspect-ratio:8410/1902;">
+                        <img loading="lazy" decoding="async" src="images/application-summary/workshop-board.jpg" alt="Full Miro workshop board showing the referral and end-to-end application journeys populated with stickies at every stage, from application created through to funded or declined">
+                    </div>
+                    <figcaption>The populated board at the end of the session: problems placed against every stage of both the referral and end-to-end journeys.</figcaption>
+                </figure>
+            </section>
+
+            <section class="cs-article-section" id="synthesis">
+                <h3 class="cs-step-title">Step #2: Turning raw input into evidence-backed priorities</h3>
+                <p>I translated the raw stickies into logical themes, then into evidence-backed problem statements and supporting user stories rather than a flat list of complaints. That synthesis surfaced eight distinct problem areas. Working with the product manager, I prioritised the strongest of these, including:</p>
+                <aside class="cs-priorities-card" aria-labelledby="priorities-card-title">
+                    <h4 id="priorities-card-title">Key problem areas</h4>
+                    <ul>
+                        <li>Existing application and merchant context</li>
+                        <li>Evidence, operations and compliance progress</li>
+                        <li>Decline and reapplication clarity</li>
+                        <li>Activity history, ownership and next-action visibility</li>
+                    </ul>
+                </aside>
+                <p>The discovery also connected to earlier drop-off work on the platform, particularly the need to detect existing applications and understand merchant history without creating duplicates, so the direction I took forward fit the wider system rather than solving this problem in isolation.</p>
+
+                <figure class="cs-figure cs-figure--full">
+                    <div class="cs-cover-shot cs-cover-shot--inline">
+                        <video autoplay muted loop playsinline preload="metadata" poster="images/application-summary/user-stories-walkthrough-poster.jpg" aria-label="Walkthrough of the Miro board showing problem statements and the supporting user stories I put together">
+                            <source src="images/application-summary/user-stories-walkthrough.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <figcaption>A closer look at the Miro synthesis: the problem statements and supporting user stories I put together from the workshop findings.</figcaption>
+                </figure>
+
+                <p>I focused the work on three connected improvements, each answering a different question for agents.</p>
+                <div class="cs-priorities-card">
+                    <ul>
+                        <li><strong>Clearer application statuses</strong> &mdash; Where does the application stand?</li>
+                        <li><strong>AI application summary</strong> &mdash; What do I need to know or do?</li>
+                        <li><strong>Application timeline</strong> &mdash; What has happened so far?</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="cs-article-section" id="statuses">
+                <h3 class="cs-step-title">Step #3: Making application statuses clearer</h3>
+                <p>I updated two separate parts of how application progress was shown.</p>
+                    <p><strong>Application status:</strong> I made the overarching labels clearer. "Assigned" became "Sales Engaged" and "Quoted" became "Quoting complete." "Submitted" was shown as "Operations queue," while "Evidenced" was shown as "Completed operations." Each label mapped back to its underlying Salesforce status.</p>
+                    <p><strong>Current stage:</strong> The separate "Sales stage" field described progress within an application status, but went blank after submission. I renamed it "Current stage" and added two new post-submission stages: "In Review" for applications in the operations queue, and "Decisioning" once operations were complete. This gave agents more detail about what was happening after submission.</p>
+                <figure class="cs-figure cs-figure--full">
+                    <div class="cs-figure-img cs-figure-img--shot" style="aspect-ratio:3578/1900;">
+                        <img loading="lazy" decoding="async" src="images/application-summary/status-system-map.png" alt="Status system map showing each proposed user-facing label mapped to its underlying Salesforce status, sub-statuses and required actions">
+                    </div>
+                    <figcaption>I mapped every proposed status back to its Salesforce equivalent, sub-statuses and required actions, so the redesign stayed traceable to the system underneath it.</figcaption>
+                </figure>
+            </section>
+
+            <section class="cs-article-section" id="ai-by-design">
+                <h3 class="cs-step-title">Step #4: Developing the AI application summary</h3>
+                <p>The summary needed to bring together the context agents otherwise had to piece together by hand: what was happening, what was blocking progress and who needed to act next.</p>
+                <p>I scoped the summary around current status and stage, last meaningful activity, current blocker and outstanding evidence, owner and next action, and previous merchant contact. Agents could compare the summary with the activity timeline to check the details behind it.</p>
+                <div class="cs-insight-callout">
+                    <span class="label">IN THE DESIGN PROCESS</span>
+                    <p>I developed the initial concept myself, defining the information the summary needed to include. From there, I used Figma's AI agent to rapidly expand on that concept, explore more directions and test different ways of structuring the information. I stayed responsible for defining and refining the problem, writing the user stories, directing the exploration, evaluating the outputs, applying the design system, and deciding which concepts progressed.</p>
+                </div>
+                <figure class="cs-figure cs-figure--full">
+                    <div class="cs-figure-img cs-figure-img--shot" style="aspect-ratio:1678/912;">
+                        <img loading="lazy" decoding="async" src="images/application-summary/ai-concept-evolution.png" alt="Three stages of the AI application summary concept side by side: an early version with placeholder content, a middle version with generated summary text, and a refined version with compliance flags, document and KYC status">
+                    </div>
+                    <figcaption>Early explorations, not the final design: testing a structural placeholder, generated summary text, and more explicit document and KYC information.</figcaption>
+                </figure>
+                <h4 id="feasibility">Checking feasibility with engineering</h4>
+                <p>The product manager had already briefed engineering on the idea, so I tried to work out feasibility myself initially before taking the concepts to them. I mapped each component I was designing, the application summary especially, to data that already existed, checked whether it would hold up across different application statuses rather than just the happy path, and looked for existing components I could reuse and repurpose instead of designing new ones from scratch.</p>
+                <p>I then checked those assumptions with engineering before developing the designs further. We discussed:</p>
+                <div class="cs-priorities-card"><ul>
+                    <li>Whether the required data already existed, or would need to be derived</li>
+                    <li>Whether the summary could update dynamically for each application</li>
+                    <li>Whether existing components, including status pills, could be reused</li>
+                    <li>How the statuses, summary and timeline could avoid duplicating one another</li>
+                    <li>Compliance, access and disclosure constraints</li>
+                </ul></div>
+                <figure class="cs-figure cs-figure--full">
+                    <div class="cs-figure-img cs-figure-img--shot" style="aspect-ratio:792/854; max-width:600px; margin-inline:auto;">
+                        <img loading="lazy" decoding="async" src="images/application-summary/feasibility-annotations.png" alt="Early annotated concept marking specific feasibility questions against the design, such as data sources, timestamps and workflow assumptions">
+                    </div>
+                    <figcaption>An early annotated concept, where I flagged the specific data and workflow questions each part of the design depended on, before taking it to engineering.</figcaption>
+                </figure>
+                <p>The final summary brings status and stage, recent activity, ownership and outstanding work into a structured side-panel view. I checked it across the full range of application statuses, from Created to Funded, as well as specific edge cases.</p>
+                <figure class="cs-figure cs-figure--full">
+                    <div class="cs-figure-img cs-figure-img--shot" style="aspect-ratio:1434/853;">
+                        <img loading="lazy" decoding="async" src="images/application-summary/ai-summary-final.png" alt="Final AI application summary in the side panel, showing Operations queue status, In Review current stage, Decisioning next stage, recent activity and outstanding action ownership" width="1434" height="853">
+                    </div>
+                    <figcaption>The final summary design, shown for an application in the operations queue.</figcaption>
+                </figure>
+                <div class="cs-insight-callout">
+                    <span class="label">A DELIBERATE LIMIT</span>
+                    <p>The AI summary reduces the effort needed to interpret fragmented application data, but it deliberately doesn't replace the underlying status or activity history. Agents can click through to view the full timeline and check the activity behind the summary.</p>
+                </div>
+            </section>
+
+            <section class="cs-article-section" id="timeline">
+                <h3 class="cs-step-title">Step #5: Refining the timeline and page structure</h3>
+                <p>While researching examples, I looked at deal trackers and overview pages that made progress through a journey easy to scan. This inspired the application progress bar at the top of the page, giving agents a visual reference for where an application stood and which statuses came next.</p>
+                <p>The timeline provided the detail behind that progress: submissions, evidence, contact, handovers and status changes.</p>
+                <figure class="cs-figure cs-figure--full">
+                    <div class="cs-figure-img cs-figure-img--shot" style="aspect-ratio:1280/1632; max-width:420px; margin-inline:auto;">
+                        <img loading="lazy" decoding="async" src="images/application-summary/timeline-old-categorised.png" alt="Earlier timeline design grouping activity under a single collapsed category such as Created, rather than a flat chronological list">
+                    </div>
+                    <figcaption>The earlier timeline grouped activity under the application's current category, with a collapsed count of how many events sat inside it.</figcaption>
+                </figure>
+                <div class="cs-insight-callout">
+                    <span class="label">RETHINKING THE TIMELINE STRUCTURE</span>
+                    <p>I'd initially grouped timeline activity under application statuses such as Created, Assigned and Quoted. With the progress bar also showing those statuses, I felt the two were too easy to confuse: the timeline categories looked like another way of tracking progress.</p>
+                    <p>Engineering also pointed out that grouping events by status could obscure their chronological order, because an application can move backwards between statuses. An event might move it from Assigned to Quoted, while a later event sends it back to Assigned.</p>
+                    <p>Both considerations led me to a flat, chronological list. Each entry carries its own timestamp and the status it belonged to at that moment. The progress bar shows where the application stands and what comes next; the timeline records what happened and when.</p>
+                </div>
+                <h4>Bringing the timeline into the application view</h4>
+                <p>The page structure went through its own iteration too. Earlier versions gave the timeline a full page of its own, with "Overview" and "Application Timeline" as separate tabs.</p>
+                <figure class="cs-figure cs-figure--full">
+                    <div class="cs-figure-img cs-figure-img--shot" style="aspect-ratio:1280/1296; max-width:460px; margin-inline:auto;">
+                        <img loading="lazy" decoding="async" src="images/application-summary/overview-old-fullpage.png" alt="Earlier full-page Overview tab showing the application summary, basic details and deal details, separate from the Application Timeline tab">
+                    </div>
+                    <figcaption>The earlier full-page Overview repeated information from the side panel, which led me to reconsider its role as I walked through the design.</figcaption>
+                </figure>
+                <p>Walking through the design from a partner agent's perspective, I felt the full-page Overview repeated too much of what was already available in the side panel. I moved the timeline into the same view as the summary and other details, and repurposed the existing full-page Document Manager into the new Overview, with Document Manager available as a tab alongside it.</p>
+                <figure class="cs-figure cs-figure--full">
+                    <div class="cs-figure-img cs-figure-img--shot" style="aspect-ratio:1280/1051;">
+                        <img loading="lazy" decoding="async" src="images/application-summary/solution-overview-declined.png" alt="Application detail page showing the application progress bar, the AI application summary and the application timeline together on a declined application">
+                    </div>
+                    <figcaption>All three solutions together on a declined application: the progress bar for where it stood, the AI summary for what happened and why, and the timeline underneath for the full record.</figcaption>
+                </figure>
+            </section>
+
+            <section class="cs-article-section" id="validation">
+                <h3 class="cs-step-title">Step #6: Validating the direction</h3>
+                <p>After the engineering review, I continued iterating on the designs using Figma's AI agent and aligned with the product manager on a single direction. I then returned to the same Partner Managers group from discovery, and ran a separate round with stakeholders from the Operations team, to check the direction against the real problems.</p>
+                <aside class="cs-priorities-card" aria-labelledby="validation-card-title">
+                    <h4 id="validation-card-title">Validation and preparation for build</h4>
+                    <ul>
+                        <li>Reviewed whether the three solutions addressed the transparency problems raised in discovery.</li>
+                        <li>Received strong support from Partner Managers and Operations, with no substantive design changes needed.</li>
+                        <li>Focused the follow-up work on additional screens for engineering, covering edge cases and error scenarios for the AI application summary.</li>
+                    </ul>
+                </aside>
+            </section>
+
+            <section class="cs-article-section" id="outcome">
+                <h2>Outcome</h2>
+                <p>The design has been validated with stakeholders and signed off with the product manager, and is now moving into engineering build. This is a meaningful outcome even before launch: the work moved from an ambiguous, feature-shaped request to a researched, prioritised, technically reviewed and validated product direction. It also created a clearer shared model for application progress across Product, Design, Engineering and Partner teams.</p>
+                <figure class="cs-figure cs-figure--full">
+                    <div class="cs-cover-shot cs-cover-shot--inline">
+                        <video controls muted playsinline preload="metadata" poster="images/application-summary/application-summary-poster-trimmed.jpg" aria-label="Demo of the complete application progress experience, including the AI summary and timeline">
+                            <source src="images/application-summary/application-summary-demo-trimmed.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <figcaption>The complete proposed experience: application progress, the AI summary and the full activity timeline.</figcaption>
+                </figure>
+                <div class="cs-insight-callout">
+                    <span class="label">WHAT I'LL CHECK AFTER LAUNCH</span>
+                    <p>After launch, I'd like to check whether internal teams receive fewer application-status queries and arrange feedback sessions with partner agents, or gather feedback through Partner Managers, to understand how useful the changes are in practice. I'd also look to track clicks from the AI summary into the full timeline to see how often agents seek more detail.</p>
+                </div>
+            </section>
+
+            <section class="cs-article-section" id="reflection">
+                <h2>What I learned</h2>
+                <p>How important it is to really understand the problem space and involve the right people as early as possible, rather than starting from whatever solution is handed to you first, whether that comes from a stakeholder or from what an AI tool suggests. This project arrived as a request to build a timeline. Digging into why it was being asked for, instead of accepting it at face value, is how I found out the real problem was a lot deeper and wider than the fix in front of me, and bringing in Partner Managers and Operations early is what let me catch that before it shaped the whole design.</p>
+                <p>I also learned that an AI summary still needs careful information design. I couldn't leave it to AI to produce a block of text and expect agents to find what mattered. I needed to define the structure and hierarchy: where status and stage sit, how recent activity is presented, and how ownership and next actions stand out. AI could help explain the application, but that structure made the explanation useful.</p>
+                <p>Knowing the application summary would be powered by AI gave me more flexibility to imagine how information could be brought together and structured around what an agent needed to understand. That opened up more possibilities for the experience, while I still needed to define a clear hierarchy and check what was feasible with engineering.</p>
+            </section>
+
+        </article>
+    </div>
+
+    <!-- ─── END NAV ──────────────────────────────────── -->
+    <div class="cs-end-nav"><a href="index.html#work" class="cs-back-project"><span aria-hidden="true">&larr;</span><span><small>Back to</small>Selected work</span></a><a href="case-study-herfreedom101.html" class="cs-next-project"><span><small>Next project</small>HerFreedom101</span><span aria-hidden="true">&rarr;</span></a></div>
+
+</div>
+
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
+<footer class="footer bento-footer" id="contact">
+    <div class="bento-footer-inner">
+        <div class="footer-star-line">
+            <img loading="lazy" decoding="async" src="images/carmen.jpg" alt="Carmen Gyoh" class="footer-photo"
+                 onerror="this.style.display='none'">
+            <span class="footer-star" aria-hidden="true">✦</span>
+            <p class="footer-headline">Let's create meaningful impact together.</p>
+        </div>
+        <div class="footer-links-row">
+            <a href="mailto:carmenjgyoh@gmail.com" class="footer-link">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <rect x="1" y="3" width="14" height="10" rx="1.5" stroke="currentColor" stroke-width="1.2"/>
+                    <path d="M1 5l7 5 7-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+                </svg>
+                carmenjgyoh@gmail.com
+            </a>
+            <a href="https://linkedin.com/in/carmengyoh" class="footer-link" target="_blank" rel="noopener">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <rect x="1" y="1" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.2"/>
+                    <path d="M5 7v4M5 5.5v.01M8 11V8.5C8 7.7 8.7 7 9.5 7S11 7.7 11 8.5V11" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+                </svg>
+                linkedin.com/in/carmengyoh
+            </a>
+            <a href="mailto:carmenjgyoh@gmail.com" class="btn-cv footer-cv-btn">Let's connect ↗</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <span>© 2026 Carmen Gyoh. All rights reserved.</span>
+        <span>Designed &amp; built with care ♡</span>
+    </div>
+</footer>
+
+<script src="js/case-study.js"></script>
+
+</body>
+</html>

@@ -2049,19 +2049,6 @@ figcaption {
     padding: 0;
 }
 
-/* ----------------------------------------------------------------
-   Reading measure. The 980px rail is for figures, grids, tables and
-   prototypes. Running body copy is capped well short of it so lines
-   stay readable; everything still starts on the same left edge.
----------------------------------------------------------------- */
-.cs-article-section > p,
-.cs-article-section > h2,
-.cs-article-section > h3,
-.cs-article-section > ul,
-.cs-article-section > ol,
-.cs-article-section > blockquote {
-    max-width: 68ch;
-}
 @media (max-width: 1020px) {
     .cs-wide-block { padding-left: 20px; padding-right: 20px; }
     .cs-meta-panel { width: calc(100% - 40px); }
@@ -2651,3 +2638,74 @@ figcaption {
 .cs-end-nav a { display: inline-flex; align-items: center; gap: 12px; }
 .cs-end-nav small { display: block; }
 @media (max-width: 1020px) { .cs-end-nav { width: calc(100% - 40px); } }
+
+/* Compact workshop method card */
+.cs-workshop-card {
+    padding: 24px;
+    border: 1px solid var(--bento-border);
+    border-radius: 16px;
+    background: rgba(17,17,26,0.65);
+}
+[data-theme="light"] .cs-workshop-card { background: rgba(255,255,255,0.78); }
+.cs-workshop-card__header { display: flex; align-items: center; gap: 12px; padding-bottom: 20px; }
+.cs-workshop-card__logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: #FFD02F;
+}
+.cs-workshop-card__logo img { display: block; width: 24px; height: 24px; }
+.cs-workshop-card__header h4 { margin: 0 0 4px; color: var(--text); font-size: 16px; font-weight: 600; line-height: 1.4; }
+.cs-workshop-card__meta { color: var(--text-muted); font-size: 12px; }
+.cs-workshop-card__steps { margin: 0; }
+.cs-workshop-card__steps > div {
+    display: grid;
+    grid-template-columns: 155px minmax(0, 1fr);
+    gap: 18px;
+    padding: 14px 0;
+    border-top: 1px solid var(--bento-border);
+}
+.cs-workshop-card__steps > div:last-child { padding-bottom: 0; }
+.cs-workshop-card__steps dt { color: var(--text); font-size: 13px; font-weight: 600; line-height: 1.6; }
+.cs-workshop-card__steps dd { margin: 0; color: var(--text-muted); font-size: 13px; line-height: 1.6; }
+@media (max-width: 600px) {
+    .cs-workshop-card { padding: 20px; }
+    .cs-workshop-card__steps > div { grid-template-columns: 1fr; gap: 4px; }
+}
+/* Match the previous-screen frames to their native image proportions. */
+@media (min-width: 769px) {
+    .cs-figure-row--previous {
+        grid-template-columns: 1.50076fr 0.90490fr;
+        align-items: start;
+    }
+}
+/* Synthesis priorities, grouped into a quiet card. */
+.cs-priorities-card {
+    padding: 24px;
+    border: 1px solid var(--bento-border);
+    border-radius: 16px;
+    background: #17171f;
+}
+[data-theme="light"] .cs-priorities-card { background: #fff; }
+.cs-priorities-card h4 {
+    margin: 0 0 8px;
+    color: var(--text);
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+.cs-priorities-card ul { list-style: none; margin: 0; padding: 0; }
+.cs-priorities-card li {
+    padding: 14px 0;
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.6;
+}
+.cs-priorities-card li + li { border-top: 1px solid var(--bento-border); }
+.cs-priorities-card li:last-child { padding-bottom: 0; }
+@media (max-width: 600px) {
+    .cs-priorities-card { padding: 20px; }
+}
