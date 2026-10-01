@@ -3613,3 +3613,7 @@ a:focus-visible, button:focus-visible, [tabindex="0"]:focus-visible { outline:2p
     .hero-avatar { width: 72px; height: 72px; border-radius: 16px; }
     .hero-avatar-star { display: none; }
 }
+
+@media (min-width:1051px) {
+    .work-card-shell:not(:has(.work-card--featured)) { grid-column:span 2; }
+}
