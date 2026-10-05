@@ -118,7 +118,7 @@
         <div class="cs-meta-panel">
             <div class="cs-meta-col">
                 <h3>Role</h3>
-                <p>Product Designer: Discovery, Workshop Facilitation, Concept Design</p>
+                <p>Product Designer: End-to-end discovery, interaction design, validation &amp; engineering collaboration</p>
             </div>
             <div class="cs-meta-col">
                 <h3>Team</h3>
@@ -143,40 +143,27 @@
 
             <section class="cs-article-section">
                 <h2>The problem</h2>
-                <p>Partner agents struggled to understand what was happening inside a funding application. Existing statuses such as "Quoted" and "Submitted" were confusing or misleading because the sales-stage statuses only covered the sales stage itself and gave no information about what happened once the application was submitted. The context that would fill that gap, evidence, operational progress, merchant contact history, was spread across different systems, teams and individual updates. Agents couldn't reliably answer what had already happened, what was happening now, why an application had stopped progressing, who needed to act next, or what to tell the merchant.</p>
+                <p>Partner agents couldn't reliably understand what was happening inside a funding application, why it had stalled or who needed to act next. Statuses gave little context after submission, and the information agents needed was scattered across systems and teams.</p>
             </section>
 
             <section class="cs-article-section">
-                <h2>What made this hard</h2>
-                <p>The work arrived as a request to build an activity timeline. I reframed it as a research question instead: where does application transparency actually break down, why does it matter, and how are people already working around it? That meant running my own discovery from a relatively surface-level brief, with no existing research to build on, before I could trust that a timeline was even the right answer.</p>
+                <h2>What I did</h2>
+                <p>I reframed a request for an activity timeline around a broader question: where does application transparency break down, and why? I led discovery with Partner Managers, synthesised eight problem areas and prioritised them with the PM into three connected solutions: clearer statuses, an AI application summary and an activity timeline.</p>
             </section>
 
             <section class="cs-article-section">
-                <h2>The solution and impact</h2>
-                <p>I designed and facilitated a remote Miro workshop with the Partner Managers who work closest to partner agents, mapping problems against the real application journey rather than collecting a wishlist of features. Synthesis turned the raw stickies into eight evidence-backed problem themes, which I prioritised with the product manager into three connected solutions.</p>
-                <div class="cs-info-table">
-                    <div class="cs-info-table-row cs-info-table-row--head" style="grid-template-columns:1fr 1.4fr;">
-                        <span>Solution</span><span>Question it answers</span>
-                    </div>
-                    <div class="cs-info-table-row" style="grid-template-columns:1fr 1.4fr;">
-                        <span>Updated statuses</span><span>Where is the application now?</span>
-                    </div>
-                    <div class="cs-info-table-row" style="grid-template-columns:1fr 1.4fr;">
-                        <span>AI application summary</span><span>What do I need to know or do?</span>
-                    </div>
-                    <div class="cs-info-table-row" style="grid-template-columns:1fr 1.4fr;">
-                        <span>Application timeline</span><span>What has happened so far?</span>
-                    </div>
+                <h2>Key decisions</h2>
+                <p>I mapped the designs to existing system data and checked them across application statuses and edge cases before reviewing feasibility with engineering. I then validated the revised direction with Partner Managers and Operations.</p>
+                <div class="cs-insight-callout">
+                    <span class="label">CHANGING THE TIMELINE STRUCTURE</span>
+                    <p>Engineering review showed that grouping events by status could obscure chronology when applications moved backwards between statuses. I changed the timeline to a flat chronological record, with a timestamp and status on each event.</p>
                 </div>
-                <p>Engineering had already been briefed on the idea, so I developed the initial concept myself, then used Figma's AI agent to explore further directions. I tried to work out feasibility myself initially before taking it to engineering: mapping each component to data that already existed and checking whether it would hold up across different application statuses, reusing existing components wherever I could. Checking that with engineering afterwards caught a real structural problem with the timeline, which sent me back to rework it before validating the down-selected direction with the same Partner Managers group and a separate round with Operations stakeholders. That direction is now signed off and moving into engineering build.</p>
             </section>
 
             <section class="cs-article-section">
-                <h2>What I learned</h2>
-                <p>How important it is to really understand the problem space and involve people as early as possible. This started as a request to build a timeline. Digging into why that was being asked for, instead of accepting it at face value, is how I found out the real problem was a lot deeper than the solution in front of me.</p>
-                <p>An AI-powered summary gave me more flexibility in how application information could be brought together, but it still needed a clear structure and hierarchy. I had to design how status, activity and next actions were presented and check what was feasible with engineering.</p>
+                <h2>Outcome</h2>
+                <p>The direction was signed off and is moving into engineering build, creating a shared model for how application progress should be communicated across Partner Hub. After launch, I plan to evaluate status queries, partner feedback and clicks from the AI summary into the timeline.</p>
             </section>
-
         </article>
     </div>
 
@@ -189,7 +176,7 @@
         <div class="cs-meta-panel">
             <div class="cs-meta-col">
                 <h3>Role</h3>
-                <p>Product Designer: Discovery, Workshop Facilitation, Concept Design</p>
+                <p>Product Designer: End-to-end discovery, interaction design, validation &amp; engineering collaboration</p>
             </div>
             <div class="cs-meta-col">
                 <h3>Team</h3>
@@ -243,6 +230,10 @@
             <section class="cs-article-section" id="workshop">
                 <h3 class="cs-step-title">Step #1: Designing and facilitating the workshop</h3>
                 <p>Partner agents themselves are mostly freelance and hard to convene as a group, so I went to the Partner Managers who work with them daily. I designed a remote-friendly, one-hour Miro workshop rather than collecting written feedback, adapting the structure from similar workshops I'd run on another project, so people could contribute and build on each other's input in real time.</p>
+                <div class="cs-insight-callout">
+                    <span class="label">RESEARCH CONSTRAINT</span>
+                    <p>Direct access to partner agents was limited, so discovery relied on Partner Managers who support them daily. Their input informed the direction, but did not replace direct agent research. After launch, I plan to seek feedback from agents in real use, directly where possible or through Partner Managers.</p>
+                </div>
                 <aside class="cs-workshop-card" aria-labelledby="workshop-card-title">
                     <div class="cs-workshop-card__header">
                         <span class="cs-workshop-card__logo"><img src="images/tools/miro.svg" alt="Miro" width="24" height="24"></span>
@@ -318,7 +309,7 @@
                 <p>The summary needed to bring together the context agents otherwise had to piece together by hand: what was happening, what was blocking progress and who needed to act next.</p>
                 <p>I scoped the summary around current status and stage, last meaningful activity, current blocker and outstanding evidence, owner and next action, and previous merchant contact. Agents could compare the summary with the activity timeline to check the details behind it.</p>
                 <div class="cs-insight-callout">
-                    <span class="label">IN THE DESIGN PROCESS</span>
+                    <span class="label">HOW I USED AI IN THE DESIGN PROCESS</span>
                     <p>I developed the initial concept myself, defining the information the summary needed to include. From there, I used Figma's AI agent to rapidly expand on that concept, explore more directions and test different ways of structuring the information. I stayed responsible for defining and refining the problem, writing the user stories, directing the exploration, evaluating the outputs, applying the design system, and deciding which concepts progressed.</p>
                 </div>
                 <figure class="cs-figure cs-figure--full">
@@ -367,7 +358,7 @@
                     <figcaption>The earlier timeline grouped activity under the application's current category, with a collapsed count of how many events sat inside it.</figcaption>
                 </figure>
                 <div class="cs-insight-callout">
-                    <span class="label">RETHINKING THE TIMELINE STRUCTURE</span>
+                    <span class="label">KEY DECISION: PRESERVING CHRONOLOGY</span>
                     <p>I'd initially grouped timeline activity under application statuses such as Created, Assigned and Quoted. With the progress bar also showing those statuses, I felt the two were too easy to confuse: the timeline categories looked like another way of tracking progress.</p>
                     <p>Engineering also pointed out that grouping events by status could obscure their chronological order, because an application can move backwards between statuses. An event might move it from Assigned to Quoted, while a later event sends it back to Assigned.</p>
                     <p>Both considerations led me to a flat, chronological list. Each entry carries its own timestamp and the status it belonged to at that moment. The progress bar shows where the application stands and what comes next; the timeline records what happened and when.</p>
@@ -391,7 +382,7 @@
 
             <section class="cs-article-section" id="validation">
                 <h3 class="cs-step-title">Step #6: Validating the direction</h3>
-                <p>After the engineering review, I continued iterating on the designs using Figma's AI agent and aligned with the product manager on a single direction. I then returned to the same Partner Managers group from discovery, and ran a separate round with stakeholders from the Operations team, to check the direction against the real problems.</p>
+                <p>After the engineering review, I refined the designs and aligned with the product manager on a single direction. I then returned to the same Partner Managers group from discovery, and ran a separate round with stakeholders from the Operations team, to check the direction against the real problems.</p>
                 <aside class="cs-priorities-card" aria-labelledby="validation-card-title">
                     <h4 id="validation-card-title">Validation and preparation for build</h4>
                     <ul>
@@ -421,7 +412,7 @@
 
             <section class="cs-article-section" id="reflection">
                 <h2>What I learned</h2>
-                <p>How important it is to really understand the problem space and involve the right people as early as possible, rather than starting from whatever solution is handed to you first, whether that comes from a stakeholder or from what an AI tool suggests. This project arrived as a request to build a timeline. Digging into why it was being asked for, instead of accepting it at face value, is how I found out the real problem was a lot deeper and wider than the fix in front of me, and bringing in Partner Managers and Operations early is what let me catch that before it shaped the whole design.</p>
+                <p>How important it is to really understand the problem space and involve the right people as early as possible, rather than starting from whatever solution is handed to you first. This project arrived as a request to build a timeline. Digging into why it was being asked for, instead of accepting it at face value, is how I found out the real problem was a lot deeper and wider than the fix in front of me, and bringing in Partner Managers and Operations early is what let me catch that before it shaped the whole design.</p>
                 <p>I also learned that an AI summary still needs careful information design. I couldn't leave it to AI to produce a block of text and expect agents to find what mattered. I needed to define the structure and hierarchy: where status and stage sit, how recent activity is presented, and how ownership and next actions stand out. AI could help explain the application, but that structure made the explanation useful.</p>
                 <p>Knowing the application summary would be powered by AI gave me more flexibility to imagine how information could be brought together and structured around what an agent needed to understand. That opened up more possibilities for the experience, while I still needed to define a clear hierarchy and check what was feasible with engineering.</p>
             </section>

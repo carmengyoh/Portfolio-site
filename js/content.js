@@ -113,7 +113,7 @@ const PROJECTS = [
 
 ];
 
-/* Featured order: product delivery, AI feature design, independent product ownership. */
+/* Featured order: AI feature design, product delivery, independent product ownership. */
 const projectAt = link => PROJECTS.find(project => project.link === link);
-const FEATURED_PROJECTS = [projectAt("case-study-flex.html"), projectAt("case-study-application-summary.html"), projectAt("case-study-herfreedom101.html")];
+const FEATURED_PROJECTS = [projectAt("case-study-application-summary.html"), projectAt("case-study-flex.html"), projectAt("case-study-herfreedom101.html")];
 const SELECTED_PROJECTS = [projectAt("case-study-partner-hub-progress.html"), projectAt("case-study.html"), projectAt("selected-case-study.html?project=document-upload")];
